@@ -1,6 +1,9 @@
 # Use glob syntax:
 syntax: glob
 
+# Ignore the dist file used when updating downstream projects
+dist
+
 # Ignore frequent development left-overs like
 # editor backups, patches, rejects etc. pp
 *.orig
