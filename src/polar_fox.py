@@ -146,3 +146,73 @@ max_game_date = 5000001
 
 # mailbags are < 1t, multiply capacity appropriately
 mail_multiplier = 2
+
+# Graphics Constants
+# ------------------
+
+# Bulk
+# keep cargos in alphabetical order for ease of reading
+# SCMT *is* bulk cargo in this set, realism is not relevant here, went back and forth on this a few times :P
+bulk_cargo_recolour_maps = (("AORE", {170: 42, 171: 123, 172: 74, 173: 125, 174: 162, 175: 126, 176: 78}),
+                            ("CASS", {170: 53, 171: 54, 172: 55, 173: 56, 174: 57, 175: 58, 176: 59}),
+                            ("CLAY", {170: 55, 171: 56, 172: 57, 173: 77, 174: 78, 175: 79, 176: 80}),
+                            ("COAL", {170: 1, 171: 1, 172: 2, 173: 2, 174: 3, 175: 4, 176: 5}),
+                            ("CORE", {170: 1, 171: 32, 172: 25, 173: 27, 174: 34, 175: 56, 176: 59}),
+                            ("GRVL", {170: 6, 171: 4, 172: 7, 173: 8, 174: 21, 175: 11, 176: 12}),
+                            ("IORE", {170: 75, 171: 76, 172: 123, 173: 122, 174: 124, 175: 74, 176: 104}),
+                            ("LIME", {170: 6, 171: 4, 172: 7, 173: 8, 174: 21, 175: 11, 176: 12}),
+                            ("MNO2", {170: 1, 171: 16, 172: 3, 173: 17, 174: 18, 175: 19, 176: 20}),
+                            ("NITR", {170: 37, 171: 38, 172: 38, 173: 39, 174: 39, 175: 69, 176: 69}),
+                            ("PHOS", {170: 63, 171: 64, 172: 192, 173: 65, 174: 193, 175: 64, 176: 194}),
+                            ("PORE", {170: 40, 171: 72, 172: 73, 173: 33, 174: 33, 175: 63, 176: 63}),
+                            ("POTA", {170: 63, 171: 64, 172: 192, 173: 65, 174: 193, 175: 64, 176: 194}),
+                            ("SAND", {170: 108, 171: 64, 172: 65, 173: 197, 174: 36, 175: 196, 176: 197}),
+                            ("SCMT", {170: 104, 171: 3, 172: 2, 173: 70, 174: 71, 175: 72, 176: 3}),
+                            ("SGBT", {170: 60, 171: 53, 172: 54, 173: 55, 174: 56, 175: 57, 176: 58}))
+
+# Piece
+# 2-tuples, containing 2 lists (['LBL1', 'LBL2'], ['filename_1', 'filename_2'])
+# this groups labels and sprites, but there's no obvious problem with that right now
+# if a label can't share a group of sprites, it can repeat some filenames, that's just inefficient, but works
+# DFLT label is a hack to support cargos with no specific sprites (including unknown cargos), and should not be added to cargo translation table
+piece_cargo_maps = ((['DFLT'], ['tarps_2cc_1']),  # see note on DFLT above
+                    (['BEER', 'DYES', 'EOIL', 'MILK', 'OIL_',
+                      'PETR', 'RFPR', 'WATR'], ['barrels_silver']),
+                    (['BDMT', ], ['tarps_red_1']),
+                    (['COPR'], ['copper_coils']),
+                    (['ENSP', ], ['tarps_gold_1']),
+                    (['FMSP'], ['tarps_blue_1']),
+                    (['GOOD'], ['crates_1']),
+                    (['PAPR'], ['paper_coils']),
+                    (['STEL'], ['steel_coils']),
+                    (['WDPR'], ['lumber_planks']),
+                    (['WOOD'], ['logs']))
+
+# NEEDS REFACTORING EH?
+# some 'bulk' cargos are better implemented as piece, as the bulk recolouring method isn't appropriate
+# !! it's likely that separate maps for supplies are also needed (supplies cars don't need all piece cargos), also logs/pipes?
+# !! rename as piece_open, piece_stakes, piece_supplies, piece_flat?  Or piece_rolls, piece_flows, piece_bulky, piece_simple?
+pseudo_bulk_cargo_maps = ((['FRUT'], ['fruit']),
+                          (['JAVA'], ['coffee']),
+                          (['NUTS'], ['nuts']))
+
+# Tanker recolour maps
+# OIL_ is in first position as the buy menu sprites should be the Oil sprites, and this is the easiest way to do it
+# in principle that's wrong, because in a map without oil, the buy menu won't match the sprites of the vehicle when built
+# try it and see what happens eh?
+tanker_livery_recolour_maps = (("OIL_", {136: 1, 137: 2, 138: 3, 139: 4,
+                                         140: 5, 141: 6, 142: 7, 143: 8}),  # see note on oil above
+                               # see note on DFLT above
+                               ("DFLT", {136: 198, 137: 199, 138: 200, 139: 201,
+                                         140: 202, 141: 203, 142: 204, 143: 205}),
+                               ("SULP", {136: 62, 137: 63, 138: 64, 139: 65,
+                                         140: 66, 141: 67, 142: 68, 143: 69}),
+                               ("CHLO", {136: 154, 137: 155, 138: 156, 139: 157,
+                                         140: 158, 141: 159, 142: 160, 143: 161}),
+                               # RFPR deliberately 2CC to allow combining with 1CC livery details
+                               ("RFPR", {136: 80, 137: 81, 138: 82, 139: 83,
+                                         140: 84, 141: 85, 142: 86, 143: 87}),
+                               ("RUBR", {136: 40, 137: 41, 138: 42, 139: 43,
+                                         140: 44, 141: 45, 142: 46, 143: 47}),
+                               ("PETR", {136: 16, 137: 17, 138: 18, 139: 19,
+                                         140: 20, 141: 21, 142: 22, 143: 23}))
