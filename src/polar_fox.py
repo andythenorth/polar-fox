@@ -116,7 +116,7 @@ default_cargos = {'box': ['GOOD', 'VPTS', 'FOOD'],
                   'flat': ['STEL', 'COPR', 'METL'],
                   'fruit_veg': ['FRUT', 'BEAN', 'CASS', 'JAVA', 'NUTS'],
                   'hopper': ['COAL', 'CORE', 'PORE'],
-                  'intermodal': ['GOOD', 'VPTS', 'FOOD'],
+                  # no intermodal, uses box
                   'silo': ['CMNT', 'BDMT', 'RFPR', 'QLME', 'FMSP'],
                   'stake': ['WOOD'],
                   'mail': ['MAIL'],
