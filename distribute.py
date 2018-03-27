@@ -22,7 +22,7 @@ def main():
     os.mkdir(dist_package_path)
 
     dist_header = codecs.open(os.path.join(currentdir, 'src', 'dist_header.txt'), 'r','utf8')
-    for filename in ['__init__.py', 'constants.py']:
+    for filename in ['__init__.py', 'constants.py', 'pixa.py']:
         src_file = codecs.open(os.path.join(currentdir, 'src', filename), 'r','utf8')
         dist_file = codecs.open(os.path.join(dist_package_path, filename), 'w','utf8')
         dist_file.write(dist_header.read())
