@@ -28,7 +28,7 @@ def main():
         dist_file.close()
     for dir_name in ['cargo_graphics']:
         dist_dir_path =  os.path.join(dist_package_path, dir_name)
-        shutil.copytree(os.path.join(currentdir, 'src', dir_name), dist_dir_path)
+        shutil.copytree(os.path.join(currentdir, 'generated', dir_name), dist_dir_path)
         shutil.copy(os.path.join(currentdir, 'src', 'dist_dir_header.txt'), os.path.join(dist_dir_path, '_files_here_are_generated.txt'))
     print("[DONE]")
 

@@ -19,6 +19,9 @@ def main():
         shutil.rmtree(cargo_graphics_output_path)
     os.mkdir(cargo_graphics_output_path)
 
+    print("Rendering not implemented, using straight copytree instead")
+    shutil.rmtree(cargo_graphics_output_path) # !! temp hax, can't copy if path exists
+    shutil.copytree(os.path.join(cargo_graphics_input_path), cargo_graphics_output_path)
     print("[DONE]")
 
 if __name__ == '__main__':
