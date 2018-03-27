@@ -3,7 +3,7 @@ PYTHON3 = python3
 
 FIND_FILES = bin/find-files
 
-.PHONY: dist
+.PHONY: dist cargo_graphics clean install
 
 dist: cargo_graphics $(shell $(FIND_FILES) --ext=.py --ext=.txt src)
 	@ $(PYTHON3) bin/build_dist.py
@@ -15,6 +15,6 @@ install: dist
 	@ $(PYTHON3) bin/install_dist.py
 
 clean:
-	$(_V) echo "[CLEANING]"
+	@ echo "[CLEANING]"
 	@ rm -rf src/__pycache__ src/*/__pycache__ bin/__pycache__ generated dist
 	@ echo "[DONE]"
