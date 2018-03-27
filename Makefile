@@ -10,3 +10,12 @@ dist: $(shell $(FIND_FILES) --ext=.py --ext=.png --ext=.txt src)
 
 install: dist
 	@ $(PYTHON3) bin/install-dist.py
+
+clean:
+	$(_V) echo "[CLEANING]"
+	@ for f in src/__pycache__ src/*/__pycache__ bin/__pycache__ generated dist; \
+	do if test -e $$f;\
+	   then rm -r $$f;\
+	   fi;\
+	done
+	@ echo "[DONE]"
