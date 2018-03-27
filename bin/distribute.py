@@ -10,10 +10,11 @@ consumers = [('Iron_Horse', 'iron-horse'),
              ('Road_Hog', 'road-hog'),
              ('Unsinkable_Sam', 'unsinkable-sam')]
 
-def main():
+dist_container_path = os.path.join(currentdir, 'dist')
+dist_package_path = os.path.join(dist_container_path, 'polar_fox')
+
+def build_dist():
     print("Preparing files for distribution")
-    dist_container_path = os.path.join(currentdir, 'dist')
-    dist_package_path = os.path.join(dist_container_path, 'polar_fox')
     if os.path.exists(dist_container_path):
         shutil.rmtree(dist_container_path)
     os.mkdir(dist_container_path)
@@ -33,6 +34,7 @@ def main():
         shutil.copytree(os.path.join(currentdir, 'src', dir_name), dist_dir_path)
         shutil.copy(os.path.join(currentdir, 'src', 'dist_dir_header.txt'), os.path.join(dist_dir_path, '_files_here_are_generated.txt'))
 
+def distribute_to_consumers():
     print("Distributing to downstream consumers")
     # this assumes that consumers are found in a consistent ../../ location, and have a consistent Project_name/repo-name structure
     consumer_root = os.path.dirname(os.path.dirname(os.path.abspath(currentdir)))
@@ -42,8 +44,12 @@ def main():
         if os.path.exists(consumer_dst_path):
             shutil.rmtree(consumer_dst_path)
         shutil.copytree(os.path.join(dist_package_path), consumer_dst_path)
-
     print("[DONE]")
     print("Don't forget to test and commit changes for each consumer")
+
+def main():
+    build_dist()
+    distribute_to_consumers()
+
 if __name__ == '__main__':
     main()
