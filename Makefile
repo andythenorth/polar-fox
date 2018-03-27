@@ -5,8 +5,11 @@ FIND_FILES = bin/find-files
 
 .PHONY: dist
 
-dist: $(shell $(FIND_FILES) --ext=.py --ext=.png --ext=.txt src)
+dist: cargo_graphics $(shell $(FIND_FILES) --ext=.py --ext=.txt src)
 	@ $(PYTHON3) bin/build_dist.py
+
+cargo_graphics: $(shell $(FIND_FILES) --ext=.py --ext=.png src)
+	@ $(PYTHON3) bin/render_cargo_graphics.py
 
 install: dist
 	@ $(PYTHON3) bin/install_dist.py
