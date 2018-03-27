@@ -2,9 +2,7 @@ import shutil
 import os
 currentdir = os.curdir
 
-import sys
 import codecs
-from pathlib import Path, PurePosixPath
 
 consumers = [('Iron_Horse', 'iron-horse'),
              ('Road_Hog', 'road-hog'),
