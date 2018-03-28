@@ -34,10 +34,9 @@ cargo_graphics_maps = [("tarps_1", "tarps_blue_1",
                        ("logs", "logs", {}),
                        ("lumber_planks", "lumber_planks", {}),
                        ("nuts", "nuts", {}),
-                       ("paper_coils_red", "paper_coils_red", {}),
-                       ("paper_coils", "paper_coils", {}),
-                       ("steel_coils", "steel_coils", {}),
-                       ("copper_coils", "copper_coils", {})]
+                       ("coils_1", "paper_coils", {}),
+                       ("coils_1", "steel_coils", {}),
+                       ("coils_1", "copper_coils", {})]
 
 def make_spritesheet_from_image(input_image):
     spritesheet = Spritesheet(width=input_image.size[0], height=input_image.size[1] , palette=DOS_PALETTE)
