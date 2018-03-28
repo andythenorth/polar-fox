@@ -70,7 +70,6 @@ def main():
 
     print("Rendering not implemented, using straight copy instead")
     for cargo_graphics_map in cargo_graphics_maps:
-        print(cargo_graphics_map[0])
         input_image = Image.open(os.path.join(graphics_input_path, cargo_graphics_map[0] + '.png')).crop((0, 0, 300, 300))
         units = [SimpleRecolour(cargo_graphics_map[2])]
         result = render(cargo_graphics_map[1], input_image, units)
