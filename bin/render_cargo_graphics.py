@@ -34,9 +34,15 @@ cargo_graphics_maps = [("tarps_1", "tarps_blue_1",
                        ("logs", "logs", {}),
                        ("lumber_planks", "lumber_planks", {}),
                        ("nuts", "nuts", {}),
-                       ("coils_1", "paper_coils", {}),
-                       ("coils_1", "steel_coils", {}),
-                       ("coils_1", "copper_coils", {})]
+                       ("coils_1", "paper_coils",
+                       {136: 8, 137: 9, 138: 10, 139: 11,
+                        140: 12, 141: 13, 142: 14, 143: 15}),
+                       ("coils_1", "steel_coils",
+                       {136: 3, 137: 16, 138: 17, 139: 18,
+                        140: 19, 141: 20, 142: 21, 143: 22}),
+                       ("coils_1", "copper_coils",
+                       {136: 60, 137: 112, 138: 62, 139: 115,
+                        140: 117, 141: 118, 142: 119, 143: 120})]
 
 def make_spritesheet_from_image(input_image):
     spritesheet = Spritesheet(width=input_image.size[0], height=input_image.size[1] , palette=DOS_PALETTE)
@@ -68,7 +74,6 @@ def main():
         shutil.rmtree(graphics_output_path)
     os.mkdir(graphics_output_path)
 
-    print("Rendering not implemented, using straight copy instead")
     for cargo_graphics_map in cargo_graphics_maps:
         input_image = Image.open(os.path.join(graphics_input_path, cargo_graphics_map[0] + '.png')).crop((0, 0, 300, 300))
         units = [SimpleRecolour(cargo_graphics_map[2])]
