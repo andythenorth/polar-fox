@@ -44,6 +44,8 @@ cargo_graphics_maps = [("tarps_1", "tarps_blue_1",
                        {136: 60, 137: 112, 138: 62, 139: 115,
                         140: 117, 141: 118, 142: 119, 143: 120})]
 
+knockout_guides_map = {k: 0 for k in range(215, 227)}
+
 def make_spritesheet_from_image(input_image):
     spritesheet = Spritesheet(width=input_image.size[0], height=input_image.size[1] , palette=DOS_PALETTE)
     spritesheet.sprites.paste(input_image)
@@ -76,7 +78,7 @@ def main():
 
     for cargo_graphics_map in cargo_graphics_maps:
         input_image = Image.open(os.path.join(graphics_input_path, cargo_graphics_map[0] + '.png')).crop((0, 0, 300, 300))
-        units = [SimpleRecolour(cargo_graphics_map[2])]
+        units = [SimpleRecolour(knockout_guides_map), SimpleRecolour(cargo_graphics_map[2])]
         result = render(cargo_graphics_map[1], input_image, units)
 
     print("[DONE]")
