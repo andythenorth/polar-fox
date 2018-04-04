@@ -8,7 +8,12 @@ import os
 from PIL import Image, ImageDraw, ImageFont
 
 DOS_PALETTE = Image.open('palette_key.png').palette
-label_font = ImageFont.truetype(os.path.join('font','slkscr.ttf'), 8)
+try:
+    # truetype fonts may not be available in older versions of PIL / Pillow
+    label_font = ImageFont.truetype(os.path.join('font','slkscr.ttf'), 8)
+except:
+    # if truetype fonts are not available, 'None' will trigger fallback to PIL default bitmap font
+    label_font = None
 
 class ProcessingUnit(object):
     def __init__(self):
