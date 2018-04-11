@@ -30,6 +30,8 @@ def main():
         dist_dir_path =  os.path.join(dist_package_path, dir_name)
         shutil.copytree(os.path.join(currentdir, 'generated', dir_name), dist_dir_path)
         shutil.copy(os.path.join(currentdir, 'src', 'dist_dir_header.txt'), os.path.join(dist_dir_path, '_files_here_are_generated.txt'))
+    for filename in ['LICENSE.txt', 'README.txt']:
+        shutil.copy(os.path.join(currentdir, filename), os.path.join(dist_package_path, filename))
     print("[DONE]")
 
 if __name__ == '__main__':
