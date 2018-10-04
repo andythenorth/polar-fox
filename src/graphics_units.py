@@ -124,3 +124,21 @@ class AddCargoLabel(ProcessingUnit):
         draw_cargo_labels = ImageDraw.Draw(spritesheet.sprites)
         draw_cargo_labels.text(position, self.label, font=label_font)
         return spritesheet
+
+
+class GenerateAdditionalSpritesheet(ProcessingUnit):
+    """ GenerateAdditionalSpritesheet """
+    """
+        Creates and saves an additional spritesheet using the passed filename and an image for content.
+        Used when it's simpler to use a separate spritesheet with in-game sprite compositing.
+        Returns the original spritesheet unchanged, so can be used anywhere in a pipeline.
+    """
+    def __init__(self):
+        print('GenerateAdditionalSpritesheet.init() called')
+        super(GenerateAdditionalSpritesheet, self).__init__()
+
+    def render(self, spritesheet):
+        print('GenerateAdditionalSpritesheet.render() called')
+        return spritesheet
+
+
