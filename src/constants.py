@@ -82,6 +82,12 @@ cargo_labels = ['PASS', # pax first
                 'CTCD',
                 'TOFF',
                 'URAN',
+                'CTAR',
+                'O2__',
+                'STAL',
+                'STCB',
+                'STST',
+                'CAST',
                 #
                 'NULL']
 
@@ -99,11 +105,14 @@ base_refits_by_class = {'empty': [],
                         'express_freight': ['CC_EXPRESS','CC_ARMOURED']}
 
 # rather than using disallowed classes (can cause breakage), specific labels are disallowed
-disallowed_refits_by_label = {'non_dump_bulk': ['WOOD', 'SGCN', 'FICR', 'BDMT', 'WDPR', 'GRAI', 'WHEA', 'CERE', 'MAIZ', 'FRUT', 'BEAN', 'CMNT', 'CTCD', 'FERT', 'OLSD', 'SUGR', 'SULP', 'TOFF', 'URAN'],
+disallowed_refits_by_label = {'non_dump_bulk': ['WOOD', 'SGCN', 'FICR', 'BDMT', 'WDPR', 'GRAI', 'WHEA', 'CERE', 'MAIZ', 'FRUT', 'BEAN', 'CMNT',
+                                                'CTCD', 'FERT', 'OLSD', 'SUGR', 'SULP', 'TOFF', 'URAN', 'CBLK', 'PLAS'],
                               'edible_liquids': ['MILK', 'WATR', 'BEER', 'FOOD', 'EOIL'],
                               # !! would it be better to do an include list for edibles tankers?  Excluding liquids by label is a PITA
-                              'non_edible_liquids': ['RFPR', 'OIL_', 'FMSP', 'PETR', 'RUBR', 'SULP', 'ACID', 'CHLO', 'KAOL'],
-                              'non_flatbed_freight': ['FOOD', 'FISH', 'LVST', 'FRUT', 'BEER', 'MILK', 'JAVA', 'SUGR', 'NUTS', 'EOIL', 'BOOM', 'FERT'],
+                              # ^ see Iron Horse train.py for lists of label_refits_allowed that could be moved to Polar Fox
+                              'non_edible_liquids': ['RFPR', 'OIL_', 'FMSP', 'PETR', 'RUBR', 'SULP', 'ACID', 'CHLO', 'KAOL', 'CTAR', 'O2__'],
+                              'non_flatbed_freight': ['FOOD', 'FISH', 'LVST', 'FRUT', 'BEER', 'MILK', 'JAVA', 'SUGR', 'NUTS', 'EOIL', 'BOOM',
+                                                      'FERT', 'PLAS', 'CBLK'],
                               'non_freight_special_cases': ['TOUR']}
 
 # cascading lists of default cargos, if the first cargo(s) are not available, all will be tried in order
@@ -115,7 +124,7 @@ default_cargos = {'box': ['GOOD', 'VPTS', 'FOOD'],
                   'dump': ['IORE', 'MNO2', 'NITR'],
                   'edibles_tank': ['WATR', 'MILK', 'BEER'],
                   'express': ['ENSP', 'FMSP', 'GOOD', 'FOOD', 'MAIL'],
-                  'flat': ['STEL', 'COPR', 'METL'],
+                  'flat': ['STEL', 'STCB', 'COPR', 'METL'],
                   'fruit_veg': ['FRUT', 'BEAN', 'CASS', 'JAVA', 'NUTS'],
                   'hopper': ['COAL', 'CORE', 'PORE'],
                   # no intermodal, uses box
@@ -191,6 +200,8 @@ piece_sprites_to_cargo_labels_maps = {'barrels_silver': ['BEER', 'DYES', 'EOIL',
 # Tanker recolour maps
 # DFLT label is a hack to support cargos with no specific sprites (including unknown cargos), and should not be added to cargo translation table
 tanker_livery_recolour_maps = (("OIL_", {136: 1, 137: 2, 138: 3, 139: 4,
+                                         140: 5, 141: 6, 142: 7, 143: 8}),
+                               ("CTAR", {136: 1, 137: 2, 138: 3, 139: 4,
                                          140: 5, 141: 6, 142: 7, 143: 8}),
                                # see note on DFLT above
                                ("DFLT", {136: 198, 137: 199, 138: 200, 139: 201,
