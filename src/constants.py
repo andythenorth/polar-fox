@@ -204,13 +204,6 @@ piece_sprites_to_cargo_labels_maps = {'barrels_silver': ['BEER', 'DYES', 'EOIL',
                                       'tarps_red_1': ['BDMT'],
                                       'tarps_2cc_1': ['DFLT']}  # see note on use of DFLT above
 
-"""
-saved for cryo tanker recolours
-                               ("CHLO", {136: 154, 137: 155, 138: 156, 139: 157,
-                                         140: 158, 141: 159, 142: 160, 143: 161}),
-
-"""
-
 # Tanker recolour maps
 # DFLT label is a hack to support cargos with no specific sprites (including unknown cargos), and should not be added to cargo translation table
 tanker_livery_recolour_maps = (("OIL_", {136: 1, 137: 2, 138: 3, 139: 4,
