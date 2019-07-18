@@ -1,14 +1,24 @@
 import shutil
 import os
 currentdir = os.curdir
+import sys
 
 import codecs
 import global_constants
+
+# add dir to path so we can do relative import of the Polar Fox python content for integrity checks
+sys.path.insert(0,currentdir)
+import src.constants as constants
 
 dist_container_path = global_constants.dist_container_path
 dist_package_path = global_constants.dist_package_path
 
 def main():
+    print("Integrity checks")
+    # cargos must not be defined twice
+    for label in set(constants.cargo_labels):
+        assert constants.cargo_labels.count(label) == 1, ("Cargo %s is defined more than once") % label
+
     print("Preparing files for distribution")
     if os.path.exists(dist_container_path):
         print("Cleaning: removing", dist_container_path)
