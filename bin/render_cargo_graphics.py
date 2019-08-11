@@ -77,7 +77,7 @@ def main():
     os.mkdir(graphics_output_path)
 
     for cargo_graphics_map in cargo_graphics_maps:
-        input_image = Image.open(os.path.join(graphics_input_path, cargo_graphics_map[0] + '.png')).crop((0, 0, 300, 300))
+        input_image = Image.open(os.path.join(graphics_input_path, cargo_graphics_map[0] + '.png')).crop((0, 0, 300, 440))
         units = [SimpleRecolour(knockout_guides_map), SimpleRecolour(cargo_graphics_map[2])]
         result = render(cargo_graphics_map[1], input_image, units)
 
