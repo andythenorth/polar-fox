@@ -62,7 +62,10 @@ intermodal_container_graphics_maps = [("empty_20_foot", "empty_20_foot", contain
                                       ("box_30_foot", "box_30_foot_red", container_recolour_red),
                                       ("box_40_foot", "box_40_foot_1CC", container_recolour_1CC),
                                       ("box_40_foot", "box_40_foot_2CC", container_recolour_2CC),
-                                      ("box_40_foot", "box_40_foot_red", container_recolour_red)]
+                                      ("box_40_foot", "box_40_foot_red", container_recolour_red),
+                                      ("tank_20_foot", "tank_20_foot_1CC", container_recolour_1CC),
+                                      ("tank_30_foot", "tank_30_foot_1CC", container_recolour_1CC),
+                                      ("tank_40_foot", "tank_40_foot_1CC", container_recolour_1CC)]
 
 knockout_guides_map = {k: 0 for k in range(215, 227)}
 
