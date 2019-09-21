@@ -8,6 +8,7 @@ from pixa import Spritesheet, pixascan
 from graphics_units import SimpleRecolour, AppendToSpritesheet
 
 import polar_fox
+import constants
 
 generated_files_path = polar_fox.generated_files_path
 
@@ -46,10 +47,12 @@ cargo_graphics_maps = [("tarps_1", "tarps_blue_1",
 CC1 = 198
 CC2 = 80
 red = 40
+grey = 2
 
 container_recolour_1CC = {40: CC1, 41: CC1+1, 42: CC1+2, 43: CC1+3, 44: CC1+4, 45: CC1+5, 46: CC1+6, 47: CC1+7}
 container_recolour_2CC = {40: CC2, 41: CC2+1, 42: CC2+2, 43: CC2+3, 44: CC2+4, 45: CC2+5, 46: CC2+6, 47: CC2+7}
 container_recolour_red = {40: red, 41: red+1, 42: red+2, 43: red+3, 44: red+4, 45: red+5, 46: red+6, 47: red+7}
+container_recolour_grey = {40: grey, 41: grey+1, 42: grey+3, 43: grey+4, 44: grey+6, 45: grey+8, 46: grey+10, 47: grey+12}
 
 intermodal_container_graphics_maps = [("empty_20_foot", "empty_20_foot", container_recolour_1CC),
                                       ("empty_30_foot", "empty_30_foot", container_recolour_1CC),
@@ -67,7 +70,14 @@ intermodal_container_graphics_maps = [("empty_20_foot", "empty_20_foot", contain
                                       ("tank_30_foot", "tank_30_foot_1CC", container_recolour_1CC),
                                       ("tank_40_foot", "tank_40_foot_1CC", container_recolour_1CC)]
 
-
+for label, cargo_recolour_map in constants.bulk_cargo_recolour_maps:
+    body_recolour_maps = {'1CC': container_recolour_1CC, '2CC': container_recolour_2CC,
+                          'red': container_recolour_red, 'grey': container_recolour_grey}
+    for body_colour_suffix, body_recolour_map in body_recolour_maps.items():
+        recolour_map = cargo_recolour_map.copy()
+        for k,v in body_recolour_map.items():
+            recolour_map[k] = v
+        intermodal_container_graphics_maps.append(("bulk_20_foot", label + "_20_foot_" + body_colour_suffix, recolour_map))
 
 knockout_guides_map = {k: 0 for k in range(215, 227)}
 
