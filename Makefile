@@ -6,13 +6,13 @@ FIND_FILES = bin/find-files
 .PHONY: dist cargo_graphics clean install
 
 dist: cargo_graphics $(shell $(FIND_FILES) --ext=.py --ext=.txt src)
-	@ $(PYTHON3) bin/build_dist.py
+	@ $(PYTHON3) src/build_dist.py
 
 cargo_graphics: $(shell $(FIND_FILES) --ext=.py --ext=.png src)
-	@ $(PYTHON3) bin/render_cargo_graphics.py
+	@ $(PYTHON3) src/render_cargo_graphics.py
 
 install: dist
-	@ $(PYTHON3) bin/install_dist.py
+	@ $(PYTHON3) src/install_dist.py
 
 clean:
 	@ echo "[CLEANING]"

@@ -7,9 +7,9 @@ from PIL import Image
 from pixa import Spritesheet, pixascan
 from graphics_units import SimpleRecolour, AppendToSpritesheet
 
-import global_constants
+import polar_fox
 
-generated_files_path = global_constants.generated_files_path
+generated_files_path = polar_fox.generated_files_path
 
 DOS_PALETTE = Image.open('palette_key.png').palette
 
@@ -47,9 +47,9 @@ CC1 = 198
 CC2 = 80
 red = 40
 
-container_recolour_1CC = {136: CC1, 137: CC1+1, 138: CC1+2, 139: CC1+3, 140: CC1+4, 141: CC1+5, 142: CC1+6, 143: CC1+7}
-container_recolour_2CC = {136: CC2, 137: CC2+1, 138: CC2+2, 139: CC2+3, 140: CC2+4, 141: CC2+5, 142: CC2+6, 143: CC2+7}
-container_recolour_red = {136: red, 137: red+1, 138: red+2, 139: red+3, 140: red+4, 141: red+5, 142: red+6, 143: red+7}
+container_recolour_1CC = {40: CC1, 41: CC1+1, 42: CC1+2, 43: CC1+3, 44: CC1+4, 45: CC1+5, 46: CC1+6, 47: CC1+7}
+container_recolour_2CC = {40: CC2, 41: CC2+1, 42: CC2+2, 43: CC2+3, 44: CC2+4, 45: CC2+5, 46: CC2+6, 47: CC2+7}
+container_recolour_red = {40: red, 41: red+1, 42: red+2, 43: red+3, 44: red+4, 45: red+5, 46: red+6, 47: red+7}
 
 intermodal_container_graphics_maps = [("empty_20_foot", "empty_20_foot", container_recolour_1CC),
                                       ("empty_30_foot", "empty_30_foot", container_recolour_1CC),
@@ -66,6 +66,8 @@ intermodal_container_graphics_maps = [("empty_20_foot", "empty_20_foot", contain
                                       ("tank_20_foot", "tank_20_foot_1CC", container_recolour_1CC),
                                       ("tank_30_foot", "tank_30_foot_1CC", container_recolour_1CC),
                                       ("tank_40_foot", "tank_40_foot_1CC", container_recolour_1CC)]
+
+
 
 knockout_guides_map = {k: 0 for k in range(215, 227)}
 

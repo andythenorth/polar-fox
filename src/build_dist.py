@@ -4,14 +4,14 @@ currentdir = os.curdir
 import sys
 
 import codecs
-import global_constants
+import polar_fox
 
 # add dir to path so we can do relative import of the Polar Fox python content for integrity checks
 sys.path.insert(0,currentdir)
 import src.constants as constants
 
-dist_container_path = global_constants.dist_container_path
-dist_package_path = global_constants.dist_package_path
+dist_container_path = polar_fox.dist_container_path
+dist_package_path = polar_fox.dist_package_path
 
 def main():
     print("Integrity checks")
