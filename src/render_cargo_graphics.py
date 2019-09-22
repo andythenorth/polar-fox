@@ -54,6 +54,7 @@ container_recolour_2CC = {40: CC2, 41: CC2+1, 42: CC2+2, 43: CC2+3, 44: CC2+4, 4
 container_recolour_red = {40: red, 41: red+1, 42: red+2, 43: red+3, 44: red+4, 45: red+5, 46: red+6, 47: red+7}
 container_recolour_grey = {40: grey, 41: grey+1, 42: grey+3, 43: grey+4, 44: grey+6, 45: grey+8, 46: grey+10, 47: grey+12}
 
+# configuration of containers without visible cargos ...
 intermodal_container_graphics_maps = [("empty_20_foot", "empty_20_foot", container_recolour_1CC),
                                       ("empty_30_foot", "empty_30_foot", container_recolour_1CC),
                                       ("empty_40_foot", "empty_40_foot", container_recolour_1CC),
@@ -70,6 +71,7 @@ intermodal_container_graphics_maps = [("empty_20_foot", "empty_20_foot", contain
                                       ("tank_30_foot", "tank_30_foot_1CC", container_recolour_1CC),
                                       ("tank_40_foot", "tank_40_foot_1CC", container_recolour_1CC)]
 
+# ...configuration of containers with visible bulk cargos
 for label, body_recolour_name, cargo_recolour_map in constants.bulk_cargo_recolour_maps:
     body_recolour_maps = {'1CC': container_recolour_1CC, '2CC': container_recolour_2CC,
                           'red': container_recolour_red, 'grey': container_recolour_grey}
