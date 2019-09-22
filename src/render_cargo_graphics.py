@@ -70,17 +70,16 @@ intermodal_container_graphics_maps = [("empty_20_foot", "empty_20_foot", contain
                                       ("tank_30_foot", "tank_30_foot_1CC", container_recolour_1CC),
                                       ("tank_40_foot", "tank_40_foot_1CC", container_recolour_1CC)]
 
-for label, cargo_recolour_map in constants.bulk_cargo_recolour_maps:
+for label, body_recolour_name, cargo_recolour_map in constants.bulk_cargo_recolour_maps:
     body_recolour_maps = {'1CC': container_recolour_1CC, '2CC': container_recolour_2CC,
                           'red': container_recolour_red, 'grey': container_recolour_grey}
     # by design, only 1 body colour is provided for bulk containers, on trains they look better with a consistent colour
     # for ships, it might be desirable to provide an alt bulk body colour
     # that can be done by adding body_recolour_sufffix to the output filename ['', '_alt'] and specifying both
-    for body_recolour_map in body_recolour_maps.values():
-        recolour_map = cargo_recolour_map.copy()
-        for k,v in body_recolour_map.items():
-            recolour_map[k] = v
-        intermodal_container_graphics_maps.append(("bulk_20_foot", label + "_20_foot", recolour_map))
+    recolour_map = cargo_recolour_map.copy()
+    for k,v in body_recolour_maps[body_recolour_name].items():
+        recolour_map[k] = v
+    intermodal_container_graphics_maps.append(("bulk_20_foot", label + "_20_foot", recolour_map))
 
 knockout_guides_map = {k: 0 for k in range(215, 227)}
 
