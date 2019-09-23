@@ -72,7 +72,7 @@ body_recolour_maps = {'1CC': container_recolour_1CC, '2CC': container_recolour_2
                       'red': container_recolour_red, 'grey': container_recolour_grey}
 
 # ...configuration of containers with visible bulk cargos
-for label, body_recolour_name, cargo_recolour_map in constants.bulk_cargo_recolour_maps:
+for label, body_recolour_name, cargo_recolour_map in constants.bulk_cargo_recolour_maps_extended:
     # by design, only 1 body colour is provided for bulk containers, on trains they look better with a consistent colour
     # for ships, it might be desirable to provide an alt bulk body colour
     # that can be done by adding body_recolour_sufffix to the output filename ['', '_alt'] and specifying both
@@ -84,7 +84,7 @@ for label, body_recolour_name, cargo_recolour_map in constants.bulk_cargo_recolo
     intermodal_container_graphics_maps.append(("bulk_40_foot", "bulk_" + label + "_40_foot", recolour_map))
 
 # ...configuration of tank containers with cargo-specific liveries
-for label, body_recolour_name, cargo_recolour_map in constants.tanker_livery_recolour_maps:
+for label, body_recolour_name, cargo_recolour_map in constants.tanker_livery_recolour_maps_extended:
     # by design, only 1 body colour is provided for tank containers, on trains they look better with a consistent colour
     # for ships, it might be desirable to provide an alt bulk body colour
     # that can be done by adding body_recolour_sufffix to the output filename ['', '_alt'] and specifying both
