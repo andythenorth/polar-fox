@@ -73,7 +73,9 @@ body_recolour_maps = {'1CC': container_recolour_1CC, '2CC': container_recolour_2
 
 # ...configuration of containers with cargo-specific liveries or visible cargos with recolouring
 cargo_specific_container_maps = {'bulk': constants.bulk_cargo_recolour_maps_extended,
-                                 'tank': constants.tanker_livery_recolour_maps_extended}
+                                 'tank': constants.tanker_livery_recolour_maps_extended,
+                                 'chemicals_tank': constants.chemicals_tanker_livery_recolour_maps_extended,
+                                 'cryo_tank': constants.cryo_tanker_livery_recolour_maps_extended}
 
 for container_type, recolour_maps in cargo_specific_container_maps.items():
     for label, body_recolour_name, cargo_recolour_map in recolour_maps:
