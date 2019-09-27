@@ -85,9 +85,9 @@ for container_type, recolour_maps in cargo_specific_container_maps.items():
         recolour_map = cargo_recolour_map.copy()
         for k,v in body_recolour_maps[body_recolour_name].items():
             recolour_map[k] = v
-        intermodal_container_graphics_maps.append(("tank_20_foot", container_type + "_" + label + "_20_foot", recolour_map))
-        intermodal_container_graphics_maps.append(("tank_30_foot", container_type + "_" + label + "_30_foot", recolour_map))
-        intermodal_container_graphics_maps.append(("tank_40_foot", container_type + "_" + label + "_40_foot", recolour_map))
+        intermodal_container_graphics_maps.append((container_type + "_20_foot", container_type + "_" + label + "_20_foot", recolour_map))
+        intermodal_container_graphics_maps.append((container_type + "_30_foot", container_type + "_" + label + "_30_foot", recolour_map))
+        intermodal_container_graphics_maps.append((container_type + "_40_foot", container_type + "_" + label + "_40_foot", recolour_map))
 
 
 knockout_guides_map = {k: 0 for k in range(215, 227)}
