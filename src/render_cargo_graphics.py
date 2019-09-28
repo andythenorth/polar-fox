@@ -69,7 +69,10 @@ intermodal_container_graphics_maps = [("empty_20_foot", "empty_20_foot", contain
                                       ("box_40_foot", "box_40_foot_red", container_recolour_red),
                                       ("edibles_tank_20_foot", "edibles_tank_20_foot", container_recolour_1CC),
                                       ("edibles_tank_30_foot", "edibles_tank_30_foot", container_recolour_1CC),
-                                      ("edibles_tank_40_foot", "edibles_tank_40_foot", container_recolour_1CC),]
+                                      ("edibles_tank_40_foot", "edibles_tank_40_foot", container_recolour_1CC),
+                                      ("reefer_20_foot", "reefer_20_foot", container_recolour_1CC),
+                                      ("reefer_30_foot", "reefer_30_foot", container_recolour_1CC),
+                                      ("reefer_40_foot", "reefer_40_foot", container_recolour_1CC)]
 
 body_recolour_maps = {'1CC': container_recolour_1CC, '2CC': container_recolour_2CC,
                       'red': container_recolour_red, 'grey': container_recolour_grey}
