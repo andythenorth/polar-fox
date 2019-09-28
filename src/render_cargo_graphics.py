@@ -56,7 +56,7 @@ container_recolour_red = {40: red, 41: red+1, 42: red+2, 43: red+3, 44: red+4, 4
 container_recolour_grey = {40: grey, 41: grey+1, 42: grey+3, 43: grey+4, 44: grey+6, 45: grey+8, 46: grey+10, 47: grey+12}
 container_recolour_black = {40: black, 41: black+1, 42: black+2, 43: black+3, 44: black+4, 45: black+5, 46: black+6, 47: black+7}
 
-# configuration of containers without visible cargos ...
+# configuration of containers without livery maps ...
 intermodal_container_graphics_maps = [("empty_20_foot", "empty_20_foot", container_recolour_1CC),
                                       ("empty_30_foot", "empty_30_foot", container_recolour_1CC),
                                       ("empty_40_foot", "empty_40_foot", container_recolour_1CC),
@@ -77,7 +77,10 @@ intermodal_container_graphics_maps = [("empty_20_foot", "empty_20_foot", contain
                                       ("livestock_40_foot", "livestock_40_foot", container_recolour_1CC),
                                       ("reefer_20_foot", "reefer_20_foot", container_recolour_1CC),
                                       ("reefer_30_foot", "reefer_30_foot", container_recolour_1CC),
-                                      ("reefer_40_foot", "reefer_40_foot", container_recolour_1CC)]
+                                      ("reefer_40_foot", "reefer_40_foot", container_recolour_1CC),
+                                      ("wood_20_foot", "wood_20_foot", container_recolour_1CC),
+                                      ("wood_30_foot", "wood_30_foot", container_recolour_1CC),
+                                      ("wood_40_foot", "wood_40_foot", container_recolour_1CC)]
 
 body_recolour_maps = {'1CC': container_recolour_1CC, '2CC': container_recolour_2CC,
                       'red': container_recolour_red, 'grey': container_recolour_grey,
