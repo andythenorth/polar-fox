@@ -70,6 +70,9 @@ intermodal_container_graphics_maps = [("empty_20_foot", "empty_20_foot", contain
                                       ("edibles_tank_20_foot", "edibles_tank_20_foot", container_recolour_1CC),
                                       ("edibles_tank_30_foot", "edibles_tank_30_foot", container_recolour_1CC),
                                       ("edibles_tank_40_foot", "edibles_tank_40_foot", container_recolour_1CC),
+                                      ("livestock_20_foot", "livestock_20_foot", container_recolour_1CC),
+                                      ("livestock_30_foot", "livestock_30_foot", container_recolour_1CC),
+                                      ("livestock_40_foot", "livestock_40_foot", container_recolour_1CC),
                                       ("reefer_20_foot", "reefer_20_foot", container_recolour_1CC),
                                       ("reefer_30_foot", "reefer_30_foot", container_recolour_1CC),
                                       ("reefer_40_foot", "reefer_40_foot", container_recolour_1CC)]
