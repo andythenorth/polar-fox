@@ -48,11 +48,13 @@ CC1 = 198
 CC2 = 80
 red = 40
 grey = 2
+black = 1
 
 container_recolour_1CC = {40: CC1, 41: CC1+1, 42: CC1+2, 43: CC1+3, 44: CC1+4, 45: CC1+5, 46: CC1+6, 47: CC1+7}
 container_recolour_2CC = {40: CC2, 41: CC2+1, 42: CC2+2, 43: CC2+3, 44: CC2+4, 45: CC2+5, 46: CC2+6, 47: CC2+7}
 container_recolour_red = {40: red, 41: red+1, 42: red+2, 43: red+3, 44: red+4, 45: red+5, 46: red+6, 47: red+7}
 container_recolour_grey = {40: grey, 41: grey+1, 42: grey+3, 43: grey+4, 44: grey+6, 45: grey+8, 46: grey+10, 47: grey+12}
+container_recolour_black = {40: black, 41: black+1, 42: black+2, 43: black+3, 44: black+4, 45: black+5, 46: black+6, 47: black+7}
 
 # configuration of containers without visible cargos ...
 intermodal_container_graphics_maps = [("empty_20_foot", "empty_20_foot", container_recolour_1CC),
@@ -67,9 +69,6 @@ intermodal_container_graphics_maps = [("empty_20_foot", "empty_20_foot", contain
                                       ("box_40_foot", "box_40_foot_1CC", container_recolour_1CC),
                                       ("box_40_foot", "box_40_foot_2CC", container_recolour_2CC),
                                       ("box_40_foot", "box_40_foot_red", container_recolour_red),
-                                      ("curtain_side_20_foot", "curtain_side_20_foot", container_recolour_1CC),
-                                      ("curtain_side_30_foot", "curtain_side_30_foot", container_recolour_1CC),
-                                      ("curtain_side_40_foot", "curtain_side_40_foot", container_recolour_1CC),
                                       ("edibles_tank_20_foot", "edibles_tank_20_foot", container_recolour_1CC),
                                       ("edibles_tank_30_foot", "edibles_tank_30_foot", container_recolour_1CC),
                                       ("edibles_tank_40_foot", "edibles_tank_40_foot", container_recolour_1CC),
@@ -81,13 +80,15 @@ intermodal_container_graphics_maps = [("empty_20_foot", "empty_20_foot", contain
                                       ("reefer_40_foot", "reefer_40_foot", container_recolour_1CC)]
 
 body_recolour_maps = {'1CC': container_recolour_1CC, '2CC': container_recolour_2CC,
-                      'red': container_recolour_red, 'grey': container_recolour_grey}
+                      'red': container_recolour_red, 'grey': container_recolour_grey,
+                      'black': container_recolour_black}
 
 # ...configuration of containers with cargo-specific liveries or visible cargos with recolouring
 cargo_specific_container_maps = {'bulk': constants.bulk_cargo_recolour_maps_extended,
-                                 'tank': constants.tanker_livery_recolour_maps_extended,
                                  'chemicals_tank': constants.chemicals_tanker_livery_recolour_maps_extended,
-                                 'cryo_tank': constants.cryo_tanker_livery_recolour_maps_extended}
+                                 'cryo_tank': constants.cryo_tanker_livery_recolour_maps_extended,
+                                 'curtain_side': constants.curtain_side_livery_recolour_maps_extended,
+                                 'tank': constants.tanker_livery_recolour_maps_extended}
 
 for container_type, recolour_maps in cargo_specific_container_maps.items():
     for label, body_recolour_name, cargo_recolour_map in recolour_maps:
