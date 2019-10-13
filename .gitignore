@@ -1,0 +1,9 @@
+generated/
+docs/
+.chameleon_cache/
+
+# The local makefile should be ignored:
+Makefile.local
+
+# Ignore the dist file used when updating downstream projects
+dist
