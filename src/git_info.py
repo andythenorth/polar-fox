@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import subprocess, getopt, os, sys
+import subprocess
 
 def exe_cmd(cmd):
     output = subprocess.run(cmd, env=None, check=True, stdout=subprocess.PIPE,
