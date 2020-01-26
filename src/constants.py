@@ -143,7 +143,7 @@ default_cargos = {'box': ['GOOD', 'VPTS', 'FOOD'],
                   'dump_high_sides': ['COKE', 'PEAT', 'COAL'],
                   'dump_scrap': ['SCMT', 'COAL'],
                   'edibles_tank': ['WATR', 'MILK', 'BEER'],
-                  'express': ['ENSP', 'FMSP', 'GOOD', 'FOOD', 'MAIL'],
+                  'express': ['MAIL', 'ENSP', 'FMSP', 'GOOD', 'FOOD'], # ENSP was tried as default, but confusing when attached express cars for mail to pax trains
                   'flat': ['STEL', 'STCB', 'COPR', 'METL'],
                   'fruit_veg': ['FRUT', 'BEAN', 'CASS', 'JAVA', 'NUTS'],
                   'grain_hopper': ['GRAI', 'PLAS'],
