@@ -4,7 +4,8 @@ currentdir = os.curdir
 
 import polar_fox
 
-consumers = [('FIRS', 'firs'),
+consumers = [('CHIPS', 'chips'),
+             ('FIRS', 'firs'),
              ('Iron_Horse', 'iron-horse'),
              ('Road_Hog', 'road-hog'),
              ('Unsinkable_Sam', 'unsinkable-sam')]
