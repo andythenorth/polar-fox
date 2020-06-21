@@ -135,8 +135,8 @@ def main():
         os.mkdir(generated_files_path)
 
     # this is a bit crude, but eh, if it works it works
-    for graphics_type_path, graphics_maps in {'cargo_graphics': cargo_graphics_maps, 'intermodal_container_graphics': intermodal_container_graphics_maps}.items():
-        graphics_input_path = os.path.join(currentdir, 'src', graphics_type_path)
+    for graphics_type_path, graphics_maps in {'piece_cargos': cargo_graphics_maps, 'intermodal_containers': intermodal_container_graphics_maps}.items():
+        graphics_input_path = os.path.join(currentdir, 'src', 'graphics', graphics_type_path)
         graphics_output_path = os.path.join(generated_files_path, graphics_type_path)
         if os.path.exists(graphics_output_path):
             # do destroy all of graphics output path

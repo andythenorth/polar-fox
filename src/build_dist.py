@@ -12,6 +12,7 @@ import src.constants as constants
 
 dist_container_path = polar_fox.dist_container_path
 dist_package_path = polar_fox.dist_package_path
+dist_graphics_path = polar_fox.dist_graphics_path
 
 def main():
     print("Integrity checks")
@@ -28,6 +29,7 @@ def main():
         print("Cleaning: removing", dist_package_path)
         shutil.rmtree(dist_package_path)
     os.mkdir(dist_package_path)
+    os.mkdir(os.path.join(dist_package_path, 'graphics'))
 
     dist_file_header = codecs.open(os.path.join(currentdir, 'src', 'dist_file_header.txt'), 'r','utf8').read()
     for filename in ['__init__.py', 'constants.py', 'git_info.py', 'graphics_units.py', 'pixa.py']:
@@ -36,8 +38,8 @@ def main():
         dist_file.write(dist_file_header)
         dist_file.write(src_file.read())
         dist_file.close()
-    for dir_name in ['cargo_graphics', 'intermodal_container_graphics']:
-        dist_dir_path =  os.path.join(dist_package_path, dir_name)
+    for dir_name in ['piece_cargos', 'intermodal_containers']:
+        dist_dir_path =  os.path.join(dist_graphics_path, dir_name)
         shutil.copytree(os.path.join(currentdir, 'generated', dir_name), dist_dir_path)
         shutil.copy(os.path.join(currentdir, 'src', 'dist_dir_header.txt'), os.path.join(dist_dir_path, '_files_here_are_generated.txt'))
     for filename in ['LICENSE.txt', 'README.txt']:
