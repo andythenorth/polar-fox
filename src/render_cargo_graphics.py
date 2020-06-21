@@ -14,41 +14,41 @@ generated_files_path = polar_fox.generated_files_path
 
 DOS_PALETTE = Image.open('palette_key.png').palette
 
-cargo_graphics_maps = [("tarps_1", "tarps_blue_1",
-                       {136: 145, 137: 146, 138: 147, 139: 148,
-                       140: 149, 141: 150, 142: 151, 143: 152}),
-                       ("tarps_1", "tarps_2cc_1",
-                       {136: 198, 137: 199, 138: 200, 139: 201,
-                       140: 202, 141: 203, 142: 204, 143: 205}),
-                       ("tarps_1", "tarps_gold_1",
-                       {136: 60, 137: 61, 138: 62, 139: 63,
-                       140: 64, 141: 65, 142: 66, 143: 67}),
-                       ("tarps_1", "tarps_red_1",
-                       {136: 40, 137: 41, 138: 42, 139: 43,
-                       140: 44, 141: 45, 142: 46, 143: 47}),
-                       ("barrels_silver", "barrels_silver", {}),
-                       ("coffee", "coffee", {}),
-                       ("crates_1", "crates_1", {}),
-                       ("fruit", "fruit", {}),
-                       ("logs", "logs", {}),
-                       ("lumber_planks", "lumber_planks", {}),
-                       ("nuts", "nuts", {}),
-                       ("coils_1", "paper_coils",
-                       {136: 8, 137: 9, 138: 10, 139: 11,
-                       140: 12, 141: 13, 142: 14, 143: 15}),
-                       ("coils_1", "steel_coils",
-                       {136: 3, 137: 16, 138: 17, 139: 18,
-                       140: 19, 141: 20, 142: 21, 143: 22}),
-                       ("coils_1", "copper_coils",
-                       {136: 60, 137: 112, 138: 62, 139: 115,
-                       140: 117, 141: 118, 142: 119, 143: 120})]
-
 # eh note that it's CC1 not 1CC here because python var names can't start with digit, but 1CC everywhere else :P
 CC1 = 198
 CC2 = 80
 red = 40
 grey = 2
 black = 1
+
+piece_cargo_graphics_maps = [("tarps_1", "tarps_blue_1",
+                             {136: 145, 137: 146, 138: 147, 139: 148,
+                             140: 149, 141: 150, 142: 151, 143: 152}),
+                             ("tarps_1", "tarps_2cc_1",
+                             {136: 198, 137: 199, 138: 200, 139: 201,
+                             140: 202, 141: 203, 142: 204, 143: 205}),
+                             ("tarps_1", "tarps_gold_1",
+                             {136: 60, 137: 61, 138: 62, 139: 63,
+                             140: 64, 141: 65, 142: 66, 143: 67}),
+                             ("tarps_1", "tarps_red_1",
+                             {136: 40, 137: 41, 138: 42, 139: 43,
+                             140: 44, 141: 45, 142: 46, 143: 47}),
+                             ("barrels_silver", "barrels_silver", {}),
+                             ("coffee", "coffee", {}),
+                             ("crates_1", "crates_1", {}),
+                             ("fruit", "fruit", {}),
+                             ("logs", "logs", {}),
+                             ("lumber_planks", "lumber_planks", {}),
+                             ("nuts", "nuts", {}),
+                             ("coils_1", "paper_coils",
+                             {136: 8, 137: 9, 138: 10, 139: 11,
+                             140: 12, 141: 13, 142: 14, 143: 15}),
+                             ("coils_1", "steel_coils",
+                             {136: 3, 137: 16, 138: 17, 139: 18,
+                             140: 19, 141: 20, 142: 21, 143: 22}),
+                             ("coils_1", "copper_coils",
+                             {136: 60, 137: 112, 138: 62, 139: 115,
+                             140: 117, 141: 118, 142: 119, 143: 120})]
 
 container_recolour_1CC = {40: CC1, 41: CC1+1, 42: CC1+2, 43: CC1+3, 44: CC1+4, 45: CC1+5, 46: CC1+6, 47: CC1+7}
 container_recolour_2CC = {40: CC2, 41: CC2+1, 42: CC2+2, 43: CC2+3, 44: CC2+4, 45: CC2+5, 46: CC2+6, 47: CC2+7}
@@ -82,9 +82,9 @@ intermodal_container_graphics_maps = [("empty_20_foot", "empty_20_foot", contain
                                       ("wood_30_foot", "wood_30_foot", container_recolour_1CC),
                                       ("wood_40_foot", "wood_40_foot", container_recolour_1CC)]
 
-body_recolour_maps = {'1CC': container_recolour_1CC, '2CC': container_recolour_2CC,
-                      'red': container_recolour_red, 'grey': container_recolour_grey,
-                      'black': container_recolour_black}
+container_recolour_maps = {'1CC': container_recolour_1CC, '2CC': container_recolour_2CC,
+                           'red': container_recolour_red, 'grey': container_recolour_grey,
+                           'black': container_recolour_black}
 
 # ...configuration of containers with cargo-specific liveries or visible cargos with recolouring
 cargo_specific_container_maps = {'bulk': constants.bulk_cargo_recolour_maps_extended,
@@ -94,17 +94,21 @@ cargo_specific_container_maps = {'bulk': constants.bulk_cargo_recolour_maps_exte
                                  'tank': constants.tanker_livery_recolour_maps_extended}
 
 for container_type, recolour_maps in cargo_specific_container_maps.items():
-    for label, body_recolour_name, cargo_recolour_map in recolour_maps:
+    for label, container_recolour_name, cargo_recolour_map in recolour_maps:
         # by design, only 1 body colour is provided for tank containers, bulk containers etc, on trains they look better with a consistent colour
         # for ships, it might be desirable to provide an alt bulk body colour
         # that can be done by adding body_recolour_sufffix to the output filename ['', '_alt'] and specifying both
         recolour_map = cargo_recolour_map.copy()
-        for k,v in body_recolour_maps[body_recolour_name].items():
+        for k,v in container_recolour_maps[container_recolour_name].items():
             recolour_map[k] = v
         intermodal_container_graphics_maps.append((container_type + "_20_foot", container_type + "_" + label + "_20_foot", recolour_map))
         intermodal_container_graphics_maps.append((container_type + "_30_foot", container_type + "_" + label + "_30_foot", recolour_map))
         intermodal_container_graphics_maps.append((container_type + "_40_foot", container_type + "_" + label + "_40_foot", recolour_map))
 
+vehicles_recolour_1CC = {40: CC1, 41: CC1+1, 42: CC1+2, 43: CC1+3, 44: CC1+4, 45: CC1+5, 46: CC1+6, 47: CC1+7}
+
+vehicles_cargo_graphics_maps = [("empty_20_foot", "empty_20_foot", vehicles_recolour_1CC),
+                          ("box_20_foot", "box_20_foot_1CC", vehicles_recolour_1CC)]
 
 knockout_guides_map = {k: 0 for k in range(215, 227)}
 
@@ -135,7 +139,10 @@ def main():
         os.mkdir(generated_files_path)
 
     # this is a bit crude, but eh, if it works it works
-    for graphics_type_path, graphics_maps in {'piece_cargos': cargo_graphics_maps, 'intermodal_containers': intermodal_container_graphics_maps}.items():
+    cargo_graphics_items = {'piece_cargos': piece_cargo_graphics_maps,
+                            'intermodal_containers': intermodal_container_graphics_maps,
+                            'vehicles_cargos': vehicles_cargo_graphics_maps}
+    for graphics_type_path, graphics_maps in cargo_graphics_items.items():
         graphics_input_path = os.path.join(currentdir, 'src', 'graphics', graphics_type_path)
         graphics_output_path = os.path.join(generated_files_path, graphics_type_path)
         if os.path.exists(graphics_output_path):
