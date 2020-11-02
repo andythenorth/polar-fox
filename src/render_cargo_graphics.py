@@ -108,7 +108,7 @@ for container_type, recolour_maps in cargo_specific_container_maps.items():
 vehicles_recolour_1CC = {40: CC1, 41: CC1+1, 42: CC1+2, 43: CC1+3, 44: CC1+4, 45: CC1+5, 46: CC1+6, 47: CC1+7}
 
 vehicles_cargo_graphics_maps = [("empty_20_foot", "empty_20_foot", vehicles_recolour_1CC),
-                          ("box_20_foot", "box_20_foot_1CC", vehicles_recolour_1CC)]
+                                ("trucks_1", "trucks_1_1CC", vehicles_recolour_1CC)]
 
 knockout_guides_map = {k: 0 for k in range(215, 227)}
 
