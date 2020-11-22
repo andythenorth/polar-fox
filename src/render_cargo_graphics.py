@@ -41,6 +41,7 @@ piece_cargo_graphics_maps = [("tarps_1", "tarps_blue_1",
                              ("logs", "logs", {}),
                              ("lumber_planks", "lumber_planks", {}),
                              ("nuts", "nuts", {}),
+                             ("pipes_1", "pipes_1", {}),
                              ("coils_eye_to_sky", "paper_coils_eye_to_sky",
                              {136: 8, 137: 9, 138: 10, 139: 11,
                              140: 12, 141: 13, 142: 14, 143: 15}),
@@ -55,7 +56,8 @@ piece_cargo_graphics_maps = [("tarps_1", "tarps_blue_1",
                              140: 117, 141: 118, 142: 119, 143: 120}),
                              ("coils_eye_to_sky", "copper_coils_eye_to_sky",
                              {136: 60, 137: 112, 138: 62, 139: 115,
-                             140: 117, 141: 118, 142: 119, 143: 120})]
+                             140: 117, 141: 118, 142: 119, 143: 120}
+                             )]
 
 container_recolour_1CC = {40: CC1, 41: CC1+1, 42: CC1+2, 43: CC1+3, 44: CC1+4, 45: CC1+5, 46: CC1+6, 47: CC1+7}
 container_recolour_2CC = {40: CC2, 41: CC2+1, 42: CC2+2, 43: CC2+3, 44: CC2+4, 45: CC2+5, 46: CC2+6, 47: CC2+7}
