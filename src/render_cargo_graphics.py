@@ -4,7 +4,7 @@ currentdir = os.curdir
 
 from PIL import Image
 import pixa
-from pixa import Spritesheet, pixascan
+from pixa import Spritesheet, PieceCargoSprites, pixascan
 from graphics_units import SimpleRecolour, AppendToSpritesheet
 
 import polar_fox
@@ -122,14 +122,13 @@ for container_type, recolour_maps in cargo_specific_recolour_container_maps.item
         intermodal_container_graphics_maps.append((container_type + "_30_foot", container_type + "_" + label + "_30_foot", recolour_map))
         intermodal_container_graphics_maps.append((container_type + "_40_foot", container_type + "_" + label + "_40_foot", recolour_map))
 
-# !! VERY TEMP TO GET COMPILE WORKING - REPLACE WITH PIECE GENERATION RULES
-for cargo_list in constants.container_piece_cargo_maps.values():
-    for label in cargo_list:
+for cargo_sprites_filename, cargo_labels in constants.container_piece_cargo_maps.items():
+    for label in cargo_labels:
         container_type = 'stake_flatrack'
         recolour_map = container_recolour_1CC
-        intermodal_container_graphics_maps.append((container_type + "_20_foot", container_type + "_" + label + "_20_foot", recolour_map))
-        intermodal_container_graphics_maps.append((container_type + "_30_foot", container_type + "_" + label + "_30_foot", recolour_map))
-        intermodal_container_graphics_maps.append((container_type + "_40_foot", container_type + "_" + label + "_40_foot", recolour_map))
+        intermodal_container_graphics_maps.append((container_type + "_20_foot", container_type + "_" + label + "_20_foot", recolour_map, cargo_sprites_filename))
+        intermodal_container_graphics_maps.append((container_type + "_30_foot", container_type + "_" + label + "_30_foot", recolour_map, cargo_sprites_filename))
+        intermodal_container_graphics_maps.append((container_type + "_40_foot", container_type + "_" + label + "_40_foot", recolour_map, cargo_sprites_filename))
 
 vehicles_recolour_1CC = {40: CC1, 41: CC1+1, 42: CC1+2, 43: CC1+3, 44: CC1+4, 45: CC1+5, 46: CC1+6, 47: CC1+7}
 
@@ -138,16 +137,28 @@ vehicles_cargo_graphics_maps = [("empty_20_foot", "empty_20_foot", vehicles_reco
 
 knockout_guides_map = {k: 0 for k in range(215, 227)}
 
-def render(filename, input_image, units, graphics_output_path):
+
+def composite_visible_cargo_sprites(input_image, cargo_sprites_filename):
+    # provide visible cargo sprites, assumed to be for flatrack intermodal containers, may be extensible in future
+    #piece_cargo_sprites = PieceCargoSprites(polar_fox)
+    #input_image = Image.open(os.path.join(graphics_input_path, graphics_map[0] + '.png')).crop((0, 0, 300, 440))
+
+    return input_image
+
+def render(filename, input_image, units, graphics_output_path, cargo_sprites_filename=None):
     # expects to be passed a PIL Image object
+
+    if cargo_sprites_filename is not None:
+        composite_visible_cargo_sprites(input_image, cargo_sprites_filename)
+
     # units is a list of objects, with their config data already baked in (don't have to pass anything to units except the spritesheet)
     # each unit is then called in order, passing in and returning a pixa SpriteSheet
     # finally the spritesheet is saved
-    output_path = os.path.join(graphics_output_path, filename + '.png')
     spritesheet = pixa.make_spritesheet_from_image(input_image, DOS_PALETTE)
-
     for unit in units:
         spritesheet = unit.render(spritesheet)
+
+    output_path = os.path.join(graphics_output_path, filename + '.png')
     # I don't normally leave commented-out code behind, but I'm bored of looking in the PIL docs for how to show the image during compile
     #spritesheet.sprites.show()
     spritesheet.save(output_path)
@@ -161,7 +172,7 @@ def main():
 
     # this is a bit crude, but eh, if it works it works
     cargo_graphics_items = {'piece_cargos': piece_cargo_graphics_maps,
-                            'intermodal_containers': intermodal_container_graphics_maps,
+                            'intermodal_containers': intermodal_container_graphics_maps, # must come after piece cargos as they're a dep for flatrack containers
                             'vehicles_cargos': vehicles_cargo_graphics_maps}
     for graphics_type_path, graphics_maps in cargo_graphics_items.items():
         graphics_input_path = os.path.join(currentdir, 'src', 'graphics', graphics_type_path)
@@ -173,7 +184,13 @@ def main():
         for graphics_map in graphics_maps:
             input_image = Image.open(os.path.join(graphics_input_path, graphics_map[0] + '.png')).crop((0, 0, 300, 440))
             units = [SimpleRecolour(knockout_guides_map), SimpleRecolour(graphics_map[2])]
-            result = render(graphics_map[1], input_image, units, graphics_output_path)
+            # incredibly stupid and fragile way of detecting if we need to composite visible cargo sprites
+            # this entire rendering approach is JFDI and would be better rewritten cleanly *iff* it needs extended again
+            if len(graphics_map) > 3:
+                cargo_sprites_filename = graphics_map[3]
+            else:
+                cargo_sprites_filename = None
+            result = render(graphics_map[1], input_image, units, graphics_output_path, cargo_sprites_filename)
 
     print("[DONE]")
 
