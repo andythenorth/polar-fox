@@ -3,7 +3,7 @@ import os
 currentdir = os.curdir
 
 from PIL import Image
-# note that we have to have copies of pix and graphics_units in /bin, can't use the ones in /src
+import pixa
 from pixa import Spritesheet, pixascan
 from graphics_units import SimpleRecolour, AppendToSpritesheet
 
@@ -126,18 +126,13 @@ vehicles_cargo_graphics_maps = [("empty_20_foot", "empty_20_foot", vehicles_reco
 
 knockout_guides_map = {k: 0 for k in range(215, 227)}
 
-def make_spritesheet_from_image(input_image):
-    spritesheet = Spritesheet(width=input_image.size[0], height=input_image.size[1] , palette=DOS_PALETTE)
-    spritesheet.sprites.paste(input_image)
-    return spritesheet
-
 def render(filename, input_image, units, graphics_output_path):
     # expects to be passed a PIL Image object
     # units is a list of objects, with their config data already baked in (don't have to pass anything to units except the spritesheet)
     # each unit is then called in order, passing in and returning a pixa SpriteSheet
     # finally the spritesheet is saved
     output_path = os.path.join(graphics_output_path, filename + '.png')
-    spritesheet = make_spritesheet_from_image(input_image)
+    spritesheet = pixa.make_spritesheet_from_image(input_image, DOS_PALETTE)
 
     for unit in units:
         spritesheet = unit.render(spritesheet)
