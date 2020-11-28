@@ -140,8 +140,8 @@ knockout_guides_map = {k: 0 for k in range(215, 227)}
 
 def composite_visible_cargo_sprites(input_image, cargo_sprites_filename):
     # provide visible cargo sprites, assumed to be for flatrack intermodal containers, may be extensible in future
-    #piece_cargo_sprites = PieceCargoSprites(polar_fox)
-    #input_image = Image.open(os.path.join(graphics_input_path, graphics_map[0] + '.png')).crop((0, 0, 300, 440))
+    #piece_cargo_sprites = PieceCargoSprites(polar_fox_constants=constants, polar_fox_graphics_path=os.path.join('generated'))
+    print(dir(piece_cargo_sprites))
 
     return input_image
 
