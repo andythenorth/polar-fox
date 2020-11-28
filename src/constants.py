@@ -118,7 +118,7 @@ base_refits_by_class = {
 # generally we want to allow refit on classes, and disallow on labels (see disallowed_refits_by_label)
 # BUT for _some_ specialist vehicle types, it's simpler to just allow refit by label
 allowed_refits_by_label = {
-                            'box_freight': ['MAIL', 'GRAI', 'WHEA', 'MAIZ', 'FRUT', 'BEAN', 'NITR'], # box cars get some extended cargos
+                           'box_freight': ['MAIL', 'GRAI', 'WHEA', 'MAIZ', 'FRUT', 'BEAN', 'NITR'], # box cars get some extended cargos
                            'chemicals': ['ACID', 'RFPR', 'CHLO'], # seems to be used by intermodal, otherwise chemicals tankers are deprecated in favour of product tankers
                            'cold_metal': ['STEL', 'METL', 'STCB', 'STAL', 'STST', 'COPR', 'STSH', 'STWR'],
                            'covered_hoppers': ['GRAI', 'WHEA', 'MAIZ', 'SUGR', 'FMSP', 'RFPR', 'CLAY', 'BDMT',
@@ -347,6 +347,33 @@ curtain_side_livery_recolour_maps_extended = (
                                              )
 
 curtain_side_livery_recolour_maps = [(i[0], i[2]) for i in curtain_side_livery_recolour_maps_extended]
+
+# intermodal mapping of types to cargos with recolour options
+# first result is known refits which will fallback to xxxxx_DFLT
+# second result is known cargo sprites / livery recolours, which will map explicitly
+container_recolour_cargo_maps = (
+                                 ('box', ([], [])), # box currently generic, and is fallback for all unknown cargos / classes
+                                 ('bulk', ([], bulk_cargo_recolour_maps)),
+                                 ('chemicals_tank', (allowed_refits_by_label['chemicals'],
+                                                     chemicals_tanker_livery_recolour_maps)),
+                                 ('cryo_tank', (allowed_refits_by_label['cryo_gases'],
+                                                cryo_tanker_livery_recolour_maps)),
+                                 ('curtain_side', (['VBOD'], # this single label is a dirty trick to stop warnings about unused DFLT spritesets
+                                                   curtain_side_livery_recolour_maps)),
+                                 ('edibles_tank', (allowed_refits_by_label['edible_liquids'], [])),
+                                 ('livestock', (['LVST'], [])), # one label only - extend if other livestock labels added in future
+                                 ('reefer', (allowed_refits_by_label['reefer'], [])),
+                                 ('tank', ([], tanker_livery_recolour_maps)),
+                                )
+
+# these take selected entries from piece_sprites_to_cargo_labels_maps
+# for intermodal, we don't always use a flatrack with visible cargo, even if the sprites are available; in some cases a box, tank etc is better
+# for simplicity of maintenance though, we do just use all the cargo labels for a specific type of cargo sprite
+container_piece_cargo_maps = {
+                              'ingots_1': piece_sprites_to_cargo_labels_maps['ingots_1'],
+                              'logs': piece_sprites_to_cargo_labels_maps['logs'],
+                              'pipes_1': piece_sprites_to_cargo_labels_maps['pipes_1'],
+                              }
 
 # indexes into the DOS palette for a company colour name
 # find these from https://github.com/frosch123/TTDViewer/blob/master/src/recolor.xml#L186

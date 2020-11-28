@@ -86,6 +86,9 @@ intermodal_container_graphics_maps = [("empty_20_foot", "empty_20_foot", contain
                                       ("stake_flatrack_20_foot", "stake_flatrack_20_foot", container_recolour_1CC),
                                       ("stake_flatrack_30_foot", "stake_flatrack_30_foot", container_recolour_1CC),
                                       ("stake_flatrack_40_foot", "stake_flatrack_40_foot", container_recolour_1CC),
+                                      ("stake_flatrack_ingots_1_20_foot", "stake_flatrack_ingots_1_20_foot", container_recolour_1CC),
+                                      ("stake_flatrack_ingots_1_30_foot", "stake_flatrack_ingots_1_30_foot", container_recolour_1CC),
+                                      ("stake_flatrack_ingots_1_40_foot", "stake_flatrack_ingots_1_40_foot", container_recolour_1CC),
                                       ("livestock_20_foot", "livestock_20_foot", container_recolour_1CC),
                                       ("livestock_30_foot", "livestock_30_foot", container_recolour_1CC),
                                       ("livestock_40_foot", "livestock_40_foot", container_recolour_1CC),
@@ -100,14 +103,14 @@ container_recolour_maps = {'1CC': container_recolour_1CC, '2CC': container_recol
                            'red': container_recolour_red, 'grey': container_recolour_grey,
                            'black': container_recolour_black}
 
-# ...configuration of containers with cargo-specific liveries or visible cargos with recolouring
-cargo_specific_container_maps = {'bulk': constants.bulk_cargo_recolour_maps_extended,
-                                 'chemicals_tank': constants.chemicals_tanker_livery_recolour_maps_extended,
-                                 'cryo_tank': constants.cryo_tanker_livery_recolour_maps_extended,
-                                 'curtain_side': constants.curtain_side_livery_recolour_maps_extended,
-                                 'tank': constants.tanker_livery_recolour_maps_extended}
+# ...configuration of containers with cargo-specific liveries or visible cargos with recolouring or piece
+cargo_specific_recolour_container_maps = {'bulk': constants.bulk_cargo_recolour_maps_extended,
+                                          'chemicals_tank': constants.chemicals_tanker_livery_recolour_maps_extended,
+                                          'cryo_tank': constants.cryo_tanker_livery_recolour_maps_extended,
+                                          'curtain_side': constants.curtain_side_livery_recolour_maps_extended,
+                                          'tank': constants.tanker_livery_recolour_maps_extended}
 
-for container_type, recolour_maps in cargo_specific_container_maps.items():
+for container_type, recolour_maps in cargo_specific_recolour_container_maps.items():
     for label, container_recolour_name, cargo_recolour_map in recolour_maps:
         # by design, only 1 body colour is provided for tank containers, bulk containers etc, on trains they look better with a consistent colour
         # for ships, it might be desirable to provide an alt bulk body colour
@@ -115,6 +118,15 @@ for container_type, recolour_maps in cargo_specific_container_maps.items():
         recolour_map = cargo_recolour_map.copy()
         for k,v in container_recolour_maps[container_recolour_name].items():
             recolour_map[k] = v
+        intermodal_container_graphics_maps.append((container_type + "_20_foot", container_type + "_" + label + "_20_foot", recolour_map))
+        intermodal_container_graphics_maps.append((container_type + "_30_foot", container_type + "_" + label + "_30_foot", recolour_map))
+        intermodal_container_graphics_maps.append((container_type + "_40_foot", container_type + "_" + label + "_40_foot", recolour_map))
+
+# !! VERY TEMP TO GET COMPILE WORKING - REPLACE WITH PIECE GENERATION RULES
+for cargo_list in constants.container_piece_cargo_maps.values():
+    for label in cargo_list:
+        container_type = 'stake_flatrack'
+        recolour_map = container_recolour_1CC
         intermodal_container_graphics_maps.append((container_type + "_20_foot", container_type + "_" + label + "_20_foot", recolour_map))
         intermodal_container_graphics_maps.append((container_type + "_30_foot", container_type + "_" + label + "_30_foot", recolour_map))
         intermodal_container_graphics_maps.append((container_type + "_40_foot", container_type + "_" + label + "_40_foot", recolour_map))
