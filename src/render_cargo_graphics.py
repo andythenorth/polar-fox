@@ -83,12 +83,6 @@ intermodal_container_graphics_maps = [("empty_20_foot", "empty_20_foot", contain
                                       ("edibles_tank_20_foot", "edibles_tank_20_foot", container_recolour_1CC),
                                       ("edibles_tank_30_foot", "edibles_tank_30_foot", container_recolour_1CC),
                                       ("edibles_tank_40_foot", "edibles_tank_40_foot", container_recolour_1CC),
-                                      ("stake_flatrack_20_foot", "stake_flatrack_20_foot", container_recolour_1CC),
-                                      ("stake_flatrack_30_foot", "stake_flatrack_30_foot", container_recolour_1CC),
-                                      ("stake_flatrack_40_foot", "stake_flatrack_40_foot", container_recolour_1CC),
-                                      ("stake_flatrack_ingots_1_20_foot", "stake_flatrack_ingots_1_20_foot", container_recolour_1CC),
-                                      ("stake_flatrack_ingots_1_30_foot", "stake_flatrack_ingots_1_30_foot", container_recolour_1CC),
-                                      ("stake_flatrack_ingots_1_40_foot", "stake_flatrack_ingots_1_40_foot", container_recolour_1CC),
                                       ("livestock_20_foot", "livestock_20_foot", container_recolour_1CC),
                                       ("livestock_30_foot", "livestock_30_foot", container_recolour_1CC),
                                       ("livestock_40_foot", "livestock_40_foot", container_recolour_1CC),
@@ -126,7 +120,8 @@ for cargo_sprites_filename, cargo_labels in constants.container_piece_cargo_maps
     for label in cargo_labels:
         container_type = 'stake_flatrack'
         recolour_map = container_recolour_1CC
-        intermodal_container_graphics_maps.append((container_type + "_20_foot", container_type + "_" + label + "_20_foot", recolour_map, cargo_sprites_filename))
+        # 20 foot stake flatracks currently not provided as there are no suitable cargo sprites (needs 2/8 or 3/8 - tbc)
+        #intermodal_container_graphics_maps.append((container_type + "_20_foot", container_type + "_" + label + "_20_foot", recolour_map, cargo_sprites_filename))
         intermodal_container_graphics_maps.append((container_type + "_30_foot", container_type + "_" + label + "_30_foot", recolour_map, cargo_sprites_filename))
         intermodal_container_graphics_maps.append((container_type + "_40_foot", container_type + "_" + label + "_40_foot", recolour_map, cargo_sprites_filename))
 
@@ -138,18 +133,74 @@ vehicles_cargo_graphics_maps = [("empty_20_foot", "empty_20_foot", vehicles_reco
 knockout_guides_map = {k: 0 for k in range(215, 227)}
 
 
-def composite_visible_cargo_sprites(input_image, cargo_sprites_filename):
+def composite_visible_cargo_sprites(input_image, filename, cargo_sprites_filename):
     # provide visible cargo sprites, assumed to be for flatrack intermodal containers, may be extensible in future
-    #piece_cargo_sprites = PieceCargoSprites(polar_fox_constants=constants, polar_fox_graphics_path=os.path.join('generated'))
-    print(dir(piece_cargo_sprites))
 
-    return input_image
+    # assumes intermodal_containers use these bounding boxes
+    input_image_bounding_boxes = [(60, 8, 29), (73, 26, 24), (104, 33, 16), (143, 26, 24),
+                                  (180, 8, 29), (193, 26, 24), (224, 33, 16), (263, 26, 24)]
+
+    second_col_start_x = input_image_bounding_boxes[4][0]
+    col_image_width = input_image_bounding_boxes[7][0] - input_image_bounding_boxes[4][0] + input_image_bounding_boxes[7][1]
+    base_yoffs = 10 # hard-coded, worry about it another day
+    spriterow_height = 30 # hard-coded, worry about it another day
+    crop_box_vehicle_cargo_loc_row = (second_col_start_x,
+                                      base_yoffs + spriterow_height,
+                                      second_col_start_x + col_image_width,
+                                      base_yoffs + (2 * spriterow_height))
+
+    cargo_loc_image = input_image.copy().crop(crop_box_vehicle_cargo_loc_row)
+    # get the loc points
+    loc_points = [(pixel[0] + second_col_start_x, pixel[1], pixel[2]) for pixel in pixa.pixascan(cargo_loc_image) if pixel[2] == 226]
+    # sort them in y order, this causes sprites to overlap correctly when there are multiple loc points for an angle
+    loc_points = sorted(loc_points, key=lambda x: x[1])
+
+    crop_box_composited_image = (0,
+                                 0, # y start is 0 not 10, we need to keep the top gutter as it's expected by consumers
+                                 300, # hard-coded, worry about it another day
+                                 10 + spriterow_height)
+
+    composited_image = input_image.copy().crop(crop_box_composited_image)
+
+    piece_cargo_sprites = PieceCargoSprites(polar_fox_constants=constants, polar_fox_graphics_path=os.path.join('generated'))
+    # cargo length required, extremely specific to intermodal containers, JFDI
+    # note lack of 20 foot support here, lack of suitable cargo sprites
+    if '_30_foot' in filename:
+        cargo_length = 4
+    else:
+        cargo_length = 5
+    cargo_sprites = piece_cargo_sprites.get_cargo_sprites_all_angles_for_length(cargo_sprites_filename, cargo_length)
+
+    for pixel in loc_points:
+        angle_num = 0
+        for counter, bbox in enumerate(input_image_bounding_boxes):
+            # note 12px buffer to allow loc points to be offset to left of bounding box
+            # this is used to compensate for cargo sprites which are optimised to leave a space on vehicles, but unwanted on containers
+            if pixel[0] >= bbox[0] - 12:
+                angle_num = counter
+        # clamp angle_num to 4, cargo sprites are symmetrical, only 4 angles provided
+        if angle_num > 3:
+            angle_num = angle_num % 4
+        # loaded sprites are the second block of 4 in the cargo sprites list, so add 4
+        cargo_sprite_num = angle_num + 4
+
+        cargo_width = cargo_sprites[cargo_sprite_num][0].size[0]
+        cargo_height = cargo_sprites[cargo_sprite_num][0].size[1]
+        # the +1s for height adjust the crop box to include the loc point
+        # (needed beause loc points are left-bottom not left-top as per co-ordinate system, makes drawing loc points easier)
+        cargo_bounding_box = (pixel[0],
+                              10 + pixel[1] - cargo_height + 1,
+                              pixel[0] + cargo_width,
+                              10 + pixel[1] + 1)
+        composited_image.paste(cargo_sprites[cargo_sprite_num][0], cargo_bounding_box, cargo_sprites[cargo_sprite_num][1])
+
+    return composited_image
 
 def render(filename, input_image, units, graphics_output_path, cargo_sprites_filename=None):
     # expects to be passed a PIL Image object
 
     if cargo_sprites_filename is not None:
-        composite_visible_cargo_sprites(input_image, cargo_sprites_filename)
+        input_image = composite_visible_cargo_sprites(input_image, filename, cargo_sprites_filename)
 
     # units is a list of objects, with their config data already baked in (don't have to pass anything to units except the spritesheet)
     # each unit is then called in order, passing in and returning a pixa SpriteSheet
