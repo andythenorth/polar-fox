@@ -97,6 +97,7 @@ cargo_labels = ['PASS', # pax first
                 'POWR',
                 'STSH',
                 'STWR',
+                'NH3_',
                 #
                 'NULL']
 
@@ -124,7 +125,7 @@ allowed_refits_by_label = {
                            'covered_hoppers': ['GRAI', 'WHEA', 'MAIZ', 'SUGR', 'FMSP', 'RFPR', 'CLAY', 'BDMT',
                                                'BEAN', 'NITR', 'RUBR', 'SAND', 'POTA', 'QLME', 'SASH', 'CMNT',
                                                'KAOL', 'FERT', 'SALT', 'PLAS'], # not CBLK, gets dedicated vehicles or box
-                           'cryo_gases': ['CHLO', 'O2__'],
+                           'cryo_gases': ['CHLO', 'O2__', 'NH3_'],
                            'edible_liquids': ['MILK', 'WATR', 'BEER', 'FOOD', 'EOIL'],
                            'fruit_veg': ['FRUT', 'BEAN', 'CASS', 'JAVA', 'NUTS'],
                            'reefer': ['FOOD', 'FRUT', 'FISH'], # hax for intermodal container sprite selection - reefer car refits work just fine using CC_REFRIGERATED
