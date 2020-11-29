@@ -120,8 +120,8 @@ for cargo_sprites_filename, cargo_labels in constants.container_piece_cargo_maps
     for label in cargo_labels:
         container_type = 'stake_flatrack'
         recolour_map = container_recolour_1CC
+        # note use of dubious 4th tuple entry to handle the filenames, this format is very JFDI and probably fragile if more features are needed in future
         # 20 foot stake flatracks currently not provided as there are no suitable cargo sprites (needs 2/8 or 3/8 - tbc)
-        #intermodal_container_graphics_maps.append((container_type + "_20_foot", container_type + "_" + label + "_20_foot", recolour_map, cargo_sprites_filename))
         intermodal_container_graphics_maps.append((container_type + "_30_foot", container_type + "_" + label + "_30_foot", recolour_map, cargo_sprites_filename))
         intermodal_container_graphics_maps.append((container_type + "_40_foot", container_type + "_" + label + "_40_foot", recolour_map, cargo_sprites_filename))
 
