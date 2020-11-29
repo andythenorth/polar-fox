@@ -146,7 +146,7 @@ disallowed_refits_by_label = {
 # vehicle classes can also just provide their own list locally, using this is convenient, not obligatory
 default_cargos = {
                   'box': ['GOOD', 'VPTS', 'FOOD'],
-                  'coal_hopper': ['COAL', 'COKE', 'NITR', 'POTA'],
+                  'hopper': ['COAL', 'COKE', 'NITR', 'POTA'],
                   'cryo_gases': ['O2__', 'CHLO'],
                   'covered_hopper': ['SAND', 'KAOL', 'PLAS'],
                   'dump': ['MNO2', 'FECR', 'NITR', 'PHOS', 'SAND', 'GRVL'],
@@ -157,7 +157,7 @@ default_cargos = {
                   'flat': ['STEL', 'STCB', 'COPR', 'METL'],
                   'fruit_veg': ['FRUT', 'BEAN', 'CASS', 'JAVA', 'NUTS'],
                   'grain_hopper': ['GRAI', 'PLAS'],
-                  'hopper': ['LIME', 'GRVL', 'SAND', 'PORE', 'SALT', 'IORE', 'CORE'],
+                  'rock_hopper': ['LIME', 'GRVL', 'SAND', 'PORE', 'SALT', 'IORE', 'CORE'],
                   # intermodal, uses box
                   'mail': ['MAIL'],
                   'metal': ['STEL', 'COPR'],
