@@ -144,31 +144,32 @@ def composite_visible_cargo_sprites(input_image, filename, cargo_sprites_filenam
     col_image_width = input_image_bounding_boxes[7][0] - input_image_bounding_boxes[4][0] + input_image_bounding_boxes[7][1]
     base_yoffs = 10 # hard-coded, worry about it another day
     spriterow_height = 30 # hard-coded, worry about it another day
-    crop_box_vehicle_cargo_loc_row = (second_col_start_x,
-                                      base_yoffs + spriterow_height,
-                                      second_col_start_x + col_image_width,
-                                      base_yoffs + (2 * spriterow_height))
+    crop_box_cargo_loc_row = (second_col_start_x,
+                              base_yoffs + spriterow_height,
+                              second_col_start_x + col_image_width,
+                              base_yoffs + (2 * spriterow_height))
 
-    cargo_loc_image = input_image.copy().crop(crop_box_vehicle_cargo_loc_row)
+    cargo_loc_image = input_image.copy().crop(crop_box_cargo_loc_row)
     # get the loc points
     loc_points = [(pixel[0] + second_col_start_x, pixel[1], pixel[2]) for pixel in pixa.pixascan(cargo_loc_image) if pixel[2] == 226]
     # sort them in y order, this causes sprites to overlap correctly when there are multiple loc points for an angle
     loc_points = sorted(loc_points, key=lambda x: x[1])
 
-    crop_box_composited_image = (0,
-                                 0, # y start is 0 not 10, we need to keep the top gutter as it's expected by consumers
-                                 300, # hard-coded, worry about it another day
-                                 10 + spriterow_height)
+    crop_box_body_image = (0,
+                           0, # y start is 0 not 10, we need to keep the top gutter as it's expected by consumers
+                           300, # hard-coded, worry about it another day
+                           10 + spriterow_height)
 
-    composited_image = input_image.copy().crop(crop_box_composited_image)
+    body_image = input_image.copy().crop(crop_box_body_image)
+    composited_image = body_image.copy()
 
     piece_cargo_sprites = PieceCargoSprites(polar_fox_constants=constants, polar_fox_graphics_path=os.path.join('generated'))
-    # cargo length required, extremely specific to intermodal containers, JFDI
+    # cargo length required, detection is extremely specific to intermodal containers, JFDI
     # note lack of 20 foot support here, lack of suitable cargo sprites
     if '_30_foot' in filename:
-        cargo_length = 4
+        cargo_length = 4 # probably fine?
     else:
-        cargo_length = 5
+        cargo_length = 5 # probably fine?
     cargo_sprites = piece_cargo_sprites.get_cargo_sprites_all_angles_for_length(cargo_sprites_filename, cargo_length)
 
     for pixel in loc_points:
@@ -193,6 +194,15 @@ def composite_visible_cargo_sprites(input_image, filename, cargo_sprites_filenam
                               pixel[0] + cargo_width,
                               10 + pixel[1] + 1)
         composited_image.paste(cargo_sprites[cargo_sprite_num][0], cargo_bounding_box, cargo_sprites[cargo_sprite_num][1])
+
+    # overlay body pixels using the mask
+    crop_box_mask = (0,
+                     0 + (2 * spriterow_height),
+                     300, # hard-coded, worry about it another day
+                     10 + (3 * spriterow_height))
+    mask_image = input_image.copy().crop(crop_box_mask)
+    mask_image = mask_image.point(lambda i: 255 if i == 226 else 0).convert("1")
+    composited_image.paste(body_image, crop_box_body_image, mask=mask_image)
 
     return composited_image
 
