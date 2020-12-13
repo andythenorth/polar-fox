@@ -98,6 +98,7 @@ cargo_labels = ['PASS', # pax first
                 'STSH',
                 'STWR',
                 'NH3_',
+                'STSE',
                 #
                 'NULL']
 
@@ -128,6 +129,8 @@ allowed_refits_by_label = {
                            'cryo_gases': ['CHLO', 'O2__', 'NH3_'],
                            'edible_liquids': ['MILK', 'WATR', 'BEER', 'FOOD', 'EOIL'],
                            'fruit_veg': ['FRUT', 'BEAN', 'CASS', 'JAVA', 'NUTS'],
+                           'long_products': ['STEL', 'METL', 'STCB', 'STAL', 'STST', 'COPR', 'STSH', 'STSE',
+                                             'STWR', 'WOOD', 'WDPR', 'BDMT', 'ALUM', 'PIPE', 'ZINC', 'ENSP'], # for bolster wagon
                            'reefer': ['FOOD', 'FRUT', 'FISH'], # hax for intermodal container sprite selection - reefer car refits work just fine using CC_REFRIGERATED
                            }
 
@@ -158,7 +161,7 @@ default_cargos = {
                   'flat': ['STEL', 'STCB', 'COPR', 'METL'],
                   'fruit_veg': ['FRUT', 'BEAN', 'CASS', 'JAVA', 'NUTS'],
                   'grain_hopper': ['GRAI', 'PLAS'],
-                  'rock_hopper': ['LIME', 'GRVL', 'SAND', 'PORE', 'SALT', 'IORE', 'CORE'],
+                  'long_products': ['STSE', 'WOOD', 'PIPE', 'STEL'],
                   # intermodal, uses box
                   'mail': ['MAIL'],
                   'metal': ['STEL', 'COPR'],
@@ -168,8 +171,8 @@ default_cargos = {
                   'plate': ['IRON', 'CSTI', 'ZINC', 'METL'],
                   'product_tank': ['ACID', 'RFPR', 'CHLO'],
                   'reefer': ['FOOD'],
+                  'rock_hopper': ['LIME', 'GRVL', 'SAND', 'PORE', 'SALT', 'IORE', 'CORE'],
                   'silo': ['CMNT', 'BDMT', 'RFPR', 'QLME', 'FMSP'],
-                  'stake_flat': ['WOOD'],
                   'supplies': ['ENSP'],
                   'tank': ['OIL_', 'CTAR', 'SULP', 'KAOL', 'RUBR'],
                   }
@@ -210,11 +213,13 @@ piece_vehicle_type_to_sprites_maps = {
                                       'coil': ['copper_coils_eye_longitudinal_1', 'steel_coils_eye_longitudinal_1', 'tarps_grey_1'], # tarps_grey_1 for DFLT
                                       'flat': ['barrels_silver_1', 'copper_coils_eye_to_sky_1', 'crates_1', 'ingots_1', 'logs_1',
                                                'lumber_planks_1', 'paper_coils_eye_to_sky_1', 'pipes_1',
-                                               'steel_coils_eye_to_sky_1', 'steel_wire_rod_1',
+                                               'steel_coils_eye_to_sky_1', 'steel_slab_1', 'steel_wire_rod_1',
                                                'tarps_grey_1', 'tarps_blue_1', 'tarps_gold_1', 'tarps_red_1'],
+                                      'long_products': ['ingots_1', 'logs_1', 'lumber_planks_1', 'pipes_1',
+                                                        'steel_slab_1', 'steel_wire_rod_1', 'tarps_grey_1'], # tarps_grey_1 for DFLT
                                       'open': ['barrels_silver_1', 'coffee_1', 'copper_coils_eye_to_sky_1', 'crates_1', 'fruit_1', 'ingots_1', 'logs_1',
                                                'lumber_planks_1', 'nuts_1', 'paper_coils_eye_to_sky_1', 'pipes_1',
-                                               'steel_coils_eye_to_sky_1', 'steel_wire_rod_1',
+                                               'steel_coils_eye_to_sky_1', 'steel_slab_1', 'steel_wire_rod_1',
                                                'tarps_grey_1', 'tarps_blue_1', 'tarps_gold_1', 'tarps_red_1'],
                                       'tree_length_logs': ['logs_2'],
                                      }
@@ -237,7 +242,8 @@ piece_sprites_to_cargo_labels_maps = {
                                       'paper_coils_eye_to_sky_1': ['PAPR'],
                                       'pipes_1': ['PIPE'],
                                       'steel_coils_eye_longitudinal_1': ['STEL', 'METL', 'STAL', 'STCB', 'STST', 'STSH'],
-                                      'steel_coils_eye_to_sky_1': ['STEL', 'METL', 'STAL', 'STCB', 'STST', 'STSH'],
+                                      'steel_coils_eye_to_sky_1': ['STEL', 'METL', 'STAL', 'STST', 'STSH'],
+                                      'steel_slab_1': ['STCB'],
                                       'steel_wire_rod_1': ['STWR'],
                                       'tarps_blue_1': ['FMSP'],
                                       'tarps_gold_1': ['ENSP'],
