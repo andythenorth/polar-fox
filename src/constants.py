@@ -236,7 +236,7 @@ piece_sprites_to_cargo_labels_maps = {
                                       'fruit_1': ['FRUT'],
                                       'ingots_1': ['ALUM', 'ZINC'],
                                       'logs_1': ['WOOD'],
-                                      'logs_2': ['WOOD', 'DFLT'],
+                                      'logs_2': ['DFLT'], # logs_2 is intended for vehicles that *only* use the log sprite, so just provide DFLT to avoid duplicate warnings from nmlc
                                       'lumber_planks_1': ['WDPR'],
                                       'nuts_1': ['NUTS'],
                                       'paper_coils_eye_to_sky_1': ['PAPR'],
