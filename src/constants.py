@@ -616,6 +616,7 @@ container_recolour_cargo_maps = (
 container_piece_cargo_maps = {
     "ingots_1": piece_sprites_to_cargo_labels_maps["ingots_1"],
     "pipes_1": piece_sprites_to_cargo_labels_maps["pipes_1"],
+    "steel_slab_1": piece_sprites_to_cargo_labels_maps["steel_slab_1"],
 }
 
 # indexes into the DOS palette for a company colour name
