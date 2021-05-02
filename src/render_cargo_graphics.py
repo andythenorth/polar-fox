@@ -245,7 +245,7 @@ for (
             )
         )
 
-vehicles_recolour_1CC = {
+automobile_cargo_recolour_1CC = {
     40: CC1,
     41: CC1 + 1,
     42: CC1 + 2,
@@ -256,9 +256,9 @@ vehicles_recolour_1CC = {
     47: CC1 + 7,
 }
 
-vehicles_cargo_graphics_maps = [
-    ("empty_20_foot", "empty_20_foot", vehicles_recolour_1CC),
-    ("trucks_1", "trucks_1_1CC", vehicles_recolour_1CC),
+automobile_cargo_graphics_maps = [
+    ("empty_20_foot", "empty_20_foot", automobile_cargo_recolour_1CC),
+    ("trucks_1", "trucks_1_1CC", automobile_cargo_recolour_1CC),
 ]
 
 knockout_guides_map = {k: 0 for k in range(215, 227)}
@@ -404,7 +404,7 @@ def main():
     cargo_graphics_items = {
         "piece_cargos": piece_cargo_graphics_maps,
         "intermodal_containers": intermodal_container_graphics_maps,  # must come after piece cargos as they're a dep for flatrack containers
-        "vehicles_cargos": vehicles_cargo_graphics_maps,
+        "automobile_cargos": automobile_cargo_graphics_maps,
     }
     for graphics_type_path, graphics_maps in cargo_graphics_items.items():
         graphics_input_path = os.path.join(
