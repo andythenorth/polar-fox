@@ -404,7 +404,7 @@ def main():
     cargo_graphics_items = {
         "piece_cargos": piece_cargo_graphics_maps,
         "intermodal_containers": intermodal_container_graphics_maps,  # must come after piece cargos as they're a dep for flatrack containers
-        "automobile_cargos": automobile_cargo_graphics_maps,
+        "automobiles": automobile_cargo_graphics_maps, # note that dist name doesn't include 'cargos' for these
     }
     for graphics_type_path, graphics_maps in cargo_graphics_items.items():
         graphics_input_path = os.path.join(

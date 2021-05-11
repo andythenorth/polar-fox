@@ -50,7 +50,7 @@ def main():
         dist_file.write(dist_file_header)
         dist_file.write(src_file.read())
         dist_file.close()
-    for dir_name in ["piece_cargos", "intermodal_containers", "automobile_cargos"]:
+    for dir_name in ["piece_cargos", "intermodal_containers", "automobiles"]:
         dist_dir_path = os.path.join(dist_graphics_path, dir_name)
         shutil.copytree(os.path.join(currentdir, "generated", dir_name), dist_dir_path)
         shutil.copy(
