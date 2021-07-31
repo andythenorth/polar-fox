@@ -43,6 +43,7 @@ def main():
         "constants.py",
         "git_info.py",
         "graphics_units.py",
+        "grf_farm.py",
         "pixa.py",
     ]:
         src_file = codecs.open(os.path.join(currentdir, "src", filename), "r", "utf8")
