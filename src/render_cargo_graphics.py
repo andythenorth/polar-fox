@@ -65,6 +65,7 @@ piece_cargo_graphics_maps = [
     ("pipes_1", "pipes_1", {}),
     ("steel_slab_1", "steel_slab_1", {}),
     ("steel_wire_rod_1", "steel_wire_rod_1", {}),
+    ("sugarcane_1", "sugarcane_1", {}),
     (
         "coils_eye_to_sky_1",
         "paper_coils_eye_to_sky_1",

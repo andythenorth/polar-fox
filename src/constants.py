@@ -396,6 +396,7 @@ piece_vehicle_type_to_sprites_maps = {
         "steel_coils_eye_to_sky_1",
         "steel_slab_1",
         "steel_wire_rod_1",
+        "sugarcane_1",
         "tarps_grey_1",
         "tarps_blue_1",
         "tarps_gold_1",
