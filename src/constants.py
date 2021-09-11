@@ -432,6 +432,7 @@ piece_sprites_to_cargo_labels_maps = {
     "nuts_1": ["NUTS"],
     "paper_coils_eye_to_sky_1": ["PAPR"],
     "pipes_1": ["PIPE"],
+    "sugarcane_1": ["SGCN"],
     "steel_coils_eye_longitudinal_1": ["STEL", "METL", "STAL", "STCB", "STST", "STSH"],
     "steel_coils_eye_to_sky_1": ["STEL", "METL", "STSH"],
     "steel_slab_1": ["STAL", "STCB", "STST"],
