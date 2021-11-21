@@ -101,6 +101,7 @@ cargo_labels = [
     "NH3_",
     "STSE",
     "SEED",
+    "TATO",
     #
     "NULL",
 ]
