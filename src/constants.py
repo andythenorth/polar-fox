@@ -267,6 +267,7 @@ default_cargos = {
     "coil": ["STST", "STAL", "STEL"],
     "coil_covered": ["STSH", "STEL"],
     "covered_ag": ["GRAI", "MAIZ", "BEAN", "NUTS", "FERT", "QLME"],
+    "covered_chemical": ["RFPR", "POTA", "PHOS", "SALT", "SAND"],
     "covered_mineral": ["QLME", "SALT", "PHOS", "POTA", "SAND", "KAOL", "NITR"],
     "covered_pellet": ["PLAS", "RUBR", "KAOL", "FERT", "SAND", "SASH", "BEAN"],
     "covered_roller_roof": [ "KAOL", "QLME", "SALT"],
