@@ -187,7 +187,7 @@ cargo_specific_recolour_container_maps = {
     "chemicals_tank": constants.chemicals_tanker_livery_recolour_maps_extended,
     "cryo_tank": constants.cryo_tanker_livery_recolour_maps_extended,
     "curtain_side": constants.curtain_side_livery_recolour_maps_extended,
-    "tank": constants.tanker_livery_recolour_maps_extended,
+    "tank": constants.tanker_livery_recolour_maps_containers,
 }
 
 for container_type, recolour_maps in cargo_specific_recolour_container_maps.items():
