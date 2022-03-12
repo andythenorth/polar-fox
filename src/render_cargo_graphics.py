@@ -185,7 +185,7 @@ container_recolour_maps = {
 cargo_specific_recolour_container_maps = {
     "bulk": constants.bulk_cargo_recolour_maps_extended,
     "chemicals_tank": constants.chemicals_tanker_livery_recolour_maps_extended,
-    "cryo_tank": constants.cryo_tanker_livery_recolour_maps_extended,
+    "cryo_tank": constants.cryo_tanker_livery_recolour_maps_containers,
     "curtain_side": constants.curtain_side_livery_recolour_maps_extended,
     "tank": constants.tanker_livery_recolour_maps_containers,
 }
