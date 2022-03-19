@@ -308,6 +308,7 @@ default_cargos = {
         "FOOD",
     ],  # ENSP was tried as default, but confusing when attached express cars for mail to pax trains
     "farm_products_box": ["FRUT", "BEAN", "CASS", "JAVA", "NUTS"],
+    "farm_products_hopper": ["MAIZ", "GRAI", "WHEA", "CERE", "SGBT", "OLSD", "CASS", "NUTS"],
     "flat": ["ALUM", "WDPR", "STEL", "COPR", "METL"],
     "flat_sliding_roof": [
         "ZINC",
