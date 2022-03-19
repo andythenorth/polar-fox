@@ -307,6 +307,7 @@ default_cargos = {
         "GOOD",
         "FOOD",
     ],  # ENSP was tried as default, but confusing when attached express cars for mail to pax trains
+    "farm_products_box": ["FRUT", "BEAN", "CASS", "JAVA", "NUTS"],
     "flat": ["ALUM", "WDPR", "STEL", "COPR", "METL"],
     "flat_sliding_roof": [
         "ZINC",
@@ -322,6 +323,7 @@ default_cargos = {
         "FMSP",
         "WDPR",
     ],  # possibly tarpaulin roof shouldn't be flat at all?
+    # fruit_veg should be deprecated
     "fruit_veg": ["FRUT", "BEAN", "CASS", "JAVA", "NUTS"],
     "hopper_coal": ["COAL", "COKE", "NITR", "POTA"],
     "hopper_ore": ["IORE", "CORE", "PORE", "PHOS", "COKE"],
