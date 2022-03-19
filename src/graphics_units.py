@@ -49,7 +49,7 @@ class ProcessingUnit(object):
 
 
 class PassThrough(ProcessingUnit):
-    """ PassThrough """
+    """PassThrough"""
 
     # just an example unit that does nothing
     def __init__(self):
@@ -60,7 +60,7 @@ class PassThrough(ProcessingUnit):
 
 
 class SimpleRecolour(ProcessingUnit):
-    """ SimpleRecolour """
+    """SimpleRecolour"""
 
     def __init__(self, recolour_map):
         self.recolour_map = recolour_map
@@ -72,7 +72,7 @@ class SimpleRecolour(ProcessingUnit):
 
 
 class SwapCompanyColours(ProcessingUnit):
-    """ SwapCompanyColours """
+    """SwapCompanyColours"""
 
     def __init__(self):
         # colour defaults
@@ -90,7 +90,7 @@ class SwapCompanyColours(ProcessingUnit):
 
 
 class AppendToSpritesheet(ProcessingUnit):
-    """ AppendToSpritesheet """
+    """AppendToSpritesheet"""
 
     """ Always appends at the end vertically.  Insertions and horizontal appending are not supported. """
 
@@ -130,7 +130,7 @@ class AppendToSpritesheet(ProcessingUnit):
 
 
 class TransposeAsymmetricSprites(ProcessingUnit):
-    """ TransposeAsymmetricSprites """
+    """TransposeAsymmetricSprites"""
 
     """ Provides column 1 sprites for asymmetric vehicles.  Maps from column 2 sprites."""
 
@@ -165,7 +165,7 @@ class TransposeAsymmetricSprites(ProcessingUnit):
 
 
 class AddBuyMenuSprite(ProcessingUnit):
-    """ AddBuyMenuSprite """
+    """AddBuyMenuSprite"""
 
     """ Inserts a (custom) buy menu sprite for articulated vehicles etc. """
     # to create the buy menu sprite, we need the *processed* vehicle sprites

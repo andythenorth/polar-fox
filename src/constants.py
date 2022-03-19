@@ -180,6 +180,24 @@ allowed_refits_by_label = {
     ],  # not CBLK, gets dedicated vehicles or box
     "cryo_gases": ["CHLO", "O2__", "NH3_"],
     "edible_liquids": ["MILK", "WATR", "BEER", "FOOD", "EOIL"],
+    "farm_products": [
+        "BEAN",
+        "CASS",
+        "CERE",
+        "FERT",
+        "FMSP",
+        "FRUT",
+        "GRAI",
+        "JAVA",
+        "MAIZ",
+        "NUTS",
+        "OLSD",
+        "SEED",
+        "SGBT",
+        "TATO",
+        "WHEA",
+    ],
+    # fruit_veg deprecated, should be switched to farm_products instead
     "fruit_veg": ["FRUT", "BEAN", "CASS", "JAVA", "NUTS"],
     "long_products": [
         "STEL",
