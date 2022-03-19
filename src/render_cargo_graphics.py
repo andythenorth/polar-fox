@@ -51,7 +51,8 @@ piece_cargo_graphics_maps = [
     (
         "tarps_1",
         "tarps_red_1",
-        {136: 40, 137: 41, 138: 42, 139: 43, 140: 44, 141: 45, 142: 46, 143: 47},
+        # actually pink-brown, *do not* use pink ranges 40-41 here as they are a reserved for vehicle recolouring
+        {136: 70, 137: 71, 138: 122, 139: 123, 140: 124, 141: 125, 142: 126, 143: 127},
     ),
     ("barrels_silver_1", "barrels_silver_1", {}),
     ("coffee_1", "coffee_1", {}),
