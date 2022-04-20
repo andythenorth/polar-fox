@@ -21,6 +21,7 @@ CC2 = 80
 red = 40
 grey = 2
 black = 1
+white = 8
 
 piece_cargo_graphics_maps = [
     (
@@ -257,10 +258,55 @@ automobile_cargo_recolour_1CC = {
     46: CC1 + 6,
     47: CC1 + 7,
 }
+automobile_cargo_recolour_red = {
+    40: red,
+    41: red + 1,
+    42: red + 2,
+    43: red + 3,
+    44: red + 4,
+    45: red + 5,
+    46: red + 6,
+    47: red + 7,
+}
+automobile_cargo_recolour_grey = {
+    40: grey,
+    41: grey + 1,
+    42: grey + 3,
+    43: grey + 4,
+    44: grey + 6,
+    45: grey + 8,
+    46: grey + 10,
+    47: grey + 12,
+}
+automobile_cargo_recolour_black = {
+    40: black,
+    41: black + 1,
+    42: black + 2,
+    43: black + 3,
+    44: black + 4,
+    45: black + 5,
+    46: black + 6,
+    47: black + 7,
+}
+automobile_cargo_recolour_white = {
+    40: white,
+    41: white + 1,
+    42: white + 2,
+    43: white + 3,
+    44: white + 4,
+    45: white + 5,
+    46: white + 6,
+    47: white + 8,
+}
 
 automobile_cargo_graphics_maps = [
     ("empty_20_foot", "empty_20_foot", automobile_cargo_recolour_1CC),
-    ("trucks_1", "trucks_1_1CC", automobile_cargo_recolour_1CC),
+    ("trucks_1_20_foot", "trucks_1_20_foot_1CC", automobile_cargo_recolour_1CC),
+    ("cars_1_20_foot", "cars_1_20_foot_1CC", automobile_cargo_recolour_1CC),
+    ("cars_1_20_foot", "cars_1_20_foot_red", automobile_cargo_recolour_red),
+    ("cars_1_20_foot", "cars_1_20_foot_grey", automobile_cargo_recolour_grey),
+    ("cars_1_20_foot", "cars_1_20_foot_black", automobile_cargo_recolour_black),
+    ("cars_1_20_foot", "cars_1_20_foot_white", automobile_cargo_recolour_white),
 ]
 
 knockout_guides_map = {k: 0 for k in range(215, 227)}
