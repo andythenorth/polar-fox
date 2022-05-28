@@ -302,11 +302,11 @@ automobile_cargo_recolour_white = {
 automobile_cargo_graphics_maps = [
     ("empty_20_foot", "empty_20_foot", automobile_cargo_recolour_1CC),
     ("trucks_1_20_foot", "trucks_1_20_foot_1CC", automobile_cargo_recolour_1CC),
-    ("cars_1_20_foot", "cars_1_20_foot_1CC", automobile_cargo_recolour_1CC),
-    ("cars_1_20_foot", "cars_1_20_foot_red", automobile_cargo_recolour_red),
-    ("cars_1_20_foot", "cars_1_20_foot_grey", automobile_cargo_recolour_grey),
-    ("cars_1_20_foot", "cars_1_20_foot_black", automobile_cargo_recolour_black),
-    ("cars_1_20_foot", "cars_1_20_foot_white", automobile_cargo_recolour_white),
+    ("cars_1_15_foot", "cars_1_15_foot_1CC", automobile_cargo_recolour_1CC),
+    ("cars_1_15_foot", "cars_1_15_foot_red", automobile_cargo_recolour_red),
+    ("cars_1_15_foot", "cars_1_15_foot_grey", automobile_cargo_recolour_grey),
+    ("cars_1_15_foot", "cars_1_15_foot_black", automobile_cargo_recolour_black),
+    ("cars_1_15_foot", "cars_1_15_foot_white", automobile_cargo_recolour_white),
 ]
 
 knockout_guides_map = {k: 0 for k in range(215, 227)}
