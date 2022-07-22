@@ -114,7 +114,6 @@ cargo_labels = [
     "STSE",
     "SEED",
     "TATO",
-    "BAKE",
     #
     "NULL",
 ]
@@ -184,7 +183,6 @@ allowed_refits_by_label = {
         "SALT",
         "PLAS",
         "PHOS",
-        "BAKE",
     ],  # not CBLK, gets dedicated vehicles or box
     "cryo_gases": ["CHLO", "O2__", "NH3_"],
     "edible_liquids": ["MILK", "WATR", "BEER", "FOOD", "EOIL"],
