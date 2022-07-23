@@ -254,6 +254,7 @@ disallowed_refits_by_label = {
         "URAN",
         "CBLK",
         "PLAS",
+        "BAKE",
     ],
     "non_generic_liquids": [
         "MILK",
