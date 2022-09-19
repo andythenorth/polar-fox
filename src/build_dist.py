@@ -45,6 +45,7 @@ def main():
         "graphics_units.py",
         "grf_farm.py",
         "pixa.py",
+        "utils.py",
     ]:
         src_file = codecs.open(os.path.join(currentdir, "src", filename), "r", "utf8")
         dist_file = codecs.open(os.path.join(dist_package_path, filename), "w", "utf8")
