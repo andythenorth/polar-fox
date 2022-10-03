@@ -166,7 +166,7 @@ allowed_refits_by_label = {
         "RFPR",
         "CHLO",
     ],
-    "cold_metal": [
+    "metal_coil": [
         "STEL",
         "METL",
         "STCB",
