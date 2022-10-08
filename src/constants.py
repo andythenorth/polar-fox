@@ -118,6 +118,8 @@ cargo_labels = [
     "BAKE",
     "N7__",
     "WELD",
+    "RBAR",
+    "STPP",
     #
     "NULL",
 ]
@@ -176,6 +178,7 @@ allowed_refits_by_label = {
         "STSH",
         "STWR",
         "ALUM",
+        "RBAR",
     ],
     "covered_hoppers": [
         "GRAI",
@@ -314,7 +317,7 @@ default_cargos = {
     "box_intermodal": ["POWR", "GOOD", "PAPR"],
     "box_sliding_wall": ["VENG", "BOOM", "PAPR", "JAVA", "GOOD"],
     "box_vehicle_parts": ["VPTS", "PAPR", "RUBR", "STEL", "WOOL", "GOOD"],
-    "bulkhead": ["STCB", "PIPE", "WDPR", "ALUM", "ZINC", "STEL", "COPR"],
+    "bulkhead": ["STCB", "PIPE", "STPP", "WDPR", "ALUM", "ZINC", "STEL", "COPR"],
     "coil": ["STST", "STAL", "STEL"],
     "coil_covered": ["STSH", "STEL"],
     "covered_ag": ["GRAI", "MAIZ", "BEAN", "NUTS", "FERT", "QLME"],
@@ -370,7 +373,7 @@ default_cargos = {
     "hopper_coal": ["COAL", "COKE", "NITR", "POTA"],
     "hopper_ore": ["IORE", "CORE", "PORE", "PHOS", "COKE"],
     "hopper_rock": ["LIME", "GRVL", "SAND", "PORE", "SALT", "IORE", "CORE"],
-    "long_products": ["STSE", "WOOD", "PIPE", "STEL"],
+    "long_products": ["STSE", "WOOD", "PIPE", "STPP", "STEL"],
     "mail": ["MAIL"],
     "metal": ["STEL", "COPR"],
     "open": ["GOOD", "STWR", "WDPR"],
@@ -505,7 +508,7 @@ piece_sprites_to_cargo_labels_maps = {
     "lumber_planks_1": ["WDPR"],
     "nuts_1": ["NUTS"],
     "paper_coils_eye_to_sky_1": ["PAPR"],
-    "pipes_1": ["PIPE"],
+    "pipes_1": ["PIPE", "STPP"],
     "sugarcane_1": ["SGCN"],
     "steel_coils_eye_longitudinal_1": ["STEL", "METL", "STAL", "STCB", "STST", "STSH"],
     "steel_coils_eye_to_sky_1": ["STEL", "METL", "STSH"],
