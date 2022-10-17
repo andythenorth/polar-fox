@@ -120,6 +120,7 @@ cargo_labels = [
     "WELD",
     "RBAR",
     "STPP",
+    "SOAP",
     #
     "NULL",
 ]
