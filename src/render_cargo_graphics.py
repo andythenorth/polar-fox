@@ -22,6 +22,8 @@ red = 40
 grey = 2
 black = 1
 white = 8
+blue = 144
+mint_green = 96
 
 piece_cargo_graphics_maps = [
     (
@@ -298,6 +300,26 @@ automobile_cargo_recolour_white = {
     46: white + 6,
     47: white + 8,
 }
+automobile_cargo_recolour_blue = {
+    40: blue,
+    41: blue + 1,
+    42: blue + 2,
+    43: blue + 3,
+    44: blue + 4,
+    45: blue + 5,
+    46: blue + 6,
+    47: blue + 7,
+}
+automobile_cargo_recolour_mint_green = {
+    40: mint_green,
+    41: mint_green + 1,
+    42: mint_green + 2,
+    43: mint_green + 3,
+    44: mint_green + 4,
+    45: mint_green + 5,
+    46: mint_green + 6,
+    47: mint_green + 7,
+}
 
 automobile_cargo_graphics_maps = [
     ("empty_20_foot", "empty_20_foot", automobile_cargo_recolour_1CC),
@@ -305,8 +327,11 @@ automobile_cargo_graphics_maps = [
     ("cars_1_15_foot", "cars_1_15_foot_1CC", automobile_cargo_recolour_1CC),
     ("cars_1_15_foot", "cars_1_15_foot_red", automobile_cargo_recolour_red),
     ("cars_1_15_foot", "cars_1_15_foot_grey", automobile_cargo_recolour_grey),
+    ("cars_1_15_foot", "cars_1_15_foot_mint_green", automobile_cargo_recolour_mint_green),
+    ("cars_1_15_foot", "cars_1_15_foot_blue", automobile_cargo_recolour_blue),
+    # legacy support - used in some Horse branches that are behind the vehicles branch as of Oct 2022
     ("cars_1_15_foot", "cars_1_15_foot_black", automobile_cargo_recolour_black),
-    ("cars_1_15_foot", "cars_1_15_foot_white", automobile_cargo_recolour_white),
+    ("cars_1_15_foot", "cars_1_15_foot_white", automobile_cargo_recolour_white)
 ]
 
 knockout_guides_map = {k: 0 for k in range(215, 227)}
