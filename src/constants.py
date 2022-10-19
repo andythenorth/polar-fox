@@ -123,6 +123,7 @@ cargo_labels = [
     "SOAP",
     "H2__",
     "ALO_",
+    "NHNO",
     #
     "NULL",
 ]
@@ -207,6 +208,7 @@ allowed_refits_by_label = {
         "PHOS",
         "BAKE",
         "ALO_",
+        "NHNO",
         # not CBLK, gets dedicated vehicles or box
     ],
     "cryo_gases": ["CHLO", "O2__", "NH3_", "N7__", "WELD", "H2__"],
