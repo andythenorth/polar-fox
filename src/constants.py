@@ -121,6 +121,8 @@ cargo_labels = [
     "RBAR",
     "STPP",
     "SOAP",
+    "H2__",
+    "ALO_",
     #
     "NULL",
 ]
@@ -204,9 +206,10 @@ allowed_refits_by_label = {
         "PLAS",
         "PHOS",
         "BAKE",
+        "ALO_",
         # not CBLK, gets dedicated vehicles or box
     ],
-    "cryo_gases": ["CHLO", "O2__", "NH3_", "N7__", "WELD"],
+    "cryo_gases": ["CHLO", "O2__", "NH3_", "N7__", "WELD", "H2__"],
     "edible_liquids": ["MILK", "WATR", "BEER", "FOOD", "EOIL"],
     "farm_products": [
         "BEAN",
