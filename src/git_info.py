@@ -49,13 +49,14 @@ def get_monorepo_tag_parts():
         parts = tag.split("/")
         return parts
     else:
-        return "undefined"
+        # very clunky return to ensure we get the expected number of printed results
+        return ["undefined", "undefined"]
 
 def run():
     # for the default case we just print the results, this is used by e.g. Makefiles
     # for python cases, use the get_foo methods directly
     # note that we print the leading and trailing parts of the tag in the monorepo case (baked-in assumption that only 2 parts exist)
-    print(get_revision(), get_version(), get_tag_exact_match(), get_monorepo_tag_parts()[0], get_monorepo_tag_parts()[1])
+    print(get_revision(), get_version(), get_tag_exact_match(), ' '.join(get_monorepo_tag_parts()))
 
 
 if __name__ == "__main__":
