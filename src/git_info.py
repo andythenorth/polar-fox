@@ -36,10 +36,26 @@ def get_tag_exact_match():
     return exe_cmd(["git", "describe", "--tags", "--exact-match"])[0]
 
 
+def get_monorepo_tag_parts():
+    # some projects use monorepos to release multiple artefacts
+    # each released artefact has its own tag subpath, e.g.
+    # horse/1.2.3
+    # ibex/3.4.5
+    # git will create these tags as actual filesystem subpaths in .git/refs/tags/
+    tag = get_tag_exact_match()
+    if tag != "undefined":
+        # consumers probably assume we only have one level of nesting here, but don't worry about it...
+        # ...if the split produces too many parts consumer release scripts will probably fail, but deal with that later if it happens
+        parts = tag.split("/")
+        return parts
+    else:
+        return "undefined"
+
 def run():
     # for the default case we just print the results, this is used by e.g. Makefiles
     # for python cases, use the get_foo methods directly
-    print(get_revision(), get_version(), get_tag_exact_match())
+    # note that we print the leading and trailing parts of the tag in the monorepo case (baked-in assumption that only 2 parts exist)
+    print(get_revision(), get_version(), get_tag_exact_match(), get_monorepo_tag_parts()[0], get_monorepo_tag_parts()[1])
 
 
 if __name__ == "__main__":
