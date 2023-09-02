@@ -130,6 +130,7 @@ cargo_labels = [
     "FEAL",
     "STTB",
     "TYCO",
+    "HWAR",
     #
     "NULL",
 ]
@@ -356,6 +357,7 @@ default_cargos = {
         "FMSP",
         "GOOD",
         "FOOD",
+        "HWAR", # because delivered to towns
     ],
     "farm_products_box": ["FRUT", "BEAN", "CASS", "JAVA", "NUTS", "FOOD"],
     "farm_products_hopper": [
