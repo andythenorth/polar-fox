@@ -131,6 +131,7 @@ cargo_labels = [
     "STTB",
     "TYCO",
     "HWAR",
+    "STBR",
     #
     "NULL",
 ]
