@@ -180,7 +180,7 @@ allowed_refits_by_label = {
         "RFPR",
         "CHLO",
     ],
-    "metal_coil": [
+    "metal_products": [
         "STEL",
         "METL",
         "STCB",
@@ -191,6 +191,13 @@ allowed_refits_by_label = {
         "STWR",
         "ALUM",
         "RBAR",
+        "STBL",
+        "STBR",
+        "STIG",
+        "STSE",
+        "STSL",
+        "TYCO",
+        "ZINC",
     ],
     "covered_hoppers": [
         "GRAI",
