@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <link type="text/css" href="css/bootstrap.min.css" rel="stylesheet">
+        <link type="text/css" href="css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link type="text/css" href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+
+            <h1>Cargo Classes</h1>
+            <p>The Polar Fox, 2024 version</p>
+            <!--! table of contents -->
+            <table class="table table-striped table-condensed table-bordered tablesorter">
+                <tal:cargo_class_nodes repeat="cargo_class_node cargo_classes_taxonomy.items()">
+                    <tal:cargo_class define="cargo_class_node_id cargo_class_node[0]; cargo_class cargo_class_node[1];">
+                        <tr>
+                            <td><a href="#${cargo_class_node_id}">${cargo_class.name}</a></td>
+                            <td>${cargo_class.bit_number}</td>
+                        </tr>
+                    </tal:cargo_class>
+                </tal:cargo_class_nodes>
+            </table>
+
+            <tal:cargo_class_nodes repeat="cargo_class_node cargo_classes_taxonomy.items()">
+                <tal:cargo_class define="cargo_class_node_id cargo_class_node[0]; cargo_class cargo_class_node[1];">
+                    <hr style="margin-top:30px; margin-bottom:30px;" />
+                    <h2 id="${cargo_class_node_id}">
+                        ${cargo_class.name}
+                    </h2>
+                    <p class="lead">${cargo_class_node_id}</p>
+                    <table class="cargo-class-facts">
+                        <tbody>
+                            <tr>
+                                <th>Description</th>
+                                <td>${cargo_class.description}</td>
+                            </tr>
+                            <tr>
+                                <th>Example cargos</th>
+                                <td>
+                                    ${', '.join(sorted(cargo_class.example_cargos)).capitalize()}<!--! stupid whitespace suppression shenans
+                                 --><tal:fancy condition="len(cargo_class.example_cargos) > 1">
+                                        <em>and more</em><!--! stupid whitespace suppression shenans
+                                 --></tal:fancy>.
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Example rail vehicles</th>
+                                <td>${', '.join(sorted(cargo_class.example_rail_vehicles)).capitalize()}</td>
+                            </tr>
+                            <tr>
+                                <th>Example road vehicles</th>
+                                <td>${', '.join(sorted(cargo_class.example_road_vehicles)).capitalize()}</td>
+                            </tr>
+                            <tr>
+                                <th>Example ships</th>
+                                <td>${', '.join(sorted(cargo_class.example_ships)).capitalize()}</td>
+                            </tr>
+                            <tr>
+                                <th>Cargo GRF advice</th>
+                                <td>${cargo_class.cargo_grf_advice}</td>
+                            </tr>
+                            <tr>
+                                <th>Vehicle GRF advice</th>
+                                <td>${cargo_class.vehicle_grf_advice}</td>
+                            </tr>
+                            <tr>
+                                <th>Replaces or reuses NML/GS classname</th>
+                                <td>${cargo_class.nml_cargo_class_name}</td>
+                            </tr>
+                            <tr>
+                                <th>Bit number in legacy scheme</th>
+                                <td>${cargo_class.bit_number}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </tal:cargo_class>
+            </tal:cargo_class_nodes>
+
+        </div>
+    </body>
+</html>

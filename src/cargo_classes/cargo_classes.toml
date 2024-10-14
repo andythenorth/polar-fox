@@ -1,0 +1,207 @@
+[PF_CC_PASSENGERS]
+bit_number = 0
+code = "0x0001"
+nml_cargo_class_name = "CC_PASSENGERS"
+name = "Passengers"
+description = "Passengers."
+cargo_grf_advice = "CABBAGE"
+vehicle_grf_advice = "CABBAGE"
+example_cargos = ["Passengers"]
+example_rail_vehicles = ["Passenger Trains", "Buses"]
+example_road_vehicles = ["Bus", "Coach"]
+example_ships = ["Ferry", "Passenger Hovercraft", "Passenger Hydrofoil"]
+
+[PF_CC_MAIL]
+bit_number = 1
+code = "0x0002"
+nml_cargo_class_name = "CC_MAIL"
+name = "Mail"
+description = "Mail."
+cargo_grf_advice = "CABBAGE"
+vehicle_grf_advice = "CABBAGE"
+example_cargos = ["Mail"]
+example_rail_vehicles = ["Mail Vans"]
+example_road_vehicles = ["CABBAGE"]
+example_ships = ["Mail Boat", "Mail Hovercraft", "Packet Boat"]
+
+[PF_CC_EXPRESS]
+bit_number = 2
+code = "0x0004"
+nml_cargo_class_name = "CC_EXPRESS"
+name = "Express"
+description = "CABBAGE."
+cargo_grf_advice = "CABBAGE"
+vehicle_grf_advice = "CABBAGE"
+example_cargos = ["CABBAGE"]
+example_rail_vehicles = ["CABBAGE"]
+example_road_vehicles = ["CABBAGE"]
+example_ships = ["Mail Boat", "Mail Hovercraft", "Packet Boat"]
+
+[PF_CC_ARMOURED]
+bit_number = 3
+code = "0x0008"
+nml_cargo_class_name = "CC_ARMOURED"
+name = "Armoured"
+description = "CABBAGE."
+cargo_grf_advice = "CABBAGE"
+vehicle_grf_advice = "CABBAGE"
+example_cargos = ["Valuables", "Diamonds", "Gold", "Explosives"]
+example_rail_vehicles = ["Armored Vans", "Bullion Vans", "Express Vans"]
+example_road_vehicles = ["CABBAGE"]
+example_ships = ["Mail Boat", "Mail Hovercraft", "Packet Boat"]
+
+[PF_CC_BULK_UNCOVERED]
+bit_number = 4
+code = "0x0010"
+nml_cargo_class_name = "CC_BULK"
+name = "Bulk (Uncovered)"
+description = "Loose bulk cargo that can be transported in open vehicles. CABBAGE"
+cargo_grf_advice = "CABBAGE"
+vehicle_grf_advice = "CABBAGE"
+example_cargos = ["Coal", "Iron Ore", "Stone", "Gravel", "Sand", "Sugar Beet", "Sulphur"]
+example_rail_vehicles = ["CABBAGE"]
+example_road_vehicles = ["CABBAGE"]
+example_ships = ["Bulk Ship", "Bulk Barge"]
+
+[PF_CC_GENERAL_CARGO]
+bit_number = 5
+code = "0x0020"
+nml_cargo_class_name = "CC_PIECE_GOODS"
+name = "General Cargo"
+description = "Most cargos can be transported packaged in crates, boxes, barrels, jars, tins, cans, bags, sacks, bales, or pallets. This class is suitable for nearly all cargos, including bulk, liquid, gas, powder, and food items."
+cargo_grf_advice = "While this class may not be ideal for unique freight such as livestock or radioactive materials that lack other suitable classes, it is advisable to set it as a fallback to ensure compatibility with vehicle GRFs. It should not be applied to non-freight items like passengers and mail."
+vehicle_grf_advice = "If freight vehicles are featured, it’s wise to consider supporting this class on at least one vehicle at any time, as it represents the primary freight category."
+example_cargos = ["Goods", "Coal", "Food", "Chemicals", "Steel", "Copper", "Paper", "Fruit", "Grain", "Logs", "Oil", "Oxygen", "Tyres", "Wool", "Timber", "Building Materials", "Farm Supplies", "Glass", "Fish", "Iron Ore", "China Clay", "Aluminium", "Zinc"]
+example_rail_vehicles = ["CABBAGE"]
+example_road_vehicles = ["CABBAGE"]
+example_ships = ["CABBAGE"]
+
+[PF_CC_LIQUID_NONFOOD]
+bit_number = 6
+code = "0x0040"
+nml_cargo_class_name = "CC_LIQUID"
+name = "Liquid (Non-Food)"
+description = "Transport of non-food liquids."
+cargo_grf_advice = "CABBAGE"
+vehicle_grf_advice = "CABBAGE"
+example_cargos = ["Crude Oil", "Petroleum Fuels", "Chemicals", "Acid", "Paints & Coatings", "Sulphur", "Coal Tar"]
+example_rail_vehicles = ["Tank Wagons"]
+example_road_vehicles = ["CABBAGE"]
+example_ships = ["CABBAGE"]
+
+[PF_CC_PACKAGED_FOOD]
+bit_number = 7
+code = "0x0080"
+nml_cargo_class_name = "CC_REFRIGERATED"
+name = "Packaged Food"
+description = "Packaged food items that may require temperature control."
+cargo_grf_advice = "CABBAGE"
+vehicle_grf_advice = "CABBAGE"
+example_cargos = ["CABBAGE"]
+example_rail_vehicles = ["CABBAGE"]
+example_road_vehicles = ["CABBAGE"]
+example_ships = ["CABBAGE"]
+
+[PF_CC_GAS]
+bit_number = 8
+code = "0x0100"
+nml_cargo_class_name = "CC_HAZARDOUS"
+name = "Gas"
+description = "Gases, including those that may be transported under pressure or cryogenically."
+cargo_grf_advice = "CABBAGE"
+vehicle_grf_advice = "CABBAGE"
+example_cargos = ["Nitrogen", "Ammonia", "Chlorine", "Oxygen", "Welding Supplies"]
+example_rail_vehicles = ["CABBAGE"]
+example_road_vehicles = ["CABBAGE"]
+example_ships = ["CABBAGE"]
+
+[PF_CC_BULK_COVERED_NONFOOD]
+bit_number = 9
+code = "0x0200"
+nml_cargo_class_name = "CC_COVERED"
+name = "Bulk (Covered Non-Food)"
+description = "Non-food bulk materials needing cover during transport. CABBAGE"
+cargo_grf_advice = "CABBAGE"
+vehicle_grf_advice = "CABBAGE"
+example_cargos = ["Cement", "Fertilizers", "Salt", "Potash", "Sand", "Kaolin Clay"]
+example_rail_vehicles = ["Covered Hopper Wagons", "Pneumatic Tankers", "Enclosed Bulk Trucks"]
+example_road_vehicles = ["CABBAGE"]
+example_ships = ["CABBAGE"]
+
+[PF_CC_FLATBED_FREIGHT]
+bit_number = 10
+code = "0x0400"
+nml_cargo_class_name = "CC_OVERSIZED"
+name = "Flatbed Freight"
+description = "Transport of oversized and heavy cargo."
+cargo_grf_advice = "CABBAGE"
+vehicle_grf_advice = "CABBAGE"
+example_cargos = ["Lumber", "Steel Beams", "Construction Equipment", "Pipes", "CABBAGE"]
+example_rail_vehicles = ["Flatbed Wagons", "Stake Cars", "CABBAGE"]
+example_road_vehicles = ["CABBAGE"]
+example_ships = ["CABBAGE"]
+
+[PF_CC_POWDER]
+bit_number = 11
+code = "0x0800"
+nml_cargo_class_name = "CC_POWDERIZED"
+name = "Dry Powder"
+description = "Dry powdered materials that flow under air pressure."
+cargo_grf_advice = "Set this class for all powder cargos, including food-grade and non-food-grade types. Powders are relatively niche, and food-grade powders are a niche within a niche, not justifying a separate class."
+vehicle_grf_advice = "If specialist powder vehicles need to be separated from general powder vehicles, manage this by including or excluding specific cargo labels. For example, GRFs may provide dedicated vehicles for food-grade powders or carbon black, which should be handled with appropriate labels."
+example_cargos = ["Cement", "Carbon Black", "Sand", "Soda Ash", "Quicklime", "Flour", "Sugar", "Cleaning Agents"]
+example_rail_vehicles = ["Silo Wagons", "Bulk Powder Trucks", "Pneumatic Tankers", "CABBAGE"]
+example_road_vehicles = ["CABBAGE"]
+example_ships = ["CABBAGE"]
+
+[PF_CC_BULK_COVERED_FOOD]
+bit_number = 12
+code = "0x1000"
+nml_cargo_class_name = "CC_NON_POURABLE, CC_NEO_BULK"
+name = "Bulk (Covered Food)"
+description = "Food-grade bulk commodities, suitable for gravity flow, and requiring protection from weather and environmental elements."
+cargo_grf_advice = "CABBAGE"
+vehicle_grf_advice = "CABBAGE"
+example_cargos = ["Wheat", "Corn", "Maize", "Rice", "Sugar", "Cassava", "Flour", "Coffee", "Beans", "Farm Supplies", "Food"]
+example_rail_vehicles = ["Grain Hopper Wagons", "Grain Trucks", "Covered Hoppers"]
+example_road_vehicles = []
+example_ships = []
+
+[PF_CC_LIQUID_FOOD]
+bit_number = 13
+code = "0x2000"
+nml_cargo_class_name = "N/A"
+name = "Liquid (Food-Grade)"
+description = "Food-grade liquids that require protection from contamination. Temperature control (insulation) might also be used."
+cargo_grf_advice = "CABBAGE"
+vehicle_grf_advice = "CABBAGE"
+example_cargos = ["Milk", "Alcohol", "Edible Oil", "Sugar", "Molasses", "Cola", "Water"]
+example_rail_vehicles = ["Food-Grade Tank Wagons", "Sanitary Tankers", "Dairy Trucks", "CABBAGE"]
+example_road_vehicles = ["CABBAGE"]
+example_ships = ["CABBAGE"]
+
+[PF_CC_UNUSED_BIT_14]
+bit_number = 14
+code = "0x4000"
+nml_cargo_class_name = "-"
+name = "[Unused]"
+description = "Not used as of October 2024"
+cargo_grf_advice = ""
+vehicle_grf_advice = ""
+example_cargos = ["-"]
+example_rail_vehicles = ["-"]
+example_road_vehicles = ["-"]
+example_ships = ["-"]
+
+[PF_CC_SPECIAL]
+bit_number = 15
+code = "0x8000"
+nml_cargo_class_name = "CC_SPECIAL"
+name = "[Special]"
+description = "Reserved. Do not use this class."
+cargo_grf_advice = ""
+vehicle_grf_advice = ""
+example_cargos = ["-"]
+example_rail_vehicles = ["-"]
+example_road_vehicles = ["-"]
+example_ships = ["-"]
