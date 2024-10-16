@@ -7,10 +7,22 @@
     <body>
         <div class="container">
 
-            <h1>Cargo Classes</h1>
-            <p>The Polar Fox, 2024 version</p>
+            <h1>Cargo Class Scheme</h1>
+            <p class="lead">Scheme ID: ${cargo_classes_scheme_name}</p>
+            <ul>
+                <tal:block repeat="description_entry cargo_classes_metadata['description']">
+                    <li>${description_entry}</li>
+                </tal:block>
+            </ul>
+            <hr />
+
+            <h2>Cargo Classes</h2>
             <!--! table of contents -->
             <table class="table table-striped table-condensed table-bordered tablesorter">
+                <tr>
+                    <th>Cargo class</th>
+                    <th>Bit number</th>
+                </tr>
                 <tal:cargo_class_nodes repeat="cargo_class_node cargo_classes_taxonomy.items()">
                     <tal:cargo_class define="cargo_class_node_id cargo_class_node[0]; cargo_class cargo_class_node[1];">
                         <tr>
@@ -24,15 +36,15 @@
             <tal:cargo_class_nodes repeat="cargo_class_node cargo_classes_taxonomy.items()">
                 <tal:cargo_class define="cargo_class_node_id cargo_class_node[0]; cargo_class cargo_class_node[1];">
                     <hr style="margin-top:30px; margin-bottom:30px;" />
-                    <h2 id="${cargo_class_node_id}">
+                    <h3 id="${cargo_class_node_id}">
                         ${cargo_class.name}
-                    </h2>
+                    </h3>
                     <p class="lead">${cargo_class_node_id}</p>
                     <table class="cargo-class-facts">
                         <tbody>
                             <tr>
-                                <th>Description</th>
-                                <td>${cargo_class.description}</td>
+                                <th>Cargo class description</th>
+                                <td>${cargo_class.cargo_class_description}</td>
                             </tr>
                             <tr>
                                 <th>Example cargos</th>
@@ -40,28 +52,57 @@
                                     ${', '.join(sorted(cargo_class.example_cargos)).capitalize()}<!--! stupid whitespace suppression shenans
                                  --><tal:fancy condition="len(cargo_class.example_cargos) > 1">
                                         <em>and more</em><!--! stupid whitespace suppression shenans
-                                 --></tal:fancy>.
+                                 --></tal:fancy>${'.' if len(cargo_class.example_cargos) > 1 else None}
                                 </td>
                             </tr>
                             <tr>
-                                <th>Example rail vehicles</th>
-                                <td>${', '.join(sorted(cargo_class.example_rail_vehicles)).capitalize()}</td>
-                            </tr>
-                            <tr>
-                                <th>Example road vehicles</th>
-                                <td>${', '.join(sorted(cargo_class.example_road_vehicles)).capitalize()}</td>
-                            </tr>
-                            <tr>
-                                <th>Example ships</th>
-                                <td>${', '.join(sorted(cargo_class.example_ships)).capitalize()}</td>
-                            </tr>
-                            <tr>
                                 <th>Cargo GRF advice</th>
-                                <td>${cargo_class.cargo_grf_advice}</td>
+                                <td>
+                                    <tal:block switch="len(cargo_class.cargo_grf_advice) > 1">
+                                        <tal:is_list case="True">
+                                            <ul>
+                                                <tal:list_items repeat="list_item cargo_class.cargo_grf_advice">
+                                                    <li>${list_item}</li>
+                                                </tal:list_items>
+                                            </ul>
+                                        </tal:is_list>
+                                        <tal:is_list case="False">
+                                            <p>${cargo_class.cargo_grf_advice[0]}</p>
+                                        </tal:is_list>
+                                    </tal:block>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Example vehicles</th>
+                                <td>
+                                    <tal:block repeat="example_vehicle sorted(vehicle_cargo_class_mapping.get(cargo_class_node_id, []))">
+                                        <tal:vehicle switch="example_vehicle in example_vehicles">
+                                            <tal:valid_vehicle case="True">
+                                                <a href="#${example_vehicle}">${example_vehicles[example_vehicle].name}</a>
+                                            </tal:valid_vehicle>
+                                            <tal:invalid_vehicle case="False">
+                                                ${example_vehicle}
+                                            </tal:invalid_vehicle>
+                                        </tal:vehicle>
+                                    </tal:block>
+                                </td>
                             </tr>
                             <tr>
                                 <th>Vehicle GRF advice</th>
-                                <td>${cargo_class.vehicle_grf_advice}</td>
+                                <td>
+                                    <tal:block switch="len(cargo_class.vehicle_grf_advice) > 1">
+                                        <tal:is_list case="True">
+                                            <ul>
+                                                <tal:list_items repeat="list_item cargo_class.vehicle_grf_advice">
+                                                    <li>${list_item}</li>
+                                                </tal:list_items>
+                                            </ul>
+                                        </tal:is_list>
+                                        <tal:is_list case="False">
+                                            <p>${cargo_class.vehicle_grf_advice[0]}</p>
+                                        </tal:is_list>
+                                    </tal:block>
+                                </td>
                             </tr>
                             <tr>
                                 <th>Replaces or reuses NML/GS classname</th>
@@ -75,6 +116,56 @@
                     </table>
                 </tal:cargo_class>
             </tal:cargo_class_nodes>
+
+            <hr style="margin-top:30px; margin-bottom:30px;" />
+
+            <h2>Example Vehicles</h2>
+            <!--! table of contents -->
+            <table class="table table-striped table-condensed table-bordered tablesorter">
+                <tr>
+                    <th>Example vehicle</th>
+                </tr>
+                <tal:vehicle_nodes repeat="vehicle_node example_vehicles.items()">
+                    <tal:example_vehicle define="vehicle_node_id vehicle_node[0]; example_vehicle vehicle_node[1];">
+                        <tr>
+                            <td><a href="#${vehicle_node_id}">${example_vehicle.name}</a></td>
+                        </tr>
+                    </tal:example_vehicle>
+                </tal:vehicle_nodes>
+            </table>
+
+            <tal:example_vehicle_nodes repeat="example_vehicle_node example_vehicles.items()">
+                <tal:example_vehicle define="example_vehicle_node_id example_vehicle_node[0]; example_vehicle example_vehicle_node[1];">
+                    <hr style="margin-top:30px; margin-bottom:30px;" />
+                    <h2 id="${example_vehicle_node_id}">
+                        ${example_vehicle.name} <span class="muted">(example)</span>
+                    </h2>
+                    <table class="cargo-class-facts">
+                        <tbody>
+                            <tr>
+                                <th>Vehicle description</th>
+                                <td>${example_vehicle.vehicle_description}</td>
+                            </tr>
+                            <tr>
+                                <th>Cargo classes allowed</th>
+                                <td>
+                                    <tal:block repeat="cargo_class sorted(example_vehicle.cargo_classes_allowed)">
+                                        <a href="#${cargo_class}">${cargo_class}</a>
+                                    </tal:block>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Cargo classes disallowed</th>
+                                <td>
+                                    <tal:block repeat="cargo_class sorted(example_vehicle.cargo_classes_disallowed)">
+                                        <a href="#${cargo_class}">${cargo_class}</a>
+                                    </tal:block>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </tal:example_vehicle>
+            </tal:example_vehicle_nodes>
 
         </div>
     </body>

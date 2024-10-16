@@ -1,0 +1,217 @@
+# order here is the default order we want classes in when rendered for docs
+# as needed, the docs compile can locally render the list out by bit order or other attrs
+[METADATA]
+description = [
+    "Low levels of change",
+    "Two new bits; relatively high reliance on exclusions",
+    "Redefine a handful of existing little-used classes",
+    "Redefine spec / advice for selected classes.",
+]
+
+# cargo classes
+
+[CC_PASSENGERS]
+bit_number = 0
+code = "0x0001"
+nml_cargo_class_name = "CC_PASSENGERS"
+name = "Passengers"
+cargo_class_description = "Passengers."
+cargo_grf_advice = ["Generally this only applies to specific Passengers cargo."]
+vehicle_grf_advice = ["CABBAGE"]
+example_cargos = ["Passengers"]
+
+[CC_MAIL]
+bit_number = 1
+code = "0x0002"
+nml_cargo_class_name = "CC_MAIL"
+name = "Mail"
+cargo_class_description = "Mail."
+cargo_grf_advice = ["Generally this only applies to specific Mail cargo."]
+vehicle_grf_advice = ["CABBAGE"]
+example_cargos = ["Mail"]
+
+[CC_EXPRESS]
+bit_number = 2
+code = "0x0004"
+nml_cargo_class_name = "CC_EXPRESS"
+name = "Express"
+cargo_class_description = "CABBAGE."
+cargo_grf_advice = ["To maximise vehicle compatiblity, consider also setting CC_PIECE_GOODS."]
+vehicle_grf_advice = ["CABBAGE"]
+example_cargos = ["CABBAGE"]
+
+[CC_ARMOURED]
+bit_number = 3
+code = "0x0008"
+nml_cargo_class_name = "CC_ARMOURED"
+name = "Armoured"
+cargo_class_description = "CABBAGE."
+cargo_grf_advice = ["To maximise vehicle compatiblity, consider also setting CC_EXPRESS and CC_PIECE_GOODS."]
+vehicle_grf_advice = ["CABBAGE"]
+example_cargos = ["Valuables", "Diamonds", "Gold", "Explosives"]
+
+[CC_PIECE_GOODS]
+bit_number = 5
+code = "0x0020"
+nml_cargo_class_name = "CC_PIECE_GOODS"
+name = "Piece Goods"
+cargo_class_description = "Most cargos can be transported packaged in crates, boxes, barrels, jars, tins, cans, bags, sacks, bales, or pallets. This class is suitable for many cargos, including bulk, liquid, gas, powder, and food items."
+cargo_grf_advice = [
+    "This is probably the most widely supported cargo class in vehicles and should be set for many freight cargos to maximise vehicle compatibility.",
+    "Each of the other freight classes has advice on combining with piece goods.",
+    "Don't set for non-freight cargos like passengers and mail.",
+]
+vehicle_grf_advice = [
+    "Freight vehicle GRFs: always provide vehicles supporting this class as it represents the most common class for freight cargos.",
+    "Does not apply if there are no freight vehicles in the GRF."
+]
+example_cargos = ["Goods", "Chemicals", "Steel", "Copper", "Paper", "Logs", "Oxygen", "Tyres", "Wool", "Timber", "Building Materials", "Farm Supplies", "Glass", "Aluminium", "Zinc"]
+
+[CC_BULK]
+bit_number = 4
+code = "0x0010"
+nml_cargo_class_name = "CC_BULK"
+name = "Bulk"
+cargo_class_description = "Loose bulk cargo that will flow under gravity."
+cargo_grf_advice = ["CABBAGE"]
+vehicle_grf_advice = ["CABBAGE"]
+example_cargos = ["Coal", "Iron Ore", "Stone", "Gravel", "Sand", "Sugar Beet", "Sulphur"]
+
+[CC_BULK_NON_COVERED]
+bit_number = 12
+code = "0x1000"
+nml_cargo_class_name = "CC_NON_POURABLE, CC_NEO_BULK"
+name = "Bulk (Covered Food)"
+cargo_class_description = "Food-grade bulk commodities, suitable for gravity flow, and requiring protection from weather and environmental elements."
+cargo_grf_advice = ["CABBAGE"]
+vehicle_grf_advice = ["CABBAGE"]
+example_cargos = ["Wheat", "Corn", "Maize", "Rice", "Sugar", "Cassava", "Flour", "Coffee", "Beans", "Farm Supplies", "Food"]
+
+[CC_BULK_COVERED_NONFOOD]
+bit_number = 9
+code = "0x0200"
+nml_cargo_class_name = "CC_COVERED"
+name = "Bulk (Covered Non-Food)"
+cargo_class_description = "Non-food bulk materials needing cover during transport. CABBAGE"
+cargo_grf_advice = ["CABBAGE"]
+vehicle_grf_advice = ["CABBAGE"]
+example_cargos = ["Cement", "Fertilizers", "Salt", "Potash", "Sand", "Kaolin Clay"]
+
+[CC_LIQUID_NONFOOD]
+bit_number = 6
+code = "0x0040"
+nml_cargo_class_name = "CC_LIQUID"
+name = "Liquid (Non-Food)"
+cargo_class_description = "Transport of non-food liquids."
+cargo_grf_advice = ["CABBAGE"]
+vehicle_grf_advice = ["CABBAGE"]
+example_cargos = ["Crude Oil", "Petroleum Fuels", "Chemicals", "Acid", "Paints & Coatings", "Sulphur", "Coal Tar"]
+
+[CC_LIQUID_FOOD]
+bit_number = 13
+code = "0x2000"
+nml_cargo_class_name = "N/A"
+name = "Liquid (Food-Grade)"
+cargo_class_description = "Food-grade liquids that require protection from contamination. Temperature control (insulation) might also be used."
+cargo_grf_advice = ["CABBAGE"]
+vehicle_grf_advice = ["CABBAGE"]
+example_cargos = ["Milk", "Alcohol", "Edible Oil", "Sugar", "Molasses", "Cola", "Water"]
+
+[CC_GAS]
+bit_number = 8
+code = "0x0100"
+nml_cargo_class_name = "CC_HAZARDOUS"
+name = "Gas"
+cargo_class_description = "Gases, including those that may be transported under pressure or cryogenically."
+cargo_grf_advice = ["CABBAGE"]
+vehicle_grf_advice = ["CABBAGE"]
+example_cargos = ["Nitrogen", "Ammonia", "Chlorine", "Oxygen", "Welding Supplies"]
+
+[CC_POWDER]
+bit_number = 11
+code = "0x0800"
+nml_cargo_class_name = "CC_POWDERIZED"
+name = "Dry Powder"
+cargo_class_description = "Dry powdered materials that flow under air pressure."
+cargo_grf_advice = ["Set this class for all powder cargos, including food-grade and non-food-grade types. Powders are relatively niche, and food-grade powders are a niche within a niche, not justifying a separate class."]
+vehicle_grf_advice = ["If specialist powder vehicles need to be separated from general powder vehicles, manage this by including or excluding specific cargo labels. For example, GRFs may provide dedicated vehicles for food-grade powders or carbon black, which should be handled with appropriate labels."]
+example_cargos = ["Cement", "Carbon Black", "Sand", "Soda Ash", "Quicklime", "Flour", "Sugar", "Cleaning Agents"]
+
+[CC_FLATBED_FREIGHT]
+bit_number = 10
+code = "0x0400"
+nml_cargo_class_name = "CC_OVERSIZED"
+name = "Flatbed Freight"
+cargo_class_description = "Transport of oversized and heavy cargo."
+cargo_grf_advice = ["CABBAGE"]
+vehicle_grf_advice = ["CABBAGE"]
+example_cargos = ["Lumber", "Steel Beams", "Construction Equipment", "Pipes", "CABBAGE"]
+
+[CC_PACKAGED_FOOD]
+bit_number = 7
+code = "0x0080"
+nml_cargo_class_name = "CC_REFRIGERATED"
+name = "Packaged Food"
+cargo_class_description = "Packaged food items that may require temperature control."
+cargo_grf_advice = ["CABBAGE"]
+vehicle_grf_advice = ["CABBAGE"]
+example_cargos = ["CABBAGE"]
+
+[CC_UNUSED_BIT_14]
+bit_number = 14
+code = "0x4000"
+nml_cargo_class_name = "-"
+name = "[Unused]"
+cargo_class_description = "Not used as of October 2024"
+cargo_grf_advice = [""]
+vehicle_grf_advice = [""]
+example_cargos = ["-"]
+
+[CC_SPECIAL]
+bit_number = 15
+code = "0x8000"
+nml_cargo_class_name = "CC_SPECIAL"
+name = "[Special]"
+cargo_class_description = "Reserved. Do not use this class."
+cargo_grf_advice = [""]
+vehicle_grf_advice = [""]
+example_cargos = ["-"]
+
+# vehicle examples (non-exhaustive)
+
+[CABBAGE]
+name = "Cabbage"
+vehicle_description = "Cabbage"
+cargo_classes_allowed = []
+cargo_classes_disallowed = []
+
+[VEHICLE_ARMOURED_VAN]
+name = "Armoured Van"
+vehicle_description = "Secure vehicles for transporting valuable items."
+cargo_classes_allowed = ["CC_ARMOURED"]
+cargo_classes_disallowed = []
+
+[VEHICLE_PRESSURE_TANKER]
+name = "Pressure Tanker"
+vehicle_description = "Vehicle for transporting gases under pressure."
+cargo_classes_allowed = ["CC_GAS"]
+cargo_classes_disallowed = []
+
+[VEHICLE_HOPPER]
+name = "Hopper"
+vehicle_description = "Open vehicles designed for gravity loading and unloading bulk materials that don't need covering."
+cargo_classes_allowed = ["CC_BULK"]
+cargo_classes_disallowed = []
+
+#vehicle_description = "Vehicles designed for transporting packaged food."
+#vehicle_description = "Vehicles designed for flatbed transport."
+#vehicle_description = "Vehicles designed for transporting powdered materials."
+#vehicle_description = "Vehicles suitable for transporting passengers."
+#vehicle_description = "Vehicles designed for mail transport."
+#vehicle_description = "Vehicles suited for priority express delivery."
+#vehicle_description = "General cargo vehicles, including flat vehicles, vehicles with sides, and vehicles with roofs."
+#vehicle_description = "Vehicles designed for carrying bulk materials."
+#vehicle_description = "Vehicles designed for transporting covered food-grade bulk materials."
+#vehicle_description = "Vehicles suitable for transporting covered non-food bulk materials."
+#vehicle_description = "Vehicles suitable for transporting non-food liquids."
+#vehicle_description = "Vehicles designed for transporting food-grade liquids."
