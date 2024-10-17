@@ -177,11 +177,28 @@ cargo_grf_advice = [""]
 vehicle_grf_advice = [""]
 example_cargos = ["-"]
 
+# cargo examples (non-exhaustive)
+
+[CARGO_CABBAGE]
+name = "Cabbage Cargo"
+cargo_description = "Cabbage Cargo"
+cargo_classes = ["CC_GAS"]
+
+[CARGO_MILK]
+name = "Milk"
+cargo_description = "Milk CABBAGE"
+cargo_classes = ["CC_LIQUID_FOOD"]
+
+[CARGO_OIL]
+name = "Oil"
+cargo_description = "Oil CABBAGE"
+cargo_classes = ["CC_LIQUID_NONFOOD"]
+
 # vehicle examples (non-exhaustive)
 
-[CABBAGE]
-name = "Cabbage"
-vehicle_description = "Cabbage"
+[VEHICLE_CABBAGE]
+name = "Cabbage Vehicle"
+vehicle_description = "Cabbage Vehicle"
 cargo_classes_allowed = []
 cargo_classes_disallowed = []
 
@@ -202,6 +219,12 @@ name = "Hopper"
 vehicle_description = "Open vehicles designed for gravity loading and unloading bulk materials that don't need covering."
 cargo_classes_allowed = ["CC_BULK"]
 cargo_classes_disallowed = []
+
+[VEHICLE_FOOD_TANKER]
+name = "Food Tanker"
+vehicle_description = "Cabbage."
+cargo_classes_allowed = ["CC_LIQUID_FOOD"]
+cargo_classes_disallowed = ["CC_LIQUID_NONFOOD"]
 
 #vehicle_description = "Vehicles designed for transporting packaged food."
 #vehicle_description = "Vehicles designed for flatbed transport."

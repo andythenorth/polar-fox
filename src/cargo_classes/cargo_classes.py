@@ -36,12 +36,25 @@ def render_html_docs(
         for node, attrs in cargo_classes_config.items()
         if "cargo_class_description" in attrs
     }
+    example_cargos = {
+        node: attrs
+        for node, attrs in cargo_classes_config.items()
+        if "cargo_description" in attrs
+    }
     example_vehicles = {
         node: attrs
         for node, attrs in cargo_classes_config.items()
         if "vehicle_description" in attrs
     }
+    cargo_cargo_class_mapping = {}
+    for cargo_class in cargo_classes_taxonomy:
+        example_cargos_for_cargo_class = []
+        for example_cargo_node_id, example_cargo_attrs in example_cargos.items():
+            if cargo_class in example_cargo_attrs["cargo_classes"]:
+                example_cargos_for_cargo_class.append(example_cargo_node_id)
+        cargo_cargo_class_mapping[cargo_class] = example_cargos_for_cargo_class
     vehicle_cargo_class_mapping = {}
+
     for cargo_class in cargo_classes_taxonomy:
         example_vehicles_for_cargo_class = []
         for example_vehicle_node_id, example_vehicle_attrs in example_vehicles.items():
@@ -49,12 +62,27 @@ def render_html_docs(
                 example_vehicles_for_cargo_class.append(example_vehicle_node_id)
         vehicle_cargo_class_mapping[cargo_class] = example_vehicles_for_cargo_class
 
+    vehicle_cargo_mapping = {}
+    for example_cargo_node_id, example_cargo_attrs in example_cargos.items():
+        for cargo_class in example_cargo_attrs["cargo_classes"]:
+            for example_vehicle_node_id, example_vehicle_attrs in example_vehicles.items():
+                allowed_classes = example_vehicle_attrs["cargo_classes_allowed"]
+                disallowed_classes = example_vehicle_attrs["cargo_classes_disallowed"]
+                # Check if the cargo_class is allowed and not disallowed
+                if cargo_class in allowed_classes and cargo_class not in disallowed_classes:
+                    # quirky format where we map both cargo:vehicle and vehicle:cargo, this is unusual but makes for easy templating
+                    vehicle_cargo_mapping.setdefault(example_vehicle_node_id, []).append(example_cargo_node_id)
+                    vehicle_cargo_mapping.setdefault(example_cargo_node_id, []).append(example_vehicle_node_id)
+
     rendered_html = docs_template(
         cargo_classes_scheme_name=cargo_classes_scheme_name,
         cargo_classes_metadata=cargo_classes_metadata,
         cargo_classes_taxonomy=cargo_classes_taxonomy,
+        example_cargos=example_cargos,
         example_vehicles=example_vehicles,
+        cargo_cargo_class_mapping=cargo_cargo_class_mapping,
         vehicle_cargo_class_mapping=vehicle_cargo_class_mapping,
+        vehicle_cargo_mapping=vehicle_cargo_mapping,
     )
 
     dist_dir = os.path.join(cargo_classes_dir, "dist")
