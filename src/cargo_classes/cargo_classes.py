@@ -73,7 +73,7 @@ def render_html_docs(
                     # just stop checking if disallowed cargo
                     break
             if disallowed_cargo:
-                break
+                continue
             else:
                 # then check for allowed
                 for cargo_class in example_vehicle_attrs["cargo_classes_allowed"]:
