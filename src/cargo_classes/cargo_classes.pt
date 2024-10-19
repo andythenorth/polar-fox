@@ -26,7 +26,13 @@
                 <tal:cargo_class_nodes repeat="cargo_class_node cargo_classes_taxonomy.items()">
                     <tal:cargo_class define="cargo_class_node_id cargo_class_node[0]; cargo_class cargo_class_node[1];">
                         <tr>
-                            <td><a href="#${cargo_class_node_id}">${cargo_class.name}</a></td>
+                            <td>
+                                <a class="${'do_not_use' if cargo_class.get('do_not_use', False) else ''}" href="#${cargo_class_node_id}"><!--! whitespace shenans
+                                 -->${cargo_class.name}
+                                    <span tal:condition="cargo_class.get('do_not_use', False)">(do not use)</span><!--! whitespace shenans
+                              --></a>
+
+                            </td>
                             <td>${cargo_class.bit_number}</td>
                         </tr>
                     </tal:cargo_class>
@@ -37,22 +43,36 @@
                 <tal:cargo_class define="cargo_class_node_id cargo_class_node[0]; cargo_class cargo_class_node[1];">
                     <hr style="margin-top:30px; margin-bottom:30px;" />
                     <h3 id="${cargo_class_node_id}">
-                        ${cargo_class.name}
+                        ${cargo_class.name} <span tal:condition="cargo_class.get('do_not_use', False)">(do not use)</span>
                     </h3>
                     <p class="lead">${cargo_class_node_id}</p>
                     <table class="cargo-class-facts">
                         <tbody>
                             <tr>
                                 <th>Cargo class description</th>
-                                <td>${cargo_class.cargo_class_description}</td>
-                            </tr>
+                                <td>
+                                     <tal:block switch="len(cargo_class.cargo_class_description) > 1">
+                                        <tal:is_list case="True">
+                                            <ul>
+                                                <tal:list_items repeat="list_item cargo_class.cargo_class_description">
+                                                    <li>${list_item}</li>
+                                                </tal:list_items>
+                                            </ul>
+                                        </tal:is_list>
+                                        <tal:is_list case="False">
+                                            <p>${cargo_class.cargo_class_description[0]}</p>
+                                        </tal:is_list>
+                                    </tal:block>
+                                </td>
+                           </tr>
                             <tr>
                                 <th>Example cargos</th>
                                 <td>
                                     <tal:block repeat="example_cargo sorted(cargo_cargo_class_mapping.get(cargo_class_node_id, []))">
                                         <tal:vehicle switch="example_cargo in example_cargos">
                                             <tal:valid_cargo case="True">
-                                                <a href="#${example_cargo}">${example_cargos[example_cargo].name}</a>
+                                                <a href="#${example_cargo}">${example_cargos[example_cargo].name}</a><!--! whitespace shenans
+                                             -->${',' if not repeat.example_cargo.end else None}
                                             </tal:valid_cargo>
                                             <tal:invalid_cargo case="False">
                                                 ${example_cargo}
@@ -79,12 +99,36 @@
                                 </td>
                             </tr>
                             <tr>
+                                <th>
+                                    Cargo: set either of these?
+                                    <ul>
+                                        <li>CC_EXCLUDE_FOOD_GRADE</li>
+                                        <li>CC_EXCLUDE_NON_FOOD_GRADE</li>
+                                    </ul>
+                                </th>
+                                <td>
+                                     <tal:block switch="len(cargo_class.set_food_grade_or_not) > 1">
+                                        <tal:is_list case="True">
+                                            <ul>
+                                                <tal:list_items repeat="list_item cargo_class.set_food_grade_or_not">
+                                                    <li>${list_item}</li>
+                                                </tal:list_items>
+                                            </ul>
+                                        </tal:is_list>
+                                        <tal:is_list case="False">
+                                            <p>${cargo_class.set_food_grade_or_not[0]}</p>
+                                        </tal:is_list>
+                                    </tal:block>
+                                </td>
+                           </tr>
+                            <tr>
                                 <th>Example vehicles</th>
                                 <td>
                                     <tal:block repeat="example_vehicle sorted(vehicle_cargo_class_mapping.get(cargo_class_node_id, []))">
                                         <tal:vehicle switch="example_vehicle in example_vehicles">
                                             <tal:valid_vehicle case="True">
-                                                <a href="#${example_vehicle}">${example_vehicles[example_vehicle].name}</a>
+                                                <a href="#${example_vehicle}">${example_vehicles[example_vehicle].name}</a><!--! whitespace shenans
+                                             -->${',' if not repeat.example_vehicle.end else None}
                                             </tal:valid_vehicle>
                                             <tal:invalid_vehicle case="False">
                                                 ${example_vehicle}
@@ -131,7 +175,7 @@
                 <tr>
                     <th>Example Cargo</th>
                 </tr>
-                <tal:cargo_nodes repeat="cargo_node example_cargos.items()">
+                <tal:cargo_nodes repeat="cargo_node sorted(example_cargos.items())">
                     <tal:example_cargo define="cargo_node_id cargo_node[0]; example_cargo cargo_node[1];">
                         <tr>
                             <td><a href="#${cargo_node_id}">${example_cargo.name}</a></td>
@@ -140,7 +184,7 @@
                 </tal:cargo_nodes>
             </table>
 
-            <tal:example_cargo_nodes repeat="example_cargo_node example_cargos.items()">
+            <tal:example_cargo_nodes repeat="example_cargo_node sorted(example_cargos.items())">
                 <tal:example_cargo define="example_cargo_node_id example_cargo_node[0]; example_cargo example_cargo_node[1];">
                     <hr style="margin-top:30px; margin-bottom:30px;" />
                     <h2 id="${example_cargo_node_id}">
@@ -166,7 +210,8 @@
                                     <tal:block repeat="example_vehicle sorted(vehicle_cargo_mapping.get(example_cargo_node_id, []))">
                                         <tal:vehicle switch="example_vehicle in example_vehicles">
                                             <tal:valid_vehicle case="True">
-                                                <a href="#${example_vehicle}">${example_vehicles[example_vehicle].name}</a>
+                                                <a href="#${example_vehicle}">${example_vehicles[example_vehicle].name}</a><!--! whitespace shenans
+                                             -->${',' if not repeat.example_vehicle.end else None}
                                             </tal:valid_vehicle>
                                             <tal:invalid_vehicle case="False">
                                                 ${example_vehicle}
@@ -188,7 +233,7 @@
                 <tr>
                     <th>Example vehicle</th>
                 </tr>
-                <tal:vehicle_nodes repeat="vehicle_node example_vehicles.items()">
+                <tal:vehicle_nodes repeat="vehicle_node sorted(example_vehicles.items())">
                     <tal:example_vehicle define="vehicle_node_id vehicle_node[0]; example_vehicle vehicle_node[1];">
                         <tr>
                             <td><a href="#${vehicle_node_id}">${example_vehicle.name}</a></td>
@@ -197,7 +242,7 @@
                 </tal:vehicle_nodes>
             </table>
 
-            <tal:example_vehicle_nodes repeat="example_vehicle_node example_vehicles.items()">
+            <tal:example_vehicle_nodes repeat="example_vehicle_node sorted(example_vehicles.items())">
                 <tal:example_vehicle define="example_vehicle_node_id example_vehicle_node[0]; example_vehicle example_vehicle_node[1];">
                     <hr style="margin-top:30px; margin-bottom:30px;" />
                     <h2 id="${example_vehicle_node_id}">
@@ -231,7 +276,8 @@
                                     <tal:block repeat="example_cargo sorted(vehicle_cargo_mapping.get(example_vehicle_node_id, []))">
                                         <tal:vehicle switch="example_cargo in example_cargos">
                                             <tal:valid_cargo case="True">
-                                                <a href="#${example_cargo}">${example_cargos[example_cargo].name}</a>
+                                                <a href="#${example_cargo}">${example_cargos[example_cargo].name}</a><!--! whitespace shenans
+                                             -->${',' if not repeat.example_cargo.end else None}
                                             </tal:valid_cargo>
                                             <tal:invalid_cargo case="False">
                                                 ${example_cargo}

@@ -64,15 +64,23 @@ def render_html_docs(
 
     vehicle_cargo_mapping = {}
     for example_cargo_node_id, example_cargo_attrs in example_cargos.items():
-        for cargo_class in example_cargo_attrs["cargo_classes"]:
-            for example_vehicle_node_id, example_vehicle_attrs in example_vehicles.items():
-                allowed_classes = example_vehicle_attrs["cargo_classes_allowed"]
-                disallowed_classes = example_vehicle_attrs["cargo_classes_disallowed"]
-                # Check if the cargo_class is allowed and not disallowed
-                if cargo_class in allowed_classes and cargo_class not in disallowed_classes:
-                    # quirky format where we map both cargo:vehicle and vehicle:cargo, this is unusual but makes for easy templating
-                    vehicle_cargo_mapping.setdefault(example_vehicle_node_id, []).append(example_cargo_node_id)
-                    vehicle_cargo_mapping.setdefault(example_cargo_node_id, []).append(example_vehicle_node_id)
+        for example_vehicle_node_id, example_vehicle_attrs in example_vehicles.items():
+            disallowed_cargo = False
+            for cargo_class in example_vehicle_attrs["cargo_classes_disallowed"]:
+                # first check for disallowed
+                if cargo_class in example_cargo_attrs["cargo_classes"]:
+                    disallowed_cargo = True
+                    # just stop checking if disallowed cargo
+                    break
+            if disallowed_cargo:
+                break
+            else:
+                # then check for allowed
+                for cargo_class in example_vehicle_attrs["cargo_classes_allowed"]:
+                    if cargo_class in example_cargo_attrs["cargo_classes"]:
+                        # quirky format where we map both cargo:vehicle and vehicle:cargo, this is unusual but makes for easy templating
+                        vehicle_cargo_mapping.setdefault(example_vehicle_node_id, []).append(example_cargo_node_id)
+                        vehicle_cargo_mapping.setdefault(example_cargo_node_id, []).append(example_vehicle_node_id)
 
     rendered_html = docs_template(
         cargo_classes_scheme_name=cargo_classes_scheme_name,
