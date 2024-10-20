@@ -185,6 +185,42 @@
                     
                         <tr>
                             <td>
+                                <a class="" href="#CC_FLATBED">Flatbed CABBAGE
+                                    </a>
+
+                            </td>
+                            <td>CC_FLATBED</td>
+                            <td>10</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>
+                                <a class="" href="#CC_REFRIGERATED">Refrigerated
+                                    </a>
+
+                            </td>
+                            <td>CC_REFRIGERATED</td>
+                            <td>7</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>
+                                <a class="" href="#CC_WEIRD">Weird
+                                    </a>
+
+                            </td>
+                            <td>CC_WEIRD</td>
+                            <td>12</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>
                                 <a class="" href="#CC_FOOD_GRADE">Food Grade
                                     </a>
 
@@ -203,42 +239,6 @@
                             </td>
                             <td>CC_NON_FOOD_GRADE</td>
                             <td>14</td>
-                        </tr>
-                    
-                
-                    
-                        <tr>
-                            <td>
-                                <a class="" href="#CC_NON_STANDARD">Non-Standard
-                                    </a>
-
-                            </td>
-                            <td>CC_NON_STANDARD</td>
-                            <td>10</td>
-                        </tr>
-                    
-                
-                    
-                        <tr>
-                            <td>
-                                <a class="do_not_use" href="#CC_REFRIGERATED">Refrigerated
-                                    <span>(do not use)</span></a>
-
-                            </td>
-                            <td>CC_REFRIGERATED</td>
-                            <td>7</td>
-                        </tr>
-                    
-                
-                    
-                        <tr>
-                            <td>
-                                <a class="do_not_use" href="#CC_NON_POURABLE">Non-Pourable / Neo-Bulk
-                                    <span>(do not use)</span></a>
-
-                            </td>
-                            <td>CC_NON_POURABLE</td>
-                            <td>12</td>
                         </tr>
                     
                 
@@ -798,6 +798,13 @@
                                     
                                         
                                             
+                                                <a href="#CARGO_PIPE">Pipe</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
                                                 <a href="#CARGO_QUICKLIME">Quicklime</a>,
                                             
                                             
@@ -812,7 +819,14 @@
                                     
                                         
                                             
-                                                <a href="#CARGO_STEEL">Steel</a>
+                                                <a href="#CARGO_STEEL">Steel</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#CARGO_TIMBER">Timber</a>
                                             
                                             
                                         
@@ -833,13 +847,6 @@
                                         
                                             
                                                 <a href="#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
-                                            
-                                            
-                                        
-                                    
-                                        
-                                            
-                                                <a href="#VEHICLE_FLATBED">Flatbed Vehicle</a>,
                                             
                                             
                                         
@@ -1707,6 +1714,390 @@
             
                 
                     <hr style="margin-top:30px; margin-bottom:30px;" />
+                    <h3 id="CC_FLATBED">
+                        Flatbed CABBAGE 
+                    </h3>
+                    <p>CC_FLATBED</p>
+                    <table class="cargo-class-facts">
+                        <tbody>
+                            <tr>
+                                <th>Cargo class description</th>
+                                <td>
+                                     
+                                        
+                                        
+                                            <p>Flatbed CABBAGE</p>
+                                        
+                                    
+                                </td>
+                           </tr>
+                            <tr>
+                                <th>Example cargos</th>
+                                <td>
+                                    
+                                        
+                                            
+                                                <a href="#CARGO_GOODS">Goods</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#CARGO_PAPER">Paper</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#CARGO_PIPE">Pipe</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#CARGO_STEEL">Steel</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#CARGO_TIMBER">Timber</a>
+                                            
+                                            
+                                        
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Example vehicles</th>
+                                <td>
+                                    
+                                        
+                                            
+                                                <a href="#VEHICLE_FLATBED">Flatbed Vehicle</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>
+                                            
+                                            
+                                        
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Industry GRF advice</th>
+                                <td>
+                                    
+                                        
+                                            <p>CABBAGE set on cargos using CC_PIECE_GOODS that are also suitable specifically for flatbed transport</p>
+                                        
+                                            <p>These cargos may or may not be packaged (steel girders unpackaged, goods packaged).</p>
+                                        
+                                            <p>CABBAGE This enables flatbed vehicles to pick up this class, but not all piece goods (such as packaged liquids or packaged powders).</p>
+                                        
+                                    
+                                    <p>This cargo class may not be widely supported by older vehicle GRFs. Also set CC_PIECE_GOODS as a fallback (recommended).</p>
+                                    
+                                    
+                                    
+                                    
+                                    
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Vehicle GRF advice</th>
+                                <td>
+                                    <p>Only for allow list.</p>
+                                    
+                                    
+                                        
+                                            <p>Flatbed CABBAGE</p>
+                                        
+                                            <p>Don't exclude, may have unintended consequences.</p>
+                                        
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Replaces or reuses NML/GS classname</th>
+                                <td>
+                                    CC_OVERSIZED
+                                    <small>
+                                        
+                                            
+                                            
+                                                (NML/GS classname replaced)
+                                            
+                                        
+                                    </small>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Bit number</th>
+                                <td><code>10</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                
+            
+                
+                    <hr style="margin-top:30px; margin-bottom:30px;" />
+                    <h3 id="CC_REFRIGERATED">
+                        Refrigerated 
+                    </h3>
+                    <p>CC_REFRIGERATED</p>
+                    <table class="cargo-class-facts">
+                        <tbody>
+                            <tr>
+                                <th>Cargo class description</th>
+                                <td>
+                                     
+                                        
+                                            <ul>
+                                                
+                                                    <li>Legacy class for packaged food-type cargos that require refrigeration.</li>
+                                                
+                                                    <li>More flexible if interpreted as food-type cargos requiring any form of temperature control via mechanical cooling, ice, ventilation or insulation.</li>
+                                                
+                                            </ul>
+                                        
+                                        
+                                    
+                                </td>
+                           </tr>
+                            <tr>
+                                <th>Example cargos</th>
+                                <td>
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Example vehicles</th>
+                                <td>
+                                    
+                                        
+                                            
+                                                <a href="#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#VEHICLE_REFRIGERATED">Refrigerated Vehicle</a>
+                                            
+                                            
+                                        
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Industry GRF advice</th>
+                                <td>
+                                    
+                                        
+                                            <p>This class is moderately supported by vehicle GRFs, and may be worth setting for food-type cargos as some GRFs have specific refrigerated vehicles or sprites.</p>
+                                        
+                                            <p>For better vehicle compatability also set CC_EXPRESS, CC_PIECE_GOODS and CC_FOOD_GRADE.</p>
+                                        
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Vehicle GRF advice</th>
+                                <td>
+                                    
+                                    
+                                    
+                                        
+                                            <p>Vehicles might want to handle this class on food-type vehicles for support of legacy cargos that use this class.</p>
+                                        
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Replaces or reuses NML/GS classname</th>
+                                <td>
+                                    CC_REFRIGERATED
+                                    <small>
+                                        
+                                            
+                                                (no change)
+                                            
+                                            
+                                        
+                                    </small>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Bit number</th>
+                                <td><code>7</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                
+            
+                
+                    <hr style="margin-top:30px; margin-bottom:30px;" />
+                    <h3 id="CC_WEIRD">
+                        Weird 
+                    </h3>
+                    <p>CC_WEIRD</p>
+                    <table class="cargo-class-facts">
+                        <tbody>
+                            <tr>
+                                <th>Cargo class description</th>
+                                <td>
+                                     
+                                        
+                                            <ul>
+                                                
+                                                    <li>Cargos that don't fit standard classes, and should be handled by label, but need to fallback to a class for vehicle grfs that aren't aware of the label.</li>
+                                                
+                                                    <li>This is for cargos that need very special handling and really don't fit as CC_PIECE_GOODS or other standard class.</li>
+                                                
+                                            </ul>
+                                        
+                                        
+                                    
+                                </td>
+                           </tr>
+                            <tr>
+                                <th>Example cargos</th>
+                                <td>
+                                    
+                                        
+                                            
+                                                <a href="#CARGO_NUCLEAR_FUEL">Nuclear fuel</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#CARGO_YETI_DUDES">YETI Dudes (Workers)</a>
+                                            
+                                            
+                                        
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Example vehicles</th>
+                                <td>
+                                    
+                                        
+                                            
+                                                <a href="#VEHICLE_FLATBED">Flatbed Vehicle</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>
+                                            
+                                            
+                                        
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Industry GRF advice</th>
+                                <td>
+                                    
+                                        
+                                            <p>This class is rarely used.</p>
+                                        
+                                            <p>Most 'non-standard' cargos will work fine with classes such as CC_PIECE_GOODS, CC_EXPRESS, or CC_ARMOURED, and should do that rather than setting CC_WEIRD.</p>
+                                        
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Vehicle GRF advice</th>
+                                <td>
+                                    
+                                    
+                                    
+                                        
+                                            <p>Cargo might need dedicated vehicles, with label refits.</p>
+                                        
+                                            <p>Open general cargo vehicles or flat vehicles might be sensible as fallback choices.</p>
+                                        
+                                            <p>Disallowing CC_WEIRD is unwise as it's only intended as a fallback for unknown weird cargos; there are very few cargos using this class, so just allow/disallow their labels explicitly if you want to control their vehicle refits precisely.</p>
+                                        
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Replaces or reuses NML/GS classname</th>
+                                <td>
+                                    CC_NON_POURABLE
+                                    <small>
+                                        
+                                            
+                                            
+                                                (NML/GS classname replaced)
+                                            
+                                        
+                                    </small>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Bit number</th>
+                                <td><code>12</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                
+            
+                
+                    <hr style="margin-top:30px; margin-bottom:30px;" />
                     <h3 id="CC_FOOD_GRADE">
                         Food Grade 
                     </h3>
@@ -2012,325 +2403,6 @@
             
                 
                     <hr style="margin-top:30px; margin-bottom:30px;" />
-                    <h3 id="CC_NON_STANDARD">
-                        Non-Standard 
-                    </h3>
-                    <p>CC_NON_STANDARD</p>
-                    <table class="cargo-class-facts">
-                        <tbody>
-                            <tr>
-                                <th>Cargo class description</th>
-                                <td>
-                                     
-                                        
-                                            <ul>
-                                                
-                                                    <li>Cargos that don't fit standard classes, and should be handled by label, but need to fallback to a class for vehicle grfs that aren't aware of the label.</li>
-                                                
-                                                    <li>This is for cargos that need very special handling and really don't fit as CC_PIECE_GOODS or other standard class.</li>
-                                                
-                                            </ul>
-                                        
-                                        
-                                    
-                                </td>
-                           </tr>
-                            <tr>
-                                <th>Example cargos</th>
-                                <td>
-                                    
-                                        
-                                            
-                                                <a href="#CARGO_NUCLEAR_FUEL">Nuclear fuel</a>,
-                                            
-                                            
-                                        
-                                    
-                                        
-                                            
-                                                <a href="#CARGO_YETI_DUDES">YETI Dudes (Workers)</a>
-                                            
-                                            
-                                        
-                                    
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Example vehicles</th>
-                                <td>
-                                    
-                                        
-                                            
-                                                <a href="#VEHICLE_FLATBED">Flatbed Vehicle</a>,
-                                            
-                                            
-                                        
-                                    
-                                        
-                                            
-                                                <a href="#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
-                                            
-                                            
-                                        
-                                    
-                                        
-                                            
-                                                <a href="#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
-                                            
-                                            
-                                        
-                                    
-                                        
-                                            
-                                                <a href="#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>
-                                            
-                                            
-                                        
-                                    
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Industry GRF advice</th>
-                                <td>
-                                    
-                                        
-                                            <p>This class is rarely used.</p>
-                                        
-                                            <p>Most 'non-standard' cargos will work fine with classes such as CC_PIECE_GOODS, CC_EXPRESS, or CC_ARMOURED, and should do that rather than setting CC_NON_STANDARD.</p>
-                                        
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Vehicle GRF advice</th>
-                                <td>
-                                    
-                                    
-                                    
-                                        
-                                            <p>Cargo might need dedicated vehicles, with label refits.</p>
-                                        
-                                            <p>Open general cargo vehicles or flat vehicles might be sensible as fallback choices.</p>
-                                        
-                                            <p>Disallowing CC_NON_STANDARD is unwise as it's only intended as a fallback for unknown weird cargos; there are very few cargos using this class, so just allow/disallow their labels explicitly if you want to control their vehicle refits precisely.</p>
-                                        
-                                    
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Replaces or reuses NML/GS classname</th>
-                                <td>
-                                    CC_OVERSIZED
-                                    <small>
-                                        
-                                            
-                                            
-                                                (NML/GS classname replaced)
-                                            
-                                        
-                                    </small>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Bit number</th>
-                                <td><code>10</code></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                
-            
-                
-                    <hr style="margin-top:30px; margin-bottom:30px;" />
-                    <h3 id="CC_REFRIGERATED">
-                        Refrigerated <span>(do not use)</span>
-                    </h3>
-                    <p>CC_REFRIGERATED</p>
-                    <table class="cargo-class-facts">
-                        <tbody>
-                            <tr>
-                                <th>Cargo class description</th>
-                                <td>
-                                     
-                                        
-                                            <ul>
-                                                
-                                                    <li>Legacy class for food-type cargos that require refrigeration.</li>
-                                                
-                                                    <li>It's more effective to set CC_EXPRESS, CC_PIECE_GOODS and CC_FOOD_GRADE classes for food-type cargos.</li>
-                                                
-                                            </ul>
-                                        
-                                        
-                                    
-                                </td>
-                           </tr>
-                            <tr>
-                                <th>Example cargos</th>
-                                <td>
-                                    
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Example vehicles</th>
-                                <td>
-                                    
-                                        
-                                            
-                                                <a href="#VEHICLE_REFRIGERATED">Refrigerated Vehicle</a>
-                                            
-                                            
-                                        
-                                    
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Industry GRF advice</th>
-                                <td>
-                                    
-                                        
-                                            <p>Do not use Refrigerated.</p>
-                                        
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Vehicle GRF advice</th>
-                                <td>
-                                    
-                                    
-                                    
-                                        
-                                            <p>Vehicles might want to handle this class on food-type vehicles for support of legacy cargos that use this class.</p>
-                                        
-                                    
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Replaces or reuses NML/GS classname</th>
-                                <td>
-                                    CC_REFRIGERATED
-                                    <small>
-                                        
-                                            
-                                                (no change)
-                                            
-                                            
-                                        
-                                    </small>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Bit number</th>
-                                <td><code>7</code></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                
-            
-                
-                    <hr style="margin-top:30px; margin-bottom:30px;" />
-                    <h3 id="CC_NON_POURABLE">
-                        Non-Pourable / Neo-Bulk <span>(do not use)</span>
-                    </h3>
-                    <p>CC_NON_POURABLE</p>
-                    <table class="cargo-class-facts">
-                        <tbody>
-                            <tr>
-                                <th>Cargo class description</th>
-                                <td>
-                                     
-                                        
-                                            <ul>
-                                                
-                                                    <li>Class was added in 2011 to identify bulk cargos that weren't suitable for hopper cars.</li>
-                                                
-                                                    <li>As of 2024, this class is very little used, and not useful.</li>
-                                                
-                                            </ul>
-                                        
-                                        
-                                    
-                                </td>
-                           </tr>
-                            <tr>
-                                <th>Example cargos</th>
-                                <td>
-                                    
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Example vehicles</th>
-                                <td>
-                                    
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Industry GRF advice</th>
-                                <td>
-                                    
-                                        
-                                            <p>Do not use.</p>
-                                        
-                                    
-                                    
-                                    
-                                    <p>Also set CC_NON_FOOD_GRADE (recommended).</p>
-                                    
-                                    
-                                    
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Vehicle GRF advice</th>
-                                <td>
-                                    
-                                    
-                                    
-                                        
-                                            <p>Do not use.</p>
-                                        
-                                    
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Replaces or reuses NML/GS classname</th>
-                                <td>
-                                    CC_NON_POURABLE
-                                    <small>
-                                        
-                                            
-                                                (no change)
-                                            
-                                            
-                                        
-                                    </small>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Bit number</th>
-                                <td><code>12</code></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                
-            
-                
-                    <hr style="margin-top:30px; margin-bottom:30px;" />
                     <h3 id="CC_SPECIAL">
                         Special <span>(do not use)</span>
                     </h3>
@@ -2535,6 +2607,12 @@
                 
                     
                         <tr>
+                            <td><a href="#CARGO_PIPE">Pipe</a></td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
                             <td><a href="#CARGO_QUICKLIME">Quicklime</a></td>
                         </tr>
                     
@@ -2566,6 +2644,12 @@
                     
                         <tr>
                             <td><a href="#CARGO_SULPHUR">Sulphur</a></td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td><a href="#CARGO_TIMBER">Timber</a></td>
                         </tr>
                     
                 
@@ -2701,13 +2785,6 @@
                                     
                                         
                                             
-                                                <a href="#VEHICLE_FLATBED">Flatbed Vehicle</a>,
-                                            
-                                            
-                                        
-                                    
-                                        
-                                            
                                                 <a href="#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
                                             
                                             
@@ -2791,13 +2868,6 @@
                                         
                                             
                                                 <a href="#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
-                                            
-                                            
-                                        
-                                    
-                                        
-                                            
-                                                <a href="#VEHICLE_FLATBED">Flatbed Vehicle</a>,
                                             
                                             
                                         
@@ -3077,13 +3147,6 @@
                                     
                                         
                                             
-                                                <a href="#VEHICLE_FLATBED">Flatbed Vehicle</a>,
-                                            
-                                            
-                                        
-                                    
-                                        
-                                            
                                                 <a href="#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
                                             
                                             
@@ -3197,13 +3260,6 @@
                                         
                                             
                                                 <a href="#VEHICLE_COVERED_HOPPER_FOOD_GRADE">Food Grade Covered Hopper</a>,
-                                            
-                                            
-                                        
-                                    
-                                        
-                                            
-                                                <a href="#VEHICLE_FLATBED">Flatbed Vehicle</a>,
                                             
                                             
                                         
@@ -3336,13 +3392,6 @@
                                     
                                         
                                             
-                                                <a href="#VEHICLE_FLATBED">Flatbed Vehicle</a>,
-                                            
-                                            
-                                        
-                                    
-                                        
-                                            
                                                 <a href="#VEHICLE_FOOD_TANKER">Food Tanker</a>,
                                             
                                             
@@ -3432,6 +3481,8 @@
                                 <th>Cargo classes</th>
                                 <td>
                                     
+                                        CC_FLATBED
+                                    
                                         CC_NON_FOOD_GRADE
                                     
                                         CC_PIECE_GOODS
@@ -3472,7 +3523,21 @@
                                     
                                         
                                             
+                                                <a href="#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
                                                 <a href="#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>,
                                             
                                             
                                         
@@ -3548,13 +3613,6 @@
                                         
                                             
                                                 <a href="#VEHICLE_COVERED_HOPPER_FOOD_GRADE">Food Grade Covered Hopper</a>,
-                                            
-                                            
-                                        
-                                    
-                                        
-                                            
-                                                <a href="#VEHICLE_FLATBED">Flatbed Vehicle</a>,
                                             
                                             
                                         
@@ -3775,13 +3833,6 @@
                                     
                                         
                                             
-                                                <a href="#VEHICLE_FLATBED">Flatbed Vehicle</a>,
-                                            
-                                            
-                                        
-                                    
-                                        
-                                            
                                                 <a href="#VEHICLE_FOOD_TANKER">Food Tanker</a>,
                                             
                                             
@@ -3866,8 +3917,8 @@
                             <tr>
                                 <th>Vehicle description</th>
                                 <td>    Nuclear fuel, typically transported as high-risk cargo in suitable shielded containers.
-    Sets CC_NON_STANDARD to indicate that dedicated vehicles are preferred, handling the cargo directly by label.
-    Sets CC_ARMOURED as fallback for GRFS that do not offer the label or CC_NON_STANDARD.
+    Sets CC_WEIRD to indicate that dedicated vehicles are preferred, handling the cargo directly by label.
+    Sets CC_ARMOURED as fallback for GRFS that do not offer the label or CC_WEIRD.
     CABBAGE - RUKTS NUKF doesn't actually set this class, because it predates the idea!
 </td>
                             </tr>
@@ -3877,7 +3928,7 @@
                                     
                                         CC_ARMOURED
                                     
-                                        CC_NON_STANDARD
+                                        CC_WEIRD
                                     
                                 </td>
                             </tr>
@@ -4064,6 +4115,8 @@
                                 <th>Cargo classes</th>
                                 <td>
                                     
+                                        CC_FLATBED
+                                    
                                         CC_PIECE_GOODS
                                     
                                 </td>
@@ -4102,7 +4155,21 @@
                                     
                                         
                                             
+                                                <a href="#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
                                                 <a href="#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>,
                                             
                                             
                                         
@@ -4146,6 +4213,93 @@
                                         
                                             
                                                 <a href="#VEHICLE_PASSENGER_VEHICLE">Passenger Vehicle</a>
+                                            
+                                            
+                                        
+                                    
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                
+            
+                
+                    <hr style="margin-top:30px; margin-bottom:30px;" />
+                    <h2 id="CARGO_PIPE">
+                        Pipe <span class="muted">(example)</span>
+                    </h2>
+                    <table class="cargo-class-facts">
+                        <tbody>
+                            <tr>
+                                <th>Vehicle description</th>
+                                <td>Pipe CABBAGE</td>
+                            </tr>
+                            <tr>
+                                <th>Cargo classes</th>
+                                <td>
+                                    
+                                        CC_FLATBED
+                                    
+                                        CC_PIECE_GOODS
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Example vehicles</th>
+                                <td>
+                                    
+                                        
+                                            
+                                                <a href="#VEHICLE_BOX_VAN_LESS_PERMISSIVE">Box Van (less permissive)</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#VEHICLE_FLATBED">Flatbed Vehicle</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>
                                             
                                             
                                         
@@ -4223,13 +4377,6 @@
                                         
                                             
                                                 <a href="#VEHICLE_COVERED_HOPPER_INDUSTRIAL">Industrial Covered Hopper</a>,
-                                            
-                                            
-                                        
-                                    
-                                        
-                                            
-                                                <a href="#VEHICLE_FLATBED">Flatbed Vehicle</a>,
                                             
                                             
                                         
@@ -4559,13 +4706,6 @@
                                     
                                         
                                             
-                                                <a href="#VEHICLE_FLATBED">Flatbed Vehicle</a>,
-                                            
-                                            
-                                        
-                                    
-                                        
-                                            
                                                 <a href="#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
                                             
                                             
@@ -4634,6 +4774,8 @@
                                 <th>Cargo classes</th>
                                 <td>
                                     
+                                        CC_FLATBED
+                                    
                                         CC_PIECE_GOODS
                                     
                                 </td>
@@ -4672,7 +4814,21 @@
                                     
                                         
                                             
+                                                <a href="#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
                                                 <a href="#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>,
                                             
                                             
                                         
@@ -4802,6 +4958,93 @@
             
                 
                     <hr style="margin-top:30px; margin-bottom:30px;" />
+                    <h2 id="CARGO_TIMBER">
+                        Timber <span class="muted">(example)</span>
+                    </h2>
+                    <table class="cargo-class-facts">
+                        <tbody>
+                            <tr>
+                                <th>Vehicle description</th>
+                                <td>Timber CABBAGE</td>
+                            </tr>
+                            <tr>
+                                <th>Cargo classes</th>
+                                <td>
+                                    
+                                        CC_FLATBED
+                                    
+                                        CC_PIECE_GOODS
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Example vehicles</th>
+                                <td>
+                                    
+                                        
+                                            
+                                                <a href="#VEHICLE_BOX_VAN_LESS_PERMISSIVE">Box Van (less permissive)</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#VEHICLE_FLATBED">Flatbed Vehicle</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>
+                                            
+                                            
+                                        
+                                    
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                
+            
+                
+                    <hr style="margin-top:30px; margin-bottom:30px;" />
                     <h2 id="CARGO_YETI_DUDES">
                         YETI Dudes (Workers) <span class="muted">(example)</span>
                     </h2>
@@ -4817,7 +5060,7 @@
                                     
                                         CC_EXPRESS
                                     
-                                        CC_NON_STANDARD
+                                        CC_WEIRD
                                     
                                 </td>
                             </tr>
@@ -5193,6 +5436,13 @@
                                     
                                         
                                             
+                                                <a href="#CARGO_PIPE">Pipe</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
                                                 <a href="#CARGO_QUICKLIME">Quicklime</a>,
                                             
                                             
@@ -5208,6 +5458,13 @@
                                         
                                             
                                                 <a href="#CARGO_STEEL">Steel</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#CARGO_TIMBER">Timber</a>,
                                             
                                             
                                         
@@ -5236,7 +5493,7 @@
                                 <th>Vehicle description</th>
                                 <td>    An example of a box van that will refit most freight classes, to maximise compatibility with industry GRFs.
     This assumes that cargos will be 'packaged' if necessary, for example liquids in barrels.
-    No classes are disallowed, but note that CC_NON_STANDARD is not in the 'allow' list, as this class might be applied to cargos that wouldn't easily fit in box vans.
+    No classes are disallowed, but note that CC_WEIRD is not in the 'allow' list, as this class might be applied to cargos that wouldn't easily fit in box vans.
 </td>
                             </tr>
                             <tr>
@@ -5448,6 +5705,13 @@
                                     
                                         
                                             
+                                                <a href="#CARGO_PIPE">Pipe</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
                                                 <a href="#CARGO_QUICKLIME">Quicklime</a>,
                                             
                                             
@@ -5526,6 +5790,13 @@
                                         
                                             
                                                 <a href="#CARGO_SULPHUR">Sulphur</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#CARGO_TIMBER">Timber</a>,
                                             
                                             
                                         
@@ -5751,9 +6022,9 @@
                                 <th>Cargo classes allowed</th>
                                 <td>
                                     
-                                        CC_NON_STANDARD
+                                        CC_FLATBED
                                     
-                                        CC_PIECE_GOODS
+                                        CC_WEIRD
                                     
                                 </td>
                             </tr>
@@ -5769,56 +6040,7 @@
                                     
                                         
                                             
-                                                <a href="#CARGO_BEANS">Beans</a>,
-                                            
-                                            
-                                        
-                                    
-                                        
-                                            
-                                                <a href="#CARGO_CEMENT">Cement</a>,
-                                            
-                                            
-                                        
-                                    
-                                        
-                                            
-                                                <a href="#CARGO_FISH">Fish</a>,
-                                            
-                                            
-                                        
-                                    
-                                        
-                                            
-                                                <a href="#CARGO_FLOUR">Flour</a>,
-                                            
-                                            
-                                        
-                                    
-                                        
-                                            
-                                                <a href="#CARGO_FOOD">Food</a>,
-                                            
-                                            
-                                        
-                                    
-                                        
-                                            
                                                 <a href="#CARGO_GOODS">Goods</a>,
-                                            
-                                            
-                                        
-                                    
-                                        
-                                            
-                                                <a href="#CARGO_GRAIN">Grain</a>,
-                                            
-                                            
-                                        
-                                    
-                                        
-                                            
-                                                <a href="#CARGO_MILK">Milk</a>,
                                             
                                             
                                         
@@ -5839,14 +6061,7 @@
                                     
                                         
                                             
-                                                <a href="#CARGO_QUICKLIME">Quicklime</a>,
-                                            
-                                            
-                                        
-                                    
-                                        
-                                            
-                                                <a href="#CARGO_SODIUM_HYDROXIDE">Sodium Hydroxide</a>,
+                                                <a href="#CARGO_PIPE">Pipe</a>,
                                             
                                             
                                         
@@ -5854,6 +6069,13 @@
                                         
                                             
                                                 <a href="#CARGO_STEEL">Steel</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#CARGO_TIMBER">Timber</a>,
                                             
                                             
                                         
@@ -6013,19 +6235,23 @@
                                     
                                         CC_EXPRESS
                                     
+                                        CC_FLATBED
+                                    
                                         CC_GAS
                                     
                                         CC_LIQUID
                                     
                                         CC_LIVESTOCK
                                     
-                                        CC_NON_STANDARD
-                                    
                                         CC_OPEN_BULK
                                     
                                         CC_PIECE_GOODS
                                     
                                         CC_POWDERIZED
+                                    
+                                        CC_REFRIGERATED
+                                    
+                                        CC_WEIRD
                                     
                                 </td>
                             </tr>
@@ -6153,6 +6379,13 @@
                                     
                                         
                                             
+                                                <a href="#CARGO_GOODS">Goods</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
                                                 <a href="#CARGO_GRAIN">Grain</a>,
                                             
                                             
@@ -6217,6 +6450,27 @@
                                         
                                             
                                                 <a href="#CARGO_PAPER">Paper</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#CARGO_PAPER">Paper</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#CARGO_PIPE">Pipe</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#CARGO_PIPE">Pipe</a>,
                                             
                                             
                                         
@@ -6293,6 +6547,13 @@
                                     
                                         
                                             
+                                                <a href="#CARGO_STEEL">Steel</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
                                                 <a href="#CARGO_SULPHUR">Sulphur</a>,
                                             
                                             
@@ -6301,6 +6562,20 @@
                                         
                                             
                                                 <a href="#CARGO_SULPHUR">Sulphur</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#CARGO_TIMBER">Timber</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#CARGO_TIMBER">Timber</a>,
                                             
                                             
                                         
@@ -6376,17 +6651,17 @@
                         <tbody>
                             <tr>
                                 <th>Vehicle description</th>
-                                <td>An example of a vehicle that will refit most dry cargos, any cargos that set CC_PIECE_GOODS as a fallback, and non-standard cargos that rely on CC_NON_STANDARD being handled. No classes are disallowed.</td>
+                                <td>An example of a vehicle that will refit most dry cargos, any cargos that set CC_PIECE_GOODS as a fallback, and non-standard cargos that rely on CC_WEIRD being handled. No classes are disallowed.</td>
                             </tr>
                             <tr>
                                 <th>Cargo classes allowed</th>
                                 <td>
                                     
-                                        CC_NON_STANDARD
-                                    
                                         CC_OPEN_BULK
                                     
                                         CC_PIECE_GOODS
+                                    
+                                        CC_WEIRD
                                     
                                 </td>
                             </tr>
@@ -6486,6 +6761,13 @@
                                     
                                         
                                             
+                                                <a href="#CARGO_PIPE">Pipe</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
                                                 <a href="#CARGO_QUICKLIME">Quicklime</a>,
                                             
                                             
@@ -6528,6 +6810,13 @@
                                     
                                         
                                             
+                                                <a href="#CARGO_TIMBER">Timber</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
                                                 <a href="#CARGO_YETI_DUDES">YETI Dudes (Workers)</a>
                                             
                                             
@@ -6558,19 +6847,21 @@
                                     
                                         CC_EXPRESS
                                     
+                                        CC_FLATBED
+                                    
                                         CC_GAS
                                     
                                         CC_LIQUID
                                     
                                         CC_LIVESTOCK
                                     
-                                        CC_NON_STANDARD
-                                    
                                         CC_OPEN_BULK
                                     
                                         CC_PIECE_GOODS
                                     
                                         CC_POWDERIZED
+                                    
+                                        CC_WEIRD
                                     
                                 </td>
                             </tr>
@@ -6698,6 +6989,13 @@
                                     
                                         
                                             
+                                                <a href="#CARGO_GOODS">Goods</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
                                                 <a href="#CARGO_GRAIN">Grain</a>,
                                             
                                             
@@ -6762,6 +7060,27 @@
                                         
                                             
                                                 <a href="#CARGO_PAPER">Paper</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#CARGO_PAPER">Paper</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#CARGO_PIPE">Pipe</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#CARGO_PIPE">Pipe</a>,
                                             
                                             
                                         
@@ -6838,6 +7157,13 @@
                                     
                                         
                                             
+                                                <a href="#CARGO_STEEL">Steel</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
                                                 <a href="#CARGO_SULPHUR">Sulphur</a>,
                                             
                                             
@@ -6846,6 +7172,20 @@
                                         
                                             
                                                 <a href="#CARGO_SULPHUR">Sulphur</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#CARGO_TIMBER">Timber</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#CARGO_TIMBER">Timber</a>,
                                             
                                             
                                         
