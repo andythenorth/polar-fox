@@ -437,22 +437,22 @@ cargo_classes = ["CC_PIECE_GOODS", "CC_WEIRD", "CC_NON_FOOD_GRADE"]
 [CARGO_STEEL]
 name = "Steel"
 cargo_description = "Steel CABBAGE"
-cargo_classes = ["CC_PIECE_GOODS", "CC_FLATBED"]
+cargo_classes = ["CC_PIECE_GOODS", "CC_FLATBED", "CC_NON_FOOD_GRADE"]
 
 [CARGO_PAPER]
 name = "Paper"
 cargo_description = "Paper CABBAGE"
-cargo_classes = ["CC_PIECE_GOODS", "CC_FLATBED"]
+cargo_classes = ["CC_PIECE_GOODS", "CC_FLATBED", "CC_NON_FOOD_GRADE"]
 
 [CARGO_PIPE]
 name = "Pipe"
 cargo_description = "Pipe CABBAGE"
-cargo_classes = ["CC_PIECE_GOODS", "CC_FLATBED"]
+cargo_classes = ["CC_PIECE_GOODS", "CC_FLATBED", "CC_NON_FOOD_GRADE"]
 
 [CARGO_TIMBER]
 name = "Timber"
 cargo_description = "Timber CABBAGE"
-cargo_classes = ["CC_PIECE_GOODS", "CC_FLATBED"]
+cargo_classes = ["CC_PIECE_GOODS", "CC_FLATBED", "CC_NON_FOOD_GRADE"]
 
 [CARGO_YETI_DUDES]
 name = "YETI Dudes (Workers)"
