@@ -147,6 +147,11 @@ class CargoClassScheme(object):
                             result.setdefault(example_cargo_node_id, []).append(
                                 example_vehicle_node_id
                             )
+
+        for k, v in result.items():
+            # remove duplicates
+            result[k] = list(set(v))
+
         return result
 
     def sort_cargo_classes_by_taxonomy_order(self, cargo_classes):
