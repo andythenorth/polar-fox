@@ -219,7 +219,7 @@
                             <tr>
                                 <th>Cargo classes</th>
                                 <td>
-                                    <tal:block repeat="cargo_class sorted(example_cargo.cargo_classes)">
+                                    <tal:block repeat="cargo_class example_cargo.cargo_classes">
                                         ${cargo_class}
                                     </tal:block>
                                 </td>
@@ -277,7 +277,7 @@
                             <tr>
                                 <th>Cargo classes allowed</th>
                                 <td>
-                                    <tal:block repeat="cargo_class sorted(example_vehicle.cargo_classes_allowed)">
+                                    <tal:block repeat="cargo_class example_vehicle.cargo_classes_allowed">
                                         ${cargo_class}
                                     </tal:block>
                                 </td>
@@ -285,7 +285,7 @@
                             <tr>
                                 <th>Cargo classes disallowed</th>
                                 <td>
-                                    <tal:block repeat="cargo_class sorted(example_vehicle.cargo_classes_disallowed)">
+                                    <tal:block repeat="cargo_class example_vehicle.cargo_classes_disallowed">
                                         ${cargo_class}
                                     </tal:block>
                                 </td>

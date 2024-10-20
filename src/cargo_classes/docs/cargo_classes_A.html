@@ -784,6 +784,13 @@
                                     
                                         
                                             
+                                                <a href="#CARGO_LIVESTOCK">Livestock</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
                                                 <a href="#CARGO_MILK">Milk</a>,
                                             
                                             
@@ -1977,7 +1984,11 @@
                                                 
                                                     <li>Cargos that don't fit standard classes, and should be handled by label, but need to fallback to a class for vehicle grfs that aren't aware of the label.</li>
                                                 
-                                                    <li>This is for cargos that need very special handling and really don't fit as CC_PIECE_GOODS or other standard class.</li>
+                                                    <li>This is for cargos that require dedicated vehicles and really don't fit as CC_PIECE_GOODS or other standard class.</li>
+                                                
+                                                    <li>Example: things that are alive but aren't CC_PASSENGERS, such as livestock.</li>
+                                                
+                                                    <li>Example: things that are radioactive, such as nuclear fuel or waste.</li>
                                                 
                                             </ul>
                                         
@@ -1988,6 +1999,13 @@
                             <tr>
                                 <th>Example cargos</th>
                                 <td>
+                                    
+                                        
+                                            
+                                                <a href="#CARGO_LIVESTOCK">Livestock</a>,
+                                            
+                                            
+                                        
                                     
                                         
                                             
@@ -2067,9 +2085,11 @@
                                         
                                             <p>Cargo might need dedicated vehicles, with label refits.</p>
                                         
-                                            <p>Open general cargo vehicles or flat vehicles might be sensible as fallback choices.</p>
+                                            <p>Open general cargo vehicles might be sensible as fallback choices.</p>
                                         
-                                            <p>Disallowing CC_WEIRD is unwise as it's only intended as a fallback for unknown weird cargos; there are very few cargos using this class, so just allow/disallow their labels explicitly if you want to control their vehicle refits precisely.</p>
+                                            <p>Can be used to disallow CC_WEIRD cargos in some vehicles, but ensure there's at least one type of vehicle that allows this class (recommended).</p>
+                                        
+                                            <p>CC_WEIRD is really only intended as a fallback for unknown weird cargos; there are very few cargos using this class, so better to allow/disallow their labels explicitly if you want to control their vehicle refits precisely.</p>
                                         
                                     
                                 </td>
@@ -2293,6 +2313,13 @@
                                         
                                             
                                                 <a href="#CARGO_IRON_ORE">Iron Ore</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#CARGO_LIVESTOCK">Livestock</a>,
                                             
                                             
                                         
@@ -2565,6 +2592,12 @@
                 
                     
                         <tr>
+                            <td><a href="#CARGO_LIVESTOCK">Livestock</a></td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
                             <td><a href="#CARGO_MAIL">Mail</a></td>
                         </tr>
                     
@@ -2736,11 +2769,11 @@
                                 <th>Cargo classes</th>
                                 <td>
                                     
+                                        CC_PIECE_GOODS
+                                    
                                         CC_COVERED_BULK
                                     
                                         CC_FOOD_GRADE
-                                    
-                                        CC_PIECE_GOODS
                                     
                                 </td>
                             </tr>
@@ -2839,11 +2872,11 @@
                                 <th>Cargo classes</th>
                                 <td>
                                     
-                                        CC_NON_FOOD_GRADE
-                                    
                                         CC_PIECE_GOODS
                                     
                                         CC_POWDERIZED
+                                    
+                                        CC_NON_FOOD_GRADE
                                     
                                 </td>
                             </tr>
@@ -2994,9 +3027,9 @@
                                 <th>Cargo classes</th>
                                 <td>
                                     
-                                        CC_NON_FOOD_GRADE
-                                    
                                         CC_OPEN_BULK
+                                    
+                                        CC_NON_FOOD_GRADE
                                     
                                 </td>
                             </tr>
@@ -3107,9 +3140,9 @@
                                     
                                         CC_EXPRESS
                                     
-                                        CC_FOOD_GRADE
-                                    
                                         CC_PIECE_GOODS
+                                    
+                                        CC_FOOD_GRADE
                                     
                                 </td>
                             </tr>
@@ -3208,13 +3241,13 @@
                                 <th>Cargo classes</th>
                                 <td>
                                     
-                                        CC_COVERED_BULK
-                                    
-                                        CC_FOOD_GRADE
-                                    
                                         CC_PIECE_GOODS
                                     
+                                        CC_COVERED_BULK
+                                    
                                         CC_POWDERIZED
+                                    
+                                        CC_FOOD_GRADE
                                     
                                 </td>
                             </tr>
@@ -3343,11 +3376,11 @@
                                     
                                         CC_EXPRESS
                                     
-                                        CC_FOOD_GRADE
+                                        CC_PIECE_GOODS
                                     
                                         CC_LIQUID
                                     
-                                        CC_PIECE_GOODS
+                                        CC_FOOD_GRADE
                                     
                                 </td>
                             </tr>
@@ -3481,11 +3514,11 @@
                                 <th>Cargo classes</th>
                                 <td>
                                     
+                                        CC_PIECE_GOODS
+                                    
                                         CC_FLATBED
                                     
                                         CC_NON_FOOD_GRADE
-                                    
-                                        CC_PIECE_GOODS
                                     
                                 </td>
                             </tr>
@@ -3570,11 +3603,11 @@
                                 <th>Cargo classes</th>
                                 <td>
                                     
+                                        CC_PIECE_GOODS
+                                    
                                         CC_COVERED_BULK
                                     
                                         CC_FOOD_GRADE
-                                    
-                                        CC_PIECE_GOODS
                                     
                                 </td>
                             </tr>
@@ -3673,9 +3706,9 @@
                                 <th>Cargo classes</th>
                                 <td>
                                     
-                                        CC_NON_FOOD_GRADE
-                                    
                                         CC_OPEN_BULK
+                                    
+                                        CC_NON_FOOD_GRADE
                                     
                                 </td>
                             </tr>
@@ -3721,6 +3754,95 @@
                                         
                                             
                                                 <a href="#VEHICLE_ORE_DUMP">Ore Dump Vehicle</a>
+                                            
+                                            
+                                        
+                                    
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                
+            
+                
+                    <hr style="margin-top:30px; margin-bottom:30px;" />
+                    <h2 id="CARGO_LIVESTOCK">
+                        Livestock <span class="muted">(example)</span>
+                    </h2>
+                    <table class="cargo-class-facts">
+                        <tbody>
+                            <tr>
+                                <th>Vehicle description</th>
+                                <td>Livestock CABBAGE - piece goods for legacy base game reasons - use label LVST for accurate control. CC_WEIRD also set to flag that this cargo is non-standard and would be better handled on labels.</td>
+                            </tr>
+                            <tr>
+                                <th>Cargo classes</th>
+                                <td>
+                                    
+                                        CC_PIECE_GOODS
+                                    
+                                        CC_WEIRD
+                                    
+                                        CC_NON_FOOD_GRADE
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Example vehicles</th>
+                                <td>
+                                    
+                                        
+                                            
+                                                <a href="#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#VEHICLE_FLATBED">Flatbed Vehicle</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>
                                             
                                             
                                         
@@ -3784,11 +3906,11 @@
                                     
                                         CC_EXPRESS
                                     
-                                        CC_FOOD_GRADE
+                                        CC_PIECE_GOODS
                                     
                                         CC_LIQUID
                                     
-                                        CC_PIECE_GOODS
+                                        CC_FOOD_GRADE
                                     
                                 </td>
                             </tr>
@@ -4115,9 +4237,9 @@
                                 <th>Cargo classes</th>
                                 <td>
                                     
-                                        CC_FLATBED
-                                    
                                         CC_PIECE_GOODS
+                                    
+                                        CC_FLATBED
                                     
                                 </td>
                             </tr>
@@ -4238,9 +4360,9 @@
                                 <th>Cargo classes</th>
                                 <td>
                                     
-                                        CC_FLATBED
-                                    
                                         CC_PIECE_GOODS
+                                    
+                                        CC_FLATBED
                                     
                                 </td>
                             </tr>
@@ -4325,13 +4447,13 @@
                                 <th>Cargo classes</th>
                                 <td>
                                     
-                                        CC_COVERED_BULK
-                                    
-                                        CC_NON_FOOD_GRADE
-                                    
                                         CC_PIECE_GOODS
                                     
+                                        CC_COVERED_BULK
+                                    
                                         CC_POWDERIZED
+                                    
+                                        CC_NON_FOOD_GRADE
                                     
                                 </td>
                             </tr>
@@ -4458,13 +4580,13 @@
                                 <th>Cargo classes</th>
                                 <td>
                                     
-                                        CC_COVERED_BULK
-                                    
-                                        CC_NON_FOOD_GRADE
-                                    
                                         CC_OPEN_BULK
                                     
+                                        CC_COVERED_BULK
+                                    
                                         CC_POWDERIZED
+                                    
+                                        CC_NON_FOOD_GRADE
                                     
                                 </td>
                             </tr>
@@ -4598,9 +4720,9 @@
                                 <th>Cargo classes</th>
                                 <td>
                                     
-                                        CC_NON_FOOD_GRADE
-                                    
                                         CC_OPEN_BULK
+                                    
+                                        CC_NON_FOOD_GRADE
                                     
                                 </td>
                             </tr>
@@ -4671,11 +4793,11 @@
                                 <th>Cargo classes</th>
                                 <td>
                                     
+                                        CC_PIECE_GOODS
+                                    
                                         CC_LIQUID
                                     
                                         CC_NON_FOOD_GRADE
-                                    
-                                        CC_PIECE_GOODS
                                     
                                 </td>
                             </tr>
@@ -4774,9 +4896,9 @@
                                 <th>Cargo classes</th>
                                 <td>
                                     
-                                        CC_FLATBED
-                                    
                                         CC_PIECE_GOODS
+                                    
+                                        CC_FLATBED
                                     
                                 </td>
                             </tr>
@@ -4861,11 +4983,11 @@
                                 <th>Cargo classes</th>
                                 <td>
                                     
+                                        CC_OPEN_BULK
+                                    
                                         CC_COVERED_BULK
                                     
                                         CC_NON_FOOD_GRADE
-                                    
-                                        CC_OPEN_BULK
                                     
                                 </td>
                             </tr>
@@ -4971,9 +5093,9 @@
                                 <th>Cargo classes</th>
                                 <td>
                                     
-                                        CC_FLATBED
-                                    
                                         CC_PIECE_GOODS
+                                    
+                                        CC_FLATBED
                                     
                                 </td>
                             </tr>
@@ -5067,13 +5189,6 @@
                             <tr>
                                 <th>Example vehicles</th>
                                 <td>
-                                    
-                                        
-                                            
-                                                <a href="#VEHICLE_BOX_VAN_LESS_PERMISSIVE">Box Van (less permissive)</a>,
-                                            
-                                            
-                                        
                                     
                                         
                                             
@@ -5209,6 +5324,12 @@
                 
                     
                         <tr>
+                            <td><a href="#VEHICLE_LIVESTOCK_CARRIER">Livestock Carrier</a></td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
                             <td><a href="#VEHICLE_MAIL_VAN">Mail Van</a></td>
                         </tr>
                     
@@ -5328,7 +5449,7 @@
                         <tbody>
                             <tr>
                                 <th>Vehicle description</th>
-                                <td>An example of a box van with relatively restricted refits.</td>
+                                <td>An example of a box van with relatively restricted refits. CC_WEIRD is disallowed as an example, but this should only be done if other vehicles support CC_WEIRD.</td>
                             </tr>
                             <tr>
                                 <th>Cargo classes allowed</th>
@@ -5343,6 +5464,8 @@
                             <tr>
                                 <th>Cargo classes disallowed</th>
                                 <td>
+                                    
+                                        CC_WEIRD
                                     
                                 </td>
                             </tr>
@@ -5464,14 +5587,7 @@
                                     
                                         
                                             
-                                                <a href="#CARGO_TIMBER">Timber</a>,
-                                            
-                                            
-                                        
-                                    
-                                        
-                                            
-                                                <a href="#CARGO_YETI_DUDES">YETI Dudes (Workers)</a>
+                                                <a href="#CARGO_TIMBER">Timber</a>
                                             
                                             
                                         
@@ -5500,19 +5616,17 @@
                                 <th>Cargo classes allowed</th>
                                 <td>
                                     
-                                        CC_COVERED_BULK
-                                    
                                         CC_EXPRESS
                                     
-                                        CC_GAS
-                                    
-                                        CC_LIQUID
-                                    
-                                        CC_LIVESTOCK
+                                        CC_PIECE_GOODS
                                     
                                         CC_OPEN_BULK
                                     
-                                        CC_PIECE_GOODS
+                                        CC_COVERED_BULK
+                                    
+                                        CC_LIQUID
+                                    
+                                        CC_GAS
                                     
                                         CC_POWDERIZED
                                     
@@ -5657,6 +5771,13 @@
                                         
                                             
                                                 <a href="#CARGO_IRON_ORE">Iron Ore</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#CARGO_LIVESTOCK">Livestock</a>,
                                             
                                             
                                         
@@ -6047,6 +6168,13 @@
                                     
                                         
                                             
+                                                <a href="#CARGO_LIVESTOCK">Livestock</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
                                                 <a href="#CARGO_NUCLEAR_FUEL">Nuclear fuel</a>,
                                             
                                             
@@ -6231,23 +6359,21 @@
                                 <th>Cargo classes allowed</th>
                                 <td>
                                     
-                                        CC_COVERED_BULK
-                                    
                                         CC_EXPRESS
-                                    
-                                        CC_FLATBED
-                                    
-                                        CC_GAS
-                                    
-                                        CC_LIQUID
-                                    
-                                        CC_LIVESTOCK
-                                    
-                                        CC_OPEN_BULK
                                     
                                         CC_PIECE_GOODS
                                     
+                                        CC_OPEN_BULK
+                                    
+                                        CC_COVERED_BULK
+                                    
+                                        CC_LIQUID
+                                    
+                                        CC_GAS
+                                    
                                         CC_POWDERIZED
+                                    
+                                        CC_FLATBED
                                     
                                         CC_REFRIGERATED
                                     
@@ -6401,6 +6527,20 @@
                                         
                                             
                                                 <a href="#CARGO_IRON_ORE">Iron Ore</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#CARGO_LIVESTOCK">Livestock</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#CARGO_LIVESTOCK">Livestock</a>,
                                             
                                             
                                         
@@ -6602,6 +6742,39 @@
             
                 
                     <hr style="margin-top:30px; margin-bottom:30px;" />
+                    <h2 id="VEHICLE_LIVESTOCK_CARRIER">
+                        Livestock Carrier <span class="muted">(example)</span>
+                    </h2>
+                    <table class="cargo-class-facts">
+                        <tbody>
+                            <tr>
+                                <th>Vehicle description</th>
+                                <td>CABBAGE. No classes. Uses label refit to LVST.</td>
+                            </tr>
+                            <tr>
+                                <th>Cargo classes allowed</th>
+                                <td>
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Cargo classes disallowed</th>
+                                <td>
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Example cargos</th>
+                                <td>
+                                    
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                
+            
+                
+                    <hr style="margin-top:30px; margin-bottom:30px;" />
                     <h2 id="VEHICLE_MAIL_VAN">
                         Mail Van <span class="muted">(example)</span>
                     </h2>
@@ -6657,9 +6830,9 @@
                                 <th>Cargo classes allowed</th>
                                 <td>
                                     
-                                        CC_OPEN_BULK
-                                    
                                         CC_PIECE_GOODS
+                                    
+                                        CC_OPEN_BULK
                                     
                                         CC_WEIRD
                                     
@@ -6734,6 +6907,20 @@
                                         
                                             
                                                 <a href="#CARGO_IRON_ORE">Iron Ore</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#CARGO_LIVESTOCK">Livestock</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#CARGO_LIVESTOCK">Livestock</a>,
                                             
                                             
                                         
@@ -6843,23 +7030,21 @@
                                 <th>Cargo classes allowed</th>
                                 <td>
                                     
-                                        CC_COVERED_BULK
-                                    
                                         CC_EXPRESS
-                                    
-                                        CC_FLATBED
-                                    
-                                        CC_GAS
-                                    
-                                        CC_LIQUID
-                                    
-                                        CC_LIVESTOCK
-                                    
-                                        CC_OPEN_BULK
                                     
                                         CC_PIECE_GOODS
                                     
+                                        CC_OPEN_BULK
+                                    
+                                        CC_COVERED_BULK
+                                    
+                                        CC_LIQUID
+                                    
+                                        CC_GAS
+                                    
                                         CC_POWDERIZED
+                                    
+                                        CC_FLATBED
                                     
                                         CC_WEIRD
                                     
@@ -7011,6 +7196,20 @@
                                         
                                             
                                                 <a href="#CARGO_IRON_ORE">Iron Ore</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#CARGO_LIVESTOCK">Livestock</a>,
+                                            
+                                            
+                                        
+                                    
+                                        
+                                            
+                                                <a href="#CARGO_LIVESTOCK">Livestock</a>,
                                             
                                             
                                         
