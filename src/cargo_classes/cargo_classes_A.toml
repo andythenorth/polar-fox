@@ -177,7 +177,7 @@ vehicle_grf_advice = []
 vehicle_set_as_allow = true
 vehicle_set_as_disallow = false
 
-[CC_POWDER]
+[CC_POWDERIZED]
 bit_number = 11
 code = "0x0800"
 nml_cargo_class_name = "CC_POWDERIZED"
@@ -198,7 +198,7 @@ vehicle_set_as_disallow = false
 [CC_FOOD_GRADE]
 bit_number = 13
 code = "0x2000"
-nml_cargo_class_name = "CC_FOOD_GRADE"
+nml_cargo_class_name = "[new class]"
 name = "Food Grade"
 cargo_class_description = ["CC_FOOD_GRADE."]
 cargo_grf_advice = [
@@ -217,7 +217,7 @@ vehicle_set_as_disallow = true
 [CC_NON_FOOD_GRADE]
 bit_number = 14
 code = "0x4000"
-nml_cargo_class_name = "CC_NON_FOOD_GRADE"
+nml_cargo_class_name = "[new class]"
 name = "Non-Food Grade"
 cargo_class_description = ["CC_NON_FOOD_GRADE."]
 cargo_grf_advice = [
@@ -263,7 +263,7 @@ nml_cargo_class_name = "CC_REFRIGERATED"
 name = "Refrigerated"
 cargo_class_description = [
     "Legacy class for food-type cargos that require refrigeration.",
-    "It's more effective to set express, piece goods and food grade classes for food-type cargos.",
+    "It's more effective to set CC_EXPRESS, CC_PIECE_GOODS and CC_FOOD_GRADE classes for food-type cargos.",
 ]
 cargo_grf_advice = [
     "Do not use Refrigerated.",
@@ -344,7 +344,7 @@ cargo_classes = ["CC_ARMOURED", "CC_NON_FOOD_GRADE"]
 [CARGO_QUICKLIME]
 name = "Quicklime"
 cargo_description = "Quicklime CABBAGE"
-cargo_classes = ["CC_COVERED_BULK", "CC_PIECE_GOODS", "CC_POWDER", "CC_NON_FOOD_GRADE"]
+cargo_classes = ["CC_COVERED_BULK", "CC_PIECE_GOODS", "CC_POWDERIZED", "CC_NON_FOOD_GRADE"]
 
 [CARGO_PASSENGERS]
 name = "Passengers"
@@ -374,7 +374,7 @@ cargo_classes = ["CC_GAS"]
 [CARGO_SAND]
 name = "Sand"
 cargo_description = "Sand CABBAGE"
-cargo_classes = ["CC_OPEN_BULK", "CC_COVERED_BULK", "CC_POWDER", "CC_NON_FOOD_GRADE"]
+cargo_classes = ["CC_OPEN_BULK", "CC_COVERED_BULK", "CC_POWDERIZED", "CC_NON_FOOD_GRADE"]
 
 [CARGO_SULPHUR]
 name = "Sulphur"
@@ -394,12 +394,12 @@ cargo_classes = ["CC_OPEN_BULK", "CC_NON_FOOD_GRADE"]
 [CARGO_CEMENT]
 name = "Cement"
 cargo_description = "Cement CABBAGE"
-cargo_classes = ["CC_POWDER", "CC_PIECE_GOODS", "CC_NON_FOOD_GRADE"]
+cargo_classes = ["CC_POWDERIZED", "CC_PIECE_GOODS", "CC_NON_FOOD_GRADE"]
 
 [CARGO_FLOUR]
 name = "Flour"
 cargo_description = "Flour CABBAGE"
-cargo_classes = ["CC_POWDER", "CC_COVERED_BULK", "CC_PIECE_GOODS", "CC_FOOD_GRADE"]
+cargo_classes = ["CC_POWDERIZED", "CC_COVERED_BULK", "CC_PIECE_GOODS", "CC_FOOD_GRADE"]
 
 [CARGO_SCRAP_METAL]
 name = "Scrap Metal"
@@ -503,7 +503,7 @@ vehicle_description = """
     This assumes that cargos will be 'packaged' if necessary, for example liquids in barrels.
     No classes are disallowed, but note that CC_NON_STANDARD is not in the 'allow' list, as this class might be applied to cargos that wouldn't easily fit in box vans.
 """
-cargo_classes_allowed = ["CC_LIVESTOCK", "CC_EXPRESS", "CC_PIECE_GOODS", "CC_OPEN_BULK", "CC_COVERED_BULK", "CC_LIQUID", "CC_GAS", "CC_POWDER"]
+cargo_classes_allowed = ["CC_LIVESTOCK", "CC_EXPRESS", "CC_PIECE_GOODS", "CC_OPEN_BULK", "CC_COVERED_BULK", "CC_LIQUID", "CC_GAS", "CC_POWDERIZED"]
 cargo_classes_disallowed = []
 
 [VEHICLE_INTERMODAL_CONTAINERS]
@@ -512,7 +512,7 @@ vehicle_description = """
     Refits most freight classes, to maximise compatibility with industry GRFs.
     No classes are disallowed.
 """
-cargo_classes_allowed = ["CC_LIVESTOCK", "CC_EXPRESS", "CC_PIECE_GOODS", "CC_OPEN_BULK", "CC_COVERED_BULK", "CC_LIQUID", "CC_GAS", "CC_POWDER", "CC_NON_STANDARD"]
+cargo_classes_allowed = ["CC_LIVESTOCK", "CC_EXPRESS", "CC_PIECE_GOODS", "CC_OPEN_BULK", "CC_COVERED_BULK", "CC_LIQUID", "CC_GAS", "CC_POWDERIZED", "CC_NON_STANDARD"]
 cargo_classes_disallowed = []
 
 [VEHICLE_MAIL_VAN]
@@ -536,13 +536,13 @@ cargo_classes_disallowed = []
 [VEHICLE_OPEN_CARGO_MORE_PERMISSIVE]
 name = "Open Cargo Vehicle (more permissive)"
 vehicle_description = "An example of a vehicle that will refit most freight classes, to maximise compatibility with industry GRFs.  This assumes that cargos will be 'packaged' if necessary, for example liquids in barrels. No classes are disallowed."
-cargo_classes_allowed = ["CC_LIVESTOCK", "CC_EXPRESS", "CC_PIECE_GOODS", "CC_OPEN_BULK", "CC_COVERED_BULK", "CC_LIQUID", "CC_GAS", "CC_POWDER", "CC_NON_STANDARD"]
+cargo_classes_allowed = ["CC_LIVESTOCK", "CC_EXPRESS", "CC_PIECE_GOODS", "CC_OPEN_BULK", "CC_COVERED_BULK", "CC_LIQUID", "CC_GAS", "CC_POWDERIZED", "CC_NON_STANDARD"]
 cargo_classes_disallowed = []
 
 [VEHICLE_POWDER_TANKER]
 name = "Powder Tanker"
 vehicle_description = "Cabbage."
-cargo_classes_allowed = ["CC_POWDER"]
+cargo_classes_allowed = ["CC_POWDERIZED"]
 cargo_classes_disallowed = []
 
 [VEHICLE_FLATBED]

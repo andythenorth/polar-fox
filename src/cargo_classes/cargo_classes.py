@@ -2,118 +2,151 @@ import os
 import tomllib
 from chameleon import PageTemplateLoader
 
-
-def print_toml(data, indent=0):
-    for key, value in data.items():
-        if isinstance(value, dict):
-            print("    " * indent + f"{key}:")
-            print_toml(value, indent + 1)
-        elif isinstance(value, list):
-            print("    " * indent + f"{key}: [")
-            for item in value:
-                if isinstance(item, dict):
-                    print("    " * (indent + 1) + "{")
-                    print_toml(item, indent + 2)
-                    print("    " * (indent + 1) + "},")
-                else:
-                    print("    " * (indent + 1) + f"{item},")
-            print("    " * indent + "]")
-        else:
-            print("    " * indent + f"{key}: {value}")
+current_dir = os.curdir
+cargo_classes_dir = os.path.join(current_dir, "src", "cargo_classes")
 
 
-def render_html_docs(
-    cargo_classes_scheme_name, cargo_classes_config, cargo_classes_dir
-):
-    docs_template = PageTemplateLoader(cargo_classes_dir, format="text")[
-        "cargo_classes.pt"
-    ]
+class CargoClassSchemes(dict):
+    """
+    Singleton class just for ease of keeping all the schemes around easily.
+    Extends default python list, as we also use it when we want a list of active rosters (the instantiated class instance behaves like a list object).
+    """
 
-    # pop out metadata, the remaining nodes will be the actual classes
-    cargo_classes_metadata = cargo_classes_config.pop("METADATA")
-    cargo_classes_taxonomy = {
-        node: attrs
-        for node, attrs in cargo_classes_config.items()
-        if "cargo_class_description" in attrs
-    }
-    example_cargos = {
-        node: attrs
-        for node, attrs in cargo_classes_config.items()
-        if "cargo_description" in attrs
-    }
-    example_vehicles = {
-        node: attrs
-        for node, attrs in cargo_classes_config.items()
-        if "vehicle_description" in attrs
-    }
-    cargo_cargo_class_mapping = {}
-    for cargo_class in cargo_classes_taxonomy:
-        example_cargos_for_cargo_class = []
-        for example_cargo_node_id, example_cargo_attrs in example_cargos.items():
-            if cargo_class in example_cargo_attrs["cargo_classes"]:
-                example_cargos_for_cargo_class.append(example_cargo_node_id)
-        cargo_cargo_class_mapping[cargo_class] = example_cargos_for_cargo_class
-    vehicle_cargo_class_mapping = {}
+    def __init__(self):
+        # we support multiple schemes for the purposes of comparing them via rendered docs
+        # however we only support one scheme (prod) in prod. use with grfs
+        self.scheme_names = ["cargo_classes_A"]
+        self.default_scheme_name = "cargo_classes_A"
+        self.load_and_parse_config()
 
-    for cargo_class in cargo_classes_taxonomy:
-        example_vehicles_for_cargo_class = []
-        for example_vehicle_node_id, example_vehicle_attrs in example_vehicles.items():
-            if cargo_class in example_vehicle_attrs["cargo_classes_allowed"]:
-                example_vehicles_for_cargo_class.append(example_vehicle_node_id)
-        vehicle_cargo_class_mapping[cargo_class] = example_vehicles_for_cargo_class
+    def load_and_parse_config(self):
+        # on init, load and parse TOML into a convenient structure for access
+        for scheme_name in self.scheme_names:
+            self[scheme_name] = CargoClassScheme(scheme_name)
 
-    vehicle_cargo_mapping = {}
-    for example_cargo_node_id, example_cargo_attrs in example_cargos.items():
-        for example_vehicle_node_id, example_vehicle_attrs in example_vehicles.items():
-            disallowed_cargo = False
-            for cargo_class in example_vehicle_attrs["cargo_classes_disallowed"]:
-                # first check for disallowed
+    def default_scheme(self):
+        return self[self.default_scheme_name]
+
+    def render_docs(self):
+        # render out docs (html currently) for all in-scope schemes
+        for cargo_class_scheme in self.values():
+
+            docs_template = PageTemplateLoader(cargo_classes_dir, format="text")[
+                "cargo_classes.pt"
+            ]
+            rendered_html = docs_template(
+                cargo_class_scheme=cargo_class_scheme,
+            )
+
+            # docs are stored in the repo, as we actually want to commit them and have them available on github
+            docs_dir = os.path.join(cargo_classes_dir, "docs")
+            output_file_path = os.path.join(docs_dir, cargo_class_scheme.name + ".html")
+            with open(output_file_path, "w", encoding="utf-8") as html_file:
+                html_file.write(rendered_html)
+
+
+class CargoClassScheme(object):
+
+    def __init__(self, scheme_name):
+        self.name = scheme_name
+        self.scheme_raw_config = None  # parsed later from TOML
+
+        toml_file_path = os.path.join(cargo_classes_dir, self.name + ".toml")
+        with open(toml_file_path, "rb") as toml_file:
+            self.scheme_raw_config = tomllib.load(toml_file)
+
+    @property
+    def metadata(self):
+        return self.scheme_raw_config["METADATA"]
+
+    @property
+    def cargo_classes_taxonomy(self):
+        return {
+            node: attrs
+            for node, attrs in self.scheme_raw_config.items()
+            if "cargo_class_description" in attrs
+        }
+
+    @property
+    def example_cargos(self):
+        result = {
+            node: attrs
+            for node, attrs in self.scheme_raw_config.items()
+            if "cargo_description" in attrs
+        }
+        return result
+
+    @property
+    def example_vehicles(self):
+        result = {
+            node: attrs
+            for node, attrs in self.scheme_raw_config.items()
+            if "vehicle_description" in attrs
+        }
+        return result
+
+    @property
+    def cargo_cargo_class_mapping(self):
+        result = {}
+        for cargo_class in self.cargo_classes_taxonomy:
+            example_cargos_for_cargo_class = []
+            for (
+                example_cargo_node_id,
+                example_cargo_attrs,
+            ) in self.example_cargos.items():
                 if cargo_class in example_cargo_attrs["cargo_classes"]:
-                    disallowed_cargo = True
-                    # just stop checking if disallowed cargo
-                    break
-            if disallowed_cargo:
-                continue
-            else:
-                # then check for allowed
-                for cargo_class in example_vehicle_attrs["cargo_classes_allowed"]:
+                    example_cargos_for_cargo_class.append(example_cargo_node_id)
+            result[cargo_class] = example_cargos_for_cargo_class
+        return result
+
+    @property
+    def vehicle_cargo_class_mapping(self):
+        result = {}
+        for cargo_class in self.cargo_classes_taxonomy:
+            example_vehicles_for_cargo_class = []
+            for (
+                example_vehicle_node_id,
+                example_vehicle_attrs,
+            ) in self.example_vehicles.items():
+                if cargo_class in example_vehicle_attrs["cargo_classes_allowed"]:
+                    example_vehicles_for_cargo_class.append(example_vehicle_node_id)
+            result[cargo_class] = example_vehicles_for_cargo_class
+        return result
+
+    @property
+    def vehicle_cargo_mapping(self):
+        result = {}
+        for example_cargo_node_id, example_cargo_attrs in self.example_cargos.items():
+            for (
+                example_vehicle_node_id,
+                example_vehicle_attrs,
+            ) in self.example_vehicles.items():
+                disallowed_cargo = False
+                for cargo_class in example_vehicle_attrs["cargo_classes_disallowed"]:
+                    # first check for disallowed
                     if cargo_class in example_cargo_attrs["cargo_classes"]:
-                        # quirky format where we map both cargo:vehicle and vehicle:cargo, this is unusual but makes for easy templating
-                        vehicle_cargo_mapping.setdefault(example_vehicle_node_id, []).append(example_cargo_node_id)
-                        vehicle_cargo_mapping.setdefault(example_cargo_node_id, []).append(example_vehicle_node_id)
-
-    rendered_html = docs_template(
-        cargo_classes_scheme_name=cargo_classes_scheme_name,
-        cargo_classes_metadata=cargo_classes_metadata,
-        cargo_classes_taxonomy=cargo_classes_taxonomy,
-        example_cargos=example_cargos,
-        example_vehicles=example_vehicles,
-        cargo_cargo_class_mapping=cargo_cargo_class_mapping,
-        vehicle_cargo_class_mapping=vehicle_cargo_class_mapping,
-        vehicle_cargo_mapping=vehicle_cargo_mapping,
-    )
-
-    dist_dir = os.path.join(cargo_classes_dir, "dist")
-    os.makedirs(dist_dir, exist_ok=True)
-    output_file_path = os.path.join(dist_dir, cargo_classes_scheme_name + ".html")
-    with open(output_file_path, "w", encoding="utf-8") as html_file:
-        html_file.write(rendered_html)
+                        disallowed_cargo = True
+                        # just stop checking if disallowed cargo
+                        break
+                if disallowed_cargo:
+                    continue
+                else:
+                    # then check for allowed
+                    for cargo_class in example_vehicle_attrs["cargo_classes_allowed"]:
+                        if cargo_class in example_cargo_attrs["cargo_classes"]:
+                            # quirky format where we map both cargo:vehicle and vehicle:cargo, this is unusual but makes for easy templating
+                            result.setdefault(example_vehicle_node_id, []).append(
+                                example_cargo_node_id
+                            )
+                            result.setdefault(example_cargo_node_id, []).append(
+                                example_vehicle_node_id
+                            )
+        return result
 
 
 def main():
-    current_dir = os.curdir
-    cargo_classes_dir = os.path.join(current_dir, "src", "cargo_classes")
-    for cargo_classes_scheme_name in ["cargo_classes_A"]:
-        toml_file_path = os.path.join(
-            cargo_classes_dir, cargo_classes_scheme_name + ".toml"
-        )
-
-        with open(toml_file_path, "rb") as toml_file:
-            cargo_classes_config = tomllib.load(toml_file)
-
-        render_html_docs(
-            cargo_classes_scheme_name, cargo_classes_config, cargo_classes_dir
-        )
+    # nothing on import, use this as a module
+    pass
 
 
 if __name__ == "__main__":
