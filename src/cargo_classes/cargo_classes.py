@@ -2,8 +2,8 @@ import os
 import tomllib
 from chameleon import PageTemplateLoader
 
-current_dir = os.curdir
-cargo_classes_dir = os.path.join(current_dir, "src", "cargo_classes")
+# Get the directory where the current script (cargo_classes.py) is located
+current_dir = os.path.dirname(os.path.abspath(__file__))
 
 
 class CargoClassSchemes(dict):
@@ -24,6 +24,7 @@ class CargoClassSchemes(dict):
         for scheme_name in self.scheme_names:
             self[scheme_name] = CargoClassScheme(scheme_name)
 
+    @property
     def default_scheme(self):
         return self[self.default_scheme_name]
 
@@ -31,7 +32,7 @@ class CargoClassSchemes(dict):
         # render out docs (html currently) for all in-scope schemes
         for cargo_class_scheme in self.values():
 
-            docs_template = PageTemplateLoader(cargo_classes_dir, format="text")[
+            docs_template = PageTemplateLoader(current_dir, format="text")[
                 "cargo_classes.pt"
             ]
             rendered_html = docs_template(
@@ -39,7 +40,7 @@ class CargoClassSchemes(dict):
             )
 
             # docs are stored in the repo, as we actually want to commit them and have them available on github
-            docs_dir = os.path.join(cargo_classes_dir, "docs")
+            docs_dir = os.path.join(current_dir, "docs")
             output_file_path = os.path.join(docs_dir, cargo_class_scheme.name + ".html")
             with open(output_file_path, "w", encoding="utf-8") as html_file:
                 html_file.write(rendered_html)
@@ -51,7 +52,7 @@ class CargoClassScheme(object):
         self.name = scheme_name
         self.scheme_raw_config = None  # parsed later from TOML
 
-        toml_file_path = os.path.join(cargo_classes_dir, self.name + ".toml")
+        toml_file_path = os.path.join(current_dir, self.name + ".toml")
         with open(toml_file_path, "rb") as toml_file:
             self.scheme_raw_config = tomllib.load(toml_file)
 
