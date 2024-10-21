@@ -139,32 +139,36 @@ cargo_labels = [
 # shared lists of allowed classes, shared across multiple vehicle types
 # !! CABBAGE PARTLY UPDATED OCT 2024 UNFINISHED
 base_refits_by_class = {
-    "all_freight": [
-        "CC_ARMOURED",
-        "CC_COVERED_BULK",
-        "CC_EXPRESS",
-        "CC_FLATBED",
-        "CC_GAS",
-        "CC_LIQUID",
-        "CC_OPEN_BULK",
-        "CC_PIECE_GOODS",
-        "CC_POWDERIZED",
-        "CC_REFRIGERATED",
-        "CC_WEIRD",
-    ],
-    "covered_hopper_freight": [],  # explicit allowal by label instead
-    "cryo_gases": ["CC_GAS"],
-    "dump_freight": ["CC_OPEN_BULK"],
-    "empty": [],
-    "express_freight": ["CC_EXPRESS", "CC_ARMOURED"],
-    "flatbed_freight": ["CC_FLATBED"],
-    "liquids_non_food_grade": ["CC_LIQUID"],
-    "liquids_food_grade": ["CC_LIQUID"],
-    "mail": ["CC_MAIL"],
-    "packaged_freight": ["CC_PIECE_GOODS", "CC_EXPRESS", "CC_ARMOURED", "CC_LIQUID"],
-    "pax": ["CC_PASSENGERS"],
-    "refrigerated_freight": ["CC_REFRIGERATED"],
-    "silo_powders": ["CC_POWDERIZED"],
+    "all_freight": {
+        "allowed": [
+            "CC_ARMOURED",
+            "CC_COVERED_BULK",
+            "CC_EXPRESS",
+            "CC_FLATBED",
+            "CC_GAS",
+            "CC_LIQUID",
+            "CC_OPEN_BULK",
+            "CC_PIECE_GOODS",
+            "CC_POWDERIZED",
+            "CC_REFRIGERATED",
+            "CC_WEIRD",
+        ]
+    },
+    "covered_hopper_freight": {"allowed": []},  # explicit allowal by label instead
+    "cryo_gases": {"allowed": ["CC_GAS"]},
+    "dump_freight": {"allowed": ["CC_OPEN_BULK"]},
+    "empty": {"allowed": []},
+    "express_freight": {"allowed": ["CC_EXPRESS", "CC_ARMOURED"]},
+    "flatbed_freight": {"allowed": ["CC_FLATBED"]},
+    "liquids_non_food_grade": {"allowed": ["CC_LIQUID"]},
+    "liquids_food_grade": {"allowed": ["CC_LIQUID"]},
+    "mail": {"allowed": ["CC_MAIL"]},
+    "packaged_freight": {
+        "allowed": ["CC_PIECE_GOODS", "CC_EXPRESS", "CC_ARMOURED", "CC_LIQUID"]
+    },
+    "pax": {"allowed": ["CC_PASSENGERS"]},
+    "refrigerated_freight": {"allowed": ["CC_REFRIGERATED"]},
+    "silo_powders": {"allowed": ["CC_POWDERIZED"]},
 }
 
 # generally we want to allow refit on classes, and disallow on labels (see disallowed_refits_by_label)
