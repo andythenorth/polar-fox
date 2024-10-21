@@ -137,33 +137,43 @@ cargo_labels = [
 ]
 
 # shared lists of allowed classes, shared across multiple vehicle types
+# !! CABBAGE PARTLY UPDATED OCT 2024 UNFINISHED
 base_refits_by_class = {
     "all_freight": [
-        "CC_BULK",
-        "CC_PIECE_GOODS",
-        "CC_EXPRESS",
-        "CC_LIQUID",
         "CC_ARMOURED",
+        "CC_COVERED_BULK",
+        "CC_EXPRESS",
+        "CC_FLATBED",
+        "CC_GAS",
+        "CC_LIQUID",
+        "CC_OPEN_BULK",
+        "CC_PIECE_GOODS",
+        "CC_POWDERIZED",
         "CC_REFRIGERATED",
-        "CC_COVERED",
-        "CC_NON_POURABLE",
+        "CC_WEIRD",
     ],
     "covered_hopper_freight": [],  # explicit allowal by label instead
-    "dump_freight": ["CC_BULK"],
+    "cryo_gases": ["CC_GAS"],
+    "dump_freight": ["CC_OPEN_BULK"],
     "empty": [],
     "express_freight": ["CC_EXPRESS", "CC_ARMOURED"],
-    "flatbed_freight": ["CC_PIECE_GOODS"],
-    "liquids": ["CC_LIQUID"],
+    "flatbed_freight": ["CC_FLATBED"],
+    "liquids_non_food_grade": ["CC_LIQUID"],
+    "liquids_food_grade": ["CC_LIQUID"],
     "mail": ["CC_MAIL"],
     "packaged_freight": ["CC_PIECE_GOODS", "CC_EXPRESS", "CC_ARMOURED", "CC_LIQUID"],
     "pax": ["CC_PASSENGERS"],
     "refrigerated_freight": ["CC_REFRIGERATED"],
+    "silo_powders": ["CC_POWDERIZED"],
 }
 
 # generally we want to allow refit on classes, and disallow on labels (see disallowed_refits_by_label)
 # BUT for _some_ specialist vehicle types, it's simpler to just allow refit by label
+# !! CABBAGE NEEDS UPDATED OCT 2024 NOT CLEAR THESE ALL NEEDED !!
 allowed_refits_by_label = {
     # box cars get some extended cargos
+    # !! CABBAGE NEEDS UPDATED OCT 2024 - STILL NEEDED?
+    # !! some of these might be able to drop back to classes with FIRS 4 or 5
     "box_freight": [
         "BEAN",
         "CMNT",
@@ -175,6 +185,8 @@ allowed_refits_by_label = {
         "WHEA",
     ],
     # seems to be used by intermodal, otherwise chemicals tankers are deprecated in favour of product tankers
+    # !! CABBAGE NEEDS UPDATED OCT 2024 - STILL NEEDED?
+    # !! some of these might be able to drop back to classes with FIRS 4 or 5
     "chemicals": [
         "ACID",
         "CHLO",
@@ -200,6 +212,8 @@ allowed_refits_by_label = {
         "ZINC",
     ],
     # 'dirty' mine/quarry covered hopper cargos
+    # !! CABBAGE NEEDS UPDATED OCT 2024 - STILL NEEDED?
+    # !! some of these might be able to drop back to classes with FIRS 4 or 5
     "covered_hoppers_mineral": [
         "ALO_",
         "BDMT",
@@ -219,12 +233,16 @@ allowed_refits_by_label = {
     ],
     # non-food cargos that need 'clean' covered hopper
     # preference is not to overlap with mineral covered hoppers and farm hoppers (as they will be combined where needed)
+    # !! CABBAGE NEEDS UPDATED OCT 2024 - STILL NEEDED?
+    # !! some of these might be able to drop back to classes with FIRS 4 or 5
     "covered_hoppers_pellet_powder": [
         "CBLK",
         "NHNO",
         "PLAS",
         "RUBR",
     ],
+    # !! CABBAGE NEEDS UPDATED OCT 2024 - STILL NEEDED?
+    # !! some of these might be able to drop back to classes with FIRS 4 or 5
     "cryo_gases": [
         "CHLO",
         "H2__",
@@ -233,6 +251,8 @@ allowed_refits_by_label = {
         "O2__",
         "WELD",
     ],
+    # !! CABBAGE NEEDS UPDATED OCT 2024 - STILL NEEDED?
+    # !! some of these might be able to drop back to classes with FIRS 4 or 5
     "edible_liquids": [
         "BEER",
         "EOIL",
@@ -240,6 +260,8 @@ allowed_refits_by_label = {
         "MILK",
         "WATR",
     ],
+    # !! CABBAGE NEEDS UPDATED OCT 2024 - STILL NEEDED?
+    # !! some of these might be able to drop back to classes with FIRS 4 or 5
     "farm_food_products": [
         "BAKE",
         "BEAN",
@@ -260,6 +282,7 @@ allowed_refits_by_label = {
         "TATO",
         "WHEA",
     ],
+    # !! CABBAGE NEEDS UPDATED OCT 2024 - STILL NEEDED?
     # for bolster wagon
     "long_products": [
         "ALUM",
@@ -282,6 +305,7 @@ allowed_refits_by_label = {
         "WOOD",
         "ZINC",
     ],
+    # !! CABBAGE NEEDS UPDATED OCT 2024 - STILL NEEDED?
     # hax for intermodal container sprite selection - reefer car refits work just fine using CC_REFRIGERATED
     "reefer": [
         "FISH",
@@ -291,6 +315,7 @@ allowed_refits_by_label = {
 }
 
 # rather than using disallowed classes (can cause breakage), specific labels are disallowed
+# !! CABBAGE NEEDS UPDATED OCT 2024 - STILL NEEDED?
 disallowed_refits_by_label = {
     "non_dump_bulk": [
         "WOOD",
