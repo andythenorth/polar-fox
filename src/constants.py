@@ -152,23 +152,52 @@ base_refits_by_class = {
             "CC_POWDERIZED",
             "CC_REFRIGERATED",
             "CC_WEIRD",
-        ]
+        ],
+        "disallowed": [],
     },
-    "covered_hopper_freight": {"allowed": []},  # explicit allowal by label instead
-    "cryo_gases": {"allowed": ["CC_GAS"]},
-    "dump_freight": {"allowed": ["CC_OPEN_BULK"]},
-    "empty": {"allowed": []},
-    "express_freight": {"allowed": ["CC_EXPRESS", "CC_ARMOURED"]},
-    "flatbed_freight": {"allowed": ["CC_FLATBED"]},
-    "liquids_non_food_grade": {"allowed": ["CC_LIQUID"]},
-    "liquids_food_grade": {"allowed": ["CC_LIQUID"]},
-    "mail": {"allowed": ["CC_MAIL"]},
+    "covered_hopper_freight_any_grade": {
+        "allowed": [
+            "CC_COVERED_BULK",
+        ],
+        "disallowed": [],
+    },
+    "covered_hopper_freight_food_grade": {
+        "allowed": [
+            "CC_COVERED_BULK",
+        ],
+        "disallowed": [
+            "CC_NON_FOOD_GRADE",
+        ],
+    },
+    "covered_hopper_freight_non_food_grade": {
+        "allowed": [
+            "CC_COVERED_BULK",
+        ],
+        "disallowed": [
+            "CC_FOOD_GRADE",
+        ],
+    },
+    "cryo_gases": {"allowed": ["CC_GAS"], "disallowed": []},
+    "dump_freight": {"allowed": ["CC_OPEN_BULK"], "disallowed": []},
+    "empty": {"allowed": [], "disallowed": []},
+    "express_freight": {"allowed": ["CC_EXPRESS", "CC_ARMOURED"], "disallowed": []},
+    "flatbed_freight": {"allowed": ["CC_FLATBED"], "disallowed": []},
+    "liquids_non_food_grade": {
+        "allowed": ["CC_LIQUID"],
+        "disallowed": ["CC_FOOD_GRADE"],
+    },
+    "liquids_food_grade": {
+        "allowed": ["CC_LIQUID"],
+        "disallowed": ["CC_NON_FOOD_GRADE"],
+    },
+    "mail": {"allowed": ["CC_MAIL"], "disallowed": []},
     "packaged_freight": {
-        "allowed": ["CC_PIECE_GOODS", "CC_EXPRESS", "CC_ARMOURED", "CC_LIQUID"]
+        "allowed": ["CC_PIECE_GOODS", "CC_EXPRESS"],
+        "disallowed": ["CC_WEIRD"],  # weird covered in all_freight,
     },
-    "pax": {"allowed": ["CC_PASSENGERS"]},
-    "refrigerated_freight": {"allowed": ["CC_REFRIGERATED"]},
-    "silo_powders": {"allowed": ["CC_POWDERIZED"]},
+    "pax": {"allowed": ["CC_PASSENGERS"], "disallowed": []},
+    "refrigerated_freight": {"allowed": ["CC_REFRIGERATED"], "disallowed": []},
+    "silo_powders": {"allowed": ["CC_POWDERIZED"], "disallowed": []},
 }
 
 # generally we want to allow refit on classes, and disallow on labels (see disallowed_refits_by_label)
@@ -191,6 +220,7 @@ allowed_refits_by_label = {
     # seems to be used by intermodal, otherwise chemicals tankers are deprecated in favour of product tankers
     # !! CABBAGE NEEDS UPDATED OCT 2024 - STILL NEEDED?
     # !! some of these might be able to drop back to classes with FIRS 4 or 5
+    # !! not used in Horse
     "chemicals": [
         "ACID",
         "CHLO",
@@ -246,34 +276,19 @@ allowed_refits_by_label = {
         "RUBR",
     ],
     # !! CABBAGE NEEDS UPDATED OCT 2024 - STILL NEEDED?
-    # !! some of these might be able to drop back to classes with FIRS 4 or 5
-    "cryo_gases": [
-        "CHLO",
-        "H2__",
-        "N7__",
-        "NH3_",
-        "O2__",
-        "WELD",
-    ],
+    # !! dropped in Horse, keyword still here to avoid breaking Sam compile, but can be dropped after that
+    "cryo_gases": [],
     # !! CABBAGE NEEDS UPDATED OCT 2024 - STILL NEEDED?
     # !! some of these might be able to drop back to classes with FIRS 4 or 5
-    "edible_liquids": [
-        "BEER",
-        "EOIL",
-        "FOOD",
-        "MILK",
-        "WATR",
-    ],
+    # !! dropped in Horse, keyword still here to avoid breaking Sam compile, but can be dropped after that
+    "edible_liquids": [],
     # !! CABBAGE NEEDS UPDATED OCT 2024 - STILL NEEDED?
     # !! some of these might be able to drop back to classes with FIRS 4 or 5
     "farm_food_products": [
         "BAKE",
-        "BEAN",
-        "CASS",
         "CERE",
         "FERT",
         "FMSP",
-        "FOOD",
         "FRUT",
         "GRAI",
         "JAVA",
@@ -355,22 +370,8 @@ disallowed_refits_by_label = {
         "CHLO",
         "N7__",
     ],
-    "non_flatbed_freight": [
-        "FOOD",
-        "FISH",
-        "LVST",
-        "FRUT",
-        "BEER",
-        "MILK",
-        "JAVA",
-        "SUGR",
-        "NUTS",
-        "EOIL",
-        "BOOM",
-        "FERT",
-        "PLAS",
-        "CBLK",
-    ],
+    # !! CABBAGE ... DEPRECATED
+    "non_flatbed_freight": [],
     "non_freight_special_cases": ["TOUR"],
 }
 
