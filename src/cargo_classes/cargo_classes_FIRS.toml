@@ -1,12 +1,5 @@
 # order here is the default order we want classes in when rendered for docs
 # as needed, the docs compile can locally render the list out by bit order or other attrs
-[METADATA]
-description = [
-    "No big changes to the widely used classes.",
-    "Two new bits, which are intended to disallow food-grade / non-food-grade",
-    "Redefine a handful of existing little-used classes",
-    "Redefine spec / advice for selected classes.",
-]
 
 # cargo classes
 

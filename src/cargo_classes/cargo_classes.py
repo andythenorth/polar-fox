@@ -6,59 +6,47 @@ from chameleon import PageTemplateLoader
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
 
-class CargoClassSchemes(dict):
-    """
-    Singleton class just for ease of keeping all the schemes around easily.
-    Extends default python list, as we also use it when we want a list of active rosters (the instantiated class instance behaves like a list object).
-    """
+class CargoClassManager(object):
 
     def __init__(self):
-        # we support multiple schemes for the purposes of comparing them via rendered docs
-        # however we only support one scheme (prod) in prod. use with grfs
-        self.scheme_names = ["cargo_classes_FIRS"]
-        self.default_scheme_name = "cargo_classes_FIRS"
-        self.load_and_parse_config()
-
-    def load_and_parse_config(self):
-        # on init, load and parse TOML into a convenient structure for access
-        for scheme_name in self.scheme_names:
-            self[scheme_name] = CargoClassScheme(scheme_name)
-
-    @property
-    def default_scheme(self):
-        return self[self.default_scheme_name]
+        self.cargo_class_scheme = CargoClassScheme("cargo_classes_FIRS")
+        self.templates_dir = os.path.join(current_dir, "templates")
+        # docs are stored in the repo, as we actually want to commit them and have them available on github
+        self.docs_dir = os.path.join(current_dir, "docs")
 
     def render_nml(self):
         # render out nml with `const foo = bar` for currend scheme
-        nml_template = PageTemplateLoader(current_dir, format="text")[
+        nml_template = PageTemplateLoader(self.templates_dir, format="text")[
             "nml_cargo_class_constants.pt"
         ]
         rendered_nml = drop_whitespace(nml_template(
-            cargo_class_scheme=self.default_scheme,
+            cargo_class_scheme=self.cargo_class_scheme,
         ))
 
-        # docs are stored in the repo, as we actually want to commit them and have them available on github
-        docs_dir = os.path.join(current_dir, "docs")
-        output_file_path = os.path.join(docs_dir, "cargo_class_constants.nml")
+        output_file_path = os.path.join(self.docs_dir, "cargo_class_constants.nml")
         with open(output_file_path, "w", encoding="utf-8") as nml_file:
             nml_file.write(rendered_nml)
 
     def render_docs(self):
-        # render out docs (html currently) for all in-scope schemes
-        for cargo_class_scheme in self.values():
-            for template_name in ["cargo_classes_cargo_authors", "cargo_classes_vehicle_authors", "cargo_classes"]:
-                docs_template = PageTemplateLoader(current_dir, format="text")[
-                    template_name + ".pt"
-                ]
-                rendered_html = docs_template(
-                    cargo_class_scheme=cargo_class_scheme,
-                )
+        docs_pages = {
+            "industry_authors": "industry_authors.html",
+            "overview": "overview.html",
+            "vehicle_authors": "vehicle_authors.html",
+        }
+        for template_name, html_file_name in docs_pages.items():
+            docs_template = PageTemplateLoader(self.templates_dir, format="text")[
+                template_name + ".pt"
+            ]
+            rendered_html = docs_template(
+                cargo_class_scheme=self.cargo_class_scheme,
+                docs_pages=docs_pages,
+            )
 
-                # docs are stored in the repo, as we actually want to commit them and have them available on github
-                docs_dir = os.path.join(current_dir, "docs")
-                output_file_path = os.path.join(docs_dir, template_name + ".html")
-                with open(output_file_path, "w", encoding="utf-8") as html_file:
-                    html_file.write(rendered_html)
+            # scheme name support removed here, restore if needed
+            # cargo_class_scheme.name
+            output_file_path = os.path.join(self.docs_dir, html_file_name)
+            with open(output_file_path, "w", encoding="utf-8") as html_file:
+                html_file.write(rendered_html)
 
 
 class CargoClassScheme(object):
@@ -70,10 +58,6 @@ class CargoClassScheme(object):
         toml_file_path = os.path.join(current_dir, self.name + ".toml")
         with open(toml_file_path, "rb") as toml_file:
             self.scheme_raw_config = tomllib.load(toml_file)
-
-    @property
-    def metadata(self):
-        return self.scheme_raw_config["METADATA"]
 
     @property
     def cargo_classes_taxonomy(self):

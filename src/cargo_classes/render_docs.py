@@ -1,4 +1,4 @@
-from cargo_classes import CargoClassSchemes
+from cargo_classes import CargoClassManager
 
 # just a simple wrapper to render the docs on demand
 # note that we intentionally include the rendered docs in the repo,
@@ -8,9 +8,8 @@ from cargo_classes import CargoClassSchemes
 
 def main():
     print("[CARGO CLASSES - RENDER DOCS]")
-    # note that we support rendering multiple schemes in the docs, to support comparing changes
-    cargo_class_schemes = CargoClassSchemes()
-    cargo_class_schemes.render_docs()
+    cargo_class_manager = CargoClassManager()
+    cargo_class_manager.render_docs()
     print("[CARGO CLASSES - RENDER DOCS] - complete")
 
 
