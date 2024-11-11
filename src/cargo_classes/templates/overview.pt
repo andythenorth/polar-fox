@@ -1,160 +1,140 @@
 <tal:page_with_sidebar_template metal:use-macro="load: main_template.pt">
     <div metal:fill-slot='body'>
 
-        <h1>Cargo Class Scheme</h1>
-        <p class="lead">Scheme ID: ${cargo_class_scheme.name}</p>
+        <h1>Overview and Cargo Classes</h1>
+
+        <div class="pt-3 pb-3">
+            <p>Sections:</p>
+            <ul>
+                <li><a href="#cargo-classes-table">Cargo Classes - Table</a></li>
+                <li><a href="#cargo-classes-details">Cargo Classes - Details</a></li>
+            </ul>
+        </div>
 
         <hr />
 
-        <p>Sections:</p>
-        <ul>
-            <li><a href="#cargo-classes">Cargo Classes</a></li>
-            <li><a href="#example-cargos">Example Cargos</a></li>
-            <li><a href="#example-vehicles">Example Vehicles</a></li>
-        </ul>
+        <div class="pt-3 pb-3">
+            <h2 id="cargo-classes-table">Cargo Classes - Table</h2>
+            <!--! table of contents -->
+            <table class="table table-striped table-condensed table-bordered tablesorter" data-wrap-cargo-classes-in-code-tags>
+                <tr>
+                    <th>Cargo class</th>
+                    <th>ID</th>
+                    <th>CARGO_CLASS_TAXONOMY_TAGS</th>
+                    <th>Bit number</th>
+                </tr>
+                <tal:cargo_class_nodes repeat="cargo_class_node cargo_class_scheme.cargo_classes_taxonomy.items()">
+                    <tal:cargo_class define="cargo_class_node_id cargo_class_node[0]; cargo_class cargo_class_node[1];">
+                        <tr>
+                            <td>
+                                <a class="${'do_not_use' if cargo_class.get('do_not_use', False) else ''}" href="#${cargo_class_node_id}"><!--! whitespace shenans
+                                 -->${cargo_class.name}
+                                    <span tal:condition="cargo_class.get('do_not_use', False)">(do not use)</span><!--! whitespace shenans
+                              --></a>
+
+                            </td>
+                            <td>${cargo_class_node_id}</td>
+                            <td>${': '.join(cargo_class.cargo_class_taxonomy_tags)}</td>
+                            <td>${cargo_class.bit_number}</td>
+                        </tr>
+                    </tal:cargo_class>
+                </tal:cargo_class_nodes>
+            </table>
+        </div>
+
         <hr />
 
-        <h2 id="cargo-classes">Cargo Classes</h2>
-        <!--! table of contents -->
-        <table class="table table-striped table-condensed table-bordered tablesorter" data-wrap-cargo-classes-in-code-tags>
-            <tr>
-                <th>Cargo class</th>
-                <th>ID</th>
-                <th>CARGO_CLASS_TAXONOMY_TAGS</th>
-                <th>Bit number</th>
-            </tr>
+        <div class="pt-3 pb-3">
+            <h2 id="cargo-classes-details">Cargo Classes - Details</h2>
             <tal:cargo_class_nodes repeat="cargo_class_node cargo_class_scheme.cargo_classes_taxonomy.items()">
                 <tal:cargo_class define="cargo_class_node_id cargo_class_node[0]; cargo_class cargo_class_node[1];">
-                    <tr>
-                        <td>
-                            <a class="${'do_not_use' if cargo_class.get('do_not_use', False) else ''}" href="#${cargo_class_node_id}"><!--! whitespace shenans
-                             -->${cargo_class.name}
-                                <span tal:condition="cargo_class.get('do_not_use', False)">(do not use)</span><!--! whitespace shenans
-                          --></a>
-
-                        </td>
-                        <td>${cargo_class_node_id}</td>
-                        <td>${': '.join(cargo_class.cargo_class_taxonomy_tags)}</td>
-                        <td>${cargo_class.bit_number}</td>
-                    </tr>
+                    <div class="pt-3 pb-3">
+                        <h3 id="${cargo_class_node_id}">
+                            ${cargo_class.name} <span tal:condition="cargo_class.get('do_not_use', False)">(do not use)</span>
+                        </h3>
+                        <p>${cargo_class_node_id}</p>
+                        <table class="cargo-class-facts">
+                            <tbody>
+                                <tr>
+                                    <th>Cargo class category</th>
+                                    <td>
+                                        ${': '.join(cargo_class.cargo_class_taxonomy_tags)}.
+                                    </td>
+                               </tr>
+                                <tr>
+                                    <th>Cargo class description</th>
+                                    <td>
+                                        <tal:list_items repeat="list_item cargo_class.cargo_class_description">
+                                            <p>${list_item}</p>
+                                        </tal:list_items>
+                                    </td>
+                               </tr>
+                                <tr>
+                                    <th>Example cargos</th>
+                                    <td>
+                                        <tal:block repeat="example_cargo sorted(cargo_class_scheme.cargo_cargo_class_mapping.get(cargo_class_node_id, []))">
+                                            <tal:vehicle switch="example_cargo in cargo_class_scheme.example_cargos">
+                                                <tal:valid_cargo case="True">
+                                                    <a href="${docs_pages['industry_authors']}#${example_cargo}">${cargo_class_scheme.example_cargos[example_cargo].name}</a><!--! whitespace shenans
+                                                 -->${',' if not repeat.example_cargo.end else None}
+                                                </tal:valid_cargo>
+                                                <tal:invalid_cargo case="False">
+                                                    ${example_cargo}
+                                                </tal:invalid_cargo>
+                                            </tal:vehicle>
+                                        </tal:block>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Example vehicles</th>
+                                    <td>
+                                        <tal:block repeat="example_vehicle sorted(cargo_class_scheme.vehicle_cargo_class_mapping.get(cargo_class_node_id, []))">
+                                            <tal:vehicle switch="example_vehicle in cargo_class_scheme.example_vehicles">
+                                                <tal:valid_vehicle case="True">
+                                                    <a href="${docs_pages['vehicle_authors']}#${example_vehicle}">${cargo_class_scheme.example_vehicles[example_vehicle].name}</a><!--! whitespace shenans
+                                                 -->${',' if not repeat.example_vehicle.end else None}
+                                                </tal:valid_vehicle>
+                                                <tal:invalid_vehicle case="False">
+                                                    ${example_vehicle}
+                                                </tal:invalid_vehicle>
+                                            </tal:vehicle>
+                                        </tal:block>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Industry GRF advice</th>
+                                    <td>
+                                        <tal:block condition="len(cargo_class.cargo_grf_advice) > 0">
+                                            <tal:list_items repeat="list_item cargo_class.cargo_grf_advice">
+                                                <p>${list_item}</p>
+                                            </tal:list_items>
+                                        </tal:block>
+                                        <p tal:condition="cargo_class.fallback_to_piece_goods">This cargo class may not be widely supported by older vehicle GRFs. Also set CC_PIECE_GOODS as a fallback (recommended).</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Vehicle GRF advice</th>
+                                    <td>
+                                        <p tal:condition="cargo_class.vehicle_set_as_allow and not cargo_class.vehicle_set_as_disallow">Valid only for <code>refittable_cargo_classes</code>.</p>
+                                        <p tal:condition="cargo_class.vehicle_set_as_disallow and not cargo_class.vehicle_set_as_allow ">Valid only for <code>non_refittable_cargo_classes</code>.</p>
+                                        <p tal:condition="cargo_class.vehicle_set_as_allow and cargo_class.vehicle_set_as_disallow">Valid for <code>refittable_cargo_classes</code> and <code>non_refittable_cargo_classes</code>.</p>
+                                        <tal:block condition="len(cargo_class.vehicle_grf_advice) > 0">
+                                            <tal:list_items repeat="list_item cargo_class.vehicle_grf_advice">
+                                                <p>${list_item}</p>
+                                            </tal:list_items>
+                                        </tal:block>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Bit number</th>
+                                    <td><code>${cargo_class.bit_number}</code></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </tal:cargo_class>
             </tal:cargo_class_nodes>
-        </table>
-
-        <tal:cargo_class_nodes repeat="cargo_class_node cargo_class_scheme.cargo_classes_taxonomy.items()">
-            <tal:cargo_class define="cargo_class_node_id cargo_class_node[0]; cargo_class cargo_class_node[1];">
-                <hr style="margin-top:30px; margin-bottom:30px;" />
-                <h3 id="${cargo_class_node_id}">
-                    ${cargo_class.name} <span tal:condition="cargo_class.get('do_not_use', False)">(do not use)</span>
-                </h3>
-                <p>${cargo_class_node_id}</p>
-                <table class="cargo-class-facts">
-                    <tbody>
-                        <tr>
-                            <th>Cargo class description</th>
-                            <td>
-                                 <tal:block switch="len(cargo_class.cargo_class_description) > 1">
-                                    <tal:is_list case="True">
-                                        <ul>
-                                            <tal:list_items repeat="list_item cargo_class.cargo_class_description">
-                                                <li>${list_item}</li>
-                                            </tal:list_items>
-                                        </ul>
-                                    </tal:is_list>
-                                    <tal:is_list case="False">
-                                        <p>${cargo_class.cargo_class_description[0]}</p>
-                                    </tal:is_list>
-                                </tal:block>
-                            </td>
-                       </tr>
-                        <tr>
-                            <th>Example cargos</th>
-                            <td>
-                                <tal:block repeat="example_cargo sorted(cargo_class_scheme.cargo_cargo_class_mapping.get(cargo_class_node_id, []))">
-                                    <tal:vehicle switch="example_cargo in cargo_class_scheme.example_cargos">
-                                        <tal:valid_cargo case="True">
-                                            <a href="#${example_cargo}">${cargo_class_scheme.example_cargos[example_cargo].name}</a><!--! whitespace shenans
-                                         -->${',' if not repeat.example_cargo.end else None}
-                                        </tal:valid_cargo>
-                                        <tal:invalid_cargo case="False">
-                                            ${example_cargo}
-                                        </tal:invalid_cargo>
-                                    </tal:vehicle>
-                                </tal:block>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Example vehicles</th>
-                            <td>
-                                <tal:block repeat="example_vehicle sorted(cargo_class_scheme.vehicle_cargo_class_mapping.get(cargo_class_node_id, []))">
-                                    <tal:vehicle switch="example_vehicle in cargo_class_scheme.example_vehicles">
-                                        <tal:valid_vehicle case="True">
-                                            <a href="#${example_vehicle}">${cargo_class_scheme.example_vehicles[example_vehicle].name}</a><!--! whitespace shenans
-                                         -->${',' if not repeat.example_vehicle.end else None}
-                                        </tal:valid_vehicle>
-                                        <tal:invalid_vehicle case="False">
-                                            ${example_vehicle}
-                                        </tal:invalid_vehicle>
-                                    </tal:vehicle>
-                                </tal:block>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Industry GRF advice</th>
-                            <td>
-                                <tal:block condition="len(cargo_class.cargo_grf_advice) > 0">
-                                    <tal:list_items repeat="list_item cargo_class.cargo_grf_advice">
-                                        <p>${list_item}</p>
-                                    </tal:list_items>
-                                </tal:block>
-                                <p tal:condition="cargo_class.fallback_to_piece_goods">This cargo class may not be widely supported by older vehicle GRFs. Also set CC_PIECE_GOODS as a fallback (recommended).</p>
-                                <p tal:condition="cargo_class.set_bit_13 == 'true'">Also set CC_POTABLE (recommended).</p>
-                                <p tal:condition="cargo_class.set_bit_14 == 'true'">Also set CC_NON_POTABLE (recommended).</p>
-                                <p tal:condition="cargo_class.set_bit_13 == 'as_appropriate'">Also set CC_POTABLE if appropriate to cargo.</p>
-                                <p tal:condition="cargo_class.set_bit_14 == 'as_appropriate'">Also set CC_NON_POTABLE if appropriate to cargo.</p>
-                                <p tal:condition="(cargo_class.set_bit_13 == 'as_appropriate' and cargo_class.set_bit_14 == 'as_appropriate') or cargo_class.set_bit_13 == 'never' or cargo_class.set_bit_14 == 'never'"
-                                   style="color:red;">
-                                    <small>Do <strong>not</strong> set both CC_POTABLE and CC_NON_POTABLE on a cargo, as this can cause the cargo to become unrefittable. If a cargo does not specifically require food-grade or non-food-grade transport, leave both of those classes unset.</small>
-                                </p>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Vehicle GRF advice</th>
-                            <td>
-                                <p tal:condition="cargo_class.vehicle_set_as_allow">Only for allow list.</p>
-                                <p tal:condition="cargo_class.vehicle_set_as_disallow">Only for disallow list.</p>
-                                <tal:block condition="len(cargo_class.vehicle_grf_advice) > 0">
-                                    <tal:list_items repeat="list_item cargo_class.vehicle_grf_advice">
-                                        <p>${list_item}</p>
-                                    </tal:list_items>
-                                </tal:block>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Replaces or reuses NML/GS classname</th>
-                            <td>
-                                ${cargo_class.nml_cargo_class_name}
-                                <small>
-                                    <tal:block switch="cargo_class.nml_cargo_class_name == cargo_class_node_id">
-                                        <tal:case case="True">
-                                            (no change)
-                                        </tal:case>
-                                        <tal:case case="False">
-                                            (NML/GS classname replaced)
-                                        </tal:case>
-                                    </tal:block>
-                                </small>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Bit number</th>
-                            <td><code>${cargo_class.bit_number}</code></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </tal:cargo_class>
-        </tal:cargo_class_nodes>
+        </div>
 
     </div>
 </tal:page_with_sidebar_template>

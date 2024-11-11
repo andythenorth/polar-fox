@@ -6,6 +6,33 @@ img {
     font-style:italic;
 }
 
+.fox-bg-blue {
+    background-color: #2282ca;
+}
+.hero {
+    color: var(--bs-white);
+    background: linear-gradient(180deg, #0a6ab2, #2282ca);
+}
+.hero h1 {
+    font-weight: 600;
+}
+
+code a {
+    color: var(--bs-red);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 2px; /* thicker to obscure underscores */
+    background: rgb(247, 247, 249);
+    padding: 2px 4px 5px 4px;
+    white-space: nowrap;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(225, 225, 232);
+    border-radius: 3px;
+}
+code a:hover {
+}
+
 td.number, th.number {
     text-align:right;
     padding-right:8px;
@@ -23,7 +50,7 @@ th a.table-link-dark, td a.table-link-dark {
 }
 
 table.cargo-class-facts {
-    background: #e0f4fc;
+    background: #E0F4FC;
     border-radius: 4px;
     font-size: 16px;
     width: 100%;
@@ -57,4 +84,7 @@ table.cargo-class-facts tr:last-of-type th {
 table.cargo-class-facts tr:last-of-type th, table.cargo-class-facts tr:last-of-type td {
     padding-bottom: 21px;
     border-bottom: none;
+}
+table.cargo-class-facts p:last-of-type {
+    margin-bottom: 0;
 }
