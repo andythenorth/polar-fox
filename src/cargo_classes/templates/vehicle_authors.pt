@@ -15,75 +15,134 @@
         <hr />
 
         <div class="pt-3 pb-3">
-            <div class="pt-3 pb-3">
+            <div class="pt-3">
                 <h2 id="guide">Guide</h2>
                 <p>There are three categories of vehicle: passenger, mail, and freight.</p>
             </div>
 
-            <h3>Passenger Vehicle</h3>
-            <div class="pb-3">
+            <div class="ps-1">
+                <div class="guide-section">
+                    <h3 class="guide-heading mb-0">Passenger Vehicle</h3>
 
-                <h4 class="h5">Refittable Classes</h4>
-                <p>CC_PASSENGERS</p>
+                    <div class="guide-arrow-down"></div>
 
-                <h4 class="h5">Non-Refittable Classes</h4>
-                <p>None</p>
-            </div>
+                    <div class="guide-sub-section">
+                        <h4 class="guide-heading guide-step-heading">
+                            <span class="guide-step-marker">1</span> Refittable Classes
+                        </h4>
+                        <h5>It's just passengers folks</h5>
+                        <p>Set CC_PASSENGERS.  Don't set anything else.</p>
+                    </div>
 
-            <h3>Mail Vehicle</h3>
+                    <div class="guide-arrow-down"></div>
 
-            <div class="pb-3">
-                <h4 class="h5">Refittable Classes</h4>
-                <p>CC_MAIL, possibly CC_EXPRESS</p>
-
-                <h4 class="h5">Non-Refittable Classes</h4>
-                <p>Usually none.</p>
-            </div>
-
-            <h3>Freight Vehicle</h3>
-
-            <div class="pb-3">
-                <h4 class="h5">Refittable Classes</h4>
-
-                <div class="pb-3">
-                    <p>Set a <strong>basic handling</strong> class.</p>
-                    <ul>
-                        <tal:cabbage repeat="cargo_class_id cargo_class_scheme.cargo_classes_taxonomy_by_tags['Freight']['Basic Handling']">
-                            <li>${cargo_class_id}</li>
-                        </tal:cabbage>
-                    </ul>
-                    <p>Most vehicles should set <strong>one</strong> basic handling class. In most cases setting more than one is not helpful, but there may be exceptions, for example, intermodal container vehicles.</p>
-                    <p>Some highly specialised types might not set any basic handling class, and may instead depend on a special handling class, such as armoured vehicles or refrigerated vehicles.</p>
-                    <p>Some highly specialised types might not set any basic handling class, and may instead depend on refitting to specific cargo labels, for example nuclear fuel transporters or livestock vans.</p>
+                    <div class="guide-sub-section">
+                        <h4 class="guide-heading guide-step-heading">
+                            <span class="guide-step-marker">2</span> Non-Refittable Classes
+                        </h4>
+                        <h5>No exclusions</h5>
+                        <p>Don't set any non-refittable classes.</p>
+                    </div>
                 </div>
 
-                <div class="pb-3">
-                    <p>Set any <strong>special handling</strong> classes that apply.</p>
-                    <ul>
-                        <tal:cabbage repeat="cargo_class_id cargo_class_scheme.cargo_classes_taxonomy_by_tags['Freight']['Special Handling']">
-                            <li>${cargo_class_id}</li>
-                        </tal:cabbage>
-                    </ul>
+                <div class="guide-section-link-block">
+                    <hr />
                 </div>
 
-                <h4 class="h5">Non-Refittable Classes</h4>
-                <div class="pb-3">
-                    <p>Some vehicles should set <strong>one</strong> of the <strong>potable status</strong> clases.</p>
-                    <ul>
-                        <tal:cabbage repeat="cargo_class_id cargo_class_scheme.cargo_classes_taxonomy_by_tags['Freight']['Potable Status']">
-                            <li>${cargo_class_id}</li>
-                        </tal:cabbage>
-                    </ul>
-                    <p>Some vehicles are suitable for both potable and non-potable cargos, and do not need to set any potable status classes, for example vehicles that handle packaged cargo via CC_PIECE_GOODS.</p>
-                    <p><strong>Never</strong> set both potable status classes.</p>
-                    <p><strong>Never</strong> set potable status classes as refittable, they are exclude-only.</p>
-                    <p>Some highly specialised vehicles may not need to set any potable status classes, and may instead depend on refitting to specific cargo labels.</p>
+                <div class="guide-section">
+                    <h3 class="guide-heading mb-0">Mail Vehicle</h3>
+
+                    <div class="guide-arrow-down"></div>
+
+                    <div class="guide-sub-section">
+                        <h4 class="guide-heading guide-step-heading">
+                            <span class="guide-step-marker">1</span> Refittable Classes
+                        </h4>
+                        <h5>Mail, maybe express</h5>
+                        <p>Set CC_MAIL for regular mail vehicles.</p>
+                        <p>Some mail vehicles are also suitable for CC_EXPRESS and/or CC_ARMOURED.</p>
+                    </div>
+
+                    <div class="guide-arrow-down"></div>
+
+                    <div class="guide-sub-section">
+                        <h4 class="guide-heading guide-step-heading">
+                            <span class="guide-step-marker">2</span> Non-Refittable Classes
+                        </h4>
+                        <h5>No exclusions</h5>
+                        <p>Don't set any non-refittable classes.</p>
+                    </div>
                 </div>
-                <div class="pb-3">
-                    <p>Sometimes it's helpful to be able to exclude weird cargos from general vehicles.</p>
-                    <ul>
-                        <li>CC_WEIRD</li>
-                    </ul>
+
+                <div class="guide-section-link-block">
+                    <hr />
+                </div>
+
+                <div class="guide-section">
+                    <h3 class="guide-heading mb-0">Freight Vehicle</h3>
+
+                    <div class="guide-arrow-down"></div>
+
+                    <div class="guide-sub-section">
+                        <h4 class="guide-heading guide-step-heading">
+                            <span class="guide-step-marker">1</span> Refittable Classes
+                        </h4>
+
+                        <div class="pb-3">
+                            <h5>
+                                Set a <strong>basic handling</strong> class.
+                            </h5>
+                            <ul class="guide-list-group">
+                                <tal:cabbage repeat="cargo_class_id cargo_class_scheme.cargo_classes_taxonomy_by_tags['Freight']['Basic Handling']">
+                                    <li class="guide-list-group-item">${cargo_class_id}</li>
+                                </tal:cabbage>
+                            </ul>
+                            <p>Most vehicles should set <strong>one</strong> basic handling class. In most cases setting more than one is not helpful, but there may be exceptions, for example, intermodal container vehicles.</p>
+                            <p>Some highly specialised types might not set any basic handling class, and may instead depend on a special handling class, such as armoured vehicles or refrigerated vehicles.</p>
+                            <p>Some highly specialised types might not set any basic handling class, and may instead depend on refitting to specific cargo labels, for example nuclear fuel transporters or livestock vans.</p>
+                        </div>
+
+                        <div class="pb-3">
+                            <h5>
+                                Set any <strong>special handling</strong> classes that apply.
+                            </h5>
+                            <ul class="guide-list-group">
+                                <tal:cabbage repeat="cargo_class_id cargo_class_scheme.cargo_classes_taxonomy_by_tags['Freight']['Special Handling']">
+                                    <li class="guide-list-group-item">${cargo_class_id}</li>
+                                </tal:cabbage>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="guide-arrow-down"></div>
+
+                    <div class="guide-sub-section">
+                        <h4 class="guide-heading guide-step-heading">
+                            <span class="guide-step-marker">2</span> Non-Refittable Classes
+                        </h4>
+
+                        <div class="pb-3">
+                            <h5>
+                                Set potable status
+                            </h5>
+                            <p>Some vehicles should set <strong>one</strong> of the <strong>potable status</strong> clases.</p>
+                            <ul class="guide-list-group">
+                                <tal:cabbage repeat="cargo_class_id cargo_class_scheme.cargo_classes_taxonomy_by_tags['Freight']['Potable Status']">
+                                    <li class="guide-list-group-item">${cargo_class_id}</li>
+                                </tal:cabbage>
+                            </ul>
+                            <p>Some vehicles are suitable for both potable and non-potable cargos, and do not need to set any potable status classes, for example vehicles that handle packaged cargo via CC_PIECE_GOODS.</p>
+                            <p><strong>Never</strong> set both potable status classes.</p>
+                            <p><strong>Never</strong> set potable status classes as refittable, they are exclude-only.</p>
+                            <p>Some highly specialised vehicles may not need to set any potable status classes, and may instead depend on refitting to specific cargo labels.</p>
+                        </div>
+                        <div class="pb-3">
+                            <h5>
+                                Optionally exclude weird cargos
+                            </h5>
+                            <p>Sometimes it's helpful to be able to exclude CC_WEIRD from general vehicles. The details for CC_WEIRD provide more advice on this.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -93,29 +152,33 @@
         <div class="pt-3 pb-3">
             <h2 id="example-vehicles-table">Example Vehicles - Table</h2>
             <!--! table of contents -->
-            <table class="table table-striped table-condensed table-bordered tablesorter">
-                <tr>
-                    <th style="width: 33.33%;">Example vehicle</th>
-                    <th style="width: 33.33%;">Refittable cargo classes </th>
-                    <th style="width: 33.33%;">Non-refittable cargo classes</th>
-                </tr>
-                <tal:vehicle_nodes repeat="vehicle_node sorted(cargo_class_scheme.example_vehicles.items())">
-                    <tal:example_vehicle define="vehicle_node_id vehicle_node[0]; example_vehicle vehicle_node[1];">
-                        <tr>
-                            <td><a href="#${vehicle_node_id}">${example_vehicle.name}</a></td>
-                            <td>
-                                <tal:block repeat="cargo_class example_vehicle.cargo_classes_allowed">
-                                    ${cargo_class}
-                                </tal:block>
-                            </td>
-                            <td>
-                                <tal:block repeat="cargo_class example_vehicle.cargo_classes_disallowed">
-                                    ${cargo_class}
-                                </tal:block>
-                            </td>
-                        </tr>
-                    </tal:example_vehicle>
-                </tal:vehicle_nodes>
+            <table  class="table table-striped table-hover table-small-font mt-4">
+                <thead class="table-light">
+                    <tr>
+                        <th style="width: 33.33%;">Example vehicle</th>
+                        <th style="width: 33.33%;">Refittable cargo classes </th>
+                        <th style="width: 33.33%;">Non-refittable cargo classes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tal:vehicle_nodes repeat="vehicle_node sorted(cargo_class_scheme.example_vehicles.items())">
+                        <tal:example_vehicle define="vehicle_node_id vehicle_node[0]; example_vehicle vehicle_node[1];">
+                            <tr>
+                                <td><a href="#${vehicle_node_id}">${example_vehicle.name}</a></td>
+                                <td>
+                                    <tal:block repeat="cargo_class example_vehicle.cargo_classes_allowed">
+                                        ${cargo_class}
+                                    </tal:block>
+                                </td>
+                                <td>
+                                    <tal:block repeat="cargo_class example_vehicle.cargo_classes_disallowed">
+                                        ${cargo_class}
+                                    </tal:block>
+                                </td>
+                            </tr>
+                        </tal:example_vehicle>
+                    </tal:vehicle_nodes>
+                </tbody>
             </table>
         </div>
 

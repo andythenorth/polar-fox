@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
     <head>
+        <meta charset="utf-8">
         <link type="text/css" href="css/bootstrap.min.css" rel="stylesheet">
         <link type="text/css" href="css/style.css" rel="stylesheet">
         <script>
@@ -110,95 +111,154 @@
         <hr />
 
         <div class="pt-3 pb-3">
-            <div class="pt-3 pb-3">
+            <div class="pt-3">
                 <h2 id="guide">Guide</h2>
                 <p>There are three categories of vehicle: passenger, mail, and freight.</p>
             </div>
 
-            <h3>Passenger Vehicle</h3>
-            <div class="pb-3">
+            <div class="ps-1">
+                <div class="guide-section">
+                    <h3 class="guide-heading mb-0">Passenger Vehicle</h3>
 
-                <h4 class="h5">Refittable Classes</h4>
-                <p>CC_PASSENGERS</p>
+                    <div class="guide-arrow-down"></div>
 
-                <h4 class="h5">Non-Refittable Classes</h4>
-                <p>None</p>
-            </div>
+                    <div class="guide-sub-section">
+                        <h4 class="guide-heading guide-step-heading">
+                            <span class="guide-step-marker">1</span> Refittable Classes
+                        </h4>
+                        <h5>It's just passengers folks</h5>
+                        <p>Set CC_PASSENGERS.  Don't set anything else.</p>
+                    </div>
 
-            <h3>Mail Vehicle</h3>
+                    <div class="guide-arrow-down"></div>
 
-            <div class="pb-3">
-                <h4 class="h5">Refittable Classes</h4>
-                <p>CC_MAIL, possibly CC_EXPRESS</p>
-
-                <h4 class="h5">Non-Refittable Classes</h4>
-                <p>Usually none.</p>
-            </div>
-
-            <h3>Freight Vehicle</h3>
-
-            <div class="pb-3">
-                <h4 class="h5">Refittable Classes</h4>
-
-                <div class="pb-3">
-                    <p>Set a <strong>basic handling</strong> class.</p>
-                    <ul>
-                        
-                            <li>CC_PIECE_GOODS</li>
-                        
-                            <li>CC_OPEN_BULK</li>
-                        
-                            <li>CC_COVERED_BULK</li>
-                        
-                            <li>CC_POWDER_BULK</li>
-                        
-                            <li>CC_LIQUID_BULK</li>
-                        
-                            <li>CC_GAS_BULK</li>
-                        
-                    </ul>
-                    <p>Most vehicles should set <strong>one</strong> basic handling class. In most cases setting more than one is not helpful, but there may be exceptions, for example, intermodal container vehicles.</p>
-                    <p>Some highly specialised types might not set any basic handling class, and may instead depend on a special handling class, such as armoured vehicles or refrigerated vehicles.</p>
-                    <p>Some highly specialised types might not set any basic handling class, and may instead depend on refitting to specific cargo labels, for example nuclear fuel transporters or livestock vans.</p>
+                    <div class="guide-sub-section">
+                        <h4 class="guide-heading guide-step-heading">
+                            <span class="guide-step-marker">2</span> Non-Refittable Classes
+                        </h4>
+                        <h5>No exclusions</h5>
+                        <p>Don't set any non-refittable classes.</p>
+                    </div>
                 </div>
 
-                <div class="pb-3">
-                    <p>Set any <strong>special handling</strong> classes that apply.</p>
-                    <ul>
-                        
-                            <li>CC_FLATBED</li>
-                        
-                            <li>CC_EXPRESS</li>
-                        
-                            <li>CC_ARMOURED</li>
-                        
-                            <li>CC_REFRIGERATED</li>
-                        
-                            <li>CC_WEIRD</li>
-                        
-                    </ul>
+                <div class="guide-section-link-block">
+                    <hr />
                 </div>
 
-                <h4 class="h5">Non-Refittable Classes</h4>
-                <div class="pb-3">
-                    <p>Some vehicles should set <strong>one</strong> of the <strong>potable status</strong> clases.</p>
-                    <ul>
-                        
-                            <li>CC_POTABLE</li>
-                        
-                            <li>CC_NON_POTABLE</li>
-                        
-                    </ul>
-                    <p>Some vehicles are suitable for both potable and non-potable cargos, and do not need to set any potable status classes, for example vehicles that handle packaged cargo via CC_PIECE_GOODS.</p>
-                    <p><strong>Never</strong> set both potable status classes.</p>
-                    <p><strong>Never</strong> set potable status classes as refittable, they are exclude-only.</p>
-                    <p>Some highly specialised vehicles may not need to set any potable status classes, and may instead depend on refitting to specific cargo labels.</p>
+                <div class="guide-section">
+                    <h3 class="guide-heading mb-0">Mail Vehicle</h3>
+
+                    <div class="guide-arrow-down"></div>
+
+                    <div class="guide-sub-section">
+                        <h4 class="guide-heading guide-step-heading">
+                            <span class="guide-step-marker">1</span> Refittable Classes
+                        </h4>
+                        <h5>Mail, maybe express</h5>
+                        <p>Set CC_MAIL for regular mail vehicles.</p>
+                        <p>Some mail vehicles are also suitable for CC_EXPRESS and/or CC_ARMOURED.</p>
+                    </div>
+
+                    <div class="guide-arrow-down"></div>
+
+                    <div class="guide-sub-section">
+                        <h4 class="guide-heading guide-step-heading">
+                            <span class="guide-step-marker">2</span> Non-Refittable Classes
+                        </h4>
+                        <h5>No exclusions</h5>
+                        <p>Don't set any non-refittable classes.</p>
+                    </div>
                 </div>
-                <div class="pb-3">
-                    <p>Sometimes it's helpful to be able to exclude weird cargos from general vehicles.</p>
-                    <ul>
-                        <li>CC_WEIRD</li>
-                    </ul>
+
+                <div class="guide-section-link-block">
+                    <hr />
+                </div>
+
+                <div class="guide-section">
+                    <h3 class="guide-heading mb-0">Freight Vehicle</h3>
+
+                    <div class="guide-arrow-down"></div>
+
+                    <div class="guide-sub-section">
+                        <h4 class="guide-heading guide-step-heading">
+                            <span class="guide-step-marker">1</span> Refittable Classes
+                        </h4>
+
+                        <div class="pb-3">
+                            <h5>
+                                Set a <strong>basic handling</strong> class.
+                            </h5>
+                            <ul class="guide-list-group">
+                                
+                                    <li class="guide-list-group-item">CC_PIECE_GOODS</li>
+                                
+                                    <li class="guide-list-group-item">CC_OPEN_BULK</li>
+                                
+                                    <li class="guide-list-group-item">CC_COVERED_BULK</li>
+                                
+                                    <li class="guide-list-group-item">CC_POWDER_BULK</li>
+                                
+                                    <li class="guide-list-group-item">CC_LIQUID_BULK</li>
+                                
+                                    <li class="guide-list-group-item">CC_GAS_BULK</li>
+                                
+                            </ul>
+                            <p>Most vehicles should set <strong>one</strong> basic handling class. In most cases setting more than one is not helpful, but there may be exceptions, for example, intermodal container vehicles.</p>
+                            <p>Some highly specialised types might not set any basic handling class, and may instead depend on a special handling class, such as armoured vehicles or refrigerated vehicles.</p>
+                            <p>Some highly specialised types might not set any basic handling class, and may instead depend on refitting to specific cargo labels, for example nuclear fuel transporters or livestock vans.</p>
+                        </div>
+
+                        <div class="pb-3">
+                            <h5>
+                                Set any <strong>special handling</strong> classes that apply.
+                            </h5>
+                            <ul class="guide-list-group">
+                                
+                                    <li class="guide-list-group-item">CC_FLATBED</li>
+                                
+                                    <li class="guide-list-group-item">CC_EXPRESS</li>
+                                
+                                    <li class="guide-list-group-item">CC_ARMOURED</li>
+                                
+                                    <li class="guide-list-group-item">CC_REFRIGERATED</li>
+                                
+                                    <li class="guide-list-group-item">CC_WEIRD</li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="guide-arrow-down"></div>
+
+                    <div class="guide-sub-section">
+                        <h4 class="guide-heading guide-step-heading">
+                            <span class="guide-step-marker">2</span> Non-Refittable Classes
+                        </h4>
+
+                        <div class="pb-3">
+                            <h5>
+                                Set potable status
+                            </h5>
+                            <p>Some vehicles should set <strong>one</strong> of the <strong>potable status</strong> clases.</p>
+                            <ul class="guide-list-group">
+                                
+                                    <li class="guide-list-group-item">CC_POTABLE</li>
+                                
+                                    <li class="guide-list-group-item">CC_NON_POTABLE</li>
+                                
+                            </ul>
+                            <p>Some vehicles are suitable for both potable and non-potable cargos, and do not need to set any potable status classes, for example vehicles that handle packaged cargo via CC_PIECE_GOODS.</p>
+                            <p><strong>Never</strong> set both potable status classes.</p>
+                            <p><strong>Never</strong> set potable status classes as refittable, they are exclude-only.</p>
+                            <p>Some highly specialised vehicles may not need to set any potable status classes, and may instead depend on refitting to specific cargo labels.</p>
+                        </div>
+                        <div class="pb-3">
+                            <h5>
+                                Optionally exclude weird cargos
+                            </h5>
+                            <p>Sometimes it's helpful to be able to exclude CC_WEIRD from general vehicles. The details for CC_WEIRD provide more advice on this.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -208,373 +268,377 @@
         <div class="pt-3 pb-3">
             <h2 id="example-vehicles-table">Example Vehicles - Table</h2>
             
-            <table class="table table-striped table-condensed table-bordered tablesorter">
-                <tr>
-                    <th style="width: 33.33%;">Example vehicle</th>
-                    <th style="width: 33.33%;">Refittable cargo classes </th>
-                    <th style="width: 33.33%;">Non-refittable cargo classes</th>
-                </tr>
-                
+            <table  class="table table-striped table-hover table-small-font mt-4">
+                <thead class="table-light">
+                    <tr>
+                        <th style="width: 33.33%;">Example vehicle</th>
+                        <th style="width: 33.33%;">Refittable cargo classes </th>
+                        <th style="width: 33.33%;">Non-refittable cargo classes</th>
+                    </tr>
+                </thead>
+                <tbody>
                     
-                        <tr>
-                            <td><a href="#VEHICLE_ARMOURED_VAN">Armoured Van</a></td>
-                            <td>
-                                
-                                    CC_ARMOURED
-                                
-                            </td>
-                            <td>
-                                
-                            </td>
-                        </tr>
+                        
+                            <tr>
+                                <td><a href="#VEHICLE_ARMOURED_VAN">Armoured Van</a></td>
+                                <td>
+                                    
+                                        CC_ARMOURED
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                            </tr>
+                        
                     
-                
+                        
+                            <tr>
+                                <td><a href="#VEHICLE_BOX_VAN_LESS_PERMISSIVE">Box Van (less permissive)</a></td>
+                                <td>
+                                    
+                                        CC_PIECE_GOODS
+                                    
+                                        CC_EXPRESS
+                                    
+                                </td>
+                                <td>
+                                    
+                                        CC_WEIRD
+                                    
+                                </td>
+                            </tr>
+                        
                     
-                        <tr>
-                            <td><a href="#VEHICLE_BOX_VAN_LESS_PERMISSIVE">Box Van (less permissive)</a></td>
-                            <td>
-                                
-                                    CC_PIECE_GOODS
-                                
-                                    CC_EXPRESS
-                                
-                            </td>
-                            <td>
-                                
-                                    CC_WEIRD
-                                
-                            </td>
-                        </tr>
+                        
+                            <tr>
+                                <td><a href="#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a></td>
+                                <td>
+                                    
+                                        CC_PIECE_GOODS
+                                    
+                                        CC_OPEN_BULK
+                                    
+                                        CC_COVERED_BULK
+                                    
+                                        CC_POWDER_BULK
+                                    
+                                        CC_LIQUID_BULK
+                                    
+                                        CC_GAS_BULK
+                                    
+                                        CC_EXPRESS
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                            </tr>
+                        
                     
-                
+                        
+                            <tr>
+                                <td><a href="#VEHICLE_COVERED_HOPPER">Covered Hopper</a></td>
+                                <td>
+                                    
+                                        CC_COVERED_BULK
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                            </tr>
+                        
                     
-                        <tr>
-                            <td><a href="#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a></td>
-                            <td>
-                                
-                                    CC_PIECE_GOODS
-                                
-                                    CC_OPEN_BULK
-                                
-                                    CC_COVERED_BULK
-                                
-                                    CC_POWDER_BULK
-                                
-                                    CC_LIQUID_BULK
-                                
-                                    CC_GAS_BULK
-                                
-                                    CC_EXPRESS
-                                
-                            </td>
-                            <td>
-                                
-                            </td>
-                        </tr>
+                        
+                            <tr>
+                                <td><a href="#VEHICLE_COVERED_HOPPER_FOOD_GRADE">Food Grade Covered Hopper</a></td>
+                                <td>
+                                    
+                                        CC_COVERED_BULK
+                                    
+                                </td>
+                                <td>
+                                    
+                                        CC_NON_POTABLE
+                                    
+                                </td>
+                            </tr>
+                        
                     
-                
+                        
+                            <tr>
+                                <td><a href="#VEHICLE_COVERED_HOPPER_INDUSTRIAL">Industrial Covered Hopper</a></td>
+                                <td>
+                                    
+                                        CC_COVERED_BULK
+                                    
+                                </td>
+                                <td>
+                                    
+                                        CC_POTABLE
+                                    
+                                </td>
+                            </tr>
+                        
                     
-                        <tr>
-                            <td><a href="#VEHICLE_COVERED_HOPPER">Covered Hopper</a></td>
-                            <td>
-                                
-                                    CC_COVERED_BULK
-                                
-                            </td>
-                            <td>
-                                
-                            </td>
-                        </tr>
+                        
+                            <tr>
+                                <td><a href="#VEHICLE_FLATBED">Flatbed Vehicle</a></td>
+                                <td>
+                                    
+                                        CC_FLATBED
+                                    
+                                        CC_WEIRD
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                            </tr>
+                        
                     
-                
+                        
+                            <tr>
+                                <td><a href="#VEHICLE_FOOD_TANKER">Food Tanker</a></td>
+                                <td>
+                                    
+                                        CC_LIQUID_BULK
+                                    
+                                </td>
+                                <td>
+                                    
+                                        CC_NON_POTABLE
+                                    
+                                </td>
+                            </tr>
+                        
                     
-                        <tr>
-                            <td><a href="#VEHICLE_COVERED_HOPPER_FOOD_GRADE">Food Grade Covered Hopper</a></td>
-                            <td>
-                                
-                                    CC_COVERED_BULK
-                                
-                            </td>
-                            <td>
-                                
-                                    CC_NON_POTABLE
-                                
-                            </td>
-                        </tr>
+                        
+                            <tr>
+                                <td><a href="#VEHICLE_HOPPER">Hopper</a></td>
+                                <td>
+                                    
+                                        CC_OPEN_BULK
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                            </tr>
+                        
                     
-                
+                        
+                            <tr>
+                                <td><a href="#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a></td>
+                                <td>
+                                    
+                                        CC_PIECE_GOODS
+                                    
+                                        CC_OPEN_BULK
+                                    
+                                        CC_COVERED_BULK
+                                    
+                                        CC_POWDER_BULK
+                                    
+                                        CC_LIQUID_BULK
+                                    
+                                        CC_GAS_BULK
+                                    
+                                        CC_FLATBED
+                                    
+                                        CC_EXPRESS
+                                    
+                                        CC_REFRIGERATED
+                                    
+                                        CC_WEIRD
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                            </tr>
+                        
                     
-                        <tr>
-                            <td><a href="#VEHICLE_COVERED_HOPPER_INDUSTRIAL">Industrial Covered Hopper</a></td>
-                            <td>
-                                
-                                    CC_COVERED_BULK
-                                
-                            </td>
-                            <td>
-                                
-                                    CC_POTABLE
-                                
-                            </td>
-                        </tr>
+                        
+                            <tr>
+                                <td><a href="#VEHICLE_LIVESTOCK_CARRIER">Livestock Carrier</a></td>
+                                <td>
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                            </tr>
+                        
                     
-                
+                        
+                            <tr>
+                                <td><a href="#VEHICLE_MAIL_VAN">Mail Van</a></td>
+                                <td>
+                                    
+                                        CC_MAIL
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                            </tr>
+                        
                     
-                        <tr>
-                            <td><a href="#VEHICLE_FLATBED">Flatbed Vehicle</a></td>
-                            <td>
-                                
-                                    CC_FLATBED
-                                
-                                    CC_WEIRD
-                                
-                            </td>
-                            <td>
-                                
-                            </td>
-                        </tr>
+                        
+                            <tr>
+                                <td><a href="#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a></td>
+                                <td>
+                                    
+                                        CC_PIECE_GOODS
+                                    
+                                        CC_OPEN_BULK
+                                    
+                                        CC_WEIRD
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                            </tr>
+                        
                     
-                
+                        
+                            <tr>
+                                <td><a href="#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a></td>
+                                <td>
+                                    
+                                        CC_PIECE_GOODS
+                                    
+                                        CC_OPEN_BULK
+                                    
+                                        CC_COVERED_BULK
+                                    
+                                        CC_POWDER_BULK
+                                    
+                                        CC_LIQUID_BULK
+                                    
+                                        CC_GAS_BULK
+                                    
+                                        CC_FLATBED
+                                    
+                                        CC_EXPRESS
+                                    
+                                        CC_WEIRD
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                            </tr>
+                        
                     
-                        <tr>
-                            <td><a href="#VEHICLE_FOOD_TANKER">Food Tanker</a></td>
-                            <td>
-                                
-                                    CC_LIQUID_BULK
-                                
-                            </td>
-                            <td>
-                                
-                                    CC_NON_POTABLE
-                                
-                            </td>
-                        </tr>
+                        
+                            <tr>
+                                <td><a href="#VEHICLE_ORE_DUMP">Ore Dump Vehicle</a></td>
+                                <td>
+                                    
+                                        CC_OPEN_BULK
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                            </tr>
+                        
                     
-                
+                        
+                            <tr>
+                                <td><a href="#VEHICLE_PASSENGER_VEHICLE">Passenger Vehicle</a></td>
+                                <td>
+                                    
+                                        CC_PASSENGERS
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                            </tr>
+                        
                     
-                        <tr>
-                            <td><a href="#VEHICLE_HOPPER">Hopper</a></td>
-                            <td>
-                                
-                                    CC_OPEN_BULK
-                                
-                            </td>
-                            <td>
-                                
-                            </td>
-                        </tr>
+                        
+                            <tr>
+                                <td><a href="#VEHICLE_POWDER_TANKER">Powder Tanker</a></td>
+                                <td>
+                                    
+                                        CC_POWDER_BULK
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                            </tr>
+                        
                     
-                
+                        
+                            <tr>
+                                <td><a href="#VEHICLE_PRESSURE_TANKER">Pressure Tanker</a></td>
+                                <td>
+                                    
+                                        CC_GAS_BULK
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                            </tr>
+                        
                     
-                        <tr>
-                            <td><a href="#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a></td>
-                            <td>
-                                
-                                    CC_PIECE_GOODS
-                                
-                                    CC_OPEN_BULK
-                                
-                                    CC_COVERED_BULK
-                                
-                                    CC_POWDER_BULK
-                                
-                                    CC_LIQUID_BULK
-                                
-                                    CC_GAS_BULK
-                                
-                                    CC_FLATBED
-                                
-                                    CC_EXPRESS
-                                
-                                    CC_REFRIGERATED
-                                
-                                    CC_WEIRD
-                                
-                            </td>
-                            <td>
-                                
-                            </td>
-                        </tr>
+                        
+                            <tr>
+                                <td><a href="#VEHICLE_REFRIGERATED">Refrigerated Vehicle</a></td>
+                                <td>
+                                    
+                                        CC_EXPRESS
+                                    
+                                        CC_REFRIGERATED
+                                    
+                                </td>
+                                <td>
+                                    
+                                        CC_NON_POTABLE
+                                    
+                                </td>
+                            </tr>
+                        
                     
-                
+                        
+                            <tr>
+                                <td><a href="#VEHICLE_TANKER_LESS_PERMISSIVE">Tanker Vehicle (less permissive)</a></td>
+                                <td>
+                                    
+                                        CC_LIQUID_BULK
+                                    
+                                </td>
+                                <td>
+                                    
+                                        CC_POTABLE
+                                    
+                                </td>
+                            </tr>
+                        
                     
-                        <tr>
-                            <td><a href="#VEHICLE_LIVESTOCK_CARRIER">Livestock Carrier</a></td>
-                            <td>
-                                
-                            </td>
-                            <td>
-                                
-                            </td>
-                        </tr>
+                        
+                            <tr>
+                                <td><a href="#VEHICLE_TANKER_MORE_PERMISSIVE">Tanker Vehicle (more permissive)</a></td>
+                                <td>
+                                    
+                                        CC_LIQUID_BULK
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                            </tr>
+                        
                     
-                
-                    
-                        <tr>
-                            <td><a href="#VEHICLE_MAIL_VAN">Mail Van</a></td>
-                            <td>
-                                
-                                    CC_MAIL
-                                
-                            </td>
-                            <td>
-                                
-                            </td>
-                        </tr>
-                    
-                
-                    
-                        <tr>
-                            <td><a href="#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a></td>
-                            <td>
-                                
-                                    CC_PIECE_GOODS
-                                
-                                    CC_OPEN_BULK
-                                
-                                    CC_WEIRD
-                                
-                            </td>
-                            <td>
-                                
-                            </td>
-                        </tr>
-                    
-                
-                    
-                        <tr>
-                            <td><a href="#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a></td>
-                            <td>
-                                
-                                    CC_PIECE_GOODS
-                                
-                                    CC_OPEN_BULK
-                                
-                                    CC_COVERED_BULK
-                                
-                                    CC_POWDER_BULK
-                                
-                                    CC_LIQUID_BULK
-                                
-                                    CC_GAS_BULK
-                                
-                                    CC_FLATBED
-                                
-                                    CC_EXPRESS
-                                
-                                    CC_WEIRD
-                                
-                            </td>
-                            <td>
-                                
-                            </td>
-                        </tr>
-                    
-                
-                    
-                        <tr>
-                            <td><a href="#VEHICLE_ORE_DUMP">Ore Dump Vehicle</a></td>
-                            <td>
-                                
-                                    CC_OPEN_BULK
-                                
-                            </td>
-                            <td>
-                                
-                            </td>
-                        </tr>
-                    
-                
-                    
-                        <tr>
-                            <td><a href="#VEHICLE_PASSENGER_VEHICLE">Passenger Vehicle</a></td>
-                            <td>
-                                
-                                    CC_PASSENGERS
-                                
-                            </td>
-                            <td>
-                                
-                            </td>
-                        </tr>
-                    
-                
-                    
-                        <tr>
-                            <td><a href="#VEHICLE_POWDER_TANKER">Powder Tanker</a></td>
-                            <td>
-                                
-                                    CC_POWDER_BULK
-                                
-                            </td>
-                            <td>
-                                
-                            </td>
-                        </tr>
-                    
-                
-                    
-                        <tr>
-                            <td><a href="#VEHICLE_PRESSURE_TANKER">Pressure Tanker</a></td>
-                            <td>
-                                
-                                    CC_GAS_BULK
-                                
-                            </td>
-                            <td>
-                                
-                            </td>
-                        </tr>
-                    
-                
-                    
-                        <tr>
-                            <td><a href="#VEHICLE_REFRIGERATED">Refrigerated Vehicle</a></td>
-                            <td>
-                                
-                                    CC_EXPRESS
-                                
-                                    CC_REFRIGERATED
-                                
-                            </td>
-                            <td>
-                                
-                                    CC_NON_POTABLE
-                                
-                            </td>
-                        </tr>
-                    
-                
-                    
-                        <tr>
-                            <td><a href="#VEHICLE_TANKER_LESS_PERMISSIVE">Tanker Vehicle (less permissive)</a></td>
-                            <td>
-                                
-                                    CC_LIQUID_BULK
-                                
-                            </td>
-                            <td>
-                                
-                                    CC_POTABLE
-                                
-                            </td>
-                        </tr>
-                    
-                
-                    
-                        <tr>
-                            <td><a href="#VEHICLE_TANKER_MORE_PERMISSIVE">Tanker Vehicle (more permissive)</a></td>
-                            <td>
-                                
-                                    CC_LIQUID_BULK
-                                
-                            </td>
-                            <td>
-                                
-                            </td>
-                        </tr>
-                    
-                
+                </tbody>
             </table>
         </div>
 

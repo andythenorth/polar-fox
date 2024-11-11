@@ -69,13 +69,12 @@ code = "0x0020"
 nml_cargo_class_name = "CC_PIECE_GOODS"
 name = "Piece Goods"
 cargo_class_description = [
-    "This is equivalent to 'general cargo', 'breakbulk', [German] Stückgut",
-    "Almost all types of freight can be transported packaged in crates, boxes, barrels, jars, tins, cans, bags, sacks, bales, bundles or pallets, or as unpackaged items loaded individually into vehicles.",
+    "Breakbulk cargo or general cargo. Unitised or individual pieces. Packaged for weather protection and containment, or unpackaged if no packaging is required.",
+    "This class originates from the German term 'Stückgut', which has no single direct translation to English.",
 ]
 cargo_grf_advice = [
-    "This is usually the most widely supported cargo class in vehicles.",
-    "This class is suitable for many freight cargos.",
-    "Don't set for non-freight cargos like passengers and mail.",
+    "Almost all types of freight can be transported packaged in crates, boxes, barrels, jars, tins, cans, bags, sacks, bales, bundles or pallets, or as unpackaged items loaded individually into vehicles.",
+    "This class is suitable for the widest range of freight cargos and is supported by almost all vehicle grfs.",
 ]
 cargo_class_taxonomy_tags = ["Freight", "Basic Handling"]
 fallback_to_piece_goods = false

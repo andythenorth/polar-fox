@@ -13,19 +13,19 @@
 
         <hr />
 
-        <div class="pt-3 pb-3">
+        <div class="pt-4 pb-3">
             <h2 id="cargo-classes-table">Cargo Classes - Table</h2>
             <!--! table of contents -->
-            <table class="table table-striped table-bordered table-hover sortable">
+            <table class="table table-striped table-hover sortable mt-4">
                 <thead class="table-light">
                     <tr>
                         <th data-type="string">Cargo class</th>
                         <th data-type="string">ID</th>
-                        <th data-type="string">CARGO_CLASS_TAXONOMY_TAGS</th>
+                        <th data-type="string">Cargo class category</th>
                         <th data-type="number">Bit number</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="">
                     <tal:cargo_class_nodes repeat="cargo_class_node cargo_class_scheme.cargo_classes_taxonomy.items()">
                         <tal:cargo_class define="cargo_class_node_id cargo_class_node[0]; cargo_class cargo_class_node[1];">
                             <tr>
@@ -46,9 +46,7 @@
             </table>
         </div>
 
-        <hr />
-
-        <div class="pt-3 pb-3">
+        <div class="pt-4 pb-3">
             <h2 id="cargo-classes-details">Cargo Classes - Details</h2>
             <tal:cargo_class_nodes repeat="cargo_class_node cargo_class_scheme.cargo_classes_taxonomy.items()">
                 <tal:cargo_class define="cargo_class_node_id cargo_class_node[0]; cargo_class cargo_class_node[1];">
