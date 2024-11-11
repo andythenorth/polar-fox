@@ -36,6 +36,38 @@
                 });
             });
         </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                document.querySelectorAll("table.sortable th").forEach(header => {
+                    header.addEventListener("click", () => {
+                        const table = header.closest("table");
+                        const columnIndex = Array.from(header.parentNode.children).indexOf(header);
+                        const type = header.getAttribute("data-type");
+                        const isAsc = table.getAttribute("data-sort") !== "asc";
+                        const rows = Array.from(table.querySelector("tbody").rows);
+
+                        // Remove sorted classes from all headers
+                        header.parentNode.querySelectorAll("th").forEach(th => th.classList.remove("sorted-asc", "sorted-desc"));
+
+                        // Add sorted class to the current header
+                        header.classList.add(isAsc ? "sorted-asc" : "sorted-desc");
+
+                        rows.sort((a, b) => {
+                            let aVal = a.cells[columnIndex].innerText;
+                            let bVal = b.cells[columnIndex].innerText;
+                            if (type === 'number') {
+                                aVal = parseFloat(aVal) || 0;
+                                bVal = parseFloat(bVal) || 0;
+                            }
+                            return isAsc ? (aVal > bVal ? 1 : -1) : (aVal < bVal ? 1 : -1);
+                        });
+
+                        rows.forEach(row => table.querySelector("tbody").appendChild(row));
+                        table.setAttribute("data-sort", isAsc ? "asc" : "desc");
+                    });
+                });
+            });
+        </script>
     </head>
     <body>
         <div class="hero fox-bg-blue">
@@ -79,222 +111,226 @@
         <div class="pt-3 pb-3">
             <h2 id="cargo-classes-table">Cargo Classes - Table</h2>
             
-            <table class="table table-striped table-condensed table-bordered tablesorter" data-wrap-cargo-classes-in-code-tags>
-                <tr>
-                    <th>Cargo class</th>
-                    <th>ID</th>
-                    <th>CARGO_CLASS_TAXONOMY_TAGS</th>
-                    <th>Bit number</th>
-                </tr>
-                
+            <table class="table table-striped table-bordered table-hover sortable">
+                <thead class="table-light">
+                    <tr>
+                        <th data-type="string">Cargo class</th>
+                        <th data-type="string">ID</th>
+                        <th data-type="string">CARGO_CLASS_TAXONOMY_TAGS</th>
+                        <th data-type="number">Bit number</th>
+                    </tr>
+                </thead>
+                <tbody>
                     
-                        <tr>
-                            <td>
-                                <a class="" href="#CC_PASSENGERS">Passengers
-                                    </a>
+                        
+                            <tr>
+                                <td>
+                                    <a class="" href="#CC_PASSENGERS">Passengers
+                                        </a>
 
-                            </td>
-                            <td>CC_PASSENGERS</td>
-                            <td>Non-Freight: Passengers</td>
-                            <td>0</td>
-                        </tr>
+                                </td>
+                                <td>CC_PASSENGERS</td>
+                                <td>Non-Freight: Passengers</td>
+                                <td><code>0</code></td>
+                            </tr>
+                        
                     
-                
-                    
-                        <tr>
-                            <td>
-                                <a class="" href="#CC_MAIL">Mail
-                                    </a>
+                        
+                            <tr>
+                                <td>
+                                    <a class="" href="#CC_MAIL">Mail
+                                        </a>
 
-                            </td>
-                            <td>CC_MAIL</td>
-                            <td>Non-Freight: Mail</td>
-                            <td>1</td>
-                        </tr>
+                                </td>
+                                <td>CC_MAIL</td>
+                                <td>Non-Freight: Mail</td>
+                                <td><code>1</code></td>
+                            </tr>
+                        
                     
-                
-                    
-                        <tr>
-                            <td>
-                                <a class="" href="#CC_POTABLE">Potable
-                                    </a>
+                        
+                            <tr>
+                                <td>
+                                    <a class="" href="#CC_POTABLE">Potable
+                                        </a>
 
-                            </td>
-                            <td>CC_POTABLE</td>
-                            <td>Freight: Potable Status</td>
-                            <td>13</td>
-                        </tr>
+                                </td>
+                                <td>CC_POTABLE</td>
+                                <td>Freight: Potable Status</td>
+                                <td><code>13</code></td>
+                            </tr>
+                        
                     
-                
-                    
-                        <tr>
-                            <td>
-                                <a class="" href="#CC_NON_POTABLE">Non-Potable
-                                    </a>
+                        
+                            <tr>
+                                <td>
+                                    <a class="" href="#CC_NON_POTABLE">Non-Potable
+                                        </a>
 
-                            </td>
-                            <td>CC_NON_POTABLE</td>
-                            <td>Freight: Potable Status</td>
-                            <td>14</td>
-                        </tr>
+                                </td>
+                                <td>CC_NON_POTABLE</td>
+                                <td>Freight: Potable Status</td>
+                                <td><code>14</code></td>
+                            </tr>
+                        
                     
-                
-                    
-                        <tr>
-                            <td>
-                                <a class="" href="#CC_PIECE_GOODS">Piece Goods
-                                    </a>
+                        
+                            <tr>
+                                <td>
+                                    <a class="" href="#CC_PIECE_GOODS">Piece Goods
+                                        </a>
 
-                            </td>
-                            <td>CC_PIECE_GOODS</td>
-                            <td>Freight: Basic Handling</td>
-                            <td>5</td>
-                        </tr>
+                                </td>
+                                <td>CC_PIECE_GOODS</td>
+                                <td>Freight: Basic Handling</td>
+                                <td><code>5</code></td>
+                            </tr>
+                        
                     
-                
-                    
-                        <tr>
-                            <td>
-                                <a class="" href="#CC_OPEN_BULK">Open Bulk
-                                    </a>
+                        
+                            <tr>
+                                <td>
+                                    <a class="" href="#CC_OPEN_BULK">Open Bulk
+                                        </a>
 
-                            </td>
-                            <td>CC_OPEN_BULK</td>
-                            <td>Freight: Basic Handling</td>
-                            <td>4</td>
-                        </tr>
+                                </td>
+                                <td>CC_OPEN_BULK</td>
+                                <td>Freight: Basic Handling</td>
+                                <td><code>4</code></td>
+                            </tr>
+                        
                     
-                
-                    
-                        <tr>
-                            <td>
-                                <a class="" href="#CC_COVERED_BULK">Covered Bulk
-                                    </a>
+                        
+                            <tr>
+                                <td>
+                                    <a class="" href="#CC_COVERED_BULK">Covered Bulk
+                                        </a>
 
-                            </td>
-                            <td>CC_COVERED_BULK</td>
-                            <td>Freight: Basic Handling</td>
-                            <td>9</td>
-                        </tr>
+                                </td>
+                                <td>CC_COVERED_BULK</td>
+                                <td>Freight: Basic Handling</td>
+                                <td><code>9</code></td>
+                            </tr>
+                        
                     
-                
-                    
-                        <tr>
-                            <td>
-                                <a class="" href="#CC_POWDER_BULK">Powder Bulk
-                                    </a>
+                        
+                            <tr>
+                                <td>
+                                    <a class="" href="#CC_POWDER_BULK">Powder Bulk
+                                        </a>
 
-                            </td>
-                            <td>CC_POWDER_BULK</td>
-                            <td>Freight: Basic Handling</td>
-                            <td>11</td>
-                        </tr>
+                                </td>
+                                <td>CC_POWDER_BULK</td>
+                                <td>Freight: Basic Handling</td>
+                                <td><code>11</code></td>
+                            </tr>
+                        
                     
-                
-                    
-                        <tr>
-                            <td>
-                                <a class="" href="#CC_LIQUID_BULK">Liquid Bulk
-                                    </a>
+                        
+                            <tr>
+                                <td>
+                                    <a class="" href="#CC_LIQUID_BULK">Liquid Bulk
+                                        </a>
 
-                            </td>
-                            <td>CC_LIQUID_BULK</td>
-                            <td>Freight: Basic Handling</td>
-                            <td>6</td>
-                        </tr>
+                                </td>
+                                <td>CC_LIQUID_BULK</td>
+                                <td>Freight: Basic Handling</td>
+                                <td><code>6</code></td>
+                            </tr>
+                        
                     
-                
-                    
-                        <tr>
-                            <td>
-                                <a class="" href="#CC_GAS_BULK">Gas Bulk
-                                    </a>
+                        
+                            <tr>
+                                <td>
+                                    <a class="" href="#CC_GAS_BULK">Gas Bulk
+                                        </a>
 
-                            </td>
-                            <td>CC_GAS_BULK</td>
-                            <td>Freight: Basic Handling</td>
-                            <td>8</td>
-                        </tr>
+                                </td>
+                                <td>CC_GAS_BULK</td>
+                                <td>Freight: Basic Handling</td>
+                                <td><code>8</code></td>
+                            </tr>
+                        
                     
-                
-                    
-                        <tr>
-                            <td>
-                                <a class="" href="#CC_FLATBED">Flatbed
-                                    </a>
+                        
+                            <tr>
+                                <td>
+                                    <a class="" href="#CC_FLATBED">Flatbed
+                                        </a>
 
-                            </td>
-                            <td>CC_FLATBED</td>
-                            <td>Freight: Special Handling</td>
-                            <td>10</td>
-                        </tr>
+                                </td>
+                                <td>CC_FLATBED</td>
+                                <td>Freight: Special Handling</td>
+                                <td><code>10</code></td>
+                            </tr>
+                        
                     
-                
-                    
-                        <tr>
-                            <td>
-                                <a class="" href="#CC_EXPRESS">Express
-                                    </a>
+                        
+                            <tr>
+                                <td>
+                                    <a class="" href="#CC_EXPRESS">Express
+                                        </a>
 
-                            </td>
-                            <td>CC_EXPRESS</td>
-                            <td>Freight: Special Handling</td>
-                            <td>2</td>
-                        </tr>
+                                </td>
+                                <td>CC_EXPRESS</td>
+                                <td>Freight: Special Handling</td>
+                                <td><code>2</code></td>
+                            </tr>
+                        
                     
-                
-                    
-                        <tr>
-                            <td>
-                                <a class="" href="#CC_ARMOURED">Armoured
-                                    </a>
+                        
+                            <tr>
+                                <td>
+                                    <a class="" href="#CC_ARMOURED">Armoured
+                                        </a>
 
-                            </td>
-                            <td>CC_ARMOURED</td>
-                            <td>Freight: Special Handling</td>
-                            <td>3</td>
-                        </tr>
+                                </td>
+                                <td>CC_ARMOURED</td>
+                                <td>Freight: Special Handling</td>
+                                <td><code>3</code></td>
+                            </tr>
+                        
                     
-                
-                    
-                        <tr>
-                            <td>
-                                <a class="" href="#CC_REFRIGERATED">Refrigerated
-                                    </a>
+                        
+                            <tr>
+                                <td>
+                                    <a class="" href="#CC_REFRIGERATED">Refrigerated
+                                        </a>
 
-                            </td>
-                            <td>CC_REFRIGERATED</td>
-                            <td>Freight: Special Handling</td>
-                            <td>7</td>
-                        </tr>
+                                </td>
+                                <td>CC_REFRIGERATED</td>
+                                <td>Freight: Special Handling</td>
+                                <td><code>7</code></td>
+                            </tr>
+                        
                     
-                
-                    
-                        <tr>
-                            <td>
-                                <a class="" href="#CC_WEIRD">Weird
-                                    </a>
+                        
+                            <tr>
+                                <td>
+                                    <a class="" href="#CC_WEIRD">Weird
+                                        </a>
 
-                            </td>
-                            <td>CC_WEIRD</td>
-                            <td>Freight: Special Handling</td>
-                            <td>12</td>
-                        </tr>
+                                </td>
+                                <td>CC_WEIRD</td>
+                                <td>Freight: Special Handling</td>
+                                <td><code>12</code></td>
+                            </tr>
+                        
                     
-                
-                    
-                        <tr>
-                            <td>
-                                <a class="do_not_use" href="#CC_SPECIAL">Special
-                                    <span>(do not use)</span></a>
+                        
+                            <tr>
+                                <td>
+                                    <a class="do_not_use" href="#CC_SPECIAL">Special
+                                        <span>(do not use)</span></a>
 
-                            </td>
-                            <td>CC_SPECIAL</td>
-                            <td>N/A</td>
-                            <td>15</td>
-                        </tr>
+                                </td>
+                                <td>CC_SPECIAL</td>
+                                <td>N/A</td>
+                                <td><code>15</code></td>
+                            </tr>
+                        
                     
-                
+                </tbody>
             </table>
         </div>
 

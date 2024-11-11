@@ -36,6 +36,38 @@
                 });
             });
         </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                document.querySelectorAll("table.sortable th").forEach(header => {
+                    header.addEventListener("click", () => {
+                        const table = header.closest("table");
+                        const columnIndex = Array.from(header.parentNode.children).indexOf(header);
+                        const type = header.getAttribute("data-type");
+                        const isAsc = table.getAttribute("data-sort") !== "asc";
+                        const rows = Array.from(table.querySelector("tbody").rows);
+
+                        // Remove sorted classes from all headers
+                        header.parentNode.querySelectorAll("th").forEach(th => th.classList.remove("sorted-asc", "sorted-desc"));
+
+                        // Add sorted class to the current header
+                        header.classList.add(isAsc ? "sorted-asc" : "sorted-desc");
+
+                        rows.sort((a, b) => {
+                            let aVal = a.cells[columnIndex].innerText;
+                            let bVal = b.cells[columnIndex].innerText;
+                            if (type === 'number') {
+                                aVal = parseFloat(aVal) || 0;
+                                bVal = parseFloat(bVal) || 0;
+                            }
+                            return isAsc ? (aVal > bVal ? 1 : -1) : (aVal < bVal ? 1 : -1);
+                        });
+
+                        rows.forEach(row => table.querySelector("tbody").appendChild(row));
+                        table.setAttribute("data-sort", isAsc ? "asc" : "desc");
+                    });
+                });
+            });
+        </script>
     </head>
     <body>
         <div class="hero fox-bg-blue">

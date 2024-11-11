@@ -40,13 +40,26 @@ td.number, th.number {
 th a.table-link-dark, td a.table-link-dark {
     color: #333;
 }
-.tablesorter-header {
-    cursor:pointer;
+/* Cursor change for sortable headers */
+.sortable th {
+    cursor: pointer;
 }
 
-.tablesorter-headerAsc, .tablesorter-headerDesc {
-    background-color:#0077CC;
-    color:#fff;
+/* Basic styling for sorted columns */
+.sortable th.sorted-asc::after,
+.sortable th.sorted-desc::after {
+    content: "";
+    display: inline-block;
+    margin-left: 8px;
+    border: 5px solid transparent;
+}
+
+.sortable th.sorted-asc::after {
+    border-bottom: 5px solid black; /* Arrow pointing up */
+}
+
+.sortable th.sorted-desc::after {
+    border-top: 5px solid black; /* Arrow pointing down */
 }
 
 table.cargo-class-facts {
@@ -88,3 +101,4 @@ table.cargo-class-facts tr:last-of-type th, table.cargo-class-facts tr:last-of-t
 table.cargo-class-facts p:last-of-type {
     margin-bottom: 0;
 }
+
