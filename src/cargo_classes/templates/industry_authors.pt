@@ -20,46 +20,92 @@
                 <p>There are three categories of cargo: passenger, mail, and freight.</p>
             </div>
 
-            <h3>Passenger Cargo</h3>
-            <div class="pb-3">
-                <p>Set CC_PASSENGERS</p>
-            </div>
+            <div class="ps-1">
+                <div class="guide-section">
+                    <h3 class="guide-heading mb-0">Passenger Cargo</h3>
 
-            <h3>Mail Cargo</h3>
-            <div class="pb-3">
-                <p>Set CC_MAIL</p>
-            </div>
+                    <div class="guide-arrow-down"></div>
 
-            <h3>Freight Cargo</h3>
+                    <div class="guide-sub-section">
+                        <h4 class="guide-heading guide-step-heading">
+                            <span class="guide-step-marker">1</span> Simply Passengers
+                        </h4>
+                        <p>Set CC_PASSENGERS. No other classes needed. Done.</p>
+                    </div>
+                </div>
 
-            <div class="pb-3">
-                <p>Set <strong>potable status</strong></p>
-                <ul>
-                    <tal:cabbage repeat="cargo_class_id cargo_class_scheme.cargo_classes_taxonomy_by_tags['Freight']['Potable Status']">
-                        <li>${cargo_class_id}</li>
-                    </tal:cabbage>
-                </ul>
-                <p>This is a boolean flag (true / false), and <strong>one</strong> of these classes should be set appropriately for <strong>all</strong> freight cargos.</p>
-                <p>Do <strong>not</strong> set both of these classes on a cargo. They are mutually exclusive.</p>
-            </div>
+                <div class="guide-section-link-block">
+                    <hr />
+                </div>
 
-            <div class="pb-3">
-                <p>Set at least one <strong>basic handling</strong> class.</p>
-                <ul>
-                    <tal:cabbage repeat="cargo_class_id cargo_class_scheme.cargo_classes_taxonomy_by_tags['Freight']['Basic Handling']">
-                        <li>${cargo_class_id}</li>
-                    </tal:cabbage>
-                </ul>
-                <p>This provides basic compatibility with vehicles.</p>
-            </div>
+                <div class="guide-section">
+                    <h3 class="guide-heading mb-0">Mail Cargo</h3>
 
-            <div class="pb-3">
-                <p>Set any <strong>special handling</strong> classes that apply.</p>
-                <ul>
-                    <tal:cabbage repeat="cargo_class_id cargo_class_scheme.cargo_classes_taxonomy_by_tags['Freight']['Special Handling']">
-                        <li>${cargo_class_id}</li>
-                    </tal:cabbage>
-                </ul>
+                    <div class="guide-arrow-down"></div>
+
+                    <div class="guide-sub-section">
+                        <h4 class="guide-heading guide-step-heading">
+                            <span class="guide-step-marker">1</span> Just Mail
+                        </h4>
+                        <p>Set CC_MAIL. No other classes needed. Done.</p>
+                    </div>
+                </div>
+
+                <div class="guide-section-link-block">
+                    <hr />
+                </div>
+
+                <div class="guide-section">
+                    <h3 class="guide-heading mb-0">Freight Cargo</h3>
+
+                    <div class="guide-arrow-down"></div>
+
+                    <div class="guide-sub-section">
+                        <h4 class="guide-heading guide-step-heading">
+                            <span class="guide-step-marker">1</span> Potable Status
+                        </h4>
+                        <h5>Set <strong>potable status</strong></h5>
+                        <ul class="guide-list-group">
+                            <tal:cabbage repeat="cargo_class_id cargo_class_scheme.cargo_classes_taxonomy_by_tags['Freight']['Potable Status']">
+                                <li class="guide-list-group-item">${cargo_class_id}</li>
+                            </tal:cabbage>
+                        </ul>
+                        <p>This is a boolean flag (true / false), and <strong>one</strong> of these classes should be set appropriately for <strong>all</strong> freight cargos.</p>
+                        <p>Do <strong>not</strong> set both of these classes on a cargo. They are mutually exclusive.</p>
+                    </div>
+
+                    <div class="guide-arrow-down"></div>
+
+                    <div class="guide-sub-section">
+                        <h4 class="guide-heading guide-step-heading">
+                            <span class="guide-step-marker">2</span> Basic Handling
+                        </h4>
+                        <h5>Set any <strong>basic handling</strong> classes that apply.</h5>
+                        <ul class="guide-list-group">
+                            <tal:cabbage repeat="cargo_class_id cargo_class_scheme.cargo_classes_taxonomy_by_tags['Freight']['Basic Handling']">
+                                <li class="guide-list-group-item">${cargo_class_id}</li>
+                            </tal:cabbage>
+                        </ul>
+                        <p>Most cargos should set at least one basic handling class, to ensure the widest vehicle compatibility.</p>
+                        <p>If in doubt, most cargos should set CC_PIECE_GOODS as a fallback. The details for CC_PIECE_GOODS provide more advice on this.</p>
+                        <p>Some unique or non-standard cargos might not set any basic handling class, and might rely only on special handling classes.</p>
+                    </div>
+
+                    <div class="guide-arrow-down"></div>
+
+                    <div class="guide-sub-section">
+                        <h4 class="guide-heading guide-step-heading">
+                            <span class="guide-step-marker">3</span> Special Handling
+                        </h4>
+                        <h5>Set any <strong>special handling</strong> classes that apply.</h5>
+                        <ul class="guide-list-group">
+                            <tal:cabbage repeat="cargo_class_id cargo_class_scheme.cargo_classes_taxonomy_by_tags['Freight']['Special Handling']">
+                                <li class="guide-list-group-item">${cargo_class_id}</li>
+                            </tal:cabbage>
+                        </ul>
+                        <p>CABBAGE.</p>
+                    </div>
+                </div>
             </div>
         </div>
 

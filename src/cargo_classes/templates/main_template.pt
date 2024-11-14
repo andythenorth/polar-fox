@@ -73,7 +73,8 @@
     <body>
         <div class="hero fox-bg-blue">
             <div class="container pt-3 pb-1">
-                <h1 class="display-6">FIRS-Compatible Cargo Class Scheme</h1>
+                <h1 class="display-6">FRAX Cargo Class Scheme</h1>
+                <p><small><i>FRAX Routes all Xenon etc</i></small></p>
             </div>
         </div>
         <nav class="navbar navbar-expand-lg fox-bg-blue" style="border-bottom: solid 1px black;">

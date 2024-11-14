@@ -9,7 +9,7 @@
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 // Inject the URL prefix from Chameleon's docs_pages['overview']
-                var prefix = "overview.html";
+                var prefix = "frax.html";
 
                 // Regular expression to match 'CC_' followed by uppercase letters or underscores
                 var regex = /\b(CC_[A-Z_]+)\b/g;
@@ -73,7 +73,8 @@
     <body>
         <div class="hero fox-bg-blue">
             <div class="container pt-3 pb-1">
-                <h1 class="display-6">FIRS-Compatible Cargo Class Scheme</h1>
+                <h1 class="display-6">FRAX Cargo Class Scheme</h1>
+                <p><small><i>FRAX Routes all Xenon etc</i></small></p>
             </div>
         </div>
         <nav class="navbar navbar-expand-lg fox-bg-blue" style="border-bottom: solid 1px black;">
@@ -81,15 +82,15 @@
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link text-light text-decoration-underline"
-                           href="overview.html">Overview</a>
+                           href="frax.html">Overview</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-light text-decoration-underline"
-                           href="vehicle_authors.html">For Vehicle Authors</a>
+                           href="vehicle_frax.html">For Vehicle Authors</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-light text-decoration-underline"
-                           href="industry_authors.html">For Industry Authors</a>
+                           href="industry_frax.html">For Industry Authors</a>
                     </li>
                 </ul>
             </div>
@@ -116,66 +117,112 @@
                 <p>There are three categories of cargo: passenger, mail, and freight.</p>
             </div>
 
-            <h3>Passenger Cargo</h3>
-            <div class="pb-3">
-                <p>Set CC_PASSENGERS</p>
-            </div>
+            <div class="ps-1">
+                <div class="guide-section">
+                    <h3 class="guide-heading mb-0">Passenger Cargo</h3>
 
-            <h3>Mail Cargo</h3>
-            <div class="pb-3">
-                <p>Set CC_MAIL</p>
-            </div>
+                    <div class="guide-arrow-down"></div>
 
-            <h3>Freight Cargo</h3>
+                    <div class="guide-sub-section">
+                        <h4 class="guide-heading guide-step-heading">
+                            <span class="guide-step-marker">1</span> Simply Passengers
+                        </h4>
+                        <p>Set CC_PASSENGERS. No other classes needed. Done.</p>
+                    </div>
+                </div>
 
-            <div class="pb-3">
-                <p>Set <strong>potable status</strong></p>
-                <ul>
-                    
-                        <li>CC_POTABLE</li>
-                    
-                        <li>CC_NON_POTABLE</li>
-                    
-                </ul>
-                <p>This is a boolean flag (true / false), and <strong>one</strong> of these classes should be set appropriately for <strong>all</strong> freight cargos.</p>
-                <p>Do <strong>not</strong> set both of these classes on a cargo. They are mutually exclusive.</p>
-            </div>
+                <div class="guide-section-link-block">
+                    <hr />
+                </div>
 
-            <div class="pb-3">
-                <p>Set at least one <strong>basic handling</strong> class.</p>
-                <ul>
-                    
-                        <li>CC_PIECE_GOODS</li>
-                    
-                        <li>CC_OPEN_BULK</li>
-                    
-                        <li>CC_COVERED_BULK</li>
-                    
-                        <li>CC_POWDER_BULK</li>
-                    
-                        <li>CC_LIQUID_BULK</li>
-                    
-                        <li>CC_GAS_BULK</li>
-                    
-                </ul>
-                <p>This provides basic compatibility with vehicles.</p>
-            </div>
+                <div class="guide-section">
+                    <h3 class="guide-heading mb-0">Mail Cargo</h3>
 
-            <div class="pb-3">
-                <p>Set any <strong>special handling</strong> classes that apply.</p>
-                <ul>
-                    
-                        <li>CC_FLATBED</li>
-                    
-                        <li>CC_EXPRESS</li>
-                    
-                        <li>CC_ARMOURED</li>
-                    
-                        <li>CC_REFRIGERATED</li>
-                    
-                        <li>CC_WEIRD</li>
-                    
-                </ul>
+                    <div class="guide-arrow-down"></div>
+
+                    <div class="guide-sub-section">
+                        <h4 class="guide-heading guide-step-heading">
+                            <span class="guide-step-marker">1</span> Just Mail
+                        </h4>
+                        <p>Set CC_MAIL. No other classes needed. Done.</p>
+                    </div>
+                </div>
+
+                <div class="guide-section-link-block">
+                    <hr />
+                </div>
+
+                <div class="guide-section">
+                    <h3 class="guide-heading mb-0">Freight Cargo</h3>
+
+                    <div class="guide-arrow-down"></div>
+
+                    <div class="guide-sub-section">
+                        <h4 class="guide-heading guide-step-heading">
+                            <span class="guide-step-marker">1</span> Potable Status
+                        </h4>
+                        <h5>Set <strong>potable status</strong></h5>
+                        <ul class="guide-list-group">
+                            
+                                <li class="guide-list-group-item">CC_POTABLE</li>
+                            
+                                <li class="guide-list-group-item">CC_NON_POTABLE</li>
+                            
+                        </ul>
+                        <p>This is a boolean flag (true / false), and <strong>one</strong> of these classes should be set appropriately for <strong>all</strong> freight cargos.</p>
+                        <p>Do <strong>not</strong> set both of these classes on a cargo. They are mutually exclusive.</p>
+                    </div>
+
+                    <div class="guide-arrow-down"></div>
+
+                    <div class="guide-sub-section">
+                        <h4 class="guide-heading guide-step-heading">
+                            <span class="guide-step-marker">2</span> Basic Handling
+                        </h4>
+                        <h5>Set any <strong>basic handling</strong> classes that apply.</h5>
+                        <ul class="guide-list-group">
+                            
+                                <li class="guide-list-group-item">CC_PIECE_GOODS</li>
+                            
+                                <li class="guide-list-group-item">CC_OPEN_BULK</li>
+                            
+                                <li class="guide-list-group-item">CC_COVERED_BULK</li>
+                            
+                                <li class="guide-list-group-item">CC_POWDER_BULK</li>
+                            
+                                <li class="guide-list-group-item">CC_LIQUID_BULK</li>
+                            
+                                <li class="guide-list-group-item">CC_GAS_BULK</li>
+                            
+                        </ul>
+                        <p>Most cargos should set at least one basic handling class, to ensure the widest vehicle compatibility.</p>
+                        <p>If in doubt, most cargos should set CC_PIECE_GOODS as a fallback. The details for CC_PIECE_GOODS provide more advice on this.</p>
+                        <p>Some unique or non-standard cargos might not set any basic handling class, and might rely only on special handling classes.</p>
+                    </div>
+
+                    <div class="guide-arrow-down"></div>
+
+                    <div class="guide-sub-section">
+                        <h4 class="guide-heading guide-step-heading">
+                            <span class="guide-step-marker">3</span> Special Handling
+                        </h4>
+                        <h5>Set any <strong>special handling</strong> classes that apply.</h5>
+                        <ul class="guide-list-group">
+                            
+                                <li class="guide-list-group-item">CC_FLATBED</li>
+                            
+                                <li class="guide-list-group-item">CC_EXPRESS</li>
+                            
+                                <li class="guide-list-group-item">CC_ARMOURED</li>
+                            
+                                <li class="guide-list-group-item">CC_REFRIGERATED</li>
+                            
+                                <li class="guide-list-group-item">CC_WEIRD</li>
+                            
+                        </ul>
+                        <p>CABBAGE.</p>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -693,28 +740,28 @@
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_PRESSURE_TANKER">Pressure Tanker</a>
+                                                    <a href="vehicle_frax.html#VEHICLE_PRESSURE_TANKER">Pressure Tanker</a>
                                                 
                                                 
                                             
@@ -755,49 +802,49 @@
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_BOX_VAN_LESS_PERMISSIVE">Box Van (less permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_BOX_VAN_LESS_PERMISSIVE">Box Van (less permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_COVERED_HOPPER">Covered Hopper</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_COVERED_HOPPER">Covered Hopper</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_COVERED_HOPPER_FOOD_GRADE">Food Grade Covered Hopper</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_COVERED_HOPPER_FOOD_GRADE">Food Grade Covered Hopper</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>
                                                 
                                                 
                                             
@@ -838,42 +885,42 @@
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_BOX_VAN_LESS_PERMISSIVE">Box Van (less permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_BOX_VAN_LESS_PERMISSIVE">Box Van (less permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_POWDER_TANKER">Powder Tanker</a>
+                                                    <a href="vehicle_frax.html#VEHICLE_POWDER_TANKER">Powder Tanker</a>
                                                 
                                                 
                                             
@@ -912,28 +959,28 @@
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_PRESSURE_TANKER">Pressure Tanker</a>
+                                                    <a href="vehicle_frax.html#VEHICLE_PRESSURE_TANKER">Pressure Tanker</a>
                                                 
                                                 
                                             
@@ -972,42 +1019,42 @@
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_HOPPER">Hopper</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_HOPPER">Hopper</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_ORE_DUMP">Ore Dump Vehicle</a>
+                                                    <a href="vehicle_frax.html#VEHICLE_ORE_DUMP">Ore Dump Vehicle</a>
                                                 
                                                 
                                             
@@ -1046,7 +1093,7 @@
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_ARMOURED_VAN">Armoured Van</a>
+                                                    <a href="vehicle_frax.html#VEHICLE_ARMOURED_VAN">Armoured Van</a>
                                                 
                                                 
                                             
@@ -1089,42 +1136,42 @@
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_ARMOURED_VAN">Armoured Van</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_ARMOURED_VAN">Armoured Van</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_BOX_VAN_LESS_PERMISSIVE">Box Van (less permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_BOX_VAN_LESS_PERMISSIVE">Box Van (less permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>
                                                 
                                                 
                                             
@@ -1167,42 +1214,42 @@
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_BOX_VAN_LESS_PERMISSIVE">Box Van (less permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_BOX_VAN_LESS_PERMISSIVE">Box Van (less permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_REFRIGERATED">Refrigerated Vehicle</a>
+                                                    <a href="vehicle_frax.html#VEHICLE_REFRIGERATED">Refrigerated Vehicle</a>
                                                 
                                                 
                                             
@@ -1245,56 +1292,56 @@
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_BOX_VAN_LESS_PERMISSIVE">Box Van (less permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_BOX_VAN_LESS_PERMISSIVE">Box Van (less permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_COVERED_HOPPER">Covered Hopper</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_COVERED_HOPPER">Covered Hopper</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_COVERED_HOPPER_FOOD_GRADE">Food Grade Covered Hopper</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_COVERED_HOPPER_FOOD_GRADE">Food Grade Covered Hopper</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_POWDER_TANKER">Powder Tanker</a>
+                                                    <a href="vehicle_frax.html#VEHICLE_POWDER_TANKER">Powder Tanker</a>
                                                 
                                                 
                                             
@@ -1339,56 +1386,56 @@
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_BOX_VAN_LESS_PERMISSIVE">Box Van (less permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_BOX_VAN_LESS_PERMISSIVE">Box Van (less permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_FOOD_TANKER">Food Tanker</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_FOOD_TANKER">Food Tanker</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_REFRIGERATED">Refrigerated Vehicle</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_REFRIGERATED">Refrigerated Vehicle</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_TANKER_MORE_PERMISSIVE">Tanker Vehicle (more permissive)</a>
+                                                    <a href="vehicle_frax.html#VEHICLE_TANKER_MORE_PERMISSIVE">Tanker Vehicle (more permissive)</a>
                                                 
                                                 
                                             
@@ -1429,42 +1476,42 @@
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_BOX_VAN_LESS_PERMISSIVE">Box Van (less permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_BOX_VAN_LESS_PERMISSIVE">Box Van (less permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_FLATBED">Flatbed Vehicle</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_FLATBED">Flatbed Vehicle</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>
                                                 
                                                 
                                             
@@ -1505,49 +1552,49 @@
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_BOX_VAN_LESS_PERMISSIVE">Box Van (less permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_BOX_VAN_LESS_PERMISSIVE">Box Van (less permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_COVERED_HOPPER">Covered Hopper</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_COVERED_HOPPER">Covered Hopper</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_COVERED_HOPPER_FOOD_GRADE">Food Grade Covered Hopper</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_COVERED_HOPPER_FOOD_GRADE">Food Grade Covered Hopper</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>
                                                 
                                                 
                                             
@@ -1586,42 +1633,42 @@
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_HOPPER">Hopper</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_HOPPER">Hopper</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_ORE_DUMP">Ore Dump Vehicle</a>
+                                                    <a href="vehicle_frax.html#VEHICLE_ORE_DUMP">Ore Dump Vehicle</a>
                                                 
                                                 
                                             
@@ -1662,35 +1709,35 @@
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_FLATBED">Flatbed Vehicle</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_FLATBED">Flatbed Vehicle</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>
                                                 
                                                 
                                             
@@ -1727,7 +1774,7 @@
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_MAIL_VAN">Mail Van</a>
+                                                    <a href="vehicle_frax.html#VEHICLE_MAIL_VAN">Mail Van</a>
                                                 
                                                 
                                             
@@ -1772,56 +1819,56 @@
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_BOX_VAN_LESS_PERMISSIVE">Box Van (less permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_BOX_VAN_LESS_PERMISSIVE">Box Van (less permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_FOOD_TANKER">Food Tanker</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_FOOD_TANKER">Food Tanker</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_REFRIGERATED">Refrigerated Vehicle</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_REFRIGERATED">Refrigerated Vehicle</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_TANKER_MORE_PERMISSIVE">Tanker Vehicle (more permissive)</a>
+                                                    <a href="vehicle_frax.html#VEHICLE_TANKER_MORE_PERMISSIVE">Tanker Vehicle (more permissive)</a>
                                                 
                                                 
                                             
@@ -1864,35 +1911,35 @@
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_ARMOURED_VAN">Armoured Van</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_ARMOURED_VAN">Armoured Van</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_FLATBED">Flatbed Vehicle</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_FLATBED">Flatbed Vehicle</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>
                                                 
                                                 
                                             
@@ -1931,35 +1978,35 @@
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_TANKER_LESS_PERMISSIVE">Tanker Vehicle (less permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_TANKER_LESS_PERMISSIVE">Tanker Vehicle (less permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_TANKER_MORE_PERMISSIVE">Tanker Vehicle (more permissive)</a>
+                                                    <a href="vehicle_frax.html#VEHICLE_TANKER_MORE_PERMISSIVE">Tanker Vehicle (more permissive)</a>
                                                 
                                                 
                                             
@@ -1996,28 +2043,28 @@
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_PRESSURE_TANKER">Pressure Tanker</a>
+                                                    <a href="vehicle_frax.html#VEHICLE_PRESSURE_TANKER">Pressure Tanker</a>
                                                 
                                                 
                                             
@@ -2058,42 +2105,42 @@
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_BOX_VAN_LESS_PERMISSIVE">Box Van (less permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_BOX_VAN_LESS_PERMISSIVE">Box Van (less permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_FLATBED">Flatbed Vehicle</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_FLATBED">Flatbed Vehicle</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>
                                                 
                                                 
                                             
@@ -2130,7 +2177,7 @@
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_PASSENGER_VEHICLE">Passenger Vehicle</a>
+                                                    <a href="vehicle_frax.html#VEHICLE_PASSENGER_VEHICLE">Passenger Vehicle</a>
                                                 
                                                 
                                             
@@ -2171,42 +2218,42 @@
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_BOX_VAN_LESS_PERMISSIVE">Box Van (less permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_BOX_VAN_LESS_PERMISSIVE">Box Van (less permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_FLATBED">Flatbed Vehicle</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_FLATBED">Flatbed Vehicle</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>
                                                 
                                                 
                                             
@@ -2249,56 +2296,56 @@
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_BOX_VAN_LESS_PERMISSIVE">Box Van (less permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_BOX_VAN_LESS_PERMISSIVE">Box Van (less permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_COVERED_HOPPER">Covered Hopper</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_COVERED_HOPPER">Covered Hopper</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_COVERED_HOPPER_INDUSTRIAL">Industrial Covered Hopper</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_COVERED_HOPPER_INDUSTRIAL">Industrial Covered Hopper</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_POWDER_TANKER">Powder Tanker</a>
+                                                    <a href="vehicle_frax.html#VEHICLE_POWDER_TANKER">Powder Tanker</a>
                                                 
                                                 
                                             
@@ -2341,63 +2388,63 @@
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_COVERED_HOPPER">Covered Hopper</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_COVERED_HOPPER">Covered Hopper</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_COVERED_HOPPER_INDUSTRIAL">Industrial Covered Hopper</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_COVERED_HOPPER_INDUSTRIAL">Industrial Covered Hopper</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_HOPPER">Hopper</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_HOPPER">Hopper</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_ORE_DUMP">Ore Dump Vehicle</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_ORE_DUMP">Ore Dump Vehicle</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_POWDER_TANKER">Powder Tanker</a>
+                                                    <a href="vehicle_frax.html#VEHICLE_POWDER_TANKER">Powder Tanker</a>
                                                 
                                                 
                                             
@@ -2436,42 +2483,42 @@
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_HOPPER">Hopper</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_HOPPER">Hopper</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_ORE_DUMP">Ore Dump Vehicle</a>
+                                                    <a href="vehicle_frax.html#VEHICLE_ORE_DUMP">Ore Dump Vehicle</a>
                                                 
                                                 
                                             
@@ -2512,49 +2559,49 @@
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_BOX_VAN_LESS_PERMISSIVE">Box Van (less permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_BOX_VAN_LESS_PERMISSIVE">Box Van (less permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_TANKER_LESS_PERMISSIVE">Tanker Vehicle (less permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_TANKER_LESS_PERMISSIVE">Tanker Vehicle (less permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_TANKER_MORE_PERMISSIVE">Tanker Vehicle (more permissive)</a>
+                                                    <a href="vehicle_frax.html#VEHICLE_TANKER_MORE_PERMISSIVE">Tanker Vehicle (more permissive)</a>
                                                 
                                                 
                                             
@@ -2595,42 +2642,42 @@
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_BOX_VAN_LESS_PERMISSIVE">Box Van (less permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_BOX_VAN_LESS_PERMISSIVE">Box Van (less permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_FLATBED">Flatbed Vehicle</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_FLATBED">Flatbed Vehicle</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>
                                                 
                                                 
                                             
@@ -2671,56 +2718,56 @@
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_COVERED_HOPPER">Covered Hopper</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_COVERED_HOPPER">Covered Hopper</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_COVERED_HOPPER_INDUSTRIAL">Industrial Covered Hopper</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_COVERED_HOPPER_INDUSTRIAL">Industrial Covered Hopper</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_HOPPER">Hopper</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_HOPPER">Hopper</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_ORE_DUMP">Ore Dump Vehicle</a>
+                                                    <a href="vehicle_frax.html#VEHICLE_ORE_DUMP">Ore Dump Vehicle</a>
                                                 
                                                 
                                             
@@ -2761,42 +2808,42 @@
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_BOX_VAN_LESS_PERMISSIVE">Box Van (less permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_BOX_VAN_LESS_PERMISSIVE">Box Van (less permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_FLATBED">Flatbed Vehicle</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_FLATBED">Flatbed Vehicle</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>
                                                 
                                                 
                                             
@@ -2835,42 +2882,42 @@
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_BOX_VAN_MORE_PERMISSIVE">Box Van (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_FLATBED">Flatbed Vehicle</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_FLATBED">Flatbed Vehicle</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_INTERMODAL_CONTAINERS">Intermodal Container Vehicle</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_LESS_PERMISSIVE">Open Cargo Vehicle (less permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>,
+                                                    <a href="vehicle_frax.html#VEHICLE_OPEN_CARGO_MORE_PERMISSIVE">Open Cargo Vehicle (more permissive)</a>,
                                                 
                                                 
                                             
                                         
                                             
                                                 
-                                                    <a href="vehicle_authors.html#VEHICLE_REFRIGERATED">Refrigerated Vehicle</a>
+                                                    <a href="vehicle_frax.html#VEHICLE_REFRIGERATED">Refrigerated Vehicle</a>
                                                 
                                                 
                                             
