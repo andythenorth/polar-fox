@@ -12,7 +12,7 @@ class CargoClassManager(object):
         self.cargo_class_scheme = CargoClassScheme("cargo_classes_FIRS")
         self.templates_dir = os.path.join(current_dir, "../", "docs_templates")
         # docs are stored in the repo, as we actually want to commit them and have them available on github
-        self.docs_dir = os.path.join(current_dir, "docs")
+        self.docs_dir = os.path.join(current_dir, "../", "../", "docs")
 
     def render_nml(self):
         # render out nml with `const foo = bar` for currend scheme
@@ -23,7 +23,7 @@ class CargoClassManager(object):
             cargo_class_scheme=self.cargo_class_scheme,
         ))
 
-        output_file_path = os.path.join(self.docs_dir, "cargo_class_constants.nml")
+        output_file_path = os.path.join(current_dir, "cargo_class_constants.nml")
         with open(output_file_path, "w", encoding="utf-8") as nml_file:
             nml_file.write(rendered_nml)
 

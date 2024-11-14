@@ -15,7 +15,7 @@ consumers = [
 
 
 def main():
-    print("Distributing to downstream consumers")
+    print("[DISTRIBUTING TO DOWNSTREAM CONSUMERS]")
     # this assumes that consumers are found in a consistent ../../ location, and have a consistent Project_name/repo-name structure
     consumer_root = os.path.dirname(os.path.dirname(os.path.abspath(currentdir)))
     for consumer in consumers:
@@ -26,7 +26,7 @@ def main():
         if os.path.exists(consumer_dst_path):
             shutil.rmtree(consumer_dst_path)
         shutil.copytree(os.path.join(polar_fox.dist_package_path), consumer_dst_path)
-    print("[DONE]")
+    print("[DISTRIBUTING TO DOWNSTREAM CONSUMERS] - complete")
     print("Don't forget to test and commit changes for each consumer")
 
 

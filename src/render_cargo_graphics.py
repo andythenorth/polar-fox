@@ -467,7 +467,7 @@ def render(
 
 
 def main():
-    print("Render cargo graphics")
+    print("[RENDER CARGO GRAPHICS]")
 
     if not os.path.exists(generated_files_path):
         # don't destroy all of generated, other scripts might have built things into it
@@ -510,7 +510,7 @@ def main():
                 cargo_sprites_filename,
             )
 
-    print("[DONE]")
+    print("[RENDER CARGO GRAPHICS] - complete")
 
 
 if __name__ == "__main__":

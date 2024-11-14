@@ -1,4 +1,5 @@
 generated/
+docs/
 .chameleon_cache/
 
 # The local makefile should be ignored:

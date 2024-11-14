@@ -17,6 +17,7 @@ dist_graphics_path = polar_fox.dist_graphics_path
 
 
 def main():
+    print("[BUILD DIST]")
     print("Integrity checks")
     # cargos must not be defined twice
     for label in set(constants.cargo_labels):
@@ -66,12 +67,19 @@ def main():
             os.path.join(currentdir, "src", "dist_dir_header.txt"),
             os.path.join(dist_dir_path, "_files_here_are_generated.txt"),
         )
+    for dir_name in ["docs"]:
+        dist_dir_path = os.path.join(dist_package_path, dir_name)
+        shutil.copytree(os.path.join(currentdir, dir_name), dist_dir_path)
+        shutil.copy(
+            os.path.join(currentdir, "src", "dist_dir_header.txt"),
+            os.path.join(dist_dir_path, "_files_here_are_generated.txt"),
+        )
     for filename in ["LICENSE.txt", "README.txt"]:
         shutil.copy(
             os.path.join(currentdir, filename),
             os.path.join(dist_package_path, filename),
         )
-    print("[DONE]")
+    print("[BUILD DIST] - complete")
 
 
 if __name__ == "__main__":
