@@ -220,7 +220,7 @@
                                         <tal:block repeat="example_cargo sorted(cargo_class_scheme.vehicle_cargo_mapping.get(example_vehicle_node_id, []))">
                                             <tal:vehicle switch="example_cargo in cargo_class_scheme.example_cargos">
                                                 <tal:valid_cargo case="True">
-                                                    <a href="${docs_pages['industry_authors']}#${example_cargo}">${cargo_class_scheme.example_cargos[example_cargo].name}</a><!--! whitespace shenans
+                                                    <a href="${docs_pages['industry_frax']}#${example_cargo}">${cargo_class_scheme.example_cargos[example_cargo].name}</a><!--! whitespace shenans
                                                  -->${',' if not repeat.example_cargo.end else None}
                                                 </tal:valid_cargo>
                                                 <tal:invalid_cargo case="False">

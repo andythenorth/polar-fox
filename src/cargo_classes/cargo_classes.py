@@ -29,9 +29,9 @@ class CargoClassManager(object):
 
     def render_docs(self):
         docs_pages = {
-            "industry_authors": "industry_frax.html",
-            "overview": "frax.html",
-            "vehicle_authors": "vehicle_frax.html",
+            "industry_frax": "industry_frax.html",
+            "frax_overview": "frax.html",
+            "vehicle_frax": "vehicle_frax.html",
         }
         for template_name, html_file_name in docs_pages.items():
             docs_template = PageTemplateLoader(self.templates_dir, format="text")[

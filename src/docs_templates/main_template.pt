@@ -9,7 +9,7 @@
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 // Inject the URL prefix from Chameleon's docs_pages['overview']
-                var prefix = "${docs_pages['overview']|escapejs}";
+                var prefix = "${docs_pages['frax_overview']|escapejs}";
 
                 // Regular expression to match 'CC_' followed by uppercase letters or underscores
                 var regex = /\b(CC_[A-Z_]+)\b/g;
@@ -96,15 +96,15 @@
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link text-light text-decoration-underline"
-                           href="${docs_pages.overview}">Overview</a>
+                           href="${docs_pages.frax_overview}">Overview</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-light text-decoration-underline"
-                           href="${docs_pages.vehicle_authors}">For Vehicle Authors</a>
+                           href="${docs_pages.vehicle_frax}">For Vehicle Authors</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-light text-decoration-underline"
-                           href="${docs_pages.industry_authors}">For Industry Authors</a>
+                           href="${docs_pages.industry_frax}">For Industry Authors</a>
                     </li>
                 </ul>
             </div>

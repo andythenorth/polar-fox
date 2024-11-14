@@ -77,7 +77,7 @@
                                         <tal:block repeat="example_cargo sorted(cargo_class_scheme.cargo_cargo_class_mapping.get(cargo_class_node_id, []))">
                                             <tal:vehicle switch="example_cargo in cargo_class_scheme.example_cargos">
                                                 <tal:valid_cargo case="True">
-                                                    <a href="${docs_pages['industry_authors']}#${example_cargo}">${cargo_class_scheme.example_cargos[example_cargo].name}</a><!--! whitespace shenans
+                                                    <a href="${docs_pages['industry_frax']}#${example_cargo}">${cargo_class_scheme.example_cargos[example_cargo].name}</a><!--! whitespace shenans
                                                  -->${',' if not repeat.example_cargo.end else None}
                                                 </tal:valid_cargo>
                                                 <tal:invalid_cargo case="False">
@@ -93,7 +93,7 @@
                                         <tal:block repeat="example_vehicle sorted(cargo_class_scheme.vehicle_cargo_class_mapping.get(cargo_class_node_id, []))">
                                             <tal:vehicle switch="example_vehicle in cargo_class_scheme.example_vehicles">
                                                 <tal:valid_vehicle case="True">
-                                                    <a href="${docs_pages['vehicle_authors']}#${example_vehicle}">${cargo_class_scheme.example_vehicles[example_vehicle].name}</a><!--! whitespace shenans
+                                                    <a href="${docs_pages['vehicle_frax']}#${example_vehicle}">${cargo_class_scheme.example_vehicles[example_vehicle].name}</a><!--! whitespace shenans
                                                  -->${',' if not repeat.example_vehicle.end else None}
                                                 </tal:valid_vehicle>
                                                 <tal:invalid_vehicle case="False">

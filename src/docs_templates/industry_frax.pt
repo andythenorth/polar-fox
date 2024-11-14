@@ -165,7 +165,7 @@
                                         <tal:block repeat="example_vehicle sorted(cargo_class_scheme.vehicle_cargo_mapping.get(example_cargo_node_id, []))">
                                             <tal:vehicle switch="example_vehicle in cargo_class_scheme.example_vehicles">
                                                 <tal:valid_vehicle case="True">
-                                                    <a href="${docs_pages['vehicle_authors']}#${example_vehicle}">${cargo_class_scheme.example_vehicles[example_vehicle].name}</a><!--! whitespace shenans
+                                                    <a href="${docs_pages['vehicle_frax']}#${example_vehicle}">${cargo_class_scheme.example_vehicles[example_vehicle].name}</a><!--! whitespace shenans
                                                  -->${',' if not repeat.example_vehicle.end else None}
                                                 </tal:valid_vehicle>
                                                 <tal:invalid_vehicle case="False">
