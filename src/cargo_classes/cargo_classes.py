@@ -10,7 +10,7 @@ class CargoClassManager(object):
 
     def __init__(self):
         self.cargo_class_scheme = CargoClassScheme("cargo_classes_FIRS")
-        self.templates_dir = os.path.join(current_dir, "templates")
+        self.templates_dir = os.path.join(current_dir, "../", "docs_templates")
         # docs are stored in the repo, as we actually want to commit them and have them available on github
         self.docs_dir = os.path.join(current_dir, "docs")
 

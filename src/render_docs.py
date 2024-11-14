@@ -1,4 +1,4 @@
-from cargo_classes import CargoClassManager
+from cargo_classes.cargo_classes import CargoClassManager
 
 # just a simple wrapper to render the docs on demand
 # note that we intentionally include the rendered docs in the repo,
