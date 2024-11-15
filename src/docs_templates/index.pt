@@ -1,0 +1,9 @@
+<tal:page_template metal:use-macro="load: main_template.pt">
+    <div metal:fill-slot='body'>
+
+        <h1>Such Fox. So Polar</h1>
+
+        <img src="static/img/such-fox.webp" style="width: 50%; height:50%;"/>
+
+    </div>
+</tal:page_template>

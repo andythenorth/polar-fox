@@ -1,10 +1,48 @@
-from cargo_classes.cargo_classes import CargoClassManager
 import shutil
 import sys
 import os
 
 currentdir = os.curdir
 
+from chameleon import PageTemplateLoader
+from cargo_classes.cargo_classes import CargoClassManager
+
+
+def render_frax_cargo_class_docs(docs_src, docs_output_path):
+    cargo_class_manager = CargoClassManager()
+    docs_pages = {
+        "industry_frax": "industry_frax.html",
+        "frax_overview": "frax.html",
+        "vehicle_frax": "vehicle_frax.html",
+    }
+    for template_name, html_file_name in docs_pages.items():
+        docs_template = PageTemplateLoader(docs_src, format="text")[
+            template_name + ".pt"
+        ]
+        rendered_html = docs_template(
+            cargo_class_scheme=cargo_class_manager.cargo_class_scheme,
+            docs_pages=docs_pages,
+        )
+
+        output_file_path = os.path.join(docs_output_path, html_file_name)
+        with open(output_file_path, "w", encoding="utf-8") as html_file:
+            html_file.write(rendered_html)
+
+def render_general_docs(docs_src, docs_output_path):
+    docs_pages = {
+        "index": "index.html",
+    }
+    for template_name, html_file_name in docs_pages.items():
+        docs_template = PageTemplateLoader(docs_src, format="text")[
+            template_name + ".pt"
+        ]
+        rendered_html = docs_template(
+            docs_pages=docs_pages,
+        )
+
+        output_file_path = os.path.join(docs_output_path, html_file_name)
+        with open(output_file_path, "w", encoding="utf-8") as html_file:
+            html_file.write(rendered_html)
 
 def main():
     print("[RENDER DOCS]")
@@ -14,14 +52,14 @@ def main():
         shutil.rmtree(docs_output_path)
     os.mkdir(docs_output_path)
 
-    css_dir_src = os.path.join(docs_src, "css")
-    css_dir_dst = os.path.join(docs_output_path, "css")
-    shutil.copytree(css_dir_src, css_dir_dst)
+    static_dir_src = os.path.join(docs_src, "static")
+    static_dir_dst = os.path.join(docs_output_path, "static")
+    shutil.copytree(static_dir_src, static_dir_dst)
 
     shutil.copy(os.path.join(docs_src, "index.html"), docs_output_path)
 
-    cargo_class_manager = CargoClassManager()
-    cargo_class_manager.render_docs()
+    render_general_docs(docs_src, docs_output_path)
+    render_frax_cargo_class_docs(docs_src, docs_output_path)
     print("[RENDER DOCS] - complete")
 
 

@@ -9,7 +9,7 @@ from cargo_classes import CargoClassManager
 def main():
     print("[CARGO CLASSES - RENDER NML CONSTANTS]")
     cargo_class_manager = CargoClassManager()
-    cargo_class_manager.render_docs()
+    cargo_class_manager.render_nml()
     print("[CARGO CLASSES - RENDER NML CONSTANTS] - complete")
 
 

@@ -10,44 +10,20 @@ class CargoClassManager(object):
 
     def __init__(self):
         self.cargo_class_scheme = CargoClassScheme("cargo_classes_FIRS")
-        self.templates_dir = os.path.join(current_dir, "../", "docs_templates")
-        # docs are stored in the repo, as we actually want to commit them and have them available on github
-        self.docs_dir = os.path.join(current_dir, "../", "../", "docs")
 
     def render_nml(self):
         # render out nml with `const foo = bar` for currend scheme
-        nml_template = PageTemplateLoader(self.templates_dir, format="text")[
+        nml_template = PageTemplateLoader(current_dir, format="text")[
             "nml_cargo_class_constants.pt"
         ]
         rendered_nml = drop_whitespace(nml_template(
             cargo_class_scheme=self.cargo_class_scheme,
         ))
 
+        # rendered nml is written to the repo, unusual but convenient
         output_file_path = os.path.join(current_dir, "cargo_class_constants.nml")
         with open(output_file_path, "w", encoding="utf-8") as nml_file:
             nml_file.write(rendered_nml)
-
-    def render_docs(self):
-        docs_pages = {
-            "industry_frax": "industry_frax.html",
-            "frax_overview": "frax.html",
-            "vehicle_frax": "vehicle_frax.html",
-        }
-        for template_name, html_file_name in docs_pages.items():
-            docs_template = PageTemplateLoader(self.templates_dir, format="text")[
-                template_name + ".pt"
-            ]
-            rendered_html = docs_template(
-                cargo_class_scheme=self.cargo_class_scheme,
-                docs_pages=docs_pages,
-            )
-
-            # scheme name support removed here, restore if needed
-            # cargo_class_scheme.name
-            output_file_path = os.path.join(self.docs_dir, html_file_name)
-            with open(output_file_path, "w", encoding="utf-8") as html_file:
-                html_file.write(rendered_html)
-
 
 class CargoClassScheme(object):
 
