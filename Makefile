@@ -14,13 +14,17 @@ cargo_graphics: $(shell $(FIND_FILES) --ext=.py --ext=.png src)
 cargo_class_nml: $(shell $(FIND_FILES) --ext=.py --ext=.toml --ext=.pt src/cargo_clases)
 	@ $(PYTHON3) src/cargo_classes/render_nml.py
 
-docs: $(shell $(FIND_FILES) --ext=.py --ext=.toml --ext=.pt src/cargo_clases)
+docs: $(shell $(FIND_FILES) --ext=.py --ext=.toml --ext=.pt src)
 	@ $(PYTHON3) src/render_docs.py
 
 install: dist
 	@ $(PYTHON3) src/install_dist.py
 
+# this expects to find a '../../grf.farm' path relative to the project, and will fail otherwise
+copy_docs_to_grf_farm:
+	$(_V) $(PYTHON3) src//grf_farm.py polar-fox
+
 clean:
 	@ echo "[CLEANING]"
-	@ rm -rf src/__pycache__ src/*/__pycache__ bin/__pycache__ generated dist
+	@ rm -rf src/__pycache__ src/*/__pycache__ bin/__pycache__ generated dist docs
 	@ echo "[DONE]"
