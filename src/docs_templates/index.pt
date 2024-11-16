@@ -4,9 +4,25 @@
     </tal:title>
     <div metal:fill-slot='body'>
 
-        <h1>Such Fox. So Polar</h1>
+        <div class="row mt-5 mb-5">
+            <div class="col-6">
+                <h1 class="display-1">
+                    <strong>Such Fox.</strong>
+                    <br>
+                    So Polar
+                </h1>
 
-        <img src="static/img/such-fox.webp" style="width: 50%; height:50%;"/>
+                <div class="mt-5">
+                    <a class="btn btn-primary btn-lg" href="frax.html">FRAX Cargo Classes</a>
+                </div>
+                <div class="mt-5">
+                    <a class="btn btn-outline-primary btn-lg" href="https://github.com/andythenorth/polar-fox">Polar Fox on Github</a>
+                </div>
+            </div>
 
+            <div class="col-6">
+                <img src="static/img/such-fox.webp" class="fox-banner-image" />
+            </div>
+        </div>
     </div>
 </tal:page_template>

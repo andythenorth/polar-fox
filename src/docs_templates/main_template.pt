@@ -42,7 +42,7 @@
             });
         </script>
     </head>
-    <body>
+    <body class="d-flex flex-column min-vh-100">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <ul class="navbar-nav">
@@ -60,13 +60,17 @@
         <metal:block define-slot="subhead-hero">
             <!--! optional -->
         <metal:block>
-        <div class="container pt-5 pb-5">
+
+        <div class="flex-grow-1 container pt-5 pb-5">
             <metal:block define-slot="body">
                 <p>Ooooops - there is no content for some reason. Something has probably gone nuts in the build. </p>
             </metal:block>
         </div>
-        <div style="text-align:center; color:#999; padding:5px; background-color:#eee; border-top:solid 1px #ddd; box-shadow: inset 0px 1px 1px #ddd">
-            With thanks to all who helped
+
+        <div class="mt-auto">
+            <div style="text-align:center; color:#999; padding:5px; background-color:#eee; border-top:solid 1px #ddd; box-shadow: inset 0px 1px 1px #ddd">
+                With thanks to all who helped
+            </div>
         </div>
     </body>
 </html>

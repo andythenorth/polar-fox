@@ -114,6 +114,15 @@
                                     <li class="guide-list-group-item">${cargo_class_id}</li>
                                 </tal:cabbage>
                             </ul>
+                            <p>These classes mostly relate to specific types of vehicles.</p>
+                        </div>
+
+                        <div class="pb-3">
+                            <h5>
+                                Got <strong>Mail</strong>?
+                            </h5>
+                                <p>Some freight vehicles should also set CC_MAIL.</p>
+                                <p>For example, many planes and helicopters, some ships, some box wagons or box vans.</p>
                         </div>
                     </div>
 
