@@ -1,4 +1,7 @@
 <tal:page_template metal:use-macro="load: frax_template.pt">
+    <tal:title metal:fill-slot='title'>
+        FRAX for Vehicle Authors | Polar Fox
+    </tal:title>
     <div metal:fill-slot='frax_body'>
 
         <h1>Guide for Vehicle Authors</h1>

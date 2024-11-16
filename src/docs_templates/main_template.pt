@@ -4,6 +4,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
     <head>
         <meta charset="utf-8">
+        <title>
+            <metal:block define-slot="title"><metal:block>
+        </title>
         <link type="text/css" href="static/css/bootstrap.min.css" rel="stylesheet">
         <link type="text/css" href="static/css/style.css" rel="stylesheet">
         <script>

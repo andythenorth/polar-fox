@@ -1,4 +1,7 @@
 <tal:page_template metal:use-macro="load: frax_template.pt">
+    <tal:title metal:fill-slot='title'>
+        FRAX Cargo Classes for OpenTTD NewGRFs | Polar Fox
+    </tal:title>
     <div metal:fill-slot='frax_body'>
 
         <h1>Overview and Cargo Classes</h1>
@@ -60,7 +63,8 @@
                                 <tr>
                                     <th>Cargo class category</th>
                                     <td>
-                                        ${': '.join(cargo_class.cargo_class_taxonomy_tags)}.
+                                        ${cargo_class.cargo_class_taxonomy_tags[0]}:
+                                        <strong>${cargo_class.cargo_class_taxonomy_tags[1] if len(cargo_class.cargo_class_taxonomy_tags) > 1 else None}</strong>.
                                     </td>
                                </tr>
                                 <tr>
