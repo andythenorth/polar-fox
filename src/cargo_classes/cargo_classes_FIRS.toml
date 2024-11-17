@@ -426,22 +426,20 @@ vehicle_description = "Secure vehicles for transporting valuable items."
 cargo_classes_allowed = ["CC_ARMOURED"]
 cargo_classes_disallowed = []
 
-[VEHICLE_PRESSURE_TANKER]
-name = "Pressure Tanker"
-vehicle_description = "Vehicle for transporting gases under pressure."
-cargo_classes_allowed = ["CC_GAS_BULK"]
-cargo_classes_disallowed = []
+[VEHICLE_BOX_VAN_LESS_PERMISSIVE]
+name = "Box Van (less permissive)"
+vehicle_description = "An example of a box van with relatively restricted refits. CC_WEIRD is disallowed as an example, but this should only be done if other vehicles support CC_WEIRD."
+cargo_classes_allowed = ["CC_PIECE_GOODS", "CC_EXPRESS"]
+cargo_classes_disallowed = ["CC_WEIRD"]
 
-[VEHICLE_ORE_DUMP]
-name = "Ore Dump Vehicle"
-vehicle_description = "Open vehicles designed for bulk materials that don't need covering."
-cargo_classes_allowed = ["CC_OPEN_BULK"]
-cargo_classes_disallowed = []
-
-[VEHICLE_HOPPER]
-name = "Hopper"
-vehicle_description = "Open vehicles designed for gravity loading and unloading bulk materials that don't need covering."
-cargo_classes_allowed = ["CC_OPEN_BULK"]
+[VEHICLE_BOX_VAN_MORE_PERMISSIVE]
+name = "Box Van (more permissive)"
+vehicle_description = """
+    An example of a box van that will refit most freight classes, to maximise compatibility with industry GRFs.
+    This assumes that cargos will be 'packaged' if necessary, for example liquids in barrels, or coal in sacks.
+    No classes are disallowed, but note that CC_WEIRD is not in the 'allow' list, as this class might be applied to cargos that wouldn't easily fit in box vans.
+"""
+cargo_classes_allowed = ["CC_EXPRESS", "CC_PIECE_GOODS", "CC_OPEN_BULK", "CC_COVERED_BULK", "CC_LIQUID_BULK", "CC_GAS_BULK", "CC_POWDER_BULK"]
 cargo_classes_disallowed = []
 
 [VEHICLE_COVERED_HOPPER]
@@ -462,20 +460,22 @@ vehicle_description = "Suitable for mineral cargos, plastic pellets, and similar
 cargo_classes_allowed = ["CC_COVERED_BULK"]
 cargo_classes_disallowed = ["CC_POTABLE"]
 
-[VEHICLE_BOX_VAN_LESS_PERMISSIVE]
-name = "Box Van (less permissive)"
-vehicle_description = "An example of a box van with relatively restricted refits. CC_WEIRD is disallowed as an example, but this should only be done if other vehicles support CC_WEIRD."
-cargo_classes_allowed = ["CC_PIECE_GOODS", "CC_EXPRESS"]
-cargo_classes_disallowed = ["CC_WEIRD"]
+[VEHICLE_FLATBED]
+name = "Flatbed Vehicle"
+vehicle_description = "Suitable for specific flatbed cargos."
+cargo_classes_allowed = ["CC_FLATBED"]
+cargo_classes_disallowed = []
 
-[VEHICLE_BOX_VAN_MORE_PERMISSIVE]
-name = "Box Van (more permissive)"
-vehicle_description = """
-    An example of a box van that will refit most freight classes, to maximise compatibility with industry GRFs.
-    This assumes that cargos will be 'packaged' if necessary, for example liquids in barrels.
-    No classes are disallowed, but note that CC_WEIRD is not in the 'allow' list, as this class might be applied to cargos that wouldn't easily fit in box vans.
-"""
-cargo_classes_allowed = ["CC_EXPRESS", "CC_PIECE_GOODS", "CC_OPEN_BULK", "CC_COVERED_BULK", "CC_LIQUID_BULK", "CC_GAS_BULK", "CC_POWDER_BULK"]
+[VEHICLE_FOOD_TANKER]
+name = "Food Tanker"
+vehicle_description = "Suitable for liquid food-grade cargos. Excludes non-food"
+cargo_classes_allowed = ["CC_LIQUID_BULK"]
+cargo_classes_disallowed = ["CC_NON_POTABLE"]
+
+[VEHICLE_HOPPER]
+name = "Hopper"
+vehicle_description = "Open vehicles designed for gravity loading and unloading bulk materials that don't need covering."
+cargo_classes_allowed = ["CC_OPEN_BULK"]
 cargo_classes_disallowed = []
 
 [VEHICLE_INTERMODAL_CONTAINERS]
@@ -487,16 +487,16 @@ vehicle_description = """
 cargo_classes_allowed = ["CC_EXPRESS", "CC_PIECE_GOODS", "CC_OPEN_BULK", "CC_COVERED_BULK", "CC_LIQUID_BULK", "CC_GAS_BULK", "CC_POWDER_BULK", "CC_FLATBED", "CC_REFRIGERATED", "CC_WEIRD"]
 cargo_classes_disallowed = []
 
-[VEHICLE_MAIL_VAN]
-name = "Mail Van"
-vehicle_description = "Cabbage."
-cargo_classes_allowed = ["CC_MAIL"]
+[VEHICLE_LIVESTOCK_CARRIER]
+name = "Livestock Carrier"
+vehicle_description = "Dedicated vehicle for livestock. No classes set. Refit specifically to cargo label LVST."
+cargo_classes_allowed = []
 cargo_classes_disallowed = []
 
-[VEHICLE_PASSENGER_VEHICLE]
-name = "Passenger Vehicle"
-vehicle_description = "Cabbage."
-cargo_classes_allowed = ["CC_PASSENGERS"]
+[VEHICLE_MAIL_VAN]
+name = "Mail Van"
+vehicle_description = "For mail and other high priority cargos."
+cargo_classes_allowed = ["CC_MAIL", "CC_EXPRESS"]
 cargo_classes_disallowed = []
 
 [VEHICLE_OPEN_CARGO_LESS_PERMISSIVE]
@@ -511,44 +511,44 @@ vehicle_description = "An example of a vehicle that will refit most freight clas
 cargo_classes_allowed = ["CC_EXPRESS", "CC_PIECE_GOODS", "CC_OPEN_BULK", "CC_COVERED_BULK", "CC_LIQUID_BULK", "CC_GAS_BULK", "CC_POWDER_BULK", "CC_FLATBED", "CC_WEIRD"]
 cargo_classes_disallowed = []
 
+[VEHICLE_ORE_DUMP]
+name = "Ore Dump Vehicle"
+vehicle_description = "Open vehicles designed for bulk materials that don't need covering."
+cargo_classes_allowed = ["CC_OPEN_BULK"]
+cargo_classes_disallowed = []
+
+[VEHICLE_PASSENGER_VEHICLE]
+name = "Passenger Vehicle"
+vehicle_description = "Simply passengers."
+cargo_classes_allowed = ["CC_PASSENGERS"]
+cargo_classes_disallowed = []
+
 [VEHICLE_POWDER_TANKER]
 name = "Powder Tanker"
-vehicle_description = "Cabbage."
+vehicle_description = "Tank vehicle for handling powder cargos, which must be kept dry and are loaded / unloaded using pneumatic pressure to make the powder flow."
 cargo_classes_allowed = ["CC_POWDER_BULK"]
 cargo_classes_disallowed = []
 
-[VEHICLE_FLATBED]
-name = "Flatbed Vehicle"
-vehicle_description = "Cabbage."
-cargo_classes_allowed = ["CC_FLATBED", "CC_WEIRD"]
+[VEHICLE_PRESSURISED_TANKER]
+name = "Pressurised Tanker"
+vehicle_description = "Tank vehicle for transporting gases under pressure."
+cargo_classes_allowed = ["CC_GAS_BULK"]
 cargo_classes_disallowed = []
+
+[VEHICLE_REFRIGERATED]
+name = "Refrigerated Vehicle"
+vehicle_description = "Temperature controlled vehicle for food-grade cargos."
+cargo_classes_allowed = ["CC_REFRIGERATED"]
+cargo_classes_disallowed = ["CC_NON_POTABLE"]
 
 [VEHICLE_TANKER_LESS_PERMISSIVE]
 name = "Tanker Vehicle (less permissive)"
-vehicle_description = "NON_FOOD TANKER Cabbage.  Excludes food."
+vehicle_description = "General-purpose tanker for liquid cargo, but unsuitable for food-grade cargos."
 cargo_classes_allowed = ["CC_LIQUID_BULK"]
 cargo_classes_disallowed = ["CC_POTABLE"]
 
 [VEHICLE_TANKER_MORE_PERMISSIVE]
 name = "Tanker Vehicle (more permissive)"
-vehicle_description = "GENERAL TANKER Cabbage."
-cargo_classes_allowed = ["CC_LIQUID_BULK"]
-cargo_classes_disallowed = []
-
-[VEHICLE_FOOD_TANKER]
-name = "Food Tanker"
-vehicle_description = "Cabbage. Excludes non-food"
-cargo_classes_allowed = ["CC_LIQUID_BULK"]
-cargo_classes_disallowed = ["CC_NON_POTABLE"]
-
-[VEHICLE_REFRIGERATED]
-name = "Refrigerated Vehicle"
-vehicle_description = "Cabbage. Includes CC_REFRIGERATED to support legacy cargos."
-cargo_classes_allowed = ["CC_EXPRESS", "CC_REFRIGERATED"]
-cargo_classes_disallowed = ["CC_NON_POTABLE"]
-
-[VEHICLE_LIVESTOCK_CARRIER]
-name = "Livestock Carrier"
-vehicle_description = "CABBAGE. No classes. Uses label refit to LVST."
-cargo_classes_allowed = []
+vehicle_description = "General-purpose tanker, for any liquid cargo or gas cargo."
+cargo_classes_allowed = ["CC_LIQUID_BULK", "CC_GAS_BULK"]
 cargo_classes_disallowed = []
