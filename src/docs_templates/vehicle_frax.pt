@@ -111,8 +111,11 @@
                                 </tal:cabbage>
                             </ul>
                             <p>Most vehicles should set <strong>one</strong> basic handling class. In most cases setting more than one is not helpful, but there may be exceptions, for example, intermodal container vehicles.</p>
-                            <p>Some highly specialised types might not set any basic handling class, and may instead depend on a special handling class, such as armoured vehicles or refrigerated vehicles.</p>
-                            <p>Some highly specialised types might not set any basic handling class, and may instead depend on refitting to specific cargo labels, for example nuclear fuel transporters or livestock vans.</p>
+                            <p>Some specialised types might not set any basic handling class, for example:</p>
+                            <ul>
+                                <li>Armoured vehicles or refrigerated vehicles might set only a <strong>special handling</strong> class.</li>
+                                <li>Some highly specialised types might refit only to specific <strong>cargo labels</strong>, for example nuclear fuel transporters or livestock vans.</li>
+                            </ul>
                         </div>
 
                         <div class="pb-3">
