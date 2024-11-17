@@ -47,6 +47,32 @@ code a {
 code a:hover {
 }
 
+/* copy of bootstrap docs callout */
+
+.bd-callout {
+  padding: 1.25rem;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid #eee;
+  border-left-width: 4px;
+  border-radius: 0.25rem;
+}
+
+.bd-callout-warning {
+    color: rgb(102, 77, 3);
+    background: rgb(255, 243, 205);;
+    border-left-color: rgb(255, 230, 156);
+}
+
+.bd-callout h4 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.bd-callout p:last-child {
+  margin-bottom: 0;
+}
+
 /* guide stuff */
 .guide-section {
     border-left: solid 4px var(--fox-fact-dark-blue);

@@ -18,14 +18,24 @@
         <hr />
 
         <div class="pt-3 pb-3">
+            <div class="bd-callout bd-callout-warning">
+                <p>
+                    <strong>Heads up!</strong> Cargo classes are matched on 'any,' not 'all.' Vehicles will refit to any cargo with <strong>one</strong> of their refittable classes, unless the cargo has a class in the vehicle's non-refittable list.
+                </p>
+            </div>
             <div class="pt-3">
                 <h2 id="guide">Guide</h2>
-                <p>There are three categories of vehicle: passenger, mail, and freight.</p>
+                <p>
+                    There are three categories of vehicle:
+                    <a href="#passenger_vehicle">passenger</a>,
+                    <a href="#mail_vehicle">mail</a>, and
+                    <a href="#freight_vehicle">freight</a>.
+                </p>
             </div>
 
             <div class="ps-1">
                 <div class="guide-section">
-                    <h3 class="guide-heading mb-0">Passenger Vehicle</h3>
+                    <h3 id="passenger_vehicle" class="guide-heading mb-0">Passenger Vehicle</h3>
 
                     <div class="guide-arrow-down"></div>
 
@@ -53,7 +63,7 @@
                 </div>
 
                 <div class="guide-section">
-                    <h3 class="guide-heading mb-0">Mail Vehicle</h3>
+                    <h3 id="mail_vehicle" class="guide-heading mb-0">Mail Vehicle</h3>
 
                     <div class="guide-arrow-down"></div>
 
@@ -82,7 +92,7 @@
                 </div>
 
                 <div class="guide-section">
-                    <h3 class="guide-heading mb-0">Freight Vehicle</h3>
+                    <h3 id="freight_vehicle" class="guide-heading mb-0">Freight Vehicle</h3>
 
                     <div class="guide-arrow-down"></div>
 
@@ -202,7 +212,10 @@
                 <tal:example_vehicle define="example_vehicle_node_id example_vehicle_node[0]; example_vehicle example_vehicle_node[1];">
                     <div class="mt-5">
                         <h3 id="${example_vehicle_node_id}">
-                            ${example_vehicle.name} <span class="muted">(example)</span>
+                            <div class="d-flex justify-content-between">
+                                ${example_vehicle.name}
+                                 <small class="text-muted text-end">Example</small>
+                            </div>
                         </h3>
                         <table class="cargo-class-facts">
                             <tbody>
