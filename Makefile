@@ -17,7 +17,7 @@ cargo_class_nml: $(shell $(FIND_FILES) --ext=.py --ext=.toml --ext=.pt src/cargo
 docs: $(shell $(FIND_FILES) --ext=.py --ext=.toml --ext=.pt src)
 	@ $(PYTHON3) src/render_docs.py
 
-install: dist copy_docs_to_grf_farm
+install: dist
 	@ $(PYTHON3) src/install_dist.py
 
 release: docs copy_docs_to_grf_farm
