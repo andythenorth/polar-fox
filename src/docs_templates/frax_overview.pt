@@ -170,21 +170,26 @@
                                         <tr>
                                             <th>Example vehicles</th>
                                             <td>
-                                                <ul class="guide-list-group">
-                                                    <tal:block repeat="example_vehicle sorted(cargo_class_scheme.vehicle_cargo_class_mapping.get(cargo_class_node_id, []))">
-                                                        <tal:vehicle switch="example_vehicle in cargo_class_scheme.example_vehicles">
-                                                            <li class="guide-list-group-item">
-                                                                <tal:valid_vehicle case="True">
-                                                                    <a href="${docs_pages['vehicle_frax']}#${example_vehicle}">${cargo_class_scheme.example_vehicles[example_vehicle].name}</a><!--! whitespace shenans
-                                                                 -->${',' if not repeat.example_vehicle.end else None}
-                                                                </tal:valid_vehicle>
-                                                                <tal:invalid_vehicle case="False">
-                                                                    ${example_vehicle}
-                                                                </tal:invalid_vehicle>
-                                                            </li>
-                                                        </tal:vehicle>
-                                                    </tal:block>
-                                                </ul>
+                                                <tal:vehicles condition="len(cargo_class_scheme.vehicle_cargo_class_mapping.get(cargo_class_node_id, [])) > 0">
+                                                    <ul class="guide-list-group">
+                                                        <tal:block repeat="example_vehicle sorted(cargo_class_scheme.vehicle_cargo_class_mapping.get(cargo_class_node_id, []))">
+                                                            <tal:vehicle switch="example_vehicle in cargo_class_scheme.example_vehicles">
+                                                                <li class="guide-list-group-item">
+                                                                    <tal:valid_vehicle case="True">
+                                                                        <a href="${docs_pages['vehicle_frax']}#${example_vehicle}">${cargo_class_scheme.example_vehicles[example_vehicle].name}</a><!--! whitespace shenans
+                                                                     -->${',' if not repeat.example_vehicle.end else None}
+                                                                    </tal:valid_vehicle>
+                                                                    <tal:invalid_vehicle case="False">
+                                                                        ${example_vehicle}
+                                                                    </tal:invalid_vehicle>
+                                                                </li>
+                                                            </tal:vehicle>
+                                                        </tal:block>
+                                                    </ul>
+                                                </tal:vehicles>
+                                                <tal:block condition="len(cargo_class_scheme.vehicle_cargo_class_mapping.get(cargo_class_node_id, [])) == 0">
+                                                    <span class="text-black-50">Not applicable</span>
+                                                </tal:block>
                                             </td>
                                         </tr>
                                         <tr>
@@ -201,9 +206,7 @@
                                         <tr>
                                             <th>Vehicle GRF advice</th>
                                             <td>
-                                                <p tal:condition="cargo_class.vehicle_set_as_allow and not cargo_class.vehicle_set_as_disallow">Valid only for <code>refittable_cargo_classes</code>.</p>
                                                 <p tal:condition="cargo_class.vehicle_set_as_disallow and not cargo_class.vehicle_set_as_allow ">Valid only for <code>non_refittable_cargo_classes</code>.</p>
-                                                <p tal:condition="cargo_class.vehicle_set_as_allow and cargo_class.vehicle_set_as_disallow">Valid for <code>refittable_cargo_classes</code> and <code>non_refittable_cargo_classes</code>.</p>
                                                 <tal:block condition="len(cargo_class.vehicle_grf_advice) > 0">
                                                     <tal:list_items repeat="list_item cargo_class.vehicle_grf_advice">
                                                         <p>${list_item}</p>
