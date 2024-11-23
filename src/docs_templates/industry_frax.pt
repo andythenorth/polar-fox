@@ -170,7 +170,7 @@
                                 <h3 id="${example_cargo_node_id}">
                                     <div class="d-flex justify-content-between">
                                         ${example_cargo.name}
-                                         <small class="text-black-50 text-end">Example</small>
+                                         <small class="text-black-50 text-end">Example cargo</small>
                                     </div>
                                 </h3>
 

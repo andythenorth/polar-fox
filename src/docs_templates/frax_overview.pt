@@ -18,34 +18,70 @@
         <hr />
 
         <div class="pt-4 pb-3">
-            <h2 id="cargo-classes-intro">Cargo Classes - Intro</h2>
-            <p>
-                OpenTTD provides two ways for GRF vehicles to refit to different cargos: <strong>cargo labels</strong>, and <strong>cargo classes</strong>.
-            </p>
-            <p>
-                The <strong>FRAX Cargo Class Scheme</strong> shows how <strong>cargo classes</strong> are used by industry GRFs such as FIRS, and vehicle GRFs such as Iron Horse.
-            </p>
-            <div class="bd-callout bd-callout-warning">
-                <p>
-                    The <a href="https://newgrf-specs.tt-wiki.net/">GRFSpecs wiki</a> has more details about both cargo labels and classes.
-                </p>
+            <div class="row">
+                <div class="col-sm-10 offset-1 lead">
+                    <h2 id="cargo-classes-intro">Intro</h2>
+                    <p>
+                        OpenTTD provides two ways for GRF vehicles to refit to different cargos.
+                    </p>
+                    <ul class="guide-list-group">
+                        <li class="guide-list-group-item"><strong>Cargo labels</strong></li>
+                        <li class="guide-list-group-item"><strong>Cargo classes</strong></li>
+                    </ul>
+                    <div class="bd-callout bd-callout-warning">
+                        <p>
+                            The <a href="https://newgrf-specs.tt-wiki.net/">GRFSpecs wiki</a> has more details about both cargo labels and classes.
+                        </p>
+                    </div>
+                    <p>
+                        The <strong>FRAX Cargo Class Scheme</strong> is used by:
+                    </p>
+                    <ul class="guide-list-group">
+                        <li class="guide-list-group-item">industry GRFs such as <a href="${external_urls['firs']}">FIRS</a></li>
+                        <li class="guide-list-group-item">vehicle GRFs such as <a href="${external_urls['iron-horse']}">Iron Horse</a></li>
+                    </ul>
+                    <p>Frax includes</p>
+                    <ul class="guide-list-group">
+                        <li class="guide-list-group-item">
+                            <a href="#cargo-classes-table">
+                                Definitions for cargo classes
+                            </a>
+                        </li>
+                        <li class="guide-list-group-item">
+                            <a href="${docs_pages.vehicle_frax}">
+                                Guide for vehicle GRF authors
+                            </a>
+                        </li>
+                        <li class="guide-list-group-item">
+                            <a href="${docs_pages.industry_frax}">
+                                Guide for industry GRF authors
+                            </a>
+                        </li>
+                    </ul>
+                    <!--! elided as of Nov 2024, probably not needed
+                    <details>
+                        <summary>[Cargo class notes]</summary>
+                        <div class="details-inner-container">
+                            <h3>Cargo classes - the good</h3>
+                            <p>CABBAGE. Cargo classes provide a way for vehicle grfs to handle a wide range of cargos, without having to know any details about them, such as the label.</p>
+                            <p>CABBAGE. This means that when cargos are added to industry grfs, vehicles in existing vehicle grfs will be able to refit to them.</p>
+                            <p>CABBAGE. Classes can do a good job of getting cargos into appropriate vehicles.</p>
+                            <p>CABBAGE. Cargo classes have been around for a long time and are widely supported by vehicle grfs and the base vehicles in OpenTTD.</p>
+                            <h3>Cargo classes - the bad</h3>
+                            <p>CABBAGE. For vehicles that show detailed cargo-specific sprites when loaded, cargo labels will need to be used to detect specific cargos.</p>
+                            <p>CABBAGE. Cargo classes can be used to switch sprites, but only on broad categories.</p>
+                            <h3>Cargo classes - the ugly</h3>
+                            <p>CABBAGE. Cargo classes have been around for a long time and have had some road bumps in their history. They are very old feature, which predates the use of cargo labels and cargo translation tables.</p>
+                            <p>CABBAGE. Cargo classes evolved incrementally.  Some of the class definitions and rules are very clear and proven to work.  Some of the class definitions were ill-conceived, and haven't been used effectively.</p>
+                            <p>CABBAGE. Cargo classes have been inconsistently applied by both vehicle and industry grf authors. This is due to lack of diligence when copy-pasting code, bad docs, or just not understanding because the rules were complicated.</p>
+                            <p>CABBAGE. A tiny handful of authors just disagree with classes and don't use them, relying on labels instead, which is a viable approach, but quite labour-intensive.</p>
+                        </div>
+                    </details>
+                    -->
+                </div>
             </div>
-            <h3>Cargo classes - the good</h3>
-            <p>CABBAGE. Cargo classes provide a way for vehicle grfs to handle a wide range of cargos, without having to know any details about them, such as the label.</p>
-            <p>CABBAGE. This means that when cargos are added to industry grfs, vehicles in existing vehicle grfs will be able to refit to them.</p>
-            <p>CABBAGE. Classes can do a good job of getting cargos into appropriate vehicles.</p>
-            <p>CABBAGE. Cargo classes have been around for a long time and are widely supported by vehicle grfs and the base vehicles in OpenTTD.</p>
-            <h3>Cargo classes - the bad</h3>
-            <p>CABBAGE. For vehicles that show detailed cargo-specific sprites when loaded, cargo labels will need to be used to detect specific cargos.</p>
-            <p>CABBAGE. Cargo classes can be used to switch sprites, but only on broad categories.</p>
-            <h3>Cargo classes - the ugly</h3>
-            <p>CABBAGE. Cargo classes have been around for a long time and have had some road bumps in their history. They are very old feature, which predates the use of cargo labels and cargo translation tables.</p>
-            <p>CABBAGE. Cargo classes evolved incrementally.  Some of the class definitions and rules are very clear and proven to work.  Some of the class definitions were ill-conceived, and haven't been used effectively.</p>
-            <p>CABBAGE. Cargo classes have been inconsistently applied by both vehicle and industry grf authors. This is due to lack of diligence when copy-pasting code, bad docs, or just not understanding because the rules were complicated.</p>
-            <p>CABBAGE. A tiny handful of authors just disagree with classes and don't use them, relying on labels instead, which is a viable approach, but quite labour-intensive.</p>
-            <h3>Fistful of Dollars</h3>
-            <p>CABBAGE. FRAX (1) updates documentation (2) provides simpler flow-based rules for clases, split for vehicles and industry authors. (3) redefines the meaning or advice for some classes, based on more than a decade of experience and evidence.</p>
         </div>
+
         <div class="pt-4 pb-3">
             <h2 id="cargo-classes-table">Cargo Classes - Table</h2>
             <!--! table of contents -->
@@ -80,100 +116,112 @@
         </div>
 
         <div class="pt-4 pb-3">
-            <h2 id="cargo-classes-details">Cargo Classes - Details</h2>
-            <tal:cargo_class_nodes repeat="cargo_class_node cargo_class_scheme.cargo_classes_taxonomy.items()">
-                <tal:cargo_class define="cargo_class_node_id cargo_class_node[0]; cargo_class cargo_class_node[1];">
-                    <div class="pt-3 pb-3">
-                        <h3 id="${cargo_class_node_id}">
-                            ${cargo_class.name} <span tal:condition="cargo_class.get('do_not_use', False)">(do not use)</span>
-                        </h3>
-                        <p>${cargo_class_node_id}</p>
-                        <table class="cargo-class-facts">
-                            <tbody>
-                                <tr>
-                                    <th>Cargo class category</th>
-                                    <td>
-                                        ${cargo_class.cargo_class_taxonomy_tags[0]}:
-                                        <strong>${cargo_class.cargo_class_taxonomy_tags[1] if len(cargo_class.cargo_class_taxonomy_tags) > 1 else None}</strong>.
-                                    </td>
-                               </tr>
-                                <tr>
-                                    <th>Cargo class description</th>
-                                    <td>
-                                        <tal:list_items repeat="list_item cargo_class.cargo_class_description">
-                                            <p>${list_item}</p>
-                                        </tal:list_items>
-                                    </td>
-                               </tr>
-                                <tr>
-                                    <th>Example cargos</th>
-                                    <td>
-                                        <tal:block repeat="example_cargo sorted(cargo_class_scheme.cargo_cargo_class_mapping.get(cargo_class_node_id, []))">
-                                            <tal:vehicle switch="example_cargo in cargo_class_scheme.example_cargos">
-                                                <tal:valid_cargo case="True">
-                                                    <a href="${docs_pages['industry_frax']}#${example_cargo}">${cargo_class_scheme.example_cargos[example_cargo].name}</a><!--! whitespace shenans
-                                                 -->${',' if not repeat.example_cargo.end else None}
-                                                </tal:valid_cargo>
-                                                <tal:invalid_cargo case="False">
-                                                    ${example_cargo}
-                                                </tal:invalid_cargo>
-                                            </tal:vehicle>
-                                        </tal:block>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>Example vehicles</th>
-                                    <td>
-                                        <ul class="guide-list-group">
-                                            <tal:block repeat="example_vehicle sorted(cargo_class_scheme.vehicle_cargo_class_mapping.get(cargo_class_node_id, []))">
-                                                <tal:vehicle switch="example_vehicle in cargo_class_scheme.example_vehicles">
-                                                    <li class="guide-list-group-item">
-                                                        <tal:valid_vehicle case="True">
-                                                            <a href="${docs_pages['vehicle_frax']}#${example_vehicle}">${cargo_class_scheme.example_vehicles[example_vehicle].name}</a><!--! whitespace shenans
-                                                         -->${',' if not repeat.example_vehicle.end else None}
-                                                        </tal:valid_vehicle>
-                                                        <tal:invalid_vehicle case="False">
-                                                            ${example_vehicle}
-                                                        </tal:invalid_vehicle>
-                                                    </li>
-                                                </tal:vehicle>
-                                            </tal:block>
-                                        </ul>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>Industry GRF advice</th>
-                                    <td>
-                                        <tal:block condition="len(cargo_class.cargo_grf_advice) > 0">
-                                            <tal:list_items repeat="list_item cargo_class.cargo_grf_advice">
-                                                <p>${list_item}</p>
-                                            </tal:list_items>
-                                        </tal:block>
-                                        <p tal:condition="cargo_class.fallback_to_piece_goods">This cargo class may not be widely supported by older vehicle GRFs. Also set CC_PIECE_GOODS as a fallback (recommended).</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>Vehicle GRF advice</th>
-                                    <td>
-                                        <p tal:condition="cargo_class.vehicle_set_as_allow and not cargo_class.vehicle_set_as_disallow">Valid only for <code>refittable_cargo_classes</code>.</p>
-                                        <p tal:condition="cargo_class.vehicle_set_as_disallow and not cargo_class.vehicle_set_as_allow ">Valid only for <code>non_refittable_cargo_classes</code>.</p>
-                                        <p tal:condition="cargo_class.vehicle_set_as_allow and cargo_class.vehicle_set_as_disallow">Valid for <code>refittable_cargo_classes</code> and <code>non_refittable_cargo_classes</code>.</p>
-                                        <tal:block condition="len(cargo_class.vehicle_grf_advice) > 0">
-                                            <tal:list_items repeat="list_item cargo_class.vehicle_grf_advice">
-                                                <p>${list_item}</p>
-                                            </tal:list_items>
-                                        </tal:block>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>Bit number</th>
-                                    <td><code>${cargo_class.bit_number}</code></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </tal:cargo_class>
-            </tal:cargo_class_nodes>
+            <div class="row">
+                <div class="col-sm-10 offset-1">
+                    <h2 id="cargo-classes-details">Cargo Classes - Details</h2>
+                    <tal:cargo_class_nodes repeat="cargo_class_node cargo_class_scheme.cargo_classes_taxonomy.items()">
+                        <tal:cargo_class define="cargo_class_node_id cargo_class_node[0]; cargo_class cargo_class_node[1];">
+                            <div class="pt-3 pb-3">
+                                <h3 id="${cargo_class_node_id}">
+                                    <div class="d-flex justify-content-between">
+                                        ${cargo_class.name} <span tal:condition="cargo_class.get('do_not_use', False)">(do not use)</span>
+                                         <small class="text-black-50 text-end">Cargo class</small>
+                                    </div>
+                                </h3>
+                                <table class="cargo-class-facts">
+                                    <tbody>
+                                        <tr>
+                                            <th>Class name</th>
+                                            <td>
+                                                ${cargo_class_node_id}
+                                            </td>
+                                       </tr>
+                                        <tr>
+                                            <th>Category</th>
+                                            <td>
+                                                ${cargo_class.cargo_class_taxonomy_tags[0]}:
+                                                <strong>${cargo_class.cargo_class_taxonomy_tags[1] if len(cargo_class.cargo_class_taxonomy_tags) > 1 else None}</strong>.
+                                            </td>
+                                       </tr>
+                                        <tr>
+                                            <th>Cargo class description</th>
+                                            <td>
+                                                <tal:list_items repeat="list_item cargo_class.cargo_class_description">
+                                                    <p>${list_item}</p>
+                                                </tal:list_items>
+                                            </td>
+                                       </tr>
+                                        <tr>
+                                            <th>Example cargos</th>
+                                            <td>
+                                                <tal:block repeat="example_cargo sorted(cargo_class_scheme.cargo_cargo_class_mapping.get(cargo_class_node_id, []))">
+                                                    <tal:vehicle switch="example_cargo in cargo_class_scheme.example_cargos">
+                                                        <tal:valid_cargo case="True">
+                                                            <a href="${docs_pages['industry_frax']}#${example_cargo}">${cargo_class_scheme.example_cargos[example_cargo].name}</a><!--! whitespace shenans
+                                                         -->${',' if not repeat.example_cargo.end else None}
+                                                        </tal:valid_cargo>
+                                                        <tal:invalid_cargo case="False">
+                                                            ${example_cargo}
+                                                        </tal:invalid_cargo>
+                                                    </tal:vehicle>
+                                                </tal:block>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Example vehicles</th>
+                                            <td>
+                                                <ul class="guide-list-group">
+                                                    <tal:block repeat="example_vehicle sorted(cargo_class_scheme.vehicle_cargo_class_mapping.get(cargo_class_node_id, []))">
+                                                        <tal:vehicle switch="example_vehicle in cargo_class_scheme.example_vehicles">
+                                                            <li class="guide-list-group-item">
+                                                                <tal:valid_vehicle case="True">
+                                                                    <a href="${docs_pages['vehicle_frax']}#${example_vehicle}">${cargo_class_scheme.example_vehicles[example_vehicle].name}</a><!--! whitespace shenans
+                                                                 -->${',' if not repeat.example_vehicle.end else None}
+                                                                </tal:valid_vehicle>
+                                                                <tal:invalid_vehicle case="False">
+                                                                    ${example_vehicle}
+                                                                </tal:invalid_vehicle>
+                                                            </li>
+                                                        </tal:vehicle>
+                                                    </tal:block>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Industry GRF advice</th>
+                                            <td>
+                                                <tal:block condition="len(cargo_class.cargo_grf_advice) > 0">
+                                                    <tal:list_items repeat="list_item cargo_class.cargo_grf_advice">
+                                                        <p>${list_item}</p>
+                                                    </tal:list_items>
+                                                </tal:block>
+                                                <p tal:condition="cargo_class.fallback_to_piece_goods">This cargo class may not be widely supported by older vehicle GRFs. Also set CC_PIECE_GOODS as a fallback (recommended).</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Vehicle GRF advice</th>
+                                            <td>
+                                                <p tal:condition="cargo_class.vehicle_set_as_allow and not cargo_class.vehicle_set_as_disallow">Valid only for <code>refittable_cargo_classes</code>.</p>
+                                                <p tal:condition="cargo_class.vehicle_set_as_disallow and not cargo_class.vehicle_set_as_allow ">Valid only for <code>non_refittable_cargo_classes</code>.</p>
+                                                <p tal:condition="cargo_class.vehicle_set_as_allow and cargo_class.vehicle_set_as_disallow">Valid for <code>refittable_cargo_classes</code> and <code>non_refittable_cargo_classes</code>.</p>
+                                                <tal:block condition="len(cargo_class.vehicle_grf_advice) > 0">
+                                                    <tal:list_items repeat="list_item cargo_class.vehicle_grf_advice">
+                                                        <p>${list_item}</p>
+                                                    </tal:list_items>
+                                                </tal:block>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Bit number</th>
+                                            <td><code>${cargo_class.bit_number}</code></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </tal:cargo_class>
+                    </tal:cargo_class_nodes>
+                </div>
+            </div>
         </div>
 
     </div>

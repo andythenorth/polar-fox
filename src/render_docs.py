@@ -7,6 +7,10 @@ currentdir = os.curdir
 from chameleon import PageTemplateLoader
 from cargo_classes.cargo_classes import CargoClassManager
 
+external_urls = {
+    'firs': 'https://grf.farm/firs/latest.html',
+    'iron-horse': 'https://grf.farm/iron-horse/latest.html',
+}
 
 def render_frax_cargo_class_docs(docs_src, docs_output_path):
     cargo_class_manager = CargoClassManager()
@@ -22,6 +26,7 @@ def render_frax_cargo_class_docs(docs_src, docs_output_path):
         rendered_html = docs_template(
             cargo_class_scheme=cargo_class_manager.cargo_class_scheme,
             docs_pages=docs_pages,
+            external_urls=external_urls,
         )
 
         output_file_path = os.path.join(docs_output_path, html_file_name)

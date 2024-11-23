@@ -275,3 +275,35 @@ table.cargo-class-facts p:last-of-type {
     margin-bottom: 0;
 }
 
+/* misc */
+
+.overview-step-heading-list {
+    padding-left: 1em;
+}
+.overview-step-heading {
+    display: flex;
+    align-items: center; /* Vertically aligns the circle and text */
+    margin-bottom: 1.5em;
+    margin-left: 0;
+    font-size: 1.5em;
+}
+.overview-step-heading a {
+    color: var(--fox-fact-dark-blue);
+    display: inline-flex;
+}
+.overview-step-marker {
+    font-size: 0.9em;
+    font-weight: bold;
+    color: white;
+    background-color: var(--fox-fact-dark-blue);
+    border: solid 4px var(--fox-fact-dark-blue);
+    border-radius: 50%; /* Ensures a circular shape */
+    width: 1.5em; /* Set a fixed width */
+    height: 1.5em; /* Set the same height to make it a circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.5em; /* Space between the circle and the text */
+    margin-top: 0.1em;
+}
+
