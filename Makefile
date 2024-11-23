@@ -14,7 +14,7 @@ cargo_graphics: $(shell $(FIND_FILES) --ext=.py --ext=.png src)
 cargo_class_nml: $(shell $(FIND_FILES) --ext=.py --ext=.toml --ext=.pt src/cargo_clases)
 	@ $(PYTHON3) src/cargo_classes/render_nml.py
 
-docs: $(shell $(FIND_FILES) --ext=.py --ext=.toml --ext=.pt src)
+docs: $(shell $(FIND_FILES) --ext=.py --ext=.toml --ext=.pt --ext=.css src)
 	@ $(PYTHON3) src/render_docs.py
 
 install: dist
