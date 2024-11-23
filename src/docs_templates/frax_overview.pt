@@ -124,7 +124,7 @@
                             <div class="pt-3 pb-3">
                                 <h3 id="${cargo_class_node_id}">
                                     <div class="d-flex justify-content-between">
-                                        ${cargo_class.name} <span tal:condition="cargo_class.get('do_not_use', False)">(do not use)</span>
+                                        ${cargo_class.name} <tal:block tal:condition="cargo_class.get('do_not_use', False)">(do not use)</tal:block>
                                          <small class="text-black-50 text-end">Cargo class</small>
                                     </div>
                                 </h3>
@@ -165,6 +165,9 @@
                                                         </tal:invalid_cargo>
                                                     </tal:vehicle>
                                                 </tal:block>
+                                                <tal:block condition="len(cargo_class_scheme.cargo_cargo_class_mapping.get(cargo_class_node_id, [])) == 0">
+                                                    <span class="text-black-50">Not applicable</span>
+                                                </tal:block>
                                             </td>
                                         </tr>
                                         <tr>
@@ -201,6 +204,9 @@
                                                     </tal:list_items>
                                                 </tal:block>
                                                 <p tal:condition="cargo_class.fallback_to_piece_goods">This cargo class may not be widely supported by older vehicle GRFs. Also set CC_PIECE_GOODS as a fallback (recommended).</p>
+                                                <tal:block condition="len(cargo_class.cargo_grf_advice) == 0">
+                                                    <span class="text-black-50">Not applicable</span>
+                                                </tal:block>
                                             </td>
                                         </tr>
                                         <tr>
@@ -211,6 +217,9 @@
                                                     <tal:list_items repeat="list_item cargo_class.vehicle_grf_advice">
                                                         <p>${list_item}</p>
                                                     </tal:list_items>
+                                                </tal:block>
+                                                <tal:block condition="len(cargo_class.vehicle_grf_advice) == 0">
+                                                    <span class="text-black-50">Not applicable</span>
                                                 </tal:block>
                                             </td>
                                         </tr>
