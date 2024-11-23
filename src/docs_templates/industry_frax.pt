@@ -18,112 +18,111 @@
         <hr />
 
         <div class="pt-3 pb-3">
-            <div class="bd-callout bd-callout-warning">
-                <p>
-                    <strong>Heads up!</strong> Cargo classes are matched individually, so cargos with multiple classes refit into any vehicle matching <strong>one</strong> of the classes, not all.
-                </p>
-            </div>
-            <div class="pt-3 pb-3">
-                <h2 id="guide">Guide</h2>
-                <p>
-                    There are three categories of cargo:
-                    <a href="#passenger_cargo">passenger</a>,
-                    <a href="#mail_cargo">mail</a>, and
-                    <a href="#freight_cargo">freight</a>.
-                </p>
-            </div>
-
-            <div class="ps-1">
-                <div class="guide-section">
-                    <h3 id="passenger_cargo" class="guide-heading mb-0">Passenger Cargo</h3>
-
-                    <div class="guide-arrow-down"></div>
-
-                    <div class="guide-sub-section">
-                        <h4 class="guide-heading guide-step-heading">
-                            <span class="guide-step-marker">1</span> Simply Passengers
-                        </h4>
-                        <p>Set CC_PASSENGERS. No other classes needed. Done.</p>
-                    </div>
-                </div>
-
-                <div class="guide-section-link-block">
-                    <hr />
-                </div>
-
-                <div class="guide-section">
-                    <h3 id="mail_cargo" class="guide-heading mb-0">Mail Cargo</h3>
-
-                    <div class="guide-arrow-down"></div>
-
-                    <div class="guide-sub-section">
-                        <h4 class="guide-heading guide-step-heading">
-                            <span class="guide-step-marker">1</span> Just Mail
-                        </h4>
-                        <p>Set CC_MAIL. No other classes needed. Done.</p>
-                    </div>
-                </div>
-
-                <div class="guide-section-link-block">
-                    <hr />
-                </div>
-
-                <div class="guide-section">
-                    <h3 id="freight_cargo" class="guide-heading mb-0">Freight Cargo</h3>
-
-                    <div class="guide-arrow-down"></div>
-
-                    <div class="guide-sub-section">
-                        <h4 class="guide-heading guide-step-heading">
-                            <span class="guide-step-marker">1</span> Potable Status
-                        </h4>
-                        <h5>Set <strong>potable status</strong></h5>
-                        <ul class="guide-list-group">
-                            <tal:cabbage repeat="cargo_class_id cargo_class_scheme.cargo_classes_taxonomy_by_tags['Freight']['Potable Status']">
-                                <li class="guide-list-group-item">${cargo_class_id}</li>
-                            </tal:cabbage>
-                        </ul>
-                        <p>This is a boolean flag (true / false), and <strong>one</strong> of these classes should be set appropriately for <strong>all</strong> freight cargos.</p>
-                        <p>Do <strong>not</strong> set both of these classes on a cargo. They are mutually exclusive.</p>
-                    </div>
-
-                    <div class="guide-arrow-down"></div>
-
-                    <div class="guide-sub-section">
-                        <h4 class="guide-heading guide-step-heading">
-                            <span class="guide-step-marker">2</span> Basic Handling
-                        </h4>
-                        <h5>Set any <strong>basic handling</strong> classes that apply.</h5>
-                        <ul class="guide-list-group">
-                            <tal:cabbage repeat="cargo_class_id cargo_class_scheme.cargo_classes_taxonomy_by_tags['Freight']['Basic Handling']">
-                                <li class="guide-list-group-item">${cargo_class_id}</li>
-                            </tal:cabbage>
-                        </ul>
-                        <p><em>Most</em> cargos should <strong>include at least one basic handling class</strong>.</p>
-                        <p>You can assign multiple basic handling classes if the cargo is transported in different forms. Be sure to include all applicable classes.</p>
-                        <p>For better compatibility with vehicle GRFs, consider adding CC_PIECE_GOODS, as many cargos can be transported this way. Refer to the CC_PIECE_GOODS section for detailed guidance.</p>
-                        <p><em>Some</em> unique or non-standard cargos may not use any basic handling classes and instead rely solely on special handling classes.</p>
-                    </div>
-
-                    <div class="guide-arrow-down"></div>
-
-                    <div class="guide-sub-section">
-                        <h4 class="guide-heading guide-step-heading">
-                            <span class="guide-step-marker">3</span> Special Handling
-                        </h4>
-                        <h5>Set any <strong>special handling</strong> classes that apply.</h5>
-                        <ul class="guide-list-group">
-                            <tal:cabbage repeat="cargo_class_id cargo_class_scheme.cargo_classes_taxonomy_by_tags['Freight']['Special Handling']">
-                                <li class="guide-list-group-item">${cargo_class_id}</li>
-                            </tal:cabbage>
-                        </ul>
+            <div class="row">
+                <div class="col-sm-8 offset-2">
+                    <div class="pt-3 pb-3">
+                        <h2 id="guide">Guide</h2>
                         <p>
-                            These classes are designed for less common, specialized vehicles and highlight which cargos are best suited to them.
-                            They represent a recommendation—'should use' rather than 'can use.'
-                            For example, while steel could technically be transported in a refrigerated vehicle, it doesn’t need refrigeration.
-                            Similarly, diamonds should be marked as armoured because they require secure transport. However, marking diamonds as flatbed cargo would be inappropriate and unhelpful.
+                            There are three categories of cargo:
+                            <a href="#passenger_cargo">passenger</a>,
+                            <a href="#mail_cargo">mail</a>, and
+                            <a href="#freight_cargo">freight</a>.
                         </p>
-                        <p>Assign as many special handling classes as genuinely necessary for the cargo.</p>
+                    </div>
+
+                    <div class="ps-1">
+                        <div class="guide-section">
+                            <h3 id="passenger_cargo" class="guide-heading mb-0">Passenger Cargo</h3>
+
+                            <div class="guide-arrow-down"></div>
+
+                            <div class="guide-sub-section">
+                                <h4 class="guide-heading guide-step-heading">
+                                    <span class="guide-step-marker">1</span> Simply Passengers
+                                </h4>
+                                <p>Set CC_PASSENGERS. No other classes needed. Done.</p>
+                            </div>
+                        </div>
+
+                        <div class="guide-section-link-block">
+                            <hr />
+                        </div>
+
+                        <div class="guide-section">
+                            <h3 id="mail_cargo" class="guide-heading mb-0">Mail Cargo</h3>
+
+                            <div class="guide-arrow-down"></div>
+
+                            <div class="guide-sub-section">
+                                <h4 class="guide-heading guide-step-heading">
+                                    <span class="guide-step-marker">1</span> Just Mail
+                                </h4>
+                                <p>Set CC_MAIL. No other classes needed. Done.</p>
+                            </div>
+                        </div>
+
+                        <div class="guide-section-link-block">
+                            <hr />
+                        </div>
+
+                        <div class="guide-section">
+                            <h3 id="freight_cargo" class="guide-heading mb-0">Freight Cargo</h3>
+
+                            <div class="guide-arrow-down"></div>
+
+                            <div class="guide-sub-section">
+                                <h4 class="guide-heading guide-step-heading">
+                                    <span class="guide-step-marker">1</span> Potable Status
+                                </h4>
+                                <h5>Set <strong>potable status</strong></h5>
+                                <ul class="guide-list-group">
+                                    <tal:cabbage repeat="cargo_class_id cargo_class_scheme.cargo_classes_taxonomy_by_tags['Freight']['Potable Status']">
+                                        <li class="guide-list-group-item">${cargo_class_id}</li>
+                                    </tal:cabbage>
+                                </ul>
+                                <p>This is a boolean flag (true / false), and <strong>one</strong> of these classes should be set appropriately for <strong>all</strong> freight cargos.</p>
+                                <p>Do <strong>not</strong> set both of these classes on a cargo. They are mutually exclusive.</p>
+                            </div>
+
+                            <div class="guide-arrow-down"></div>
+
+                            <div class="guide-sub-section">
+                                <h4 class="guide-heading guide-step-heading">
+                                    <span class="guide-step-marker">2</span> Basic Handling
+                                </h4>
+                                <h5>Set any <strong>basic handling</strong> classes that apply.</h5>
+                                <ul class="guide-list-group">
+                                    <tal:cabbage repeat="cargo_class_id cargo_class_scheme.cargo_classes_taxonomy_by_tags['Freight']['Basic Handling']">
+                                        <li class="guide-list-group-item">${cargo_class_id}</li>
+                                    </tal:cabbage>
+                                </ul>
+                                <p><em>Most</em> cargos should <strong>include at least one basic handling class</strong>.</p>
+                                <p>You can assign multiple basic handling classes if the cargo is transported in different forms. Be sure to include all applicable classes.</p>
+                                <p>For better compatibility with vehicle GRFs, consider adding CC_PIECE_GOODS, as many cargos can be transported this way. Refer to the CC_PIECE_GOODS section for detailed guidance.</p>
+                                <p><em>Some</em> unique or non-standard cargos may not use any basic handling classes and instead rely solely on special handling classes.</p>
+                            </div>
+
+                            <div class="guide-arrow-down"></div>
+
+                            <div class="guide-sub-section">
+                                <h4 class="guide-heading guide-step-heading">
+                                    <span class="guide-step-marker">3</span> Special Handling
+                                </h4>
+                                <h5>Set any <strong>special handling</strong> classes that apply.</h5>
+                                <ul class="guide-list-group">
+                                    <tal:cabbage repeat="cargo_class_id cargo_class_scheme.cargo_classes_taxonomy_by_tags['Freight']['Special Handling']">
+                                        <li class="guide-list-group-item">${cargo_class_id}</li>
+                                    </tal:cabbage>
+                                </ul>
+                                <p>
+                                    These classes are designed for less common, specialized vehicles and highlight which cargos are best suited to them.
+                                    They represent a recommendation—'should use' rather than 'can use.'
+                                    For example, while steel could technically be transported in a refrigerated vehicle, it doesn’t need refrigeration.
+                                    Similarly, diamonds should be marked as armoured because they require secure transport. However, marking diamonds as flatbed cargo would be inappropriate and unhelpful.
+                                </p>
+                                <p>Assign as many special handling classes as genuinely necessary for the cargo.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -132,82 +131,89 @@
         <hr />
 
         <div class="pt-3 pb-3">
-        <h2 id="example-cargos-table">Example Cargos - Table</h2>
-            <!--! table of contents -->
-            <table class="table table-striped table-condensed table-bordered tablesorter">
-                <tr>
-                    <th>Example Cargo</th>
-                    <th>Recommended Classes</th>
-                </tr>
-                <tal:cargo_nodes repeat="cargo_node sorted(cargo_class_scheme.example_cargos.items())">
-                    <tal:example_cargo define="cargo_node_id cargo_node[0]; example_cargo cargo_node[1];">
+            <div class="row">
+                <div class="col-sm-10 offset-1">
+                    <h2 id="example-cargos-table">Example Cargos - Table</h2>
+                    <!--! table of contents -->
+                    <table class="table table-striped table-condensed table-hover table-bordered">
                         <tr>
-                            <td><a href="#${cargo_node_id}">${example_cargo.name}</a></td>
-                            <!--! showing classes might be overkill, dunno -->
-                            <td style="width:50%;">
-                                <tal:block repeat="cargo_class example_cargo.cargo_classes">
-                                    ${cargo_class}
-                                </tal:block>
-                            </td>
+                            <th style="width: 20%;">Example Cargo</th>
+                            <th>Recommended Classes</th>
                         </tr>
-                    </tal:example_cargo>
-                </tal:cargo_nodes>
-            </table>
-        </div>
-
-        <hr>
-
-        <div class="pt-3 pb-3">
-            <h2 id="example-cargos-details">Example Cargos - Details</h2>
-            <tal:example_cargo_nodes repeat="example_cargo_node sorted(cargo_class_scheme.example_cargos.items())">
-                <tal:example_cargo define="example_cargo_node_id example_cargo_node[0]; example_cargo example_cargo_node[1];">
-                    <div class="mt-5">
-                        <h3 id="${example_cargo_node_id}">
-                            <div class="d-flex justify-content-between">
-                                ${example_cargo.name}
-                                 <small class="text-muted text-end">Example</small>
-                            </div>
-                        </h3>
-
-                        <table class="cargo-class-facts">
-                            <tbody>
+                        <tal:cargo_nodes repeat="cargo_node sorted(cargo_class_scheme.example_cargos.items())">
+                            <tal:example_cargo define="cargo_node_id cargo_node[0]; example_cargo cargo_node[1];">
                                 <tr>
-                                    <th>Cargo description</th>
-                                    <td>${example_cargo.cargo_description}</td>
-                                </tr>
-                                <tr>
-                                    <th>Cargo classes</th>
-                                    <td>
+                                    <td><a href="#${cargo_node_id}">${example_cargo.name}</a></td>
+                                    <!--! showing classes might be overkill, dunno -->
+                                    <td style="width:50%;">
                                         <tal:block repeat="cargo_class example_cargo.cargo_classes">
                                             ${cargo_class}
                                         </tal:block>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <th>Example vehicles</th>
-                                    <td>
+                            </tal:example_cargo>
+                        </tal:cargo_nodes>
+                    </table>
+                </div>
+            </div>
+        </div>
 
-                                        <ul class="guide-list-group">
-                                            <tal:block repeat="example_vehicle sorted(cargo_class_scheme.vehicle_cargo_mapping.get(example_cargo_node_id, []))">
-                                                <tal:vehicle switch="example_vehicle in cargo_class_scheme.example_vehicles">
-                                                    <li class="guide-list-group-item">
-                                                        <tal:valid_vehicle case="True">
-                                                            <a href="${docs_pages['vehicle_frax']}#${example_vehicle}">${cargo_class_scheme.example_vehicles[example_vehicle].name}</a>
-                                                        </tal:valid_vehicle>
-                                                        <tal:invalid_vehicle case="False">
-                                                            ${example_vehicle}
-                                                        </tal:invalid_vehicle>
-                                                    </li>
-                                                </tal:vehicle>
-                                            </tal:block>
-                                        </ul>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </tal:example_cargo>
-            </tal:example_cargo_nodes>
+        <hr>
+
+        <div class="pt-3 pb-3">
+            <div class="row">
+                <div class="col-sm-10 offset-1">
+                    <h2 id="example-cargos-details">Example Cargos - Details</h2>
+                    <tal:example_cargo_nodes repeat="example_cargo_node sorted(cargo_class_scheme.example_cargos.items())">
+                        <tal:example_cargo define="example_cargo_node_id example_cargo_node[0]; example_cargo example_cargo_node[1];">
+                            <div class="mt-5">
+                                <h3 id="${example_cargo_node_id}">
+                                    <div class="d-flex justify-content-between">
+                                        ${example_cargo.name}
+                                         <small class="text-black-50 text-end">Example</small>
+                                    </div>
+                                </h3>
+
+                                <table class="cargo-class-facts">
+                                    <tbody>
+                                        <tr>
+                                            <th>Cargo description</th>
+                                            <td>${example_cargo.cargo_description}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Cargo classes</th>
+                                            <td>
+                                                <tal:block repeat="cargo_class example_cargo.cargo_classes">
+                                                    ${cargo_class}
+                                                </tal:block>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Example vehicles</th>
+                                            <td>
+                                                <ul class="guide-list-group">
+                                                    <tal:block repeat="example_vehicle sorted(cargo_class_scheme.vehicle_cargo_mapping.get(example_cargo_node_id, []))">
+                                                        <tal:vehicle switch="example_vehicle in cargo_class_scheme.example_vehicles">
+                                                            <li class="guide-list-group-item">
+                                                                <tal:valid_vehicle case="True">
+                                                                    <a href="${docs_pages['vehicle_frax']}#${example_vehicle}">${cargo_class_scheme.example_vehicles[example_vehicle].name}</a>
+                                                                </tal:valid_vehicle>
+                                                                <tal:invalid_vehicle case="False">
+                                                                    ${example_vehicle}
+                                                                </tal:invalid_vehicle>
+                                                            </li>
+                                                        </tal:vehicle>
+                                                    </tal:block>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </tal:example_cargo>
+                    </tal:example_cargo_nodes>
+                </div>
+            </div>
         </div>
 
     </div>

@@ -9,6 +9,7 @@
         <div class="pt-3 pb-3">
             <p>Sections:</p>
             <ul>
+                <li><a href="#cargo-classes-intro">Cargo Classes - Intro</a></li>
                 <li><a href="#cargo-classes-table">Cargo Classes - Table</a></li>
                 <li><a href="#cargo-classes-details">Cargo Classes - Details</a></li>
             </ul>
@@ -16,6 +17,35 @@
 
         <hr />
 
+        <div class="pt-4 pb-3">
+            <h2 id="cargo-classes-intro">Cargo Classes - Intro</h2>
+            <p>
+                OpenTTD provides two ways for GRF vehicles to refit to different cargos: <strong>cargo labels</strong>, and <strong>cargo classes</strong>.
+            </p>
+            <p>
+                The <strong>FRAX Cargo Class Scheme</strong> shows how <strong>cargo classes</strong> are used by industry GRFs such as FIRS, and vehicle GRFs such as Iron Horse.
+            </p>
+            <div class="bd-callout bd-callout-warning">
+                <p>
+                    The <a href="https://newgrf-specs.tt-wiki.net/">GRFSpecs wiki</a> has more details about both cargo labels and classes.
+                </p>
+            </div>
+            <h3>Cargo classes - the good</h3>
+            <p>CABBAGE. Cargo classes provide a way for vehicle grfs to handle a wide range of cargos, without having to know any details about them, such as the label.</p>
+            <p>CABBAGE. This means that when cargos are added to industry grfs, vehicles in existing vehicle grfs will be able to refit to them.</p>
+            <p>CABBAGE. Classes can do a good job of getting cargos into appropriate vehicles.</p>
+            <p>CABBAGE. Cargo classes have been around for a long time and are widely supported by vehicle grfs and the base vehicles in OpenTTD.</p>
+            <h3>Cargo classes - the bad</h3>
+            <p>CABBAGE. For vehicles that show detailed cargo-specific sprites when loaded, cargo labels will need to be used to detect specific cargos.</p>
+            <p>CABBAGE. Cargo classes can be used to switch sprites, but only on broad categories.</p>
+            <h3>Cargo classes - the ugly</h3>
+            <p>CABBAGE. Cargo classes have been around for a long time and have had some road bumps in their history. They are very old feature, which predates the use of cargo labels and cargo translation tables.</p>
+            <p>CABBAGE. Cargo classes evolved incrementally.  Some of the class definitions and rules are very clear and proven to work.  Some of the class definitions were ill-conceived, and haven't been used effectively.</p>
+            <p>CABBAGE. Cargo classes have been inconsistently applied by both vehicle and industry grf authors. This is due to lack of diligence when copy-pasting code, bad docs, or just not understanding because the rules were complicated.</p>
+            <p>CABBAGE. A tiny handful of authors just disagree with classes and don't use them, relying on labels instead, which is a viable approach, but quite labour-intensive.</p>
+            <h3>Fistful of Dollars</h3>
+            <p>CABBAGE. FRAX (1) updates documentation (2) provides simpler flow-based rules for clases, split for vehicles and industry authors. (3) redefines the meaning or advice for some classes, based on more than a decade of experience and evidence.</p>
+        </div>
         <div class="pt-4 pb-3">
             <h2 id="cargo-classes-table">Cargo Classes - Table</h2>
             <!--! table of contents -->
@@ -94,17 +124,21 @@
                                 <tr>
                                     <th>Example vehicles</th>
                                     <td>
-                                        <tal:block repeat="example_vehicle sorted(cargo_class_scheme.vehicle_cargo_class_mapping.get(cargo_class_node_id, []))">
-                                            <tal:vehicle switch="example_vehicle in cargo_class_scheme.example_vehicles">
-                                                <tal:valid_vehicle case="True">
-                                                    <a href="${docs_pages['vehicle_frax']}#${example_vehicle}">${cargo_class_scheme.example_vehicles[example_vehicle].name}</a><!--! whitespace shenans
-                                                 -->${',' if not repeat.example_vehicle.end else None}
-                                                </tal:valid_vehicle>
-                                                <tal:invalid_vehicle case="False">
-                                                    ${example_vehicle}
-                                                </tal:invalid_vehicle>
-                                            </tal:vehicle>
-                                        </tal:block>
+                                        <ul class="guide-list-group">
+                                            <tal:block repeat="example_vehicle sorted(cargo_class_scheme.vehicle_cargo_class_mapping.get(cargo_class_node_id, []))">
+                                                <tal:vehicle switch="example_vehicle in cargo_class_scheme.example_vehicles">
+                                                    <li class="guide-list-group-item">
+                                                        <tal:valid_vehicle case="True">
+                                                            <a href="${docs_pages['vehicle_frax']}#${example_vehicle}">${cargo_class_scheme.example_vehicles[example_vehicle].name}</a><!--! whitespace shenans
+                                                         -->${',' if not repeat.example_vehicle.end else None}
+                                                        </tal:valid_vehicle>
+                                                        <tal:invalid_vehicle case="False">
+                                                            ${example_vehicle}
+                                                        </tal:invalid_vehicle>
+                                                    </li>
+                                                </tal:vehicle>
+                                            </tal:block>
+                                        </ul>
                                     </td>
                                 </tr>
                                 <tr>
