@@ -18,8 +18,8 @@
         <hr />
 
         <div class="pt-3 pb-3">
-
             <div class="row">
+
                 <div class="col-sm-8 offset-2">
                     <div class="pt-3">
                         <h2 id="guide">Guide</h2>
@@ -30,7 +30,11 @@
                             <a href="#freight_vehicle">freight</a>.
                         </p>
                     </div>
+
                     <div class="ps-1">
+                        <div class="guide-section-link-block">
+                            <hr />
+                        </div>
                         <div class="guide-section">
                             <h3 id="passenger_vehicle" class="guide-heading mb-0">Passenger Vehicle</h3>
 
