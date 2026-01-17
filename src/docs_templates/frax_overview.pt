@@ -49,35 +49,15 @@
                         </li>
                         <li class="guide-list-group-item">
                             <a href="${docs_pages.vehicle_frax}">
-                                Guide for vehicle GRF authors
+                                Guide for vehicle GRFs
                             </a>
                         </li>
                         <li class="guide-list-group-item">
                             <a href="${docs_pages.industry_frax}">
-                                Guide for industry GRF authors
+                                Guide for industry GRFs
                             </a>
                         </li>
                     </ul>
-                    <!--! elided as of Nov 2024, probably not needed
-                    <details>
-                        <summary>[Cargo class notes]</summary>
-                        <div class="details-inner-container">
-                            <h3>Cargo classes - the good</h3>
-                            <p>CABBAGE. Cargo classes provide a way for vehicle grfs to handle a wide range of cargos, without having to know any details about them, such as the label.</p>
-                            <p>CABBAGE. This means that when cargos are added to industry grfs, vehicles in existing vehicle grfs will be able to refit to them.</p>
-                            <p>CABBAGE. Classes can do a good job of getting cargos into appropriate vehicles.</p>
-                            <p>CABBAGE. Cargo classes have been around for a long time and are widely supported by vehicle grfs and the base vehicles in OpenTTD.</p>
-                            <h3>Cargo classes - the bad</h3>
-                            <p>CABBAGE. For vehicles that show detailed cargo-specific sprites when loaded, cargo labels will need to be used to detect specific cargos.</p>
-                            <p>CABBAGE. Cargo classes can be used to switch sprites, but only on broad categories.</p>
-                            <h3>Cargo classes - the ugly</h3>
-                            <p>CABBAGE. Cargo classes have been around for a long time and have had some road bumps in their history. They are very old feature, which predates the use of cargo labels and cargo translation tables.</p>
-                            <p>CABBAGE. Cargo classes evolved incrementally.  Some of the class definitions and rules are very clear and proven to work.  Some of the class definitions were ill-conceived, and haven't been used effectively.</p>
-                            <p>CABBAGE. Cargo classes have been inconsistently applied by both vehicle and industry grf authors. This is due to lack of diligence when copy-pasting code, bad docs, or just not understanding because the rules were complicated.</p>
-                            <p>CABBAGE. A tiny handful of authors just disagree with classes and don't use them, relying on labels instead, which is a viable approach, but quite labour-intensive.</p>
-                        </div>
-                    </details>
-                    -->
                 </div>
             </div>
         </div>

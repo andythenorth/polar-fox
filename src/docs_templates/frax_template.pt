@@ -34,7 +34,7 @@
         <div class="hero fox-bg-blue">
             <div class="container pt-3 pb-1">
                 <h1 class="display-6">FRAX Cargo Class Scheme</h1>
-                <p><small><i>FRAX Routes all Xenon etc</i></small></p>
+                <p><small><i>Cargo classes for OpenTTD GRFs</i></small></p>
             </div>
         </div>
         <nav class="navbar navbar-expand-lg fox-bg-blue" style="border-bottom: solid 1px black;">
@@ -46,11 +46,11 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-light text-decoration-underline"
-                           href="${docs_pages.vehicle_frax}">For Vehicle Authors</a>
+                           href="${docs_pages.vehicle_frax}">Guide for Vehicle GRFs</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-light text-decoration-underline"
-                           href="${docs_pages.industry_frax}">For Industry Authors</a>
+                           href="${docs_pages.industry_frax}">Guide for Cargo/Industry GRFs</a>
                     </li>
                 </ul>
             </div>

@@ -1,34 +1,24 @@
 <tal:page_template metal:use-macro="load: frax_template.pt">
     <tal:title metal:fill-slot='title'>
-        FRAX for Industry Authors | Polar Fox
+        FRAX for Cargo/Industry GRFs | Polar Fox
     </tal:title>
     <div metal:fill-slot='frax_body'>
-
-        <h1>Guide for Industry Authors</h1>
-
-        <div class="pt-3 pb-3">
-            <p>Sections:</p>
-            <ul>
-                <li><a href="#guide">Guide</a></li>
-                <li><a href="#example-cargos-table">Example Cargos - Table</a></li>
-                <li><a href="#example-cargos-details">Example Cargos - Details</a></li>
-            </ul>
-        </div>
-
-        <hr />
-
         <div class="pt-3 pb-3">
             <div class="row">
 
                 <div class="col-sm-8 offset-2">
                     <div class="pt-3">
-                        <h2 id="guide">Guide</h2>
+                        <h1>Guide for Cargo/Industry GRFs</h1>
                         <p>
                             There are three categories of cargo:
                             <a href="#passenger_cargo">passenger</a>,
                             <a href="#mail_cargo">mail</a>, and
                             <a href="#freight_cargo">freight</a>.
                         </p>
+                        <ul>
+                            <li><a href="#example-cargos-table">Example Cargos - Table</a></li>
+                            <li><a href="#example-cargos-details">Example Cargos - Details</a></li>
+                        </ul>
                     </div>
 
                     <div class="ps-1">
