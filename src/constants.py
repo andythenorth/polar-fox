@@ -311,29 +311,6 @@ allowed_refits_by_label = {
         "WHEA",
     ],
     # !! CABBAGE NEEDS UPDATED OCT 2024 - STILL NEEDED?
-    # for bolster wagon
-    "long_products": [
-        "ALUM",
-        "BDMT",
-        "COPR",
-        "ENSP",
-        "METL",
-        "PIPE",
-        "STAL",
-        "STBL",
-        "STCB",
-        "STEL",
-        "STIG",
-        "STSE",
-        "STSH",
-        "STSL",
-        "STST",
-        "STWR",
-        "WDPR",
-        "WOOD",
-        "ZINC",
-    ],
-    # !! CABBAGE NEEDS UPDATED OCT 2024 - STILL NEEDED?
     # hax for intermodal container sprite selection - reefer car refits work just fine using CC_REFRIGERATED
     "reefer": [
         "FISH",
