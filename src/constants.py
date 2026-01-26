@@ -4,12 +4,6 @@ Don't make changes here, make them in the Polar Fox project and redistribute.
 Any changes made here are liable to be over-written.
 """
 
-"""
-This file is generated from the Polar Fox project.
-Don't make changes here, make them in the Polar Fox project and redistribute.
-Any changes made here are liable to be over-written.
-"""
-
 # used to construct the cargo table automatically
 # ! order is significant ! - openttd will cascade through default cargos in the order specified by the cargo table
 cargo_labels = [
