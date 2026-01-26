@@ -259,6 +259,8 @@ allowed_refits_by_label = {
     # 'dirty' mine/quarry covered hopper cargos
     # !! CABBAGE NEEDS UPDATED OCT 2024 - STILL NEEDED?
     # !! some of these might be able to drop back to classes with FIRS 4 or 5
+    # !! this is needed I think, potable / non-potable don't cover the case of 'non-food cargos that can't be mixed with clean hopper cargos'
+    # !! but the precise naming might need adjusted
     "covered_hoppers_mineral": [
         "ALO_",
         "BDMT",
@@ -352,6 +354,7 @@ disallowed_refits_by_label = {
         "MAIZ",
         "OLSD",
         "PLAS",
+        "RFPR",
         "SUGR",
         "TOFF",
         "URAN",
@@ -360,7 +363,8 @@ disallowed_refits_by_label = {
         "WOOD",
     ],
     # used to exclude from covered bulk vehicles older cargos that set 'covered' bit (prior to FRAX) but weren't bulk cargos
-    "legacy_disallowed_covered_bulk": [
+    "legacy_disallowed_covered_hoppers_any_grade": [
+        "RFPR", # mostly RFPR is liquids, instead use CHEM for generic chemicals
         "WOOL",
     ],
     # used to exclude from generic tankers older food and gas cargos that set 'liquid' bit (prior to FRAX)
@@ -378,6 +382,7 @@ disallowed_refits_by_label = {
     "legacy_disallowed_food_grade_liquid_bulk": [
         "ACID",
         "CHLO",
+        "DYES",
         "KAOL",
         "OIL_",
         "PETR",
@@ -388,6 +393,7 @@ disallowed_refits_by_label = {
     ],
     # !! CABBAGE - THIS NEEDS FINISHING FARM PRODUCT WAGONS WITH E.G. FIRS 3
     "legacy_disallowed_farm_food_products": [
+        "BDMT",
         "CLAY",
         "CMNT",
         "KAOL",
