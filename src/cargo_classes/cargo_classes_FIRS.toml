@@ -171,7 +171,7 @@ cargo_class_description = [
 cargo_grf_advice = [
     "Any cargo suited to flatbed transport, but specifically including long products, unitised cargos such as machinery, and rolling or wheeled cargo.",
 ]
-cargo_class_taxonomy_tags = ["Freight", "Special Handling"]
+cargo_class_taxonomy_tags = ["Freight", "Basic Handling"]
 fallback_to_piece_goods = true
 vehicle_grf_advice = [
     "Enables flatbed vehicles to refit to a more specific set of general cargos than CC_PIECE_GOODS.",

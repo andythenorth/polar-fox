@@ -32,7 +32,7 @@
 
                         <h2>Get FRAX</h2>
                         <p>Copy this and add it near the top of your NML file or project.  Without this, FRAX won't work and your NML might not compile.</p>
-                        <tal:page_template metal:use-macro="load: frax_constants.pt">
+                        <tal:page_template metal:use-macro="load: frax_constants.pt" />
 
                         <div class="guide-section-link-block">
                             <hr />
@@ -118,10 +118,10 @@
                                             <li class="guide-list-group-item">${cargo_class_id}</li>
                                         </tal:cabbage>
                                     </ul>
-                                    <p>Most freight vehicles should set <strong>one</strong> basic handling class. In most cases setting more than one is not helpful, but there may be exceptions, for example, intermodal container vehicles.</p>
-                                    <p>Some specialised freight vehicles might not set any basic handling class, for example:</p>
+                                    <p>Most freight vehicle types should set <strong>one</strong> basic handling class. In most cases setting more than one is not helpful, but there may be exceptions, for example, intermodal container vehicles.</p>
+                                    <p>Some freight vehicle types are specialised and should not set a basic handling class, for example:</p>
                                     <ul>
-                                        <li>Armoured vehicles or refrigerated vehicles might set only a <strong>special handling</strong> class.</li>
+                                        <li>Armoured vehicles, express vehicles and refrigerated vehicles might set only a <strong>special handling</strong> class.</li>
                                         <li>Some highly specialised freight vehicles might refit only to specific <strong>cargo labels</strong>, for example nuclear fuel transporters or livestock vans.</li>
                                     </ul>
                                 </div>
@@ -158,14 +158,14 @@
                                     <h5>
                                         Set potable status
                                     </h5>
-                                    <p>Some freight vehicles should set <strong>one</strong> of the <strong>potable status</strong> clases as non-refittable.</p>
+                                    <p>Some freight vehicles should set <strong>one</strong> of the <strong>potable status</strong> classes as non-refittable.</p>
                                     <ul class="guide-list-group">
                                         <tal:cabbage repeat="cargo_class_id cargo_class_scheme.cargo_classes_taxonomy_by_tags['Freight']['Potable Status']">
                                             <li class="guide-list-group-item">${cargo_class_id}</li>
                                         </tal:cabbage>
                                     </ul>
 
-                                    <p>If a freight vehicle is suitable for both potable and non-potable cargos, do not set any potable status classes. For example vehicles that handle packaged cargo via CC_PIECE_GOODS.</p>
+                                    <p>If a freight vehicle is suitable for both potable and non-potable cargos, do not set any potable status classes. For example, vehicles that handle packaged cargo via CC_PIECE_GOODS.</p>
                                     <p><strong>Never</strong> set both potable status classes.</p>
                                     <p><strong>Never</strong> set potable status classes as refittable, they are exclude-only.</p>
                                     <details>

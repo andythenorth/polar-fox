@@ -31,7 +31,7 @@
 
                         <h2>Get FRAX</h2>
                         <p>Copy this and add it near the top of your NML file or project.  Without this, FRAX won't work and your NML might not compile.</p>
-                        <tal:page_template metal:use-macro="load: frax_constants.pt">
+                        <tal:page_template metal:use-macro="load: frax_constants.pt" />
 
                         <div class="guide-section-link-block">
                             <hr />
@@ -107,7 +107,10 @@
                                     </tal:cabbage>
                                 </ul>
                                 <p><em>Most</em> freight cargos should <strong>include at least one basic handling class</strong>.</p>
-                                <p>You can assign multiple basic handling classes if the cargo is transported in different forms. Be sure to include all applicable classes.</p>
+                                <p>
+                                    Basic handling classes on cargos represent 'suitable for vehicle type' rather than 'must use vehicle type'.
+                                    <strong>Assign multiple basic handling classes if the cargo is transported in different forms</strong>. Be sure to include all applicable classes.
+                                </p>
                                 <p>For better compatibility with vehicle GRFs, consider adding CC_PIECE_GOODS, as many cargos can be transported this way. Refer to the CC_PIECE_GOODS section for detailed guidance.</p>
                                 <p><em>Some</em> unique or non-standard cargos may not use any basic handling classes and instead rely solely on special handling classes.</p>
                             </div>
@@ -125,15 +128,12 @@
                                     </tal:cabbage>
                                 </ul>
                                 <p>
-                                    These classes represent a recommendation — 'suitable for' rather than 'must use.'
+                                    Special handling classes on cargos represent 'suitable for vehicle type' rather than 'must use vehicle type'.
+                                    <strong>Add as many special handling classes as appropriate for the cargo.</strong>
                                 </p>
                                 <p>
-                                    For example, diamonds should be marked as armoured because they are suited to secure transport. Diamonds <em>could</em> also be transported as flatbed cargo, but that wouldn't be very useful.
+                                    For example, Diamonds should set CC_ARMOURED because they are suitable for armoured vehicles, and Food should set CC_REFRIGERATED as it is suitable for refrigerated vehicles.
                                 </p>
-                                <p>
-                                    Steel is suited to flatbed transport. Steel <em>could</em> also be transported in a refrigerated vehicle, but it doesn’t need refrigeration.
-                                </p>
-                                <p><strong>Assign as many special handling classes as genuinely necessary for the cargo.</strong></p>
                             </div>
                         </div>
                     </div>
