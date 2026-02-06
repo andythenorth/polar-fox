@@ -30,6 +30,18 @@
                             <hr />
                         </div>
 
+                        <h2>Get FRAX</h2>
+                        <p>Copy this and add it near the top of your NML file or project.  Without this, FRAX won't work and your NML might not compile.</p>
+                        <tal:page_template metal:use-macro="load: frax_constants.pt">
+
+                        <div class="guide-section-link-block">
+                            <hr />
+                        </div>
+
+                        <h2 class="mb-4">Apply FRAX</h2>
+                        <p>Set FRAX classes for your vehicles, using this guide.</p>
+                        <br />
+
                         <div class="guide-section">
                             <h3 id="passenger_vehicle" class="guide-heading mb-0">Passenger Vehicle</h3>
 

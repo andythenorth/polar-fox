@@ -24,6 +24,7 @@ def render_frax_cargo_class_docs(docs_src, docs_output_path):
             template_name + ".pt"
         ]
         rendered_html = docs_template(
+            cargo_class_manager=cargo_class_manager,
             cargo_class_scheme=cargo_class_manager.cargo_class_scheme,
             docs_pages=docs_pages,
             external_urls=external_urls,

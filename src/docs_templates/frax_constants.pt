@@ -1,0 +1,19 @@
+<script>
+function copyCode(button) {
+  const code = button.parentElement.querySelector("code").innerText;
+  navigator.clipboard.writeText(code);
+}
+</script>
+<div class="bg-light border rounded p-3 mb-3 position-relative">
+  <button
+    class="btn btn-sm btn-outline-secondary position-absolute top-0 end-0 m-2"
+    onclick="copyCode(this)">
+    Copy code
+  </button>
+<!--! no tab indenting because pre will preserve the tabs -->
+<pre class="mb-0">
+<code>
+${cargo_class_manager.render_nml(save_file_flag=False)}
+</code>
+</pre>
+</div>
