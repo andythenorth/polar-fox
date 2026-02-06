@@ -12,6 +12,8 @@
                 var elements = document.querySelectorAll('body *');
 
                 elements.forEach(function(element) {
+                    // Skip anything inside a <pre>
+                    if (element.closest('pre')) return;
                     element.childNodes.forEach(function(child) {
                         if (child.nodeType === Node.TEXT_NODE) {
                             var matches = child.nodeValue.match(regex);
