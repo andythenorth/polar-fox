@@ -297,7 +297,7 @@ cargo_classes = ["CC_OPEN_BULK", "CC_NON_POTABLE"]
 [CARGO_DIAMONDS]
 name = "Diamonds"
 cargo_description = "Diamonds are armoured, and that's probably all that's needed.  CC_NON_POTABLE could be set, but is probably not necessary for Diamonds."
-cargo_classes = ["CC_ARMOURED"]
+cargo_classes = ["CC_ARMOURED", "CC_NON_POTABLE"]
 
 [CARGO_EXPLOSIVES]
 name = "Explosives"
@@ -356,7 +356,7 @@ cargo_description = """
     CC_WEIRD is set to indicate that the cargo should be handled directly by label.
     CC_ARMOURED is set because nuclear fuel is valuable and should be protected from theft. This provides a fallback, but means vehicle grfs may need to exclude nuclear fuel from armoured vehicles.
 """
-cargo_classes = ["CC_WEIRD", "CC_ARMOURED"]
+cargo_classes = ["CC_WEIRD", "CC_ARMOURED", "CC_NON_POTABLE"]
 
 [CARGO_OIL]
 name = "Oil"
@@ -366,7 +366,7 @@ cargo_classes = ["CC_LIQUID_BULK", "CC_NON_POTABLE"]
 [CARGO_OXYGEN]
 name = "Oxygen"
 cargo_description = "Oxygen is transported as a gas under pressure. CC_PIECE_GOODS is set as some vehicle grfs may not provide pressurised tankers, so a fallback is needed (representing ammonia in portable tanks)."
-cargo_classes = ["CC_GAS_BULK"]
+cargo_classes = ["CC_GAS_BULK", "CC_NON_POTABLE"]
 
 [CARGO_PAPER]
 name = "Paper"
