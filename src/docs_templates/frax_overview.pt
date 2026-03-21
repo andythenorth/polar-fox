@@ -28,33 +28,63 @@
                         <li class="guide-list-group-item"><strong>Cargo labels</strong></li>
                         <li class="guide-list-group-item"><strong>Cargo classes</strong></li>
                     </ul>
+                    <p>Cargo labels are unique per cargo, and can be used to precisely control which cargos a vehicle can refit to.</p>
+                    <p>
+                        However this precision comes at a cost: over 20+ years, industry GRFs have defined many cargos,
+                        and using labels alone, a vehicle GRF author would need to work with long lists of labels when setting what a vehicle can refit to.
+                    </p>
+                    <p>
+                        Additionally, when an industry GRF adds a cargo with a new label, vehicle GRFs would have to be updated to support the new cargo.
+                    </p>
+                    <p>
+                        For this reason, cargo classes are the preferred approach for most refittability.
+                        Cargo classes are broad categories for cargos, defined in advance, and shared across GRFs.
+                    </p>
+                    <p>
+                        The classes for a cargo are set by industry GRFs when the cargo is defined.
+                        Vehicle GRF authors can then use the classes to decide which broad categories of cargo are suitable for a vehicle to refit to.
+                    </p>
+                    <p>
+                        There are some situations where specific labels are more suitable, but generally cargo classes are the starting point for vehicle refittability.
+                    </p>
                     <div class="bd-callout bd-callout-warning">
                         <p>
                             The <a href="https://newgrf-specs.tt-wiki.net/">GRFSpecs wiki</a> has more details about both cargo labels and classes.
+                        </p>
+                        <p>
+                            FRAX diverges from the cargo classes listed in the GRFSpecs wiki (as of 2024).  Whilst many of those classes work well, some are not so helpful.
+                        </p>
+                        <p>
+                            FRAX keeps the best of the existing cargo classes, clarifying some, and replaces some largely unused classes with more useful definitions.
                         </p>
                     </div>
                     <p>
                         The <strong>FRAX Cargo Class Scheme</strong> is used by:
                     </p>
                     <ul class="guide-list-group">
-                        <li class="guide-list-group-item">industry GRFs such as <a href="${external_urls['firs']}">FIRS</a></li>
-                        <li class="guide-list-group-item">vehicle GRFs such as <a href="${external_urls['iron-horse']}">Iron Horse</a></li>
+                        <li class="guide-list-group-item">industry GRFs such as <a href="${external_urls['firs']}">FIRS</a>, AXIS and Improved Town Industries (ITI)</li>
+                        <li class="guide-list-group-item">vehicle GRFs such as <a href="${external_urls['iron-horse']}">Iron Horse</a> and Sunshine Trains</li>
                     </ul>
                     <p>Frax includes</p>
                     <ul class="guide-list-group">
+                        <li class="guide-list-group-item">
+                            <a href="${docs_pages.vehicle_frax}">
+                                <strong>Guide for vehicle GRFs</strong>
+                            </a>
+                        </li>
+                        <li class="guide-list-group-item">
+                            <a href="${docs_pages.industry_frax}">
+                                <strong>Guide for industry GRFs</strong>
+                            </a>
+                        </li>
                         <li class="guide-list-group-item">
                             <a href="#cargo-classes-table">
                                 Definitions for cargo classes
                             </a>
                         </li>
                         <li class="guide-list-group-item">
-                            <a href="${docs_pages.vehicle_frax}">
-                                Guide for vehicle GRFs
-                            </a>
-                        </li>
-                        <li class="guide-list-group-item">
-                            <a href="${docs_pages.industry_frax}">
-                                Guide for industry GRFs
+                            <a href="#nml-constants">
+                                NML code to add FRAX classes to a project
                             </a>
                         </li>
                     </ul>
@@ -94,6 +124,18 @@
                 </tbody>
             </table>
         </div>
+
+        <div class="pt-4 pb-3">
+            <div class="row">
+                <div class="col-sm-10 offset-1">
+                    <h2 id="nml-constants">Get FRAX</h2>
+                    <p>Copy this and add it near the top of your NML file or project.  Without this, FRAX won't work and your NML might not compile.</p>
+                    <tal:page_template metal:use-macro="load: frax_constants.pt" />
+                </div>
+            </div>
+        </div>
+
+        <hr />
 
         <div class="pt-4 pb-3">
             <div class="row">
