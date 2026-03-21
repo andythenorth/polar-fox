@@ -138,6 +138,8 @@ cargo_labels = [
 
 # shared lists of allowed classes, shared across multiple vehicle types
 # !! CABBAGE PARTLY UPDATED OCT 2024 UNFINISHED
+# !! DO WE NEED TO APPLY `any_grade` name for cases where there's no disallowed classes?  Just to be explicit?
+# !! OR is there a uniformity with the lists of specific labels?
 base_refits_by_class = {
     "all_freight": {
         "allowed": [
@@ -951,6 +953,16 @@ container_piece_cargo_maps = {
     "ingots_1": piece_sprites_to_cargo_labels_maps["ingots_1"],
     "pipes_1": piece_sprites_to_cargo_labels_maps["pipes_1"],
     "steel_slab_1": piece_sprites_to_cargo_labels_maps["steel_slab_1"],
+}
+
+# for containers (intermodal)
+# explicit control over contested cargo_labels, by specifying which container type should be used (there can only be one type for label based support)
+container_contested_cargo_labels = {
+    "CHLO": "cryo_tank",
+    "FOOD": "reefer",
+    "N7__": "cryo_tank",
+    "RFPR": "chemicals_tank",
+    "SULP": "tank",
 }
 
 # indexes into the DOS palette for a company colour name
