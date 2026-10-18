@@ -188,7 +188,7 @@
                                                     </tal:vehicle>
                                                 </tal:block>
                                                 <tal:block condition="len(cargo_class_scheme.cargo_cargo_class_mapping.get(cargo_class_node_id, [])) == 0">
-                                                    <span class="text-black-50">Not applicable</span>
+                                                    <span class="text-black-50">Not applicable.</span>
                                                 </tal:block>
                                             </td>
                                         </tr>
@@ -213,7 +213,7 @@
                                                     </ul>
                                                 </tal:vehicles>
                                                 <tal:block condition="len(cargo_class_scheme.vehicle_cargo_class_mapping.get(cargo_class_node_id, [])) == 0">
-                                                    <span class="text-black-50">Not applicable</span>
+                                                    <span class="text-black-50">No examples available.</span>
                                                 </tal:block>
                                             </td>
                                         </tr>
@@ -227,7 +227,7 @@
                                                 </tal:block>
                                                 <p tal:condition="cargo_class.fallback_to_piece_goods">This cargo class may not be widely supported by older vehicle GRFs. Also set CC_PIECE_GOODS as a fallback (recommended).</p>
                                                 <tal:block condition="len(cargo_class.cargo_grf_advice) == 0">
-                                                    <span class="text-black-50">Not applicable</span>
+                                                    <span class="text-black-50">Not applicable.</span>
                                                 </tal:block>
                                             </td>
                                         </tr>
@@ -241,7 +241,7 @@
                                                     </tal:list_items>
                                                 </tal:block>
                                                 <tal:block condition="len(cargo_class.vehicle_grf_advice) == 0">
-                                                    <span class="text-black-50">Not applicable</span>
+                                                    <span class="text-black-50">Not applicable.</span>
                                                 </tal:block>
                                             </td>
                                         </tr>
