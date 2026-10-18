@@ -89,7 +89,7 @@ bit_number = 4
 code = "0x0010"
 nml_cargo_class_name = "CC_BULK"
 name = "Open Bulk"
-cargo_class_description = ["Loose bulk cargo that will flow under gravity that do not require covering."]
+cargo_class_description = ["Loose bulk materials that will flow under gravity that do not require covering."]
 cargo_grf_advice = [
     "This class is widely supported by vehicle GRFs. An alternative fallback class is not necessary.",
     "Not mutually exclusive with CC_COVERED_BULK. Both classes are suitable for some cargos.",
@@ -107,7 +107,7 @@ bit_number = 9
 code = "0x0200"
 nml_cargo_class_name = "CC_COVERED"
 name = "Covered Bulk"
-cargo_class_description = ["Loose bulk cargo that will flow under gravity, and does require covering."]
+cargo_class_description = ["Loose bulk materials that will flow under gravity, and do require covering."]
 cargo_grf_advice = [
     "Not mutually exclusive with CC_OPEN_BULK. Both classes are suitable for some cargos.",
 ]
@@ -124,7 +124,7 @@ bit_number = 11
 code = "0x0800"
 nml_cargo_class_name = "CC_POWDERIZED"
 name = "Powder Bulk"
-cargo_class_description = ["Dry powdered materials that flow under air pressure."]
+cargo_class_description = ["Dry powdered materials that flow under air pressure, and must be protected from moisture."]
 cargo_grf_advice = ["Set this class for all powder cargos."]
 cargo_class_taxonomy_tags = ["Freight", "Basic Handling"]
 fallback_to_piece_goods = true
