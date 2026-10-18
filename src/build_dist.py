@@ -60,7 +60,7 @@ def main():
             os.path.join(currentdir, "src", "dist_dir_header.txt"),
             os.path.join(dist_dir_path, "_files_here_are_generated.txt"),
         )
-    for dir_name in ["cargo_classes"]:
+    for dir_name in ["cargo_classes", "bbcode_poster"]:
         dist_dir_path = os.path.join(dist_package_path, dir_name)
         shutil.copytree(os.path.join(currentdir, "src", dir_name), dist_dir_path)
         shutil.copy(
